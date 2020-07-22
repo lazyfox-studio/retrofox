@@ -21,11 +21,11 @@ namespace Graphics
          * @param path Path to texture
          * @return Reference to texture
         */
-        static QImage& load(std::string path);
+        static QImage& load(std::string& path);
         /**
          * @brief Unloads texture from memory
          * @param path Path to texture
         */
-        static void unload(std::string path);
+        static void unload(std::string& path);
     };
 }

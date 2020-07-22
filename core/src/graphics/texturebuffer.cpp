@@ -1,6 +1,6 @@
 #include "graphics/texturebuffer.h"
 
-QImage& Graphics::TextureBuffer::load(std::string path)
+QImage& Graphics::TextureBuffer::load(std::string& path)
 {
     std::map<std::string, QImage*>::iterator pair = buffer.find(path);
     if (pair != buffer.end())
@@ -12,7 +12,12 @@ QImage& Graphics::TextureBuffer::load(std::string path)
     return *image;
 }
 
-void Graphics::TextureBuffer::unload(std::string path)
+void Graphics::TextureBuffer::unload(std::string& path)
 {
-    buffer.erase(path);
+    std::map<std::string, QImage*>::iterator pair = buffer.find(path);
+    if (pair != buffer.end())
+    {
+        delete (*pair).second;
+        buffer.erase(path);
+    }
 }
