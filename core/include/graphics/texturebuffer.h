@@ -19,13 +19,13 @@ namespace Graphics
         /**
          * @brief Loads texture to memory if not already present
          * @param path Path to texture
-         * @return Reference to texture
+         * @return Pointer to texture
         */
-        static QImage& load(std::string& path);
+        static QImage* load(const std::string& path);
         /**
          * @brief Unloads texture from memory
          * @param path Path to texture
         */
-        static void unload(std::string& path);
+        static void unload(const std::string& path);
     };
 }
