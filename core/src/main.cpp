@@ -1,7 +1,7 @@
 #include <QtWidgets/QApplication>
 
-#include "Window.h"
-#include "interface/Widget.h"
+#include "window.h"
+#include "interface/widget.h"
 
 int main(int argc, char *argv[])
 {

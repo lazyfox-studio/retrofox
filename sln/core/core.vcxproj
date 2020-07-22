@@ -11,18 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="..\..\core\include\Window.h" />
+    <QtMoc Include="..\..\core\include\window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\core\include\Renderer.h" />
+    <ClInclude Include="..\..\core\include\interface\widget.h" />
+    <ClInclude Include="..\..\core\include\renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\core\src\interface\widget.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
-    <ClCompile Include="..\..\core\src\Renderer.cpp" />
-    <ClCompile Include="..\..\core\src\Window.cpp" />
+    <ClCompile Include="..\..\core\src\renderer.cpp" />
+    <ClCompile Include="..\..\core\src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="..\..\core\ui\Window.ui" />
+    <QtUic Include="..\..\core\ui\window.ui" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{184A4840-B64C-4EB5-AA36-9D0900E3688C}</ProjectGuid>
