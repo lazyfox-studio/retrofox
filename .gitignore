@@ -1,0 +1,6 @@
+#Visual studio files
+sln/.vs
+
+# Build files
+sln/core/x64
+sln/x64
