@@ -1,6 +1,7 @@
 #Visual studio files
+.vs
 sln/.vs
 
 # Build files
-sln/core/x64
 sln/x64
+sln/core/x64
