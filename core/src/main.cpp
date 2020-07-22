@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[])
 {
+    Interface::Widget widget;
     QApplication app(argc, argv);
     Window window;
     window.showFullScreen();

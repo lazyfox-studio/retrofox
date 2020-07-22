@@ -9,7 +9,10 @@ namespace Interface
     */
     class Button : Widget
     {
+    public:
         Button();
         ~Button();
+
+
     };
 }

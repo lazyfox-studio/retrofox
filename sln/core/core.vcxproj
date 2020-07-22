@@ -14,12 +14,13 @@
     <QtMoc Include="..\..\core\include\window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\include\graphics\sprite.h" />
     <ClInclude Include="..\..\core\include\interface\button.h" />
     <ClInclude Include="..\..\core\include\interface\widget.h" />
     <ClInclude Include="..\..\core\include\renderer.h" />
-    <ClInclude Include="..\..\core\src\graphics\sprite.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\core\src\graphics\sprite.cpp" />
     <ClCompile Include="..\..\core\src\interface\button.cpp" />
     <ClCompile Include="..\..\core\src\interface\widget.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />

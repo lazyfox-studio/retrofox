@@ -45,7 +45,7 @@
     <ClInclude Include="..\..\core\include\interface\button.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\src\graphics\sprite.h">
+    <ClInclude Include="..\..\core\include\graphics\sprite.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -64,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="..\..\core\src\interface\button.cpp">
       <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\graphics\sprite.cpp">
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

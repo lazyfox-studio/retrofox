@@ -7,6 +7,7 @@ namespace Graphics
     */
     class Sprite
     {
+    public:
         Sprite();
         ~Sprite();
     };
