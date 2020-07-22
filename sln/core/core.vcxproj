@@ -11,18 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\core\main.cpp" />
-    <ClCompile Include="..\..\src\core\Renderer.cpp" />
-    <ClCompile Include="..\..\src\core\Window.cpp" />
+    <QtMoc Include="..\..\core\include\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="..\..\src\core\Window.h" />
+    <ClInclude Include="..\..\core\include\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="..\..\src\core\Window.ui" />
+    <ClCompile Include="..\..\core\src\main.cpp" />
+    <ClCompile Include="..\..\core\src\Renderer.cpp" />
+    <ClCompile Include="..\..\core\src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\core\Renderer.h" />
+    <QtUic Include="..\..\core\ui\Window.ui" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{184A4840-B64C-4EB5-AA36-9D0900E3688C}</ProjectGuid>
@@ -62,7 +62,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\src\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\core\ui;..\..\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
