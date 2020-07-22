@@ -1,14 +1,13 @@
 #pragma once
 
-
 namespace Interface
 {
     /**
-     * UI element
+     * @brief UI element
     */
     class Widget
     {
         Widget();
         ~Widget();
     };
-};
+}
