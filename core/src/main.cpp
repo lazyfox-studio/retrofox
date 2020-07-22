@@ -1,6 +1,7 @@
-#include <QtWidgets/QApplication>
+#include <QApplication>
 
 #include "window.h"
+#include "interface/widget.h"
 
 
 int main(int argc, char *argv[])

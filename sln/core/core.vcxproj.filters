@@ -1,82 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Form Files">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Header Files\interface">
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="include\interface">
       <UniqueIdentifier>{53bc03cd-78f9-41d1-bf1a-52df755a1449}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\interface">
-      <UniqueIdentifier>{9fdad532-2b94-46cc-b99b-5ae7bdef4ddd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\graphics">
+    <Filter Include="include\graphics">
       <UniqueIdentifier>{6011fb64-a005-466b-bedd-3ed865b8db58}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\graphics">
+    <Filter Include="ui">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\interface">
+      <UniqueIdentifier>{9fdad532-2b94-46cc-b99b-5ae7bdef4ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\graphics">
       <UniqueIdentifier>{2b45b284-3405-4181-8dbd-ca6e0be39050}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\renderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\widget.h">
-      <Filter>Header Files\interface</Filter>
+      <Filter>include\interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\button.h">
-      <Filter>Header Files\interface</Filter>
+      <Filter>include\interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\graphics\sprite.h">
-      <Filter>Header Files\graphics</Filter>
+      <Filter>include\graphics</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\core\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\interface\widget.cpp">
-      <Filter>Source Files\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\interface\button.cpp">
-      <Filter>Source Files\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\graphics\sprite.cpp">
-      <Filter>Source Files\graphics</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\core\include\window.h">
-      <Filter>Header Files</Filter>
+      <Filter>include</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="..\..\core\ui\window.ui">
-      <Filter>Resource Files</Filter>
+      <Filter>ui</Filter>
     </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\core\src\graphics\sprite.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\button.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\widget.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\renderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\window.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

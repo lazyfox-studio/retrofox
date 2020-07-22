@@ -20,15 +20,15 @@
     <ClInclude Include="..\..\core\include\renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="..\..\core\ui\window.ui" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\..\core\src\graphics\sprite.cpp" />
     <ClCompile Include="..\..\core\src\interface\button.cpp" />
     <ClCompile Include="..\..\core\src\interface\widget.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
     <ClCompile Include="..\..\core\src\renderer.cpp" />
     <ClCompile Include="..\..\core\src\window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="..\..\core\ui\window.ui" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{184A4840-B64C-4EB5-AA36-9D0900E3688C}</ProjectGuid>
@@ -77,8 +77,8 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>msvc2019_64</QtInstall>
-    <QtModules>core;opengl;gui;widgets</QtModules>
+    <QtInstall>5.14.1</QtInstall>
+    <QtModules>core;gui;opengl;openglextensions;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
