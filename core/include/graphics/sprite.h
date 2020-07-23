@@ -31,10 +31,11 @@ namespace Graphics
         ~Sprite();
 
 
-        int x();
-        int y();
-        unsigned height();
-        unsigned width();
+        int x() const;
+        int y() const;
+        unsigned height() const;
+        unsigned width() const;
+        QImage* texture() const;
 
         void setX(unsigned x);
         void setY(unsigned y);

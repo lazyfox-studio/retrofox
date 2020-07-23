@@ -23,24 +23,29 @@ Graphics::Sprite::~Sprite()
     
 }
 
-int Graphics::Sprite::x()
+int Graphics::Sprite::x() const
 {
     return geometry.x;
 }
 
-int Graphics::Sprite::y()
+int Graphics::Sprite::y() const
 {
     return geometry.y;
 }
 
-unsigned Graphics::Sprite::height()
+unsigned Graphics::Sprite::height() const
 {
     return geometry.height;
 }
 
-unsigned Graphics::Sprite::width()
+unsigned Graphics::Sprite::width() const
 {
     return geometry.width;
+}
+
+QImage* Graphics::Sprite::texture() const
+{
+    return image;
 }
 
 void Graphics::Sprite::setX(unsigned x)
