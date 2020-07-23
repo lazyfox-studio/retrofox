@@ -23,8 +23,8 @@ namespace Graphics
         };
         Geometry geometry;
 
-        Sprite();
     public:
+        Sprite() = delete;
         Sprite(const std::string& path);
         Sprite(const std::string& path, int x, int y, unsigned height, unsigned width);
         Sprite(const Sprite& sprite);
