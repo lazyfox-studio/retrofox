@@ -13,7 +13,7 @@ namespace Graphics
          /**
           * @brief 
          */
-         static std::map<std::string, QImage*> buffer;
+         static std::map<std::string, QImage*>* buffer;
 
     public:
         /**

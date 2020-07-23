@@ -3,7 +3,7 @@
 Graphics::Sprite::Sprite(const std::string& path)
 {
     image = Graphics::TextureBuffer::load(path);
-    geometry = { 0, 0, image->height(), image->width() };
+    geometry = {0, 0, (unsigned) image->height(), (unsigned) image->width()};
 }
 
 Graphics::Sprite::Sprite(const std::string& path, int x, int y, unsigned height, unsigned width)
