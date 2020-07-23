@@ -17,19 +17,24 @@ void Renderer::initializeGL()
     glShadeModel(GL_SMOOTH);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+
 }
 
 void Renderer::resizeGL(int width, int height)
 {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0, width, 0, height, -1.0, 1.0);
+    glOrtho(0, width, height, 0, -1.0, 1.0);
     glViewport(0, 0, width, height);
     update();
 }
 
 void Renderer::paintGL()
 {
+    //Test sprite output
+    Graphics::Sprite test_sprite("E:/Source/retrofox/core/data/testsprite.png");
+    sprite_queue.push(&test_sprite);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     while (!sprite_queue.empty())
@@ -65,18 +70,6 @@ void Renderer::paintGL()
         glEnd();
         glBindTexture(GL_TEXTURE_2D, 0);
     }
-
-    /*Graphic test
-
-    glBegin(GL_QUADS);
-
-    glColor3f(1, 0.5, 0.5);
-    glVertex2i(100, 100);
-    glVertex2i(300, 600);
-    glVertex2i(800, 600);
-    glVertex2i(500, 100);
-
-    glEnd();*/
 }
 
 void Renderer::draw(Graphics::Sprite* sprite)
