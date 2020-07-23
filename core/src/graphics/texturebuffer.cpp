@@ -22,8 +22,8 @@ void Graphics::TextureBuffer::unload(const std::string& path)
     }
 }
 
-Graphics::TextureBuffer Graphics::TextureBuffer::instance()
+Graphics::TextureBuffer& Graphics::TextureBuffer::instance()
 {
-    TextureBuffer inst;
+    static TextureBuffer inst;
     return inst;
 }
