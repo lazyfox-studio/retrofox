@@ -32,7 +32,7 @@ void Renderer::resizeGL(int width, int height)
 void Renderer::paintGL()
 {
     //Test sprite output
-    Graphics::Sprite test_sprite("E:/Source/retrofox/core/data/testsprite.png");
+    Graphics::Sprite test_sprite("../../core/data/testsprite.png");
     sprite_queue.push(&test_sprite);
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
