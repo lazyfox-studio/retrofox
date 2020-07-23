@@ -5,27 +5,38 @@
 
 #include <QImage>
 
+
 namespace Graphics
 {
-    static class TextureBuffer
+    /**
+     * @brief Texture buffer   
+    */
+    class TextureBuffer
     {
      private:
          /**
-          * @brief 
+          * @brief Map as a buffer for textures
          */
-         static std::map<std::string, QImage*> buffer;
+         std::map<std::string, QImage*> buffer;
 
     public:
         /**
          * @brief Loads texture to memory if not already present
          * @param path Path to texture
-         * @return Pointer to texture
+         * @return QImage Pointer to texture
         */
-        static QImage* load(const std::string& path);
+        QImage* load(const std::string& path);
+
         /**
          * @brief Unloads texture from memory
          * @param path Path to texture
         */
-        static void unload(const std::string& path);
+        void unload(const std::string& path);
+
+        /**
+         * @brief Returns buffer instance
+         * @return Graphics::TextureBuffer Instance
+        */
+        static TextureBuffer instance();
     };
 }

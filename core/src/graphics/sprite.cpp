@@ -2,13 +2,13 @@
 
 Graphics::Sprite::Sprite(const std::string& path)
 {
-    image = Graphics::TextureBuffer::load(path);
+    image = Graphics::TextureBuffer::instance().load(path);
     geometry = {0, 0, (unsigned) image->height(), (unsigned) image->width()};
 }
 
 Graphics::Sprite::Sprite(const std::string& path, int x, int y, unsigned height, unsigned width)
 {
-    image = Graphics::TextureBuffer::load(path);
+    image = Graphics::TextureBuffer::instance().load(path);
     geometry = {x, y, height, width};
 }
 

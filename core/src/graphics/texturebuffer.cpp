@@ -21,3 +21,9 @@ void Graphics::TextureBuffer::unload(const std::string& path)
         buffer.erase(path);
     }
 }
+
+Graphics::TextureBuffer Graphics::TextureBuffer::instance()
+{
+    TextureBuffer inst;
+    return inst;
+}

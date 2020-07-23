@@ -4,8 +4,6 @@
 #include "graphics/texturebuffer.h"
 
 
-std::map<std::string, QImage*> Graphics::TextureBuffer::buffer;
-
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
