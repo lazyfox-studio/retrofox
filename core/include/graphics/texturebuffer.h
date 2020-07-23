@@ -35,8 +35,8 @@ namespace Graphics
 
         /**
          * @brief Returns buffer instance
-         * @return Graphics::TextureBuffer Instance
+         * @return Graphics::TextureBuffer Instance reference
         */
-        static TextureBuffer instance();
+        static TextureBuffer& instance();
     };
 }
