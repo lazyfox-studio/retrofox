@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 
-#include <QImage>
+#include "graphics/texture.h"
 
 
 namespace Graphics
@@ -17,7 +17,7 @@ namespace Graphics
          /**
           * @brief Map as a buffer for textures
          */
-         std::map<std::string, QImage*> buffer;
+         std::map<std::string, Graphics::Texture*> buffer;
 
     public:
         /**
@@ -25,7 +25,7 @@ namespace Graphics
          * @param path Path to texture
          * @return QImage Pointer to texture
         */
-        QImage* load(const std::string& path);
+        Graphics::Texture* load(const std::string& path);
 
         /**
          * @brief Unloads texture from memory

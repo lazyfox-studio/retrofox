@@ -2,6 +2,7 @@
 
 #include <QImage>
 
+#include "graphics/texture.h"
 #include "graphics/texturebuffer.h"
 
 namespace Graphics
@@ -12,7 +13,7 @@ namespace Graphics
     class Sprite
     {
     private:
-        QImage* image;
+        Graphics::Texture* p_texture;
 
         struct Geometry
         {
@@ -35,7 +36,7 @@ namespace Graphics
         int y() const;
         unsigned height() const;
         unsigned width() const;
-        QImage* texture() const;
+        Graphics::Texture* texture() const;
 
         void setX(unsigned x);
         void setY(unsigned y);

@@ -47,6 +47,9 @@
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h">
       <Filter>include\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\texture.h">
+      <Filter>include\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\core\include\window.h">
@@ -78,6 +81,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\graphics\texture.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
   </ItemGroup>

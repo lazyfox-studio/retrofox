@@ -1,20 +1,20 @@
 #include "graphics/texturebuffer.h"
 
-QImage* Graphics::TextureBuffer::load(const std::string& path)
+Graphics::Texture* Graphics::TextureBuffer::load(const std::string& path)
 {
-    std::map<std::string, QImage*>::iterator pair = buffer.find(path);
+    std::map<std::string, Graphics::Texture*>::iterator pair = buffer.find(path);
     if (pair != buffer.end())
     {
         return (*pair).second;
     }
-    QImage* image = new QImage(path.c_str());
-    buffer.insert(std::pair<std::string, QImage*>(path, image));
-    return image;
+    Graphics::Texture* texture = new Graphics::Texture(path.c_str());
+    buffer.insert(std::pair<std::string, Graphics::Texture*>(path, texture));
+    return texture;
 }
 
 void Graphics::TextureBuffer::unload(const std::string& path)
 {
-    std::map<std::string, QImage*>::iterator pair = buffer.find(path);
+    std::map<std::string, Graphics::Texture*>::iterator pair = buffer.find(path);
     if (pair != buffer.end())
     {
         delete (*pair).second;

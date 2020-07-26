@@ -2,19 +2,19 @@
 
 Graphics::Sprite::Sprite(const std::string& path)
 {
-    image = Graphics::TextureBuffer::instance().load(path);
-    geometry = {0, 0, (unsigned) image->height(), (unsigned) image->width()};
+    p_texture = Graphics::TextureBuffer::instance().load(path);
+    geometry = {0, 0, (unsigned) p_texture->height(), (unsigned) p_texture->width()};
 }
 
 Graphics::Sprite::Sprite(const std::string& path, int x, int y, unsigned height, unsigned width)
 {
-    image = Graphics::TextureBuffer::instance().load(path);
+    p_texture = Graphics::TextureBuffer::instance().load(path);
     geometry = {x, y, height, width};
 }
 
 Graphics::Sprite::Sprite(const Sprite& sprite)
 {
-    image = sprite.image;
+    p_texture = sprite.p_texture;
     geometry = sprite.geometry;
 }
 
@@ -43,9 +43,9 @@ unsigned Graphics::Sprite::width() const
     return geometry.width;
 }
 
-QImage* Graphics::Sprite::texture() const
+Graphics::Texture* Graphics::Sprite::texture() const
 {
-    return image;
+    return p_texture;
 }
 
 void Graphics::Sprite::setX(unsigned x)
