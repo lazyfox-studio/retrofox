@@ -1,5 +1,7 @@
 #pragma once
 
+#include <limits>
+
 namespace Interface
 {
     /**
@@ -41,6 +43,7 @@ namespace Interface
         Size maximum_size;
 
         Widget();
+        Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
     };
 }
