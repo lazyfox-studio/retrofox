@@ -33,6 +33,7 @@ namespace Interface
             const Graphics::Sprite& sprite_hovered, 
             const Graphics::Sprite& sprite_disabled
         );
+        Button(const Graphics::Sprite& sprite_default, const Graphics::Sprite& sprite_clicked);
         ~Button() = default;
 
         void setState(State new_state);

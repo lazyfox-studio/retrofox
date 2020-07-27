@@ -8,6 +8,11 @@ Interface::Button::Button(const Graphics::Sprite& sprite_default,
 {
 }
 
+Interface::Button::Button(const Graphics::Sprite& sprite_default, const Graphics::Sprite& sprite_clicked)
+    : Button(sprite_default, sprite_clicked, sprite_default, sprite_default)
+{
+}
+
 void Interface::Button::setState(State new_state)
 {
     state = new_state;
