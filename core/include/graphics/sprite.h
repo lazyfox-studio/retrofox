@@ -29,6 +29,7 @@ namespace Graphics
         Sprite(const std::string& path);
         Sprite(const std::string& path, int x, int y, unsigned height, unsigned width);
         Sprite(const Sprite& sprite);
+        Sprite(Sprite&&) = default;
         ~Sprite();
 
 
