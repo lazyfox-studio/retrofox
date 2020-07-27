@@ -47,11 +47,12 @@ void Interface::Layout::update()
         unsigned scalable_size = 0;
         size_t scalable_count = 0;
         size_t count = widgets.size();
-        for (std::list<Interface::Widget>::iterator i = widgets.begin(); i != widgets.end(); ++i)
+        for (auto& widget_reference : widgets)
         {
-            if ((*i).size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
+            Interface::Widget& widget = widget_reference.get();
+            if (widget.size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
             {
-                fixed_size = (*i).base_size.height;
+                fixed_size = widget.base_size.height;
             }
             else
             {
@@ -63,48 +64,48 @@ void Interface::Layout::update()
         scalable_size = geometry.height - margin.top - margin.bottom - (count - 1) * spacing.vertical;
         unsigned temp_size = margin.top;
 
-        for (std::list<Interface::Widget>::iterator i = widgets.begin(); i != widgets.end(); ++i)
+        for (auto& widget_reference : widgets)
         {
-            if ((*i).size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
+            Interface::Widget& widget = widget_reference.get();
+            if (widget.size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
             {
-                (*i).geometry.x = geometry.x + margin.left;
-                (*i).geometry.y = geometry.y + temp_size;
+                widget.geometry.x = geometry.x + margin.left;
+                widget.geometry.y = geometry.y + temp_size;
 
-                (*i).geometry.height = (*i).base_size.height;
-                if ((*i).size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
+                widget.geometry.height = widget.base_size.height;
+                if (widget.size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
                 {
-                    (*i).geometry.width = (*i).base_size.width;
+                    widget.geometry.width = widget.base_size.width;
                 }
                 else
                 {
-                    (*i).geometry.width = geometry.width - margin.left - margin.right;
+                    widget.geometry.width = geometry.width - margin.left - margin.right;
                 }
             }
             else
             {
-                (*i).geometry.x = geometry.x + margin.left;
-                (*i).geometry.y = geometry.y + temp_size;
+                widget.geometry.x = geometry.x + margin.left;
+                widget.geometry.y = geometry.y + temp_size;
 
-                (*i).geometry.height = scalable_size / scalable_count;
-                if ((*i).size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
+                widget.geometry.height = scalable_size / scalable_count;
+                if (widget.size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
                 {
-                    (*i).geometry.width = (*i).base_size.width;
+                    widget.geometry.width = widget.base_size.width;
                 }
                 else
                 {
-                    (*i).geometry.width = geometry.width - margin.left - margin.right;
+                    widget.geometry.width = geometry.width - margin.left - margin.right;
                 }
             }
 
-            temp_size += (*i).geometry.height + spacing.vertical;
+            temp_size += widget.geometry.height + spacing.vertical;
         }
     }
-}
     stacking = Stacking::Vertical;
 }
 
 void Interface::Layout::render(Renderer& renderer)
 {
-    for (Interface::Widget* widget : widgets)
-        widget->render(renderer);
+    for (auto& widget_reference : widgets)
+        widget_reference.get().render(renderer);
 }

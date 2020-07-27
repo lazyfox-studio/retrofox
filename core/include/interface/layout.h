@@ -6,7 +6,7 @@
 
 namespace Interface
 {
-    using WidgetList = std::list<Interface::Widget*>;
+    using WidgetRefList = std::list<std::reference_wrapper<Interface::Widget>>;
 
     /**
      * @brief Contains widgets
@@ -14,7 +14,7 @@ namespace Interface
     class Layout : public Widget
     {
     protected:
-        WidgetList widgets;
+        WidgetRefList widgets;
 
     public:
         struct Margin
