@@ -4,6 +4,8 @@
 
 #include "graphics/sprite.h"
 
+#include "renderer.h"
+
 namespace Interface
 {
     /**
@@ -54,5 +56,8 @@ namespace Interface
          * @return Pointer ro sprite
          */
         virtual Graphics::Sprite* sprite();
+
+
+        virtual void render(Renderer& renderer) = 0;
     };
 }

@@ -100,3 +100,11 @@ void Interface::Layout::update()
         }
     }
 }
+    stacking = Stacking::Vertical;
+}
+
+void Interface::Layout::render(Renderer& renderer)
+{
+    for (Interface::Widget* widget : widgets)
+        widget->render(renderer);
+}

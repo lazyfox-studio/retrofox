@@ -37,7 +37,7 @@ namespace Interface
 
         void setState(State new_state);
 
-        virtual Graphics::Sprite* getSprite();
+        virtual void render(Renderer& renderer);
 
     };
 }
