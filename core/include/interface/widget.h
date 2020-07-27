@@ -43,6 +43,7 @@ namespace Interface
         };
         Size minimum_size;
         Size maximum_size;
+        Size base_size;
 
         Widget();
         Widget(int x, int y, unsigned height, unsigned width);

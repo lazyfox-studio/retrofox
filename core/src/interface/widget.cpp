@@ -12,6 +12,9 @@ namespace Interface
 
         maximum_size.height = UINT_MAX;
         maximum_size.width  = UINT_MAX;
+        
+        base_size.height = 0;
+        base_size.width  = 0;
     }
 
     Widget::Widget(int x, int y, unsigned height, unsigned width)
@@ -26,6 +29,9 @@ namespace Interface
 
         maximum_size.height = UINT_MAX;
         maximum_size.width  = UINT_MAX;
+
+        base_size.height = height;
+        base_size.width  = width;
     }
 
     Widget::~Widget()
