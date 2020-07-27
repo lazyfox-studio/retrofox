@@ -2,6 +2,8 @@
 
 #include <limits>
 
+#include "graphics/sprite.h"
+
 namespace Interface
 {
     /**
@@ -45,5 +47,11 @@ namespace Interface
         Widget();
         Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
+
+        /**
+         * @brief Returns sprite pointer to draw (for Renderer::draw() method)
+         * @return Pointer ro sprite
+         */
+        virtual Graphics::Sprite* getSprite() = 0;
     };
 }
