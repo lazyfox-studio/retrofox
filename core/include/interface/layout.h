@@ -2,6 +2,8 @@
 
 #include "interface/widget.h"
 
+#include <list>
+
 namespace Interface
 {
     /**
@@ -9,6 +11,9 @@ namespace Interface
     */
     class Layout : public Widget
     {
+    protected:
+        std::list<Interface::Widget> widgets;
+
     public:
         struct Margin
         {
@@ -31,5 +36,7 @@ namespace Interface
         Layout();
         Layout(int x, int y, unsigned height, unsigned width);
         ~Layout();
+
+
     };
 }
