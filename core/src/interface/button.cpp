@@ -13,7 +13,7 @@ void Interface::Button::setState(State new_state)
     state = new_state;
 }
 
-Graphics::Sprite* Interface::Button::getSprite()
+void Interface::Button::render(Renderer& renderer)
 {
-    return sprites + static_cast<int>(state);
+    renderer.draw(sprites + static_cast<int>(state));
 }

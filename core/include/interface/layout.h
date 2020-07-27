@@ -6,13 +6,15 @@
 
 namespace Interface
 {
+    using WidgetList = std::list<Interface::Widget*>;
+
     /**
      * @brief Contains widgets
     */
     class Layout : public Widget
     {
     protected:
-        std::list<Interface::Widget> widgets;
+        WidgetList widgets;
 
     public:
         struct Margin
@@ -37,6 +39,7 @@ namespace Interface
         Layout(int x, int y, unsigned height, unsigned width);
         ~Layout();
 
+        virtual void render(Renderer& renderer);
 
     };
 }

@@ -7,7 +7,7 @@ Interface::Layout::Layout() : Interface::Widget::Widget()
     margin.right  = 0;
     margin.bottom = 0;
 
-    stacking = Stacking::vertical;
+    stacking = Stacking::Vertical;
 }
 
 Interface::Layout::Layout(int x, int y, unsigned height, unsigned width)
@@ -18,5 +18,11 @@ Interface::Layout::Layout(int x, int y, unsigned height, unsigned width)
     margin.right = 0;
     margin.bottom = 0;
 
-    stacking = Stacking::vertical;
+    stacking = Stacking::Vertical;
+}
+
+void Interface::Layout::render(Renderer& renderer)
+{
+    for (Interface::Widget* widget : widgets)
+        widget->render(renderer);
 }
