@@ -15,10 +15,18 @@
  */
 class Renderer : public QOpenGLWidget
 {
-private:
+protected:
+    /// Queue of sprites to visualize
     std::queue<Graphics::Sprite*> sprite_queue;
 
+    /// OpenGL functions context pointer
     QOpenGLFunctions* opengl_functions;
+
+    /**
+     * @brief Visualizes sprite as GL texture
+     * @param sprite Pointer to sprite
+     */
+    void visualizeSprite(Graphics::Sprite* sprite);
 
 public:
     /**
