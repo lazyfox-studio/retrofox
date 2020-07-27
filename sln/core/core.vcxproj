@@ -18,6 +18,7 @@
     <ClInclude Include="..\..\core\include\graphics\texture.h" />
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h" />
     <ClInclude Include="..\..\core\include\interface\button.h" />
+    <ClInclude Include="..\..\core\include\interface\layout.h" />
     <ClInclude Include="..\..\core\include\interface\widget.h" />
     <ClInclude Include="..\..\core\include\renderer.h" />
   </ItemGroup>
@@ -29,6 +30,7 @@
     <ClCompile Include="..\..\core\src\graphics\texture.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp" />
     <ClCompile Include="..\..\core\src\interface\button.cpp" />
+    <ClCompile Include="..\..\core\src\interface\layout.cpp" />
     <ClCompile Include="..\..\core\src\interface\widget.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
     <ClCompile Include="..\..\core\src\renderer.cpp" />

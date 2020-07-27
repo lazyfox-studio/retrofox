@@ -28,8 +28,8 @@ namespace Interface
         {
             enum Policy
             {
-                fixed,
-                scalable
+                Fixed,
+                Scalable
             };
             Policy vertical;
             Policy horizontal;

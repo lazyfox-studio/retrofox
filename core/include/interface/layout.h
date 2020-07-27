@@ -21,10 +21,10 @@ namespace Interface
 
         enum class Stacking
         {
-            vertical,
-            horizontal,
-            grid_verical,
-            grid_horizontal
+            Vertical,
+            Horizontal,
+            GridVerical,
+            GridHorizontal
         };
         Stacking stacking;
 
