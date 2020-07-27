@@ -53,6 +53,6 @@ namespace Interface
          * @brief Returns sprite pointer to draw (for Renderer::draw() method)
          * @return Pointer ro sprite
          */
-        virtual Graphics::Sprite* getSprite() = 0;
+        virtual Graphics::Sprite* sprite();
     };
 }

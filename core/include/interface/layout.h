@@ -24,6 +24,13 @@ namespace Interface
         };
         Margin margin;
 
+        struct Spacing
+        {
+            int vertical;
+            int horizontal;
+        };
+        Spacing spacing;
+
         enum class Stacking
         {
             Vertical,
@@ -37,6 +44,9 @@ namespace Interface
         Layout(int x, int y, unsigned height, unsigned width);
         ~Layout();
 
+        void pushForward(Widget& widget);
+        void pushBackward(Widget& widget);
 
+        void update();
     };
 }

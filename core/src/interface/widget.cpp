@@ -4,8 +4,8 @@ namespace Interface
 {
     Widget::Widget()
     {
-        size_policy.vertical   = size_policy.scalable;
-        size_policy.horizontal = size_policy.scalable;
+        size_policy.vertical   = SizePolicy::Scalable;
+        size_policy.horizontal = SizePolicy::Scalable;
 
         minimum_size.height = 0;
         minimum_size.width  = 0;
@@ -21,8 +21,8 @@ namespace Interface
     {
         geometry = {x, y, height, width};
 
-        size_policy.vertical   = size_policy.scalable;
-        size_policy.horizontal = size_policy.scalable;
+        size_policy.vertical   = SizePolicy::Scalable;
+        size_policy.horizontal = SizePolicy::Scalable;
 
         minimum_size.height = 0;
         minimum_size.width  = 0;
@@ -37,5 +37,10 @@ namespace Interface
     Widget::~Widget()
     {
 
+    }
+
+    Graphics::Sprite* Widget::sprite()
+    {
+        throw "Filler";
     }
 }
