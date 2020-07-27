@@ -38,9 +38,4 @@ namespace Interface
     {
 
     }
-
-    Graphics::Sprite* Widget::sprite()
-    {
-        throw "Filler";
-    }
 }

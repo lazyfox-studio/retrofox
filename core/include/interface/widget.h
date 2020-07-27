@@ -51,13 +51,6 @@ namespace Interface
         Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
 
-        /**
-         * @brief Returns sprite pointer to draw (for Renderer::draw() method)
-         * @return Pointer ro sprite
-         */
-        virtual Graphics::Sprite* sprite();
-
-
         virtual void render(Renderer& renderer) = 0;
     };
 }

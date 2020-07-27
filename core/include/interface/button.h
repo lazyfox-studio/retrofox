@@ -38,6 +38,5 @@ namespace Interface
         void setState(State new_state);
 
         virtual void render(Renderer& renderer);
-
     };
 }
