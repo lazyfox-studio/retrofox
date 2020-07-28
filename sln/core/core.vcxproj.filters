@@ -25,6 +25,9 @@
     <Filter Include="src\graphics">
       <UniqueIdentifier>{2b45b284-3405-4181-8dbd-ca6e0be39050}</UniqueIdentifier>
     </Filter>
+    <Filter Include="glsl">
+      <UniqueIdentifier>{1d02c61a-f804-466b-91f4-f9be92562172}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\renderer.h">
@@ -47,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\layout.h">
       <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\font.h">
+      <Filter>include\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,5 +93,16 @@
     <ClCompile Include="..\..\core\src\interface\layout.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\graphics\font.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\core\glsl\fontvert.glsl">
+      <Filter>glsl</Filter>
+    </None>
+    <None Include="..\..\core\glsl\fontfrag.glsl">
+      <Filter>glsl</Filter>
+    </None>
   </ItemGroup>
 </Project>

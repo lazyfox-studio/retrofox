@@ -12,6 +12,10 @@ Renderer::Renderer(QWidget* parent) : QOpenGLWidget(parent)
 void Renderer::initializeGL()
 {
     opengl_functions = QOpenGLContext::currentContext()->functions();
+    opengl43_functions = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_4_3_Core>();
+
+    opengl_functions->initializeOpenGLFunctions();
+    opengl43_functions->initializeOpenGLFunctions();
 
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glShadeModel(GL_SMOOTH);
@@ -30,12 +34,11 @@ void Renderer::resizeGL(int width, int height)
 }
 
 void Renderer::paintGL()
-{
-    //Test sprite output
-    Graphics::Sprite test_sprite("../../core/data/testsprite.png");
-    sprite_queue.push(&test_sprite);
-
+{  
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    Graphics::Sprite test_sprite("../../core/data/testsprite.png");
+    draw(&test_sprite);
 
     while (!sprite_queue.empty())
     {
@@ -80,4 +83,14 @@ void Renderer::visualizeSprite(Graphics::Sprite* sprite)
 
     glEnd();
     glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+QOpenGLFunctions* Renderer::functions()
+{
+    return opengl_functions;
+}
+
+QOpenGLFunctions_4_3_Core* Renderer::functions43()
+{
+    return opengl43_functions;
 }

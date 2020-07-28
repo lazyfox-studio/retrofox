@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
-#include "ui_window.h"
+//#include "ui_window.h" // commented for testing purposes
 
 class Window : public QMainWindow
 {
@@ -12,5 +12,5 @@ public:
     ~Window();
 
 private:
-    Ui::Window ui;
+    //Ui::Window ui; // commented for testing purposes
 };

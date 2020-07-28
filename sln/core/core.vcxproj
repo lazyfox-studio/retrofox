@@ -14,6 +14,7 @@
     <QtMoc Include="..\..\core\include\window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\include\graphics\font.h" />
     <ClInclude Include="..\..\core\include\graphics\sprite.h" />
     <ClInclude Include="..\..\core\include\graphics\texture.h" />
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h" />
@@ -26,6 +27,7 @@
     <QtUic Include="..\..\core\ui\window.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\core\src\graphics\font.cpp" />
     <ClCompile Include="..\..\core\src\graphics\sprite.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texture.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp" />
@@ -35,6 +37,10 @@
     <ClCompile Include="..\..\core\src\main.cpp" />
     <ClCompile Include="..\..\core\src\renderer.cpp" />
     <ClCompile Include="..\..\core\src\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\core\glsl\fontfrag.glsl" />
+    <None Include="..\..\core\glsl\fontvert.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{184A4840-B64C-4EB5-AA36-9D0900E3688C}</ProjectGuid>
@@ -69,6 +75,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>D:\FreeType\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
@@ -76,6 +83,10 @@
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\core\ui;..\..\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\FreeType;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>win64/freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

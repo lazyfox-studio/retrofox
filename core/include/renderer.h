@@ -3,6 +3,7 @@
 #include <QOpenGLWidget>
 
 #include <QOpenGLFunctions>
+#include <QOpenGLFunctions_4_3_Core>
 
 #include <queue>
 
@@ -21,6 +22,7 @@ protected:
 
     /// OpenGL functions context pointer
     QOpenGLFunctions* opengl_functions;
+    QOpenGLFunctions_4_3_Core* opengl43_functions;
 
     /**
      * @brief Visualizes sprite as GL texture
@@ -58,4 +60,8 @@ public:
      * @param sprite Pointer to sprite
     */
     void draw(Graphics::Sprite* sprite);
+
+    QOpenGLFunctions* functions();
+    QOpenGLFunctions_4_3_Core* functions43();
+
 };

@@ -2,7 +2,7 @@
 
 Window::Window(QWidget *parent) : QMainWindow(parent)
 {
-    ui.setupUi(this);
+    //ui.setupUi(this);
 }
 
 Window::~Window()
