@@ -5,9 +5,12 @@
 #include <QOpenGLFunctions>
 #include <QOpenGLFunctions_4_3_Core>
 
+#include <QImage>
+
 #include <queue>
 
 #include "graphics/sprite.h"
+#include "graphics/font.h"
 
 #pragma comment (lib, "opengl32.lib")
 
@@ -60,6 +63,10 @@ public:
      * @param sprite Pointer to sprite
     */
     void draw(Graphics::Sprite* sprite);
+
+    void texturizeFont(Graphics::Font& font);
+
+    void visualizeText(Graphics::Font& font, const std::string& text);
 
     QOpenGLFunctions* functions();
     QOpenGLFunctions_4_3_Core* functions43();

@@ -1,48 +1,34 @@
 #pragma once
 
-#include "renderer.h"
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include <QMatrix4x4>
-#include <QColor>
-#include <QtGui/QOpenGLFunctions>
-#include <QtGui/QOpenGLShaderProgram>
-#include <QOpenGLFunctions_4_3_Core>
+#include <QOpenGLFunctions>
 
 #include <map>
 
 namespace Graphics
 {
-    class Font : protected QOpenGLFunctions_4_3_Core
+    class Font
     {
-    protected:
-        FT_Library ft;
-
-        FT_Face face;
-
-        QOpenGLShaderProgram program;
-
+    public:
         struct Character
         {
+            uchar* glyph;
             GLuint texture_name;
-            int size_x, size_y;
+            unsigned width, height;
             int bearing_x, bearing_y;
             GLuint advance;
         };
-        std::map<GLchar, Character> chars;
 
-        GLuint VAO, VBO;
+    protected:
+        std::map<GLchar, Character> chars;
 
     public:
         Font() = delete;
-        explicit Font(Renderer& renderer, const char* ttfPath, int fontSize = 48);
+        explicit Font(const char* ttf_path, int font_size = 48);
         ~Font();
 
-        void setUpRenderer(Renderer& renderer);
-
-        void renderText(Renderer& renderer, const std::string& text, GLfloat x, GLfloat y, GLfloat scale, QColor color);
-
+        Character& character(GLubyte ch);
     };
 }
