@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
     
     window.showFullScreen();
 
-    Graphics::Font font("../../core/data/arial.ttf", 50);
-    renderer.visualizeText(font, "TESt");
+    //Graphics::Font font("../../core/data/arial.ttf", 50);
+    //renderer.visualizeText(font, "TESt");
     renderer.paintGL();
 
     return app.exec();
