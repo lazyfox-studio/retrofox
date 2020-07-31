@@ -69,36 +69,36 @@ void Interface::Layout::update()
             Interface::Widget& widget = widget_reference.get();
             if (widget.size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
             {
-                widget.geometry.x = geometry.x + margin.left;
-                widget.geometry.y = geometry.y + temp_size;
+                widget.setX(geometry.x + margin.left);
+                widget.setY(geometry.y + temp_size);
 
-                widget.geometry.height = widget.base_size.height;
+                widget.setHeight(widget.base_size.height);
                 if (widget.size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
                 {
-                    widget.geometry.width = widget.base_size.width;
+                    widget.setWidth(widget.base_size.width);
                 }
                 else
                 {
-                    widget.geometry.width = geometry.width - margin.left - margin.right;
+                    widget.setWidth(geometry.width - margin.left - margin.right);
                 }
             }
             else
             {
-                widget.geometry.x = geometry.x + margin.left;
-                widget.geometry.y = geometry.y + temp_size;
+                widget.setX(geometry.x + margin.left);
+                widget.setY(geometry.y + temp_size);
 
-                widget.geometry.height = scalable_size / scalable_count;
+                widget.setHeight(scalable_size / scalable_count);
                 if (widget.size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
                 {
-                    widget.geometry.width = widget.base_size.width;
+                    widget.setWidth(widget.base_size.width);
                 }
                 else
                 {
-                    widget.geometry.width = geometry.width - margin.left - margin.right;
+                    widget.setWidth(geometry.width - margin.left - margin.right);
                 }
             }
 
-            temp_size += widget.geometry.height + spacing.vertical;
+            temp_size += widget.height() + spacing.vertical;
         }
     }
     stacking = Stacking::Vertical;

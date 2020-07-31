@@ -13,9 +13,6 @@ namespace Interface
     */
     class Widget
     {
-    private:
-        
-
     public:
         struct UIGeometry
         {
@@ -24,7 +21,6 @@ namespace Interface
             unsigned height;
             unsigned width;
         };
-        UIGeometry geometry;
 
         struct SizePolicy
         {
@@ -47,9 +43,24 @@ namespace Interface
         Size maximum_size;
         Size base_size;
 
+    protected:
+        UIGeometry geometry;
+
+    public:
+
         Widget();
         Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
+
+        int x();
+        int y();
+        unsigned height();
+        unsigned width();
+
+        virtual void setX(int x);
+        virtual void setY(int y);
+        virtual void setHeight(unsigned height);
+        virtual void setWidth(unsigned width);
 
         virtual void render(Renderer& renderer) = 0;
     };
