@@ -19,7 +19,10 @@ namespace Interface
 
     Widget::Widget(int x, int y, unsigned height, unsigned width)
     {
-        geometry = {x, y, height, width};
+        setX(x);
+        setY(y);
+        setHeight(height);
+        setWidth(width);
 
         size_policy.vertical   = SizePolicy::Scalable;
         size_policy.horizontal = SizePolicy::Scalable;
