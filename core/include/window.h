@@ -1,16 +1,25 @@
 #pragma once
 
-#include <QMainWindow>
-//#include "ui_window.h" // commented for testing purposes
+#include <SDL.h>
 
-class Window : public QMainWindow
+#include "graphics/sprite.h"
+
+class Window
 {
-    Q_OBJECT
-
+protected:
+    SDL_Window* window;
+    SDL_Renderer* renderer;
+    
 public:
-    Window(QWidget *parent = Q_NULLPTR);
+    Window();
     ~Window();
 
-private:
-    //Ui::Window ui; // commented for testing purposes
+    /**
+     * @brief Show window
+    */
+    void show();
+    /**
+     * @brief Start application loop
+    */
+    void start();
 };

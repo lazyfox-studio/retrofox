@@ -2,107 +2,50 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="include">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="include\interface">
-      <UniqueIdentifier>{53bc03cd-78f9-41d1-bf1a-52df755a1449}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\graphics">
-      <UniqueIdentifier>{6011fb64-a005-466b-bedd-3ed865b8db58}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ui">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <UniqueIdentifier>{3e8b83e0-9848-481c-bffe-e6de169c3dcd}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <UniqueIdentifier>{8bd051c3-5f2c-465f-893c-e86486f3b9bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\interface">
-      <UniqueIdentifier>{9fdad532-2b94-46cc-b99b-5ae7bdef4ddd}</UniqueIdentifier>
+    <Filter Include="data">
+      <UniqueIdentifier>{3e7284c0-1b99-44b2-88da-55a6fdb97bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\graphics">
+      <UniqueIdentifier>{d72ac01a-cad5-4cbe-852d-a4df0c502869}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\graphics">
-      <UniqueIdentifier>{2b45b284-3405-4181-8dbd-ca6e0be39050}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="glsl">
-      <UniqueIdentifier>{1d02c61a-f804-466b-91f4-f9be92562172}</UniqueIdentifier>
+      <UniqueIdentifier>{ce7b14d6-20bb-4d49-95ab-af66cebc14c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\core\include\renderer.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\interface\widget.h">
-      <Filter>include\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\interface\button.h">
-      <Filter>include\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\graphics\sprite.h">
-      <Filter>include\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\graphics\texturebuffer.h">
-      <Filter>include\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\graphics\texture.h">
-      <Filter>include\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\interface\layout.h">
-      <Filter>include\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\graphics\font.h">
-      <Filter>include\graphics</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="..\..\core\include\window.h">
-      <Filter>include</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="..\..\core\ui\window.ui">
-      <Filter>ui</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\core\src\graphics\sprite.cpp">
-      <Filter>src\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\interface\button.cpp">
-      <Filter>src\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\interface\widget.cpp">
-      <Filter>src\interface</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\src\renderer.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\src\window.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp">
-      <Filter>src\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\src\graphics\texture.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\src\interface\layout.cpp">
-      <Filter>src\interface</Filter>
+    <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp">
+      <Filter>src\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\src\graphics\font.cpp">
+    <ClCompile Include="..\..\core\src\graphics\sprite.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\core\glsl\fontvert.glsl">
-      <Filter>glsl</Filter>
-    </None>
-    <None Include="..\..\core\glsl\fontfrag.glsl">
-      <Filter>glsl</Filter>
-    </None>
+    <ClInclude Include="..\..\core\include\window.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\texture.h">
+      <Filter>include\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\texturebuffer.h">
+      <Filter>include\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\sprite.h">
+      <Filter>include\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

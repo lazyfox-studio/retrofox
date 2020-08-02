@@ -1,69 +1,78 @@
 #include "graphics/sprite.h"
 
-Graphics::Sprite::Sprite(const std::string& path)
+namespace Graphics
 {
-    p_texture = Graphics::TextureBuffer::instance().load(path);
-    geometry = {0, 0, (unsigned) p_texture->height(), (unsigned) p_texture->width()};
-}
+    Sprite::Sprite(SDL_Renderer* renderer, const std::string& path)
+    {
+        p_renderer = renderer;
+        p_texture = Graphics::TextureBuffer::instance().load(p_renderer, path);
+        m_geometry = { 0, 0, p_texture->height(), p_texture->width() };
+    }
 
-Graphics::Sprite::Sprite(const std::string& path, int x, int y, unsigned height, unsigned width)
-{
-    p_texture = Graphics::TextureBuffer::instance().load(path);
-    geometry = {x, y, height, width};
-}
+    Sprite::Sprite(SDL_Renderer* renderer, const std::string& path, int x, int y, int height, int width)
+    {
+        p_texture = Graphics::TextureBuffer::instance().load(renderer, path);
+        m_geometry = { x, y, height, width };
+    }
 
-Graphics::Sprite::Sprite(const Sprite& sprite)
-{
-    p_texture = sprite.p_texture;
-    geometry = sprite.geometry;
-}
+   Sprite::Sprite(const Sprite& sprite)
+    {
+        p_texture = sprite.p_texture;
+        m_geometry = sprite.m_geometry;
+    }
 
-Graphics::Sprite::~Sprite()
-{
-    
-}
+    Sprite::~Sprite()
+    {
 
-int Graphics::Sprite::x() const
-{
-    return geometry.x;
-}
+    }
 
-int Graphics::Sprite::y() const
-{
-    return geometry.y;
-}
+    void Sprite::render()
+    {
+        SDL_RenderCopy(p_renderer, p_texture->texture(), NULL, &m_geometry);
+    }
 
-unsigned Graphics::Sprite::height() const
-{
-    return geometry.height;
-}
+    SDL_Rect Sprite::geometry() const
+    {
+        return m_geometry;
+    }
 
-unsigned Graphics::Sprite::width() const
-{
-    return geometry.width;
-}
+    int Sprite::x() const
+    {
+        return m_geometry.x;
+    }
 
-Graphics::Texture* Graphics::Sprite::texture() const
-{
-    return p_texture;
-}
+    int Sprite::y() const
+    {
+        return m_geometry.y;
+    }
 
-void Graphics::Sprite::setX(unsigned x)
-{
-    geometry.x = x;
-}
+    int Sprite::height() const
+    {
+        return m_geometry.h;
+    }
 
-void Graphics::Sprite::setY(unsigned y)
-{
-    geometry.y = y;
-}
+    int Sprite::width() const
+    {
+        return m_geometry.w;
+    }
 
-void Graphics::Sprite::setHeight(unsigned height)
-{
-    geometry.height = height;
-}
+    void Sprite::setX(int x)
+    {
+        m_geometry.x = x;
+    }
 
-void Graphics::Sprite::setWidth(unsigned width)
-{
-    geometry.width = width;
+    void Sprite::setY(int y)
+    {
+        m_geometry.y = y;
+    }
+
+    void Sprite::setHeight(int height)
+    {
+        m_geometry.h = height;
+    }
+
+    void Sprite::setWidth(int width)
+    {
+        m_geometry.w = width;
+    }
 }

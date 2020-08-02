@@ -3,6 +3,8 @@
 #include <map>
 #include <string>
 
+#include <SDL.h>
+
 #include "graphics/texture.h"
 
 
@@ -25,7 +27,7 @@ namespace Graphics
          * @param path Path to texture
          * @return QImage Pointer to texture
         */
-        Graphics::Texture* load(const std::string& path);
+        Graphics::Texture* load(SDL_Renderer* renderer, const std::string& path);
 
         /**
          * @brief Unloads texture from memory

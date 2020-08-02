@@ -1,38 +1,32 @@
 #include "graphics/texture.h"
 
-Graphics::Texture::Texture(const std::string& path)
+namespace Graphics
 {
-    image.load(path.c_str());
-    glGenTextures(1, &texture_name);
-}
+    Texture::Texture(SDL_Renderer* renderer, const std::string& path)
+    {
+        SDL_Surface* surface = SDL_LoadBMP(path.c_str());
+        size = { surface->h, surface->w };
+        sdl_texture = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_FreeSurface(surface);
+    }
 
-Graphics::Texture::Texture(const Texture& texture)
-{
-    image = texture.image;
-    texture_name = texture.texture_name;
-}
+    Texture::~Texture()
+    {
+        SDL_DestroyTexture(sdl_texture);
+    }
 
-Graphics::Texture::~Texture()
-{
+    SDL_Texture* Texture::texture()
+    {
+        return sdl_texture;
+    }
 
-}
+    int Texture::height()
+    {
+        return size.height;
+    }
 
-uchar* Graphics::Texture::pixels()
-{
-    return image.bits();
-}
-
-GLuint Graphics::Texture::name()
-{
-    return texture_name;
-}
-
-GLsizei Graphics::Texture::height()
-{
-    return image.height();
-}
-
-GLsizei Graphics::Texture::width()
-{
-    return image.width();
+    int Texture::width()
+    {
+        return size.width;
+    }
 }

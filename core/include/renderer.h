@@ -1,74 +1,13 @@
 #pragma once
 
-#include <QOpenGLWidget>
+#include <SDL.h>
 
-#include <QOpenGLFunctions>
-#include <QOpenGLFunctions_4_3_Core>
-
-#include <QImage>
-
-#include <queue>
-
-#include "graphics/sprite.h"
-#include "graphics/font.h"
-
-#pragma comment (lib, "opengl32.lib")
-
-/**
- * @brief Rendering controller
- */
-class Renderer : public QOpenGLWidget
+class Renderer
 {
 protected:
-    /// Queue of sprites to visualize
-    std::queue<Graphics::Sprite*> sprite_queue;
-
-    /// OpenGL functions context pointer
-    QOpenGLFunctions* opengl_functions;
-    QOpenGLFunctions_4_3_Core* opengl43_functions;
-
-    /**
-     * @brief Visualizes sprite as GL texture
-     * @param sprite Pointer to sprite
-     */
-    void visualizeSprite(Graphics::Sprite* sprite);
+    SDL_Renderer* renderer;
 
 public:
-    /**
-     * @brief Default constructor
-     * @param parent Parent widget if needed
-     */
-    Renderer(QWidget* parent = nullptr);
-
-
-    /**
-     * @brief Initializes GL context
-     */
-    void initializeGL();
-
-    /**
-     * @brief Resizes GL picture
-     * @param width Frame width
-     * @param height Frame height
-     */
-    void resizeGL(int width, int height);
-
-    /**
-     * @brief Paints GL picture
-     */
-    void paintGL();
-
-    /**
-     * @brief Render sprite in next frame
-     * @param sprite Pointer to sprite
-    */
-    void draw(Graphics::Sprite* sprite);
-
-    void texturizeFont(Graphics::Font& font);
-
-    void visualizeText(Graphics::Font& font, const std::string& text);
-
-    QOpenGLFunctions* functions();
-    QOpenGLFunctions_4_3_Core* functions43();
-
+    Renderer();
+    ~Renderer();
 };
