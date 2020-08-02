@@ -1,28 +1,32 @@
 #include "interface/button.h"
 
-namespace Interface{
-    Button::Button(const Graphics::Sprite& sprite_default,
-        const Graphics::Sprite& sprite_clicked, const Graphics::Sprite& sprite_hovered,
-        const Graphics::Sprite& sprite_disabled)
-        : state(Default),
-        sprites{ sprite_default, sprite_clicked, sprite_hovered, sprite_disabled }
+namespace Interface
+{
+    Button::Button(
+        SDL_Renderer* renderer,
+        const std::string& path_default,
+        const std::string& path_clicked,
+        const std::string& path_hovered,
+        const std::string& path_disabled
+    ) : sprites {Graphics::Sprite(renderer, path_default),
+            Graphics::Sprite(renderer, path_clicked), Graphics::Sprite(renderer, path_hovered),
+                Graphics::Sprite(renderer, path_disabled) }
     {
+        state = State::Default;
     }
 
-    Button::Button(const Graphics::Sprite& sprite_default, const Graphics::Sprite& sprite_clicked)
-        : Button(sprite_default, sprite_clicked, sprite_default, sprite_default)
+    Button::Button(SDL_Renderer* renderer, const std::string& path_default, const std::string& path_clicked) :
+        sprites{ Graphics::Sprite(renderer, path_default), Graphics::Sprite(renderer, path_clicked),
+            Graphics::Sprite(renderer, path_default), Graphics::Sprite(renderer, path_default) }
+
     {
+        state = State::Default;
     }
 
     void Button::setState(State new_state)
     {
         state = new_state;
-    }
-
-    void Button::render(Renderer& renderer)
-    {
-        renderer.draw(sprites + static_cast<int>(state));
-    }
+    } 
 
     void Button::setX(int x)
     {
@@ -58,5 +62,10 @@ namespace Interface{
         {
             sprites[i].setWidth(width);
         }
+    }
+
+    void Button::render()
+    {
+        sprites[state].render();
     }
 }

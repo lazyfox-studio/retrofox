@@ -16,6 +16,12 @@
     <Filter Include="src\graphics">
       <UniqueIdentifier>{ce7b14d6-20bb-4d49-95ab-af66cebc14c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\interface">
+      <UniqueIdentifier>{e99e3f7d-c165-4f5f-b64c-c55e85594611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interface">
+      <UniqueIdentifier>{894f2a87-7e63-4388-b623-28ee7cd9e1bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\src\main.cpp">
@@ -33,6 +39,12 @@
     <ClCompile Include="..\..\core\src\graphics\sprite.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\button.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\widget.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
@@ -46,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="..\..\core\include\graphics\sprite.h">
       <Filter>include\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\interface\widget.h">
+      <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\interface\button.h">
+      <Filter>include\interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

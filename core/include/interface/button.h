@@ -2,6 +2,10 @@
 
 #include "interface/widget.h"
 
+#include <array>
+
+#include <SDL.h>
+
 namespace Interface
 {
     /**
@@ -21,19 +25,20 @@ namespace Interface
 
     protected:
         /// Array of sprites for each state
-        Graphics::Sprite sprites[4]; //TODO: Swap to std::vector
+        Graphics::Sprite sprites[4];
 
         /// Current button state
         State state;
 
     public:
         Button(
-            const Graphics::Sprite& sprite_default, 
-            const Graphics::Sprite& sprite_clicked, 
-            const Graphics::Sprite& sprite_hovered, 
-            const Graphics::Sprite& sprite_disabled
+            SDL_Renderer* renderer,
+            const std::string& path_default,
+            const std::string& path_clicked,
+            const std::string& path_hovered,
+            const std::string& path_disabled
         );
-        Button(const Graphics::Sprite& sprite_default, const Graphics::Sprite& sprite_clicked);
+        Button(SDL_Renderer* renderer, const std::string& path_default, const std::string& path_clicked);
         ~Button() = default;
 
         virtual void setX(int x);
@@ -43,6 +48,6 @@ namespace Interface
 
         void setState(State new_state);
 
-        virtual void render(Renderer& renderer);
+        virtual void render();
     };
 }

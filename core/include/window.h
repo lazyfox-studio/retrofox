@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-#include "graphics/sprite.h"
+#include "interface/button.h"
 
 class Window
 {

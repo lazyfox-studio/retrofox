@@ -19,8 +19,7 @@ void Window::show()
 
 void Window::start()
 {
-    Graphics::Sprite sprite(renderer, "D:/Source/retrofox/core/data/testsprite.bmp");
-
+    Interface::Button button(renderer, "D:/Source/retrofox/core/data/testsprite.bmp", "D:/Source/retrofox/core/data/testsprite2.bmp");
     SDL_Event event;
     while (true)
     {
@@ -33,7 +32,7 @@ void Window::start()
         }
 
         SDL_RenderClear(renderer);
-        sprite.render();
+        button.render();
         SDL_RenderPresent(renderer);
     }
 }

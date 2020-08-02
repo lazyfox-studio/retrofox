@@ -62,6 +62,6 @@ namespace Interface
         virtual void setHeight(unsigned height);
         virtual void setWidth(unsigned width);
 
-        virtual void render(Renderer& renderer) = 0;
+        virtual void render() = 0;
     };
 }
