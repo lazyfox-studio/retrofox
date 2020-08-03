@@ -45,6 +45,9 @@
     <ClCompile Include="..\..\core\src\interface\widget.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\layout.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
@@ -63,6 +66,9 @@
       <Filter>include\interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\button.h">
+      <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\interface\layout.h">
       <Filter>include\interface</Filter>
     </ClInclude>
   </ItemGroup>

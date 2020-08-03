@@ -3,6 +3,7 @@
 #include <SDL.h>
 
 #include "interface/button.h"
+#include "interface/layout.h"
 
 class Window
 {

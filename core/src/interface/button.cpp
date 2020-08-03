@@ -8,7 +8,7 @@ namespace Interface
         const std::string& path_clicked,
         const std::string& path_hovered,
         const std::string& path_disabled
-    ) : sprites {Graphics::Sprite(renderer, path_default),
+    ) : sprites { Graphics::Sprite(renderer, path_default),
             Graphics::Sprite(renderer, path_clicked), Graphics::Sprite(renderer, path_hovered),
                 Graphics::Sprite(renderer, path_disabled) }
     {
@@ -31,7 +31,7 @@ namespace Interface
     void Button::setX(int x)
     {
         geometry.x = x;
-        for (size_t i = 0; i < 4; i++)
+        for (size_t i = 0; i < sprites.size() ; i++)
         {
             sprites[i].setX(x);
         }
@@ -40,7 +40,7 @@ namespace Interface
     void Button::setY(int y)
     {
         geometry.y = y;
-        for (size_t i = 0; i < 4; i++)
+        for (size_t i = 0; i < sprites.size(); i++)
         {
             sprites[i].setY(y);
         }
@@ -49,7 +49,7 @@ namespace Interface
     void Button::setHeight(unsigned height)
     {
         geometry.height = height;
-        for (size_t i = 0; i < 4; i++)
+        for (size_t i = 0; i < sprites.size(); i++)
         {
             sprites[i].setHeight(height);
         }
@@ -58,7 +58,7 @@ namespace Interface
     void Button::setWidth(unsigned width)
     {
         geometry.width = width;
-        for (size_t i = 0; i < 4; i++)
+        for (size_t i = 0; i < sprites.size(); i++)
         {
             sprites[i].setWidth(width);
         }

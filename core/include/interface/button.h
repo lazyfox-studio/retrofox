@@ -25,7 +25,7 @@ namespace Interface
 
     protected:
         /// Array of sprites for each state
-        Graphics::Sprite sprites[4];
+        std::array<Graphics::Sprite, 4> sprites;
 
         /// Current button state
         State state;

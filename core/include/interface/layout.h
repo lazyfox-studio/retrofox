@@ -46,9 +46,9 @@ namespace Interface
         Layout(int x, int y, unsigned height, unsigned width);
         ~Layout();
 
-        void prepend(Widget& widget);
-        void append(Widget& widget);
-        virtual void render(Renderer& renderer);
+        void pushFront(Widget& widget);
+        void pushBack(Widget& widget);
+        virtual void render();
 
         void update();
     };

@@ -20,6 +20,12 @@ void Window::show()
 void Window::start()
 {
     Interface::Button button(renderer, "D:/Source/retrofox/core/data/testsprite.bmp", "D:/Source/retrofox/core/data/testsprite2.bmp");
+    Interface::Button button2(renderer, "D:/Source/retrofox/core/data/testsprite.bmp", "D:/Source/retrofox/core/data/testsprite2.bmp");
+
+    Interface::Layout layout(5, 5, 400, 400);
+    //layout.pushBack(button);
+    //layout.pushBack(button2);
+
     SDL_Event event;
     while (true)
     {

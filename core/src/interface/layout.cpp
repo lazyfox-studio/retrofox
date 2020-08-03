@@ -27,13 +27,13 @@ Interface::Layout::Layout(int x, int y, unsigned height, unsigned width)
     stacking = Stacking::Vertical;
 }
 
-void Interface::Layout::prepend(Widget& widget)
+void Interface::Layout::pushFront(Widget& widget)
 {
     widgets.push_front(widget);
     update();
 }
 
-void Interface::Layout::append(Widget& widget)
+void Interface::Layout::pushBack(Widget& widget)
 {
     widgets.push_back(widget);
     update();
@@ -104,8 +104,8 @@ void Interface::Layout::update()
     stacking = Stacking::Vertical;
 }
 
-void Interface::Layout::render(Renderer& renderer)
+void Interface::Layout::render()
 {
     for (auto& widget_reference : widgets)
-        widget_reference.get().render(renderer);
+        widget_reference.get().render();
 }
