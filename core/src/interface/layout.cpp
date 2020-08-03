@@ -27,6 +27,11 @@ Interface::Layout::Layout(int x, int y, unsigned height, unsigned width)
     stacking = Stacking::Vertical;
 }
 
+Interface::Layout::~Layout()
+{
+    widgets.clear();
+}
+
 void Interface::Layout::pushFront(Widget& widget)
 {
     widgets.push_front(widget);

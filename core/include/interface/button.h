@@ -11,7 +11,7 @@ namespace Interface
     /**
      * @brief Clickable button
     */
-    class Button : Widget
+    class Button : public Widget
     {
     public:
         /// Available button states
