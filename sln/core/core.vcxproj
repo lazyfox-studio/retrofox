@@ -78,6 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -121,8 +122,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Libraries\SDL\lib\x64;E:\Libraries\SDL\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Libraries\SDL2_ttf-2.0.15\lib\x64;D:\Libraries\SDL2-2.0.12\lib\x64;D:\Libraries\SDL\lib\x64;E:\Libraries\SDL\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\core\src\graphics\font.cpp" />
     <ClCompile Include="..\..\core\src\graphics\sprite.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texture.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp" />
@@ -152,6 +154,7 @@
     <ClCompile Include="..\..\core\src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\include\graphics\font.h" />
     <ClInclude Include="..\..\core\include\graphics\sprite.h" />
     <ClInclude Include="..\..\core\include\graphics\texture.h" />
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h" />

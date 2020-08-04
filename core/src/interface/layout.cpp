@@ -50,8 +50,8 @@ void Interface::Layout::update()
     {
         unsigned fixed_size    = 0;
         unsigned scalable_size = 0;
-        size_t scalable_count = 0;
-        size_t count = widgets.size();
+        unsigned scalable_count = 0;
+        unsigned count = static_cast<unsigned>(widgets.size());
         for (auto& widget_reference : widgets)
         {
             Interface::Widget& widget = widget_reference.get();

@@ -15,10 +15,9 @@ namespace Graphics
 
     public:
         Font() = delete;
-        explicit Font(const char* ttf_path, int font_size);
+        explicit Font(const std::string& ttf_path, int font_size);
         ~Font();
 
         SDL_Texture* renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
-
     };
 }
