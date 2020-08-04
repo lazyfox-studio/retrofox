@@ -30,38 +30,30 @@ namespace Interface
 
     void Button::setX(int x)
     {
+        for (auto& sprite : sprites)
+            sprite.setX(x);
         geometry.x = x;
-        for (size_t i = 0; i < sprites.size() ; i++)
-        {
-            sprites[i].setX(x);
-        }
     }
 
     void Button::setY(int y)
     {
+        for (auto& sprite : sprites)
+            sprite.setY(y);
         geometry.y = y;
-        for (size_t i = 0; i < sprites.size(); i++)
-        {
-            sprites[i].setY(y);
-        }
     }
 
     void Button::setHeight(unsigned height)
     {
+        for (auto& sprite : sprites)
+            sprite.setHeight(height);
         geometry.height = height;
-        for (size_t i = 0; i < sprites.size(); i++)
-        {
-            sprites[i].setHeight(height);
-        }
     }
 
     void Button::setWidth(unsigned width)
     {
+        for (auto& sprite : sprites)
+            sprite.setWidth(width);
         geometry.width = width;
-        for (size_t i = 0; i < sprites.size(); i++)
-        {
-            sprites[i].setWidth(width);
-        }
     }
 
     void Button::render()
