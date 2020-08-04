@@ -45,4 +45,10 @@ namespace Interface
     {
         m_sprite.render();
     }
+    
+    void Label::setText(const std::string& text)
+    {
+        m_text = text;
+        updateSprite();
+    }
 }

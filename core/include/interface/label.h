@@ -28,5 +28,7 @@ namespace Interface
         virtual void setWidth(unsigned width);
         
         virtual void render();
+
+        void setText(const std::string& text);
     };
 }
