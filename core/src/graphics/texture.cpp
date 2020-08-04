@@ -2,6 +2,12 @@
 
 namespace Graphics
 {
+    Texture::Texture(SDL_Renderer* renderer, SDL_Surface* surface)
+    {
+        size = { surface->h, surface->w };
+        sdl_texture = SDL_CreateTextureFromSurface(renderer, surface);
+    }
+
     Texture::Texture(SDL_Renderer* renderer, const std::string& path)
     {
         SDL_Surface* surface = SDL_LoadBMP(path.c_str());

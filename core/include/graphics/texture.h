@@ -20,6 +20,7 @@ namespace Graphics
 
     public:
         Texture() = delete;
+        Texture(SDL_Renderer* renderer, SDL_Surface* surface);
         Texture(SDL_Renderer* renderer, const std::string& path);
         Texture(const Texture& texture) = delete;
         ~Texture();
