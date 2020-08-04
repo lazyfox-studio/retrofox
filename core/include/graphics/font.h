@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics/spritedisp.h"
+#include "graphics/texture.h"
 
 #include <SDL.h>
 #include <SDL_ttf.h>
