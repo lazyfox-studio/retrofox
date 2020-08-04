@@ -25,21 +25,11 @@ namespace Graphics
         TTF_CloseFont(font);
     }
 
-    SDL_Texture* Graphics::Font::renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color)
+    std::shared_ptr<Graphics::Texture> Graphics::Font::renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color)
     {
-        SDL_Surface* surf = TTF_RenderText_Blended(font, text.c_str(), color);
-        if (surf == nullptr) 
-        {
-            TTF_CloseFont(font);
-            throw std::exception("Cannot surfacerize font!");
-            return nullptr;
-        }
-        SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surf);
-        if (texture == nullptr) 
-        {
-            throw std::exception("Cannot texturize font!");
-        }
-        SDL_FreeSurface(surf);
+        SDL_Surface* surface = TTF_RenderText_Blended(font, text.c_str(), color);
+        auto texture = std::make_shared<Graphics::Texture>(renderer, surface);
+        SDL_FreeSurface(surface);
         return texture;
     }
 }

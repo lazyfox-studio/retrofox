@@ -1,9 +1,12 @@
 #pragma once
 
+#include "graphics/spritedisp.h"
+
 #include <SDL.h>
 #include <SDL_ttf.h>
 
 #include <string>
+#include <memory>
 
 namespace Graphics
 {
@@ -18,6 +21,6 @@ namespace Graphics
         explicit Font(const std::string& ttf_path, int font_size);
         ~Font();
 
-        SDL_Texture* renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
+        std::shared_ptr<Graphics::Texture> renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
     };
 }
