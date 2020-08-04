@@ -27,7 +27,7 @@ namespace Graphics
 
     std::shared_ptr<Graphics::Texture> Graphics::Font::renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color)
     {
-        SDL_Surface* surface = TTF_RenderText_Blended(font, text.c_str(), color);
+        SDL_Surface* surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
         auto texture = std::make_shared<Graphics::Texture>(renderer, surface);
         SDL_FreeSurface(surface);
         return texture;
