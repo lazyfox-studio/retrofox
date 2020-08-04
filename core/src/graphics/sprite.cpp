@@ -15,7 +15,13 @@ namespace Graphics
         m_geometry = { x, y, height, width };
     }
 
-   Sprite::Sprite(const Sprite& sprite)
+    Sprite::Sprite(SDL_Renderer* renderer, Graphics::Texture* texture)
+        : p_renderer(renderer), p_texture(texture)
+    {
+        m_geometry = { 0, 0, p_texture->height(), p_texture->width() };
+    }
+
+    Sprite::Sprite(const Sprite& sprite)
     {
         p_texture = sprite.p_texture;
         m_geometry = sprite.m_geometry;
@@ -54,6 +60,11 @@ namespace Graphics
     int Sprite::width() const
     {
         return m_geometry.w;
+    }
+
+    SDL_Renderer* Sprite::renderer() const
+    {
+        return p_renderer;
     }
 
     void Sprite::setX(int x)
