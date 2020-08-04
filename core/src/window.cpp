@@ -26,6 +26,9 @@ void Window::start()
     layout.pushBack(button);
     layout.pushBack(button2);
 
+    Graphics::Font font("../../core/data/arial.ttf", 40);
+    Interface::Label label(renderer, &font, "Hello world");
+
     SDL_Event event;
     while (true)
     {
@@ -39,6 +42,7 @@ void Window::start()
 
         SDL_RenderClear(renderer);
         layout.render();
+        label.render();
         SDL_RenderPresent(renderer);
     }
 }
