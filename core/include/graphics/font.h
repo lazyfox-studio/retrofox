@@ -1,34 +1,24 @@
 #pragma once
 
-#include <ft2build.h>
-#include FT_FREETYPE_H
+#include <SDL.h>
+#include <SDL_ttf.h>
 
-#include <QOpenGLFunctions>
-
-#include <map>
+#include <string>
 
 namespace Graphics
 {
     class Font
     {
-    public:
-        struct Character
-        {
-            uchar* glyph;
-            GLuint texture_name;
-            unsigned width, height;
-            int bearing_x, bearing_y;
-            GLuint advance;
-        };
-
     protected:
-        std::map<GLchar, Character> chars;
+        static bool initialized;
+        TTF_Font* font;
 
     public:
         Font() = delete;
-        explicit Font(const char* ttf_path, int font_size = 48);
+        explicit Font(const char* ttf_path, int font_size);
         ~Font();
 
-        Character& character(GLubyte ch);
+        SDL_Texture* renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
+
     };
 }
