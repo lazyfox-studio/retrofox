@@ -6,19 +6,19 @@ namespace Graphics
     {
         p_renderer = renderer;
         p_texture = Graphics::TextureBuffer::instance().load(p_renderer, path);
-        m_geometry = { 0, 0, p_texture->height(), p_texture->width() };
+        m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
     }
 
     Sprite::Sprite(SDL_Renderer* renderer, const std::string& path, int x, int y, int height, int width)
     {
         p_texture = Graphics::TextureBuffer::instance().load(renderer, path);
-        m_geometry = { x, y, height, width };
+        m_geometry = { x, y, width, height };
     }
 
     Sprite::Sprite(SDL_Renderer* renderer, Graphics::Texture* texture)
         : p_renderer(renderer), p_texture(texture)
     {
-        m_geometry = { 0, 0, p_texture->height(), p_texture->width() };
+        m_geometry = { 0, 0, p_texture->width(),  p_texture->height() };
     }
 
     Sprite::Sprite(const Sprite& sprite)
