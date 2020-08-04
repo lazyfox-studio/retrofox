@@ -26,7 +26,7 @@ void Window::start()
     layout.pushBack(button);
     layout.pushBack(button2);
 
-    Graphics::Font font("../../core/data/arial.ttf", 40);
+    Graphics::Font font("../../core/data/roboto-regular.ttf", 40);
     Interface::Label label(renderer, &font, "Hello world");
 
     SDL_Event event;
