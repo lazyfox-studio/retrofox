@@ -5,6 +5,10 @@ namespace Graphics
     Texture::Texture(SDL_Renderer* renderer, const std::string& path)
     {
         SDL_Surface* surface = SDL_LoadBMP(path.c_str());
+        if (surface == nullptr)
+        {
+            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Can't load file %s", path.c_str());
+        }
         size = { surface->h, surface->w };
         sdl_texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_FreeSurface(surface);
