@@ -19,16 +19,21 @@ namespace Interface
 
     void Label::setHeight(unsigned height)
     {
-        double coef = height / geometry.height;
+        double coef = (double) height / (double) geometry.height;
         m_text.setHeight(height);
         m_text.setWidth(geometry.width * coef);
+        geometry.height = height;
     }
 
     void Label::setWidth(unsigned width)
     {
-        double coef = width / geometry.height;
-        m_text.setWidth(width);
-        m_text.setWidth(geometry.height * coef);
+        if (width < geometry.width)
+        {
+            double coef = (double) width / (double) geometry.height;
+            m_text.setWidth(width);
+            m_text.setWidth(geometry.height * coef);
+        }
+        geometry.width = width;
     }
 
     void Label::render()
