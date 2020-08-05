@@ -1,13 +1,13 @@
-#include "graphics/label.h"
+#include "graphics/text.h"
 
 namespace Graphics
 {
-    void Label::update()
+    void Text::update()
     {
         p_texture = p_font->renderText(p_renderer, m_text, m_color);
     }
 
-    Label::Label(SDL_Renderer* renderer, Graphics::Font* font, const std::string& text, SDL_Color color)
+    Text::Text(SDL_Renderer* renderer, Graphics::Font* font, const std::string& text, SDL_Color color)
         : m_text(text), p_font(font), m_color(color)
     {
         p_renderer = renderer;
@@ -15,12 +15,12 @@ namespace Graphics
         m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
     }
 
-    Label::~Label()
+    Text::~Text()
     {
 
     }
     
-    void Label::setText(const std::string& text)
+    void Text::setText(const std::string& text)
     {
         m_text = text;
         update();

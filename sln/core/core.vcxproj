@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\src\graphics\font.cpp" />
-    <ClCompile Include="..\..\core\src\graphics\label.cpp" />
+    <ClCompile Include="..\..\core\src\graphics\text.cpp" />
     <ClCompile Include="..\..\core\src\graphics\sprite.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texture.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp" />
@@ -156,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\graphics\font.h" />
-    <ClInclude Include="..\..\core\include\graphics\label.h" />
+    <ClInclude Include="..\..\core\include\graphics\text.h" />
     <ClInclude Include="..\..\core\include\graphics\sprite.h" />
     <ClInclude Include="..\..\core\include\graphics\texture.h" />
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h" />

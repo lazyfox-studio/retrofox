@@ -51,7 +51,7 @@
     <ClCompile Include="..\..\core\src\graphics\texture.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\src\graphics\label.cpp">
+    <ClCompile Include="..\..\core\src\graphics\text.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,7 +80,7 @@
     <ClInclude Include="..\..\core\include\graphics\texture.h">
       <Filter>include\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\include\graphics\label.h">
+    <ClInclude Include="..\..\core\include\graphics\text.h">
       <Filter>include\graphics</Filter>
     </ClInclude>
   </ItemGroup>

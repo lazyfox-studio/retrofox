@@ -3,8 +3,8 @@
 #include <SDL.h>
 
 #include "interface/button.h"
-#include "graphics/label.h"
 #include "interface/layout.h"
+#include "graphics/text.h"
 
 class Window
 {

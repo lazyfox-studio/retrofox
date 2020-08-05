@@ -9,7 +9,7 @@
 
 namespace Graphics
 {
-    class Label : public Sprite
+    class Text : public Sprite
     {
     protected:
         Graphics::Font* p_font;
@@ -19,9 +19,9 @@ namespace Graphics
         void update();
 
     public:
-        Label() = delete;
-        Label(SDL_Renderer* renderer, Graphics::Font* font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
-        ~Label();
+        Text() = delete;
+        Text(SDL_Renderer* renderer, Graphics::Font* font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
+        ~Text();
 
         void setText(const std::string& text);
     };
