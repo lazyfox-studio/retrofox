@@ -28,6 +28,8 @@ namespace Graphics
 
         virtual void render();
 
+        void resetSize();
+
         void setText(const std::string& text);
         void setTextHeight(int height);
     };

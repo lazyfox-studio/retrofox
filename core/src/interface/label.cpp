@@ -19,14 +19,22 @@ namespace Interface
     void Label::setHeight(unsigned height)
     {
         m_text.setTextHeight(height);
-        m_text.setHeight(height);
+        m_text.resetSize();
+        if (m_text.width() > geometry.width)
+        {
+            m_text.setWidth(geometry.width);
+        }
         geometry.height = height;
     }
 
     void Label::setWidth(unsigned width)
     {
         geometry.width = width;
-        m_text.setWidth(width);
+        m_text.resetSize();
+        if (m_text.width() > geometry.width)
+        {
+            m_text.setWidth(geometry.width);
+        }
     }
 
     void Label::render()

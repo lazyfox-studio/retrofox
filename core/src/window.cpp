@@ -27,7 +27,8 @@ void Window::start()
     layout.pushBack(button2);
 
     Interface::Label label(renderer, Graphics::FontBuffer::instance().load("../../core/data/roboto-regular.ttf", 40), 0, 0, "Hello world");
-    label.setHeight(100);
+    label.setHeight(50);
+    label.setWidth(500);
 
     SDL_Event event;
     while (true)

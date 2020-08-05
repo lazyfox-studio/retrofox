@@ -25,6 +25,11 @@ namespace Graphics
         SDL_Rect text_part = { 0, 0, m_geometry.w, m_geometry.h };
         SDL_RenderCopy(p_renderer, p_texture->texture(), &text_part, &m_geometry);
     }
+
+    void Text::resetSize()
+    {
+        m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
+    }
     
     void Text::setText(const std::string& text)
     {
