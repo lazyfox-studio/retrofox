@@ -4,6 +4,7 @@
 
 #include "interface/button.h"
 #include "interface/label.h"
+#include "graphics/fontbuffer.h"
 #include "interface/layout.h"
 
 class Window

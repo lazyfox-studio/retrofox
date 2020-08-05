@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\src\graphics\font.cpp" />
+    <ClCompile Include="..\..\core\src\graphics\fontbuffer.cpp" />
     <ClCompile Include="..\..\core\src\graphics\text.cpp" />
     <ClCompile Include="..\..\core\src\graphics\sprite.cpp" />
     <ClCompile Include="..\..\core\src\graphics\texture.cpp" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\graphics\font.h" />
+    <ClInclude Include="..\..\core\include\graphics\fontbuffer.h" />
     <ClInclude Include="..\..\core\include\graphics\text.h" />
     <ClInclude Include="..\..\core\include\graphics\sprite.h" />
     <ClInclude Include="..\..\core\include\graphics\texture.h" />

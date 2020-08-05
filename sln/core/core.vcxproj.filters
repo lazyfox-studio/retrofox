@@ -57,6 +57,9 @@
     <ClCompile Include="..\..\core\src\interface\label.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\graphics\fontbuffer.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\label.h">
       <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\fontbuffer.h">
+      <Filter>include\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
