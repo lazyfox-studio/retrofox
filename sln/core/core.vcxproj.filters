@@ -30,9 +30,6 @@
     <ClCompile Include="..\..\core\src\window.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\src\graphics\texture.cpp">
-      <Filter>src\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
@@ -51,16 +48,16 @@
     <ClCompile Include="..\..\core\src\graphics\font.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\src\interface\label.cpp">
-      <Filter>src\interface</Filter>
+    <ClCompile Include="..\..\core\src\graphics\texture.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\graphics\label.cpp">
+      <Filter>src\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
       <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\include\graphics\texture.h">
-      <Filter>include\graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h">
       <Filter>include\graphics</Filter>
@@ -80,8 +77,11 @@
     <ClInclude Include="..\..\core\include\graphics\font.h">
       <Filter>include\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\include\interface\label.h">
-      <Filter>include\interface</Filter>
+    <ClInclude Include="..\..\core\include\graphics\texture.h">
+      <Filter>include\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\graphics\label.h">
+      <Filter>include\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
