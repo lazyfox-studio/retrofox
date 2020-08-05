@@ -27,7 +27,7 @@ void Window::start()
     layout.pushBack(button2);
 
     Graphics::Font font("../../core/data/roboto-regular.ttf", 40);
-    Graphics::Text label(renderer, &font, "Hello world");
+    Interface::Label label(renderer, &font, 0, 0, 100, "Hello world");
 
     SDL_Event event;
     while (true)
@@ -41,7 +41,7 @@ void Window::start()
         }
 
         SDL_RenderClear(renderer);
-        layout.render();
+        //layout.render();
         label.render();
         SDL_RenderPresent(renderer);
     }
