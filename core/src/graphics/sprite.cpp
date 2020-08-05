@@ -15,7 +15,7 @@ namespace Graphics
         m_geometry = { x, y, width, height };
     }
 
-    Sprite::Sprite(SDL_Renderer* renderer, Graphics::Texture* texture)
+    Sprite::Sprite(SDL_Renderer* renderer, std::shared_ptr<Graphics::Texture> texture)
         : p_renderer(renderer), p_texture(texture)
     {
         m_geometry = { 0, 0, p_texture->width(),  p_texture->height() };

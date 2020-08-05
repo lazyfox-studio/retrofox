@@ -24,7 +24,7 @@ namespace Graphics
         Sprite() = default;
         Sprite(SDL_Renderer* renderer, const std::string& path);
         Sprite(SDL_Renderer* renderer, const std::string& path, int x, int y, int height, int width);
-        Sprite(SDL_Renderer* renderer, Graphics::Texture* texture);
+        Sprite(SDL_Renderer* renderer, std::shared_ptr<Graphics::Texture> texture);
         Sprite(const Sprite& sprite);
         Sprite(Sprite&&) = default;
         ~Sprite();
