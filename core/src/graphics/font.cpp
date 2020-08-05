@@ -4,7 +4,7 @@ namespace Graphics
 {
     bool Font::initialized = false;
 
-    Font::Font(const std::string& ttf_path, int font_size)
+    Font::Font(const std::string& ttf_path, int font_size) : c_path(ttf_path)
     {
         if (!initialized)
         {
@@ -23,6 +23,11 @@ namespace Graphics
     Font::~Font()
     {
         TTF_CloseFont(font);
+    }
+
+    std::string Font::path()
+    {
+        return c_path;
     }
 
     std::shared_ptr<Graphics::Texture> Graphics::Font::renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color)

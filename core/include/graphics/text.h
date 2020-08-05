@@ -6,6 +6,7 @@
 #include <string>
 
 #include "graphics/font.h"
+#include "graphics/fontbuffer.h"
 
 namespace Graphics
 {
@@ -16,6 +17,8 @@ namespace Graphics
         std::string m_text;
         SDL_Color m_color;
 
+        std::string font_name;
+
         void update();
 
     public:
@@ -23,6 +26,9 @@ namespace Graphics
         Text(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
         ~Text();
 
+        virtual void render();
+
         void setText(const std::string& text);
+        void setTextHeight(int height);
     };
 }

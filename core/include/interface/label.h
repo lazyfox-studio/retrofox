@@ -19,7 +19,7 @@ namespace Interface
 
     public:
         Label() = delete;
-        Label(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, int x, int y, unsigned height, const std::string& text = "");
+        Label(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, int x, int y, const std::string& text = "");
         ~Label();
 
         virtual void setHeight(unsigned height);

@@ -19,10 +19,22 @@ namespace Graphics
     {
 
     }
+
+    void Text::render()
+    {
+        SDL_Rect text_part = { 0, 0, m_geometry.w, m_geometry.h };
+        SDL_RenderCopy(p_renderer, p_texture->texture(), &text_part, &m_geometry);
+    }
     
     void Text::setText(const std::string& text)
     {
         m_text = text;
+        update();
+    }
+
+    void Text::setTextHeight(int height)
+    {
+        p_font = Graphics::FontBuffer::instance().load(p_font->path(), height);
         update();
     }
 }

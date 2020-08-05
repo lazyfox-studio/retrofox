@@ -15,11 +15,14 @@ namespace Graphics
     protected:
         static bool initialized;
         TTF_Font* font;
+        const std::string c_path;
 
     public:
         Font() = delete;
         explicit Font(const std::string& ttf_path, int font_size);
         ~Font();
+
+        std::string path();
 
         std::shared_ptr<Graphics::Texture> renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
     };

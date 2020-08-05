@@ -30,7 +30,7 @@ namespace Graphics
         ~Sprite();
         Sprite& operator=(const Sprite&) = default;
 
-        void render();
+        virtual void render();
 
         SDL_Rect geometry() const;
         int x() const;
