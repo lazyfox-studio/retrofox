@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <memory>
 #include <string>
 
 #include <SDL.h>
@@ -19,7 +20,7 @@ namespace Graphics
          /**
           * @brief Map as a buffer for textures
          */
-         std::map<std::string, Graphics::Texture*> buffer;
+         std::map<std::string, std::shared_ptr<Graphics::Texture>> buffer;
 
     public:
         /**
@@ -27,7 +28,7 @@ namespace Graphics
          * @param path Path to texture
          * @return QImage Pointer to texture
         */
-        Graphics::Texture* load(SDL_Renderer* renderer, const std::string& path);
+        std::shared_ptr<Graphics::Texture> load(SDL_Renderer* renderer, const std::string& path);
 
         /**
          * @brief Unloads texture from memory

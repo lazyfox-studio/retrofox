@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include <SDL.h>
 
 #include "graphics/texture.h"
@@ -13,7 +15,7 @@ namespace Graphics
     class Sprite
     {
     protected:
-        Graphics::Texture* p_texture;
+        std::shared_ptr<Graphics::Texture> p_texture;
         SDL_Rect m_geometry;
 
         SDL_Renderer* p_renderer;

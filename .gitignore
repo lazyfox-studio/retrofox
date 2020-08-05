@@ -353,3 +353,7 @@ MigrationBackup/
 Doxyfile
 doxygen/
 doxygen/**
+
+# External libraries
+*.dll
+*.lib
