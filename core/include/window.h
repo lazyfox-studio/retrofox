@@ -2,10 +2,11 @@
 
 #include <SDL.h>
 
-#include "interface/button.h"
-#include "interface/label.h"
 #include "graphics/fontbuffer.h"
 #include "interface/layout.h"
+#include "interface/button.h"
+#include "interface/label.h"
+#include "interface/paragraph.h"
 
 class Window
 {
