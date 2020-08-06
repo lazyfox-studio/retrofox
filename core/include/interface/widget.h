@@ -49,6 +49,7 @@ namespace Interface
     public:
 
         Widget();
+        Widget(int x, int y);
         Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
 
