@@ -25,17 +25,27 @@ namespace Interface
 
             index++;
         }
+        if (line_length > 0)
+        {
+            std::string last_line = text.substr(start);
+            m_lines.push_back(last_line);
+        }
     }
 
     void Paragraph::renderTextLines(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font)
     {
         m_sprites.clear();
         m_sprites.reserve(m_lines.size());
+        int top_offset = 0;
         for (const auto& line : m_lines)
-            m_sprites.emplace_back(renderer, font, line);
+        {
+            m_sprites.emplace_back(renderer, font, geometry.x, geometry.y + top_offset, line);
+            top_offset += m_sprites.back().height() + m_line_spacing;
+        }
     }
     
     Paragraph::Paragraph(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, int x, int y, unsigned max_width, const std::string& text, SDL_Color color)
+        : Widget(x, y), m_line_spacing(4)
     {
         organizeTextLines(font, text, max_width);
         renderTextLines(renderer, font);

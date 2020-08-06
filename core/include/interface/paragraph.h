@@ -17,6 +17,8 @@ namespace Interface
         std::vector<std::string> m_lines;
         std::vector<Graphics::Text> m_sprites;
 
+        int m_line_spacing;
+
         void organizeTextLines(std::shared_ptr<Graphics::Font> font, const std::string& text, unsigned max_width, bool word_wrap = true);
         void renderTextLines(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font);
     public:
