@@ -3,7 +3,7 @@
 namespace Interface
 {
     Label::Label(SDL_Renderer* renderer, Graphics::FontPtr font, int x, int y, const std::string& text)
-        : m_text(renderer, font, text)
+        : m_text(renderer, font, x, y, text)
     {
         geometry.x = x;
         geometry.y = y;
