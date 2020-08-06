@@ -14,7 +14,7 @@ namespace Graphics
     {
     protected:
         static bool initialized;
-        TTF_Font* font;
+        TTF_Font* p_font;
         const std::string c_path;
 
     public:
@@ -23,6 +23,9 @@ namespace Graphics
         ~Font();
 
         std::string path();
+
+        unsigned calculateTextWidth(const std::string& text);
+        SDL_Rect calculateTextRect(const std::string& text);
 
         std::shared_ptr<Graphics::Texture> renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
     };
