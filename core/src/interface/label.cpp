@@ -2,7 +2,7 @@
 
 namespace Interface
 {
-    Label::Label(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, int x, int y, const std::string& text)
+    Label::Label(SDL_Renderer* renderer, Graphics::FontPtr font, int x, int y, const std::string& text)
         : m_text(renderer, font, text)
     {
         geometry.x = x;
@@ -18,7 +18,7 @@ namespace Interface
 
     void Label::setHeight(unsigned height)
     {
-        m_text.setTextHeight(height);
+        m_text.setFontSize(height);
         m_text.resetSize();
         if (m_text.width() > geometry.width)
         {
