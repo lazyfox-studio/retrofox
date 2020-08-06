@@ -12,7 +12,8 @@
 namespace Graphics
 {
     using FontKey = std::pair<std::string, int>;
-    using FontMap = std::map <FontKey, std::shared_ptr<Graphics::Font>>;
+    using FontPtr = std::shared_ptr<Font>;
+    using FontMap = std::map <FontKey, FontPtr>;
 
     /**
      * @brief Texture buffer
@@ -31,7 +32,7 @@ namespace Graphics
          * @param path Path to texture
          * @return QImage Pointer to texture
         */
-        std::shared_ptr<Graphics::Font> load(const std::string& path, int size);
+        FontPtr load(const std::string& path, int size);
 
         /**
          * @brief Unloads texture from memory

@@ -2,16 +2,11 @@
 
 namespace Graphics
 {
-    void Text::update()
-    {
-        p_texture = p_font->renderText(p_renderer, m_text, m_color);
-    }
-
-    Text::Text(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, const std::string& text, SDL_Color color)
-        : m_text(text), p_font(font), m_color(color)
+    Text::Text(SDL_Renderer* renderer, FontPtr font, const std::string& text, SDL_Color color)
+        : p_font(font), m_color(color)
     {
         p_renderer = renderer;
-        p_texture = p_font->renderText(p_renderer, m_text, m_color);
+        p_texture = p_font->renderText(p_renderer, text, m_color);
         m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
     }
 
@@ -33,13 +28,12 @@ namespace Graphics
     
     void Text::setText(const std::string& text)
     {
-        m_text = text;
-        update();
+        p_texture = p_font->renderText(p_renderer, text, m_color);
     }
 
-    void Text::setTextHeight(int height)
+    void Text::setFontSize(int font_size)
     {
-        p_font = Graphics::FontBuffer::instance().load(p_font->path(), height);
+        p_font = Graphics::FontBuffer::instance().load(p_font->path(), font_size);
         update();
     }
 }

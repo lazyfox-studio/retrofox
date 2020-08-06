@@ -13,8 +13,7 @@ namespace Graphics
     class Text : public Sprite
     {
     protected:
-        std::shared_ptr<Graphics::Font> p_font;
-        std::string m_text;
+        FontPtr p_font;
         SDL_Color m_color;
 
         std::string font_name;
@@ -23,7 +22,7 @@ namespace Graphics
 
     public:
         Text() = delete;
-        Text(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
+        Text(SDL_Renderer* renderer, FontPtr font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
         ~Text();
 
         virtual void render();
@@ -31,6 +30,6 @@ namespace Graphics
         void resetSize();
 
         void setText(const std::string& text);
-        void setTextHeight(int height);
+        void setFontSize(int font_size);
     };
 }
