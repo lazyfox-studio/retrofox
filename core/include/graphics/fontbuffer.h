@@ -11,18 +11,19 @@
 
 namespace Graphics
 {
+    using FontKey = std::pair<std::string, int>;
+    using FontMap = std::map <FontKey, std::shared_ptr<Graphics::Font>>;
+
     /**
      * @brief Texture buffer
     */
     class FontBuffer
     {
     private:
-        typedef std::pair<std::string, int> TFontKey;
-        typedef std::map <TFontKey, std::shared_ptr<Graphics::Font>> TFontMap;
         /**
          * @brief Map as a buffer for textures
         */
-        TFontMap buffer;
+        FontMap buffer;
 
     public:
         /**
