@@ -23,7 +23,7 @@ namespace Graphics
 
     public:
         Text() = delete;
-        Text(SDL_Renderer* renderer, FontPtr font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
+        Text(SDL_Renderer* renderer, FontPtr font, int x, int y, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
         ~Text();
 
         std::shared_ptr<Graphics::Font> font() const;

@@ -7,12 +7,12 @@ namespace Graphics
         p_texture = p_font->renderText(p_renderer, m_text, m_color);
     }
 
-    Text::Text(SDL_Renderer* renderer, FontPtr font, const std::string& text, SDL_Color color)
+    Text::Text(SDL_Renderer* renderer, FontPtr font, int x, int y, const std::string& text, SDL_Color color)
         : p_font(font), m_text(text), m_color(color)
     {
         p_renderer = renderer;
         p_texture = p_font->renderText(p_renderer, m_text, m_color);
-        m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
+        m_geometry = { x, y, p_texture->width(), p_texture->height() };
     }
 
     Text::~Text()
@@ -43,7 +43,8 @@ namespace Graphics
 
     void Text::resetSize()
     {
-        m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
+        m_geometry.w = p_texture->width();
+        m_geometry.h = p_texture->height();
     }
     
     void Text::setText(const std::string& text)
