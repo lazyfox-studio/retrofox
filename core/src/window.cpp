@@ -30,7 +30,7 @@ void Window::start()
     label.setHeight(50);
     label.setWidth(500);
 
-    Interface::Paragraph para(renderer, Graphics::FontBuffer::instance().load("../../core/data/roboto-regular.ttf", 20), 100, 100, 200, "Some very long line of text... Some very long line of text...");
+    Interface::Paragraph para(renderer, Graphics::FontBuffer::instance().load("../../core/data/roboto-regular.ttf", 20), 100, 100, 180, "Some very longgggggg line of text... Somee veeeery llong line of text...");
 
     SDL_Event event;
     while (true)

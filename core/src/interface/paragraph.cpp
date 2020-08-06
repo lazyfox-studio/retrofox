@@ -5,11 +5,12 @@ namespace Interface
     void Paragraph::organizeTextLines(std::shared_ptr<Graphics::Font> font, const std::string& text, unsigned max_width, bool word_wrap)
     {
         m_lines.clear();
-        unsigned avg_char_width = font->calculateTextWidth("jiwmhx o e") / 10;
-        unsigned chars_per_line = max_width / avg_char_width;
+        float avg_char_width = font->calculateTextWidth("jiwmhx ote") / 10.f;
+        unsigned chars_per_line = static_cast<unsigned>(floor(max_width / avg_char_width));
         size_t index = 0, start = 0, line_length = 0, prev_space = 0;
-        for (auto c : text)
+        for (; index < text.size(); index++)
         {
+            auto c = text[index];
             if (c == ' ')
             {
                 prev_space = index;
@@ -19,18 +20,22 @@ namespace Interface
                     line_length--;
                 }
             }
-
             line_length++;
-
             if (line_length >= chars_per_line)
             {
+                if (word_wrap)
+                {
+                    if ((c != ' ') && (text[index + 1] != ' '))
+                    {
+                        line_length = prev_space - start;
+                        index = prev_space;
+                    }
+                }
                 std::string line = text.substr(start, line_length);
                 m_lines.push_back(line);
                 start = index + 1;
                 line_length = 0;
             }
-
-            index++;
         }
         if (line_length > 0)
         {
@@ -54,7 +59,7 @@ namespace Interface
     Paragraph::Paragraph(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font, int x, int y, unsigned max_width, const std::string& text, SDL_Color color)
         : Widget(x, y), m_line_spacing(4)
     {
-        organizeTextLines(font, text, max_width);
+        organizeTextLines(font, text, max_width, true);
         renderTextLines(renderer, font);
     }
 

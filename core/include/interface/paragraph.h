@@ -23,7 +23,7 @@ namespace Interface
         void renderTextLines(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font);
     public:
         Paragraph() = delete;
-        Paragraph(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font,  int x, int y, unsigned max_width, const std::string& text,SDL_Color color = { 255, 255, 255, 255 });
+        Paragraph(SDL_Renderer* renderer, std::shared_ptr<Graphics::Font> font,  int x, int y, unsigned max_width, const std::string& text, SDL_Color color = { 255, 255, 255, 255 });
         ~Paragraph();
 
         virtual void render();
