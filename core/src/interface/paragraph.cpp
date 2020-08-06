@@ -11,7 +11,14 @@ namespace Interface
         for (auto c : text)
         {
             if (c == ' ')
+            {
                 prev_space = index;
+                if (index == start)
+                {
+                    start++;
+                    line_length--;
+                }
+            }
 
             line_length++;
 
