@@ -4,6 +4,11 @@ namespace Graphics
 {
     bool Font::initialized = false;
 
+    void Font::calculateAverageCharWidth()
+    {
+        m_average_char_width = static_cast<float>(calculateTextWidth("jiwmhx ote")) / 10.f;
+    }
+
     Font::Font(const std::string& ttf_path, int font_size)
         : c_path(ttf_path)
     {
@@ -19,6 +24,7 @@ namespace Graphics
         p_font = TTF_OpenFont(ttf_path.c_str(), font_size);
         if (p_font == nullptr)
             throw std::exception("Font file cannot be opened...");
+        calculateAverageCharWidth();
     }
 
     Font::~Font()
@@ -26,9 +32,14 @@ namespace Graphics
         TTF_CloseFont(p_font);
     }
 
-    std::string Font::path()
+    std::string Font::path() const
     {
         return c_path;
+    }
+
+    float Font::averageCharWidth() const
+    {
+        return m_average_char_width;
     }
 
     unsigned Font::calculateTextWidth(const std::string& text)

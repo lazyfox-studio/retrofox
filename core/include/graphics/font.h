@@ -16,13 +16,17 @@ namespace Graphics
         static bool initialized;
         TTF_Font* p_font;
         const std::string c_path;
+        float m_average_char_width;
+
+        void calculateAverageCharWidth();
 
     public:
         Font() = delete;
         explicit Font(const std::string& ttf_path, int font_size);
         ~Font();
 
-        std::string path();
+        std::string path() const;
+        float averageCharWidth() const;
 
         unsigned calculateTextWidth(const std::string& text);
         SDL_Rect calculateTextRect(const std::string& text);

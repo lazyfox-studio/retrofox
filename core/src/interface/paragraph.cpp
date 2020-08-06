@@ -5,8 +5,7 @@ namespace Interface
     void Paragraph::organizeTextLines(std::shared_ptr<Graphics::Font> font, const std::string& text, unsigned max_width, bool word_wrap)
     {
         m_lines.clear();
-        float avg_char_width = font->calculateTextWidth("jiwmhx ote") / 10.f;
-        unsigned chars_per_line = static_cast<unsigned>(floor(max_width / avg_char_width));
+        unsigned chars_per_line = static_cast<unsigned>(floor(max_width / font->averageCharWidth()));
         size_t index = 0, start = 0, line_length = 0, prev_space = 0;
         for (; index < text.size(); index++)
         {
