@@ -15,6 +15,7 @@ namespace Graphics
     protected:
         FontPtr p_font;
         SDL_Color m_color;
+        std::string m_text;
 
         std::string font_name;
 
@@ -25,11 +26,14 @@ namespace Graphics
         Text(SDL_Renderer* renderer, FontPtr font, const std::string& text = "", SDL_Color color = { 255, 255, 255, 255 });
         ~Text();
 
-        virtual void render();
-
-        void resetSize();
+        std::shared_ptr<Graphics::Font> font() const;
+        const std::string& text() const;
+        SDL_Color color() const;
 
         void setText(const std::string& text);
         void setFontSize(int font_size);
+        void resetSize();
+
+        virtual void render();
     };
 }

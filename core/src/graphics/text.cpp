@@ -2,17 +2,37 @@
 
 namespace Graphics
 {
+    void Text::update()
+    {
+        p_texture = p_font->renderText(p_renderer, m_text, m_color);
+    }
+
     Text::Text(SDL_Renderer* renderer, FontPtr font, const std::string& text, SDL_Color color)
-        : p_font(font), m_color(color)
+        : p_font(font), m_text(text), m_color(color)
     {
         p_renderer = renderer;
-        p_texture = p_font->renderText(p_renderer, text, m_color);
+        p_texture = p_font->renderText(p_renderer, m_text, m_color);
         m_geometry = { 0, 0, p_texture->width(), p_texture->height() };
     }
 
     Text::~Text()
     {
 
+    }
+
+    std::shared_ptr<Graphics::Font> Text::font() const
+    {
+        return p_font;
+    }
+
+    const std::string& Text::text() const
+    {
+        return m_text;
+    }
+
+    SDL_Color Text::color() const
+    {
+        return m_color;
     }
 
     void Text::render()
@@ -28,7 +48,8 @@ namespace Graphics
     
     void Text::setText(const std::string& text)
     {
-        p_texture = p_font->renderText(p_renderer, text, m_color);
+        m_text = text;
+        update();
     }
 
     void Text::setFontSize(int font_size)
