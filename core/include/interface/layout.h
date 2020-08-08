@@ -36,9 +36,7 @@ namespace Interface
         enum class Stacking
         {
             Vertical,
-            Horizontal,
-            GridVerical,
-            GridHorizontal
+            Horizontal
         };
         Stacking stacking;
 

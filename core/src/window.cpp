@@ -44,7 +44,7 @@ void Window::start()
         }
 
         SDL_RenderClear(renderer);
-        //layout.render();
+        layout.render();
         label.render();
         para.render();
         SDL_RenderPresent(renderer);
