@@ -6,21 +6,25 @@
 
 #include <SDL.h>
 
-#include "graphics/texture.h"
+#include "graphics/font.h"
 
 
 namespace Graphics
 {
+    using FontKey = std::pair<std::string, int>;
+    using FontPtr = std::shared_ptr<Font>;
+    using FontMap = std::map <FontKey, FontPtr>;
+
     /**
-     * @brief Texture buffer   
+     * @brief Texture buffer
     */
-    class TextureBuffer
+    class FontBuffer
     {
-     private:
-         /**
-          * @brief Map as a buffer for textures
-         */
-         std::map<std::string, std::shared_ptr<Graphics::Texture>> buffer;
+    private:
+        /**
+         * @brief Map as a buffer for textures
+        */
+        FontMap buffer;
 
     public:
         /**
@@ -28,18 +32,18 @@ namespace Graphics
          * @param path Path to texture
          * @return QImage Pointer to texture
         */
-        std::shared_ptr<Graphics::Texture> load(SDL_Renderer* renderer, const std::string& path);
+        FontPtr load(const std::string& path, int size);
 
         /**
          * @brief Unloads texture from memory
          * @param path Path to texture
         */
-        void unload(const std::string& path);
+        void unload(const std::string& path, int size);
 
         /**
          * @brief Returns buffer instance
          * @return Graphics::TextureBuffer Instance reference
         */
-        static TextureBuffer& instance();
+        static FontBuffer& instance();
     };
 }

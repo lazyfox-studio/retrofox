@@ -1,5 +1,9 @@
 #pragma once
 
+#include <limits>
+
+#include "graphics/sprite.h"
+
 namespace Interface
 {
     /**
@@ -7,9 +11,6 @@ namespace Interface
     */
     class Widget
     {
-    private:
-        
-
     public:
         struct UIGeometry
         {
@@ -18,14 +19,13 @@ namespace Interface
             unsigned height;
             unsigned width;
         };
-        UIGeometry geometry;
 
         struct SizePolicy
         {
             enum Policy
             {
-                fixed,
-                scalable
+                Fixed,
+                Scalable
             };
             Policy vertical;
             Policy horizontal;
@@ -39,8 +39,28 @@ namespace Interface
         };
         Size minimum_size;
         Size maximum_size;
+        Size base_size;
+
+    protected:
+        UIGeometry geometry;
+
+    public:
 
         Widget();
+        Widget(int x, int y);
+        Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
+
+        int x();
+        int y();
+        unsigned height();
+        unsigned width();
+
+        virtual void setX(int x);
+        virtual void setY(int y);
+        virtual void setHeight(unsigned height);
+        virtual void setWidth(unsigned width);
+
+        virtual void render() = 0;
     };
 }

@@ -2,34 +2,31 @@
 
 #include <string>
 
-#include <QOpenGLFunctions>
-#include <QImage>
+#include <SDL.h>
 
 namespace Graphics
 {
     class Texture
     {
-    private:
-        QImage image;
-        GLuint texture_name;
+    protected:
+        SDL_Texture* sdl_texture;
+
+        struct Size
+        {
+            int height;
+            int width;
+        };
+        Size size;
 
     public:
         Texture() = delete;
-        Texture(const std::string& path);
-        Texture(const Texture& texture);
+        Texture(SDL_Renderer* renderer, SDL_Surface* surface);
+        Texture(SDL_Renderer* renderer, const std::string& path);
+        Texture(const Texture& texture) = delete;
         ~Texture();
 
-        /**
-         * @brief
-         * @return Array of pixels
-        */
-        uchar* pixels();
-        /**
-         * @brief 
-         * @return Name of texture 
-        */
-        GLuint  name();
-        GLsizei height();
-        GLsizei width();
+        SDL_Texture* texture();
+        int height();
+        int width();
     };
 }

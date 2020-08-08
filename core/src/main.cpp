@@ -1,13 +1,12 @@
-#include <QApplication>
+#include <iostream>
 
 #include "window.h"
-#include "graphics/texturebuffer.h"
-
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-    Window window;
-    window.showFullScreen();
-    return app.exec();
+	Window window;
+	window.show();
+	window.start();
+
+	return 0;
 }
