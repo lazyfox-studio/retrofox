@@ -23,6 +23,8 @@ void Window::start()
     Interface::Button button2(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
 
     Interface::Layout layout(5, 5, 400, 400);
+    button.base_size.height = 100;
+    button.size_policy.vertical = Interface::Button::SizePolicy::Fixed;
     layout.pushBack(button);
     layout.pushBack(button2);
 
@@ -45,8 +47,8 @@ void Window::start()
 
         SDL_RenderClear(renderer);
         layout.render();
-        label.render();
-        para.render();
+        //label.render();
+        //para.render();
         SDL_RenderPresent(renderer);
     }
 }

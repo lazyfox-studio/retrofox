@@ -120,6 +120,7 @@ namespace Interface
                     widget.setWidth(geometry.width - margin.left - margin.right);
                 }
                 current_y += widget.height() + spacing.vertical;
+                j++;
             }
         }
         else if (stacking == Stacking::Horizontal)
