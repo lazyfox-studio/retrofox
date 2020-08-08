@@ -4,8 +4,6 @@
 
 #include "graphics/sprite.h"
 
-#include "renderer.h"
-
 namespace Interface
 {
     /**
