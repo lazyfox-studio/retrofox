@@ -63,6 +63,9 @@
     <ClCompile Include="..\..\core\src\interface\paragraph.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\menu.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
@@ -99,6 +102,9 @@
       <Filter>include\graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\paragraph.h">
+      <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\interface\menu.h">
       <Filter>include\interface</Filter>
     </ClInclude>
   </ItemGroup>

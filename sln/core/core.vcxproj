@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\core\src\interface\button.cpp" />
     <ClCompile Include="..\..\core\src\interface\label.cpp" />
     <ClCompile Include="..\..\core\src\interface\layout.cpp" />
+    <ClCompile Include="..\..\core\src\interface\menu.cpp" />
     <ClCompile Include="..\..\core\src\interface\paragraph.cpp" />
     <ClCompile Include="..\..\core\src\interface\widget.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="..\..\core\include\interface\button.h" />
     <ClInclude Include="..\..\core\include\interface\label.h" />
     <ClInclude Include="..\..\core\include\interface\layout.h" />
+    <ClInclude Include="..\..\core\include\interface\menu.h" />
     <ClInclude Include="..\..\core\include\interface\paragraph.h" />
     <ClInclude Include="..\..\core\include\interface\widget.h" />
     <ClInclude Include="..\..\core\include\window.h" />

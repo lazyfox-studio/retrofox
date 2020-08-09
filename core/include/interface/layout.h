@@ -46,6 +46,9 @@ namespace Interface
 
         void pushFront(Widget& widget);
         void pushBack(Widget& widget);
+        void popFront();
+        void popBack();
+        void clear();
         virtual void render();
 
         void update();

@@ -46,6 +46,21 @@ namespace Interface
         update();
     }
 
+    void Layout::popFront()
+    {
+        widgets.pop_front();
+    }
+
+    void Layout::popBack()
+    {
+        widgets.pop_back();
+    }
+
+    void Layout::clear()
+    {
+        widgets.clear();
+    }
+
     void Layout::update()
     {
         size_t scalable_count = widgets.size();
