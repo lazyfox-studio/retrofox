@@ -16,33 +16,34 @@ namespace Graphics
     using FontMap = std::map <FontKey, FontPtr>;
 
     /**
-     * @brief Texture buffer
-    */
+     * @brief Font buffer
+     * @details Stores fonts loaded by Graphics::Font class
+     */
     class FontBuffer
     {
     private:
-        /**
-         * @brief Map as a buffer for textures
-        */
+        /// Map as a buffer for fonts
         FontMap buffer;
 
     public:
         /**
-         * @brief Loads texture to memory if not already present
-         * @param path Path to texture
-         * @return QImage Pointer to texture
+         * @brief Loads font to memory if not already presented
+         * @param path Path to TrueType font file
+         * @param size Size of glyphs (in pixels) to load
+         * @return std::shared_ptr<Font> Pointer to font
         */
         FontPtr load(const std::string& path, int size);
 
         /**
-         * @brief Unloads texture from memory
-         * @param path Path to texture
+         * @brief Unloads font from memory
+         * @param path Path to TrueType font file
+         * @param size Size of glyphs (in pixels) to load
         */
         void unload(const std::string& path, int size);
 
         /**
          * @brief Returns buffer instance
-         * @return Graphics::TextureBuffer Instance reference
+         * @return Graphics::FontBuffer Instance reference
         */
         static FontBuffer& instance();
     };
