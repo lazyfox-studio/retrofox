@@ -22,6 +22,9 @@
     <Filter Include="src\interface">
       <UniqueIdentifier>{894f2a87-7e63-4388-b623-28ee7cd9e1bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{c8cb27d9-e549-475d-9135-02d7a869a707}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\src\main.cpp">
@@ -107,5 +110,10 @@
     <ClInclude Include="..\..\core\include\interface\menu.h">
       <Filter>include\interface</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\x64\Debug\database.lib">
+      <Filter>lib</Filter>
+    </Library>
   </ItemGroup>
 </Project>

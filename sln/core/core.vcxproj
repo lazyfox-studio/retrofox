@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;./../../database/include/;D:\Libraries\SQLite-3.32.3;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -172,6 +172,14 @@
     <ClInclude Include="..\..\core\include\interface\paragraph.h" />
     <ClInclude Include="..\..\core\include\interface\widget.h" />
     <ClInclude Include="..\..\core\include\window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\database\database.vcxproj">
+      <Project>{8b7a3c23-ff6d-4366-9427-c5447a33f569}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\x64\Debug\database.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
