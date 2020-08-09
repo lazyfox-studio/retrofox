@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;./../../database/include/;D:\Libraries\SQLite-3.32.3;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;./../../database/include/;D:\Libraries\SQLite-3.32.3;D:\Libraries\SQLite;E:\Libraries\SQLite;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
