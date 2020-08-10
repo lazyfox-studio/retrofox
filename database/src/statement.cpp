@@ -51,13 +51,97 @@ namespace Database
         throw std::exception("SQL Error, check db connection");
     }
 
-    int Statement::columnCount()
+    int Statement::columnCount() const
     {
         return sqlite3_column_count(p_stmt_handler);
     }
 
-    int Statement::columnBytes(int column_index)
+    int Statement::columnBytes(int column_index) const
     {
         return sqlite3_column_bytes(p_stmt_handler, column_index);
+    }
+
+    void Statement::reset(bool clear_bindings)
+    {
+        sqlite3_reset(p_stmt_handler);
+        if (clear_bindings)
+            sqlite3_clear_bindings(p_stmt_handler);
+    }
+
+    void Statement::bindNull(int placeholder_index)
+    {
+        sqlite3_bind_null(p_stmt_handler, placeholder_index);
+    }
+
+    template<>
+    void Statement::bind<char>(int placeholder_index, char binding_value)
+    {
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<short>(int placeholder_index, short binding_value)
+    {
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<int>(int placeholder_index, int binding_value)
+    {
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<long>(int placeholder_index, long binding_value)
+    {
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<long long>(int placeholder_index, long long binding_value)
+    {
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<unsigned int>(int placeholder_index, unsigned int binding_value)
+    {
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, static_cast<int>(binding_value));
+    }
+
+    template<>
+    void Statement::bind<unsigned long>(int placeholder_index, unsigned long binding_value)
+    {
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, static_cast<long>(binding_value));
+    }
+
+    template<>
+    void Statement::bind<unsigned long long>(int placeholder_index, unsigned long long binding_value)
+    {
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, static_cast<long long>(binding_value));
+    }
+
+    template<>
+    void Statement::bind<float>(int placeholder_index, float binding_value)
+    {
+        sqlite3_bind_double(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<double>(int placeholder_index, double binding_value)
+    {
+        sqlite3_bind_double(p_stmt_handler, placeholder_index, binding_value);
+    }
+
+    template<>
+    void Statement::bind<const char*>(int placeholder_index, const char* binding_value)
+    {
+        sqlite3_bind_text(p_stmt_handler, placeholder_index, binding_value, -1, nullptr);
+    }
+
+    template<>
+    void Statement::bind<const std::string&>(int placeholder_index, const std::string& binding_value)
+    {
+        bind<const char*>(placeholder_index, binding_value.c_str());
     }
 }

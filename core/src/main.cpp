@@ -19,8 +19,9 @@ int main(int argc, char *argv[])
 		);
 		query.execute();
 		//query = db.query("INSERT INTO `test` (`ID`, `NAME`, `AGE`) VALUES (1, \"Vasya1\", 123);");
-		query.execute();
-		query = db.query("SELECT * FROM `test`;");
+		//query.execute();
+		query = db.query("SELECT * FROM `test` WHERE `ID` = ?;");
+		query.bind(1, "1");
 		Database::Row row;
 		while (row = query.fetchRow())
 		{

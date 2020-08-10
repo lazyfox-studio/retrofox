@@ -30,7 +30,15 @@ namespace Database
         void execute();
         Row fetchRow();
         
-        int columnCount();
-        int columnBytes(int column_index);
+        int columnCount() const;
+        int columnBytes(int column_index) const;
+
+        void reset(bool clear_bindings = true);
+
+        void bindNull(int placeholder_index);
+
+        template<typename Type>
+        void bind(int placeholder_index, Type binding_value);
+
     };
 }
