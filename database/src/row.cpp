@@ -22,6 +22,25 @@ namespace Database
         return sqlite3_column_bytes(p_stmt_handler, column_index);
     }
 
+    int Row::columnType(int column_index)
+    {
+        return sqlite3_column_type(p_stmt_handler, column_index);
+    }
+
+    const char* Row::columnName(int column_index)
+    {
+        return sqlite3_column_name(p_stmt_handler, column_index);
+    }
+
+    int Row::findColumnByName(const std::string& column_name)
+    {
+        int column_count = columnCount();
+        for (int i = 0; i < column_count; i++)
+            if (column_name == columnName(i))
+                return i;
+        return -1;
+    }
+
     Row::operator bool() const
     {
         return p_stmt_handler != nullptr;

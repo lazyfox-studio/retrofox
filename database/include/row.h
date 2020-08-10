@@ -24,11 +24,25 @@ namespace Database
         
         int columnCount();
         int columnBytes(int column_index);
+        int columnType(int column_index);
+        const char* columnName(int column_index);
+        int findColumnByName(const std::string& column_name);
 
         operator bool() const;
 
         template<typename RType>
         RType column(int column_index);
 
+        template<typename RType>
+        RType column(const std::string& column_name);
     };
+
+    template<typename RType>
+    RType Row::column(const std::string& column_name)
+    {
+        int column_index = findColumnByName(column_name);
+        if (column_index == -1)
+            throw std::exception("Column not fount - cannot get value");
+        return column<RType>(column_index);
+    }
 }
