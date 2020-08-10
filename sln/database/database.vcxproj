@@ -21,10 +21,12 @@
   <ItemGroup>
     <ClInclude Include="..\..\database\include\connection.h" />
     <ClInclude Include="..\..\database\include\database.h" />
+    <ClInclude Include="..\..\database\include\row.h" />
     <ClInclude Include="..\..\database\include\statement.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp" />
+    <ClCompile Include="..\..\database\src\row.cpp" />
     <ClCompile Include="..\..\database\src\statement.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

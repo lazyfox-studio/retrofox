@@ -4,28 +4,32 @@
 
 #include <string>
 
-#include "connection.h"
+#include "row.h"
 
 namespace Database
 {
     class Statement
     {
     protected:
-        const Connection& r_connection;
-        sqlite3_stmt* p_handler;
+        sqlite3* p_db_handler;
+        sqlite3_stmt* p_stmt_handler;
 
     public:
-        Statement() = delete;
-        Statement(const Statement&) = delete;
-        Statement(Statement&&) = default;
-        Statement(const Connection& connection, const std::string& query_string);
+        Statement();
+        Statement(sqlite3* db_handler, const std::string& query_string);
         ~Statement();
 
-        bool fetchStep();
+        Statement(const Statement&) = delete;
+        Statement(Statement&&) = default;
+        Statement& operator=(const Statement&) = delete;
+        Statement& operator=(Statement&&) = default;
+
+        void execute();
+        Row fetchRow();
+
+        const char* error();
+        int errorCode();
         int columnCount();
         int columnBytes(int column_index);
-
-        template<typename RType>
-        RType columnAs(int column_index);
     };
 }

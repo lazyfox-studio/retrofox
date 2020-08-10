@@ -18,12 +18,18 @@
     <ClInclude Include="..\..\database\include\database.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\database\include\row.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\database\src\statement.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\row.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

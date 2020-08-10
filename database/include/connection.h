@@ -4,12 +4,14 @@
 
 #include <string>
 
+#include "statement.h"
+
 namespace Database
 {
     class Connection
     {
     protected:
-        sqlite3* p_handler;
+        sqlite3* p_db_handler;
 
     public:
         Connection() = delete;
@@ -19,5 +21,9 @@ namespace Database
         ~Connection();
 
         sqlite3* handler() const;
+        const char* error();
+        int errorCode();
+
+        Statement query(const std::string& query_string);
     };
 }
