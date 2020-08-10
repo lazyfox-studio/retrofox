@@ -69,6 +69,12 @@
     <ClCompile Include="..\..\core\src\interface\menu.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\gamemenu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\src\interface\labeledbutton.cpp">
+      <Filter>src\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
@@ -108,6 +114,12 @@
       <Filter>include\interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\menu.h">
+      <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\gamemenu.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\interface\labeledbutton.h">
       <Filter>include\interface</Filter>
     </ClInclude>
   </ItemGroup>

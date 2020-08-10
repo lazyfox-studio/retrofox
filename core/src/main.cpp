@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 			");"
 		);
 		query.execute();
-		query = db.query("INSERT INTO `test` (`ID`, `NAME`, `AGE`) VALUES (1, \"Vasya1\", 123);");
+		//query = db.query("INSERT INTO `test` (`ID`, `NAME`, `AGE`) VALUES (1, \"Vasya1\", 123);");
 		query.execute();
 		query = db.query("SELECT * FROM `test`;");
 		Database::Row row;

@@ -19,8 +19,8 @@ void Window::show()
 
 void Window::start()
 {
-    Interface::Button button(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
-    Interface::Button button2(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
+    Interface::LabeledButton button(renderer, "Test", "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
+    Interface::LabeledButton button2(renderer, "Enjoy", "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
 
     Interface::Layout layout(5, 5, 400, 400);
     button.base_size.height = 100;
