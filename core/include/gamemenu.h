@@ -18,5 +18,5 @@ public:
     GameMenu(int x, int y, unsigned height, unsigned width, unsigned button_height);
     ~GameMenu();
 
-    void showGames(SDL_Renderer* renderer, std::string base_path);
+    void showGames(SDL_Renderer* renderer, std::string db_path);
 };

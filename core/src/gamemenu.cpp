@@ -11,9 +11,9 @@ GameMenu::~GameMenu()
 
 }
 
-void GameMenu::showGames(SDL_Renderer* renderer, std::string base_path)
+void GameMenu::showGames(SDL_Renderer* renderer, std::string db_path)
 {
-    Database::Connection base(base_path);
+    Database::Connection base(db_path);
     layout.clear();
     widgets.clear();
 
