@@ -19,6 +19,22 @@ namespace Database
         if (p_stmt_handler != nullptr)
             sqlite3_finalize(p_stmt_handler);
     }
+
+    Statement::Statement(Statement&& other)
+        : p_db_handler(other.p_db_handler), p_stmt_handler(other.p_stmt_handler)
+    {
+        other.p_db_handler = nullptr;
+        other.p_stmt_handler = nullptr;
+    }
+
+    Statement& Statement::operator=(Statement&& other)
+    {
+        p_db_handler = other.p_db_handler;
+        p_stmt_handler = other.p_stmt_handler;
+        other.p_db_handler = nullptr;
+        other.p_stmt_handler = nullptr;
+        return *this;
+    }
     
     void Statement::execute()
     {

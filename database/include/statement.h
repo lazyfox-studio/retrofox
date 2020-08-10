@@ -19,10 +19,11 @@ namespace Database
         Statement(sqlite3* db_handler, const std::string& query_string);
         ~Statement();
 
+        Statement(Statement&& other);
+        Statement& operator=(Statement&& other);
+
         Statement(const Statement&) = delete;
-        Statement(Statement&&) = default;
         Statement& operator=(const Statement&) = delete;
-        Statement& operator=(Statement&&) = default;
 
         void execute();
         Row fetchRow();
