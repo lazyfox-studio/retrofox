@@ -41,6 +41,18 @@ namespace Interface
         ~Label();
 
         /**
+         * @brief Setter for X coordinate value
+         * @param x New X coordinate value
+         */
+        virtual void setX(int x);
+
+        /**
+         * @brief Setter for Y coordinate value
+         * @param y New Y coordinate value
+         */
+        virtual void setY(int y);
+
+        /**
          * @brief Setter for height value
          * @param height New height value
          */

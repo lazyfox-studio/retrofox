@@ -2,131 +2,146 @@
 
 namespace Database
 {
-    Statement::Statement(const Connection& connection, const std::string& query_string)
-        : r_connection(connection)
+    Statement::Statement()
+        : p_stmt_handler(nullptr)
     {
-        if (int rc = sqlite3_prepare(connection.handler(), query_string.c_str(), static_cast<int>(query_string.length()) + 1, &p_handler, nullptr))
-            throw std::exception(sqlite3_errmsg(r_connection.handler()));
+    }
+
+    Statement::Statement(sqlite3_stmt* stmt_handler)
+        : p_stmt_handler(stmt_handler)
+    {
     }
 
     Statement::~Statement()
     {
-        sqlite3_finalize(p_handler);
+        if (p_stmt_handler != nullptr)
+            sqlite3_finalize(p_stmt_handler);
     }
 
-    bool Statement::fetchStep()
+    Statement::Statement(Statement&& other)
+        : p_stmt_handler(other.p_stmt_handler)
     {
-        int result = sqlite3_step(p_handler);
+        other.p_stmt_handler = nullptr;
+    }
+
+    Statement& Statement::operator=(Statement&& other)
+    {
+        if (p_stmt_handler != nullptr)
+            sqlite3_finalize(p_stmt_handler);
+        p_stmt_handler = other.p_stmt_handler;
+        other.p_stmt_handler = nullptr;
+        return *this;
+    }
+    
+    void Statement::execute()
+    {
+        while (fetchRow())
+            continue;
+    }
+
+    Row Statement::fetchRow()
+    {
+        int result = sqlite3_step(p_stmt_handler);
         if (result == SQLITE_DONE)
-            return false;
+            return Row();
         if (result == SQLITE_ROW)
-            return true;
-        throw std::exception(sqlite3_errmsg(r_connection.handler()));
+            return Row(p_stmt_handler);
+        if (result == SQLITE_MISUSE)
+            throw std::exception("Library used incorrectly");
+        throw std::exception("SQL Error, check db connection");
     }
 
-    int Statement::columnCount()
+    int Statement::columnCount() const
     {
-        return sqlite3_column_count(p_handler);
+        return sqlite3_column_count(p_stmt_handler);
     }
 
-    int Statement::columnBytes(int column_index)
+    int Statement::columnBytes(int column_index) const
     {
-        return sqlite3_column_bytes(p_handler, column_index);
+        return sqlite3_column_bytes(p_stmt_handler, column_index);
     }
 
-    template<>
-    char Statement::columnAs<char>(int column_index)
+    void Statement::reset(bool clear_bindings)
     {
-        return static_cast<char>(sqlite3_column_int(p_handler, column_index));
+        sqlite3_reset(p_stmt_handler);
+        if (clear_bindings)
+            sqlite3_clear_bindings(p_stmt_handler);
     }
 
-    template<>
-    short Statement::columnAs<short>(int column_index)
+    void Statement::bindNull(int placeholder_index)
     {
-        return static_cast<short>(sqlite3_column_int(p_handler, column_index));
-    }
-
-    template<>
-    int Statement::columnAs<int>(int column_index)
-    {
-        return sqlite3_column_int(p_handler, column_index);
+        sqlite3_bind_null(p_stmt_handler, placeholder_index);
     }
 
     template<>
-    long Statement::columnAs<long>(int column_index)
+    void Statement::bind<char>(int placeholder_index, char binding_value)
     {
-        return static_cast<long>(sqlite3_column_int64(p_handler, column_index));
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    long long Statement::columnAs<long long>(int column_index)
+    void Statement::bind<short>(int placeholder_index, short binding_value)
     {
-        return static_cast<long long>(sqlite3_column_int64(p_handler, column_index));
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    unsigned char Statement::columnAs<unsigned char>(int column_index)
+    void Statement::bind<int>(int placeholder_index, int binding_value)
     {
-        return static_cast<unsigned char>(sqlite3_column_int(p_handler, column_index));
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    unsigned short Statement::columnAs<unsigned short>(int column_index)
+    void Statement::bind<long>(int placeholder_index, long binding_value)
     {
-        return static_cast<unsigned short>(sqlite3_column_int(p_handler, column_index));
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    unsigned int Statement::columnAs<unsigned int>(int column_index)
+    void Statement::bind<long long>(int placeholder_index, long long binding_value)
     {
-        return static_cast<unsigned int>(sqlite3_column_int(p_handler, column_index));
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    unsigned long Statement::columnAs<unsigned long>(int column_index)
+    void Statement::bind<unsigned int>(int placeholder_index, unsigned int binding_value)
     {
-        return static_cast<unsigned long>(sqlite3_column_int64(p_handler, column_index));
+        sqlite3_bind_int(p_stmt_handler, placeholder_index, static_cast<int>(binding_value));
     }
 
     template<>
-    unsigned long long Statement::columnAs<unsigned long long>(int column_index)
+    void Statement::bind<unsigned long>(int placeholder_index, unsigned long binding_value)
     {
-        return static_cast<unsigned long long>(sqlite3_column_int64(p_handler, column_index));
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, static_cast<long>(binding_value));
     }
 
     template<>
-    float Statement::columnAs<float>(int column_index)
+    void Statement::bind<unsigned long long>(int placeholder_index, unsigned long long binding_value)
     {
-        return static_cast<float>(sqlite3_column_double(p_handler, column_index));
+        sqlite3_bind_int64(p_stmt_handler, placeholder_index, static_cast<long long>(binding_value));
     }
 
     template<>
-    double Statement::columnAs<double>(int column_index)
+    void Statement::bind<float>(int placeholder_index, float binding_value)
     {
-        return sqlite3_column_double(p_handler, column_index);
+        sqlite3_bind_double(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    const char* Statement::columnAs<const char*>(int column_index)
+    void Statement::bind<double>(int placeholder_index, double binding_value)
     {
-        return reinterpret_cast<const char*>(sqlite3_column_text(p_handler, column_index));
+        sqlite3_bind_double(p_stmt_handler, placeholder_index, binding_value);
     }
 
     template<>
-    const unsigned char* Statement::columnAs<const unsigned char*>(int column_index)
+    void Statement::bind<const char*>(int placeholder_index, const char* binding_value)
     {
-        return sqlite3_column_text(p_handler, column_index);
+        sqlite3_bind_text(p_stmt_handler, placeholder_index, binding_value, -1, nullptr);
     }
 
     template<>
-    const void* Statement::columnAs<const void*>(int column_index)
+    void Statement::bind<const std::string&>(int placeholder_index, const std::string& binding_value)
     {
-        return sqlite3_column_blob(p_handler, column_index);
-    }
-
-    template<>
-    std::string Statement::columnAs<std::string>(int column_index)
-    {
-        return std::string(columnAs<const char*>(column_index), columnBytes(column_index));
+        bind<const char*>(placeholder_index, binding_value.c_str());
     }
 }

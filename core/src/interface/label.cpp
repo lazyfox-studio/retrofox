@@ -16,6 +16,18 @@ namespace Interface
 
     }
 
+    void Label::setX(int x)
+    {
+        m_text.setX(x);
+        geometry.x = x;
+    }
+
+    void Label::setY(int y)
+    {
+        m_text.setY(y);
+        geometry.y = y;
+    }
+
     void Label::setHeight(unsigned height)
     {
         m_text.setFontSize(height);

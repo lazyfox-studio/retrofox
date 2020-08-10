@@ -5,8 +5,10 @@
 #include "graphics/fontbuffer.h"
 #include "interface/layout.h"
 #include "interface/button.h"
+#include "interface/labeledbutton.h"
 #include "interface/label.h"
 #include "interface/paragraph.h"
+#include "gamemenu.h"
 
 class Window
 {

@@ -35,7 +35,7 @@ namespace Interface
         {
             last++;
         }
-        widgets.clear();
+        layout.clear();
         for (auto i = first; i != last; ++i)
         {
             layout.pushBack((*i).get());
@@ -44,18 +44,16 @@ namespace Interface
 
     void Menu::pushFront(Button& widget)
     {
-        widget.setHeight(m_button_height);
+        widget.base_size.height = m_button_height;
         widget.size_policy.vertical = Interface::Button::SizePolicy::Fixed;
         widgets.push_front(widget);
-        reset();
     }
 
     void Menu::pushBack(Button& widget)
     {
-        widget.setHeight(m_button_height);
+        widget.base_size.height = m_button_height;
         widget.size_policy.vertical = Interface::Button::SizePolicy::Fixed;
         widgets.push_front(widget);
-        reset();
     }
 
     void Menu::next()

@@ -7,6 +7,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{d816cc59-bd1d-4e18-8d7f-eb4f71ca634d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\entities">
+      <UniqueIdentifier>{d7bc70ce-1cd3-43f9-970d-1de79937c3d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entities">
+      <UniqueIdentifier>{9c6535a6-a489-4bbe-ba48-33b89ba9d564}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\database\include\connection.h">
@@ -18,6 +24,18 @@
     <ClInclude Include="..\..\database\include\database.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\database\include\row.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\game.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\platform.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\emulator.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp">
@@ -25,6 +43,18 @@
     </ClCompile>
     <ClCompile Include="..\..\database\src\statement.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\row.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\game.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\platform.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\emulator.cpp">
+      <Filter>src\entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

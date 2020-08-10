@@ -19,8 +19,8 @@ void Window::show()
 
 void Window::start()
 {
-    Interface::Button button(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
-    Interface::Button button2(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
+    /*Interface::LabeledButton button(renderer, "Test", "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
+    Interface::LabeledButton button2(renderer, "Enjoy", "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
 
     Interface::Layout layout(5, 5, 400, 400);
     button.base_size.height = 100;
@@ -30,7 +30,10 @@ void Window::start()
 
     Interface::Label label(renderer, Graphics::FontBuffer::instance().load("../../core/data/roboto-regular.ttf", 40), 0, 0, "Hello world");
     label.setHeight(50);
-    label.setWidth(500);
+    label.setWidth(500);*/
+    GameMenu menu(5, 5, 500, 700, 80);
+    menu.showGames(renderer, "testbase.db");
+    menu.reset();
 
     Interface::Paragraph para(renderer, Graphics::FontBuffer::instance().load("../../core/data/roboto-regular.ttf", 20), 100, 100, 180, "Some very longgggggg line of text... Somee veeeery llong line of text...");
 
@@ -46,7 +49,8 @@ void Window::start()
         }
 
         SDL_RenderClear(renderer);
-        layout.render();
+        menu.render();
+        //layout.render();
         //label.render();
         //para.render();
         SDL_RenderPresent(renderer);

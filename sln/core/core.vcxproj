@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\core\src\gamemenu.cpp" />
     <ClCompile Include="..\..\core\src\graphics\font.cpp" />
     <ClCompile Include="..\..\core\src\graphics\fontbuffer.cpp" />
     <ClCompile Include="..\..\core\src\graphics\text.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp" />
     <ClCompile Include="..\..\core\src\interface\button.cpp" />
     <ClCompile Include="..\..\core\src\interface\label.cpp" />
+    <ClCompile Include="..\..\core\src\interface\labeledbutton.cpp" />
     <ClCompile Include="..\..\core\src\interface\layout.cpp" />
     <ClCompile Include="..\..\core\src\interface\menu.cpp" />
     <ClCompile Include="..\..\core\src\interface\paragraph.cpp" />
@@ -159,6 +161,7 @@
     <ClCompile Include="..\..\core\src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\include\gamemenu.h" />
     <ClInclude Include="..\..\core\include\graphics\font.h" />
     <ClInclude Include="..\..\core\include\graphics\fontbuffer.h" />
     <ClInclude Include="..\..\core\include\graphics\text.h" />
@@ -167,6 +170,7 @@
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h" />
     <ClInclude Include="..\..\core\include\interface\button.h" />
     <ClInclude Include="..\..\core\include\interface\label.h" />
+    <ClInclude Include="..\..\core\include\interface\labeledbutton.h" />
     <ClInclude Include="..\..\core\include\interface\layout.h" />
     <ClInclude Include="..\..\core\include\interface\menu.h" />
     <ClInclude Include="..\..\core\include\interface\paragraph.h" />
