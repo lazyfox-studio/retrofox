@@ -1,8 +1,11 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <map>
 
 #include "row.h"
+#include "statement.h"
 
 namespace Database
 {
@@ -23,6 +26,8 @@ namespace Database
             std::string boxart;
 
             Game(const Database::Row& row);
+
+            static std::vector<Game> fetchEntities(Database::Statement& stmt);
         };
     }
 }

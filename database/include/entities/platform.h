@@ -1,8 +1,10 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include "row.h"
+#include "statement.h"
 
 namespace Database
 {
@@ -16,6 +18,8 @@ namespace Database
             unsigned default_emulator_id;
 
             Platform(const Database::Row& row);
+
+            static std::vector<Platform> fetchEntities(Database::Statement& stmt);
         };
     }
 }

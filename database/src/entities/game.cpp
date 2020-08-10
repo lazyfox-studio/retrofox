@@ -18,5 +18,14 @@ namespace Database
             description = row.column<std::string>("description");
             boxart = row.column<std::string>("boxart");
         }
+
+        std::vector<Game> Game::fetchEntities(Database::Statement& stmt)
+        {
+            std::vector<Game> entities;
+            Database::Row row;
+            while (row = stmt.fetchRow())
+                entities.emplace_back(row);
+            return entities;
+        }
     }
 }
