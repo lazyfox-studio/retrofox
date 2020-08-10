@@ -11,12 +11,14 @@ namespace Database
     class Statement
     {
     protected:
-        sqlite3* p_db_handler;
+        friend class Connection;
+
         sqlite3_stmt* p_stmt_handler;
+
+        explicit Statement(sqlite3_stmt* p_stmt_handler);
 
     public:
         Statement();
-        Statement(sqlite3* db_handler, const std::string& query_string);
         ~Statement();
 
         Statement(Statement&& other);
@@ -27,9 +29,7 @@ namespace Database
 
         void execute();
         Row fetchRow();
-
-        const char* error();
-        int errorCode();
+        
         int columnCount();
         int columnBytes(int column_index);
     };

@@ -30,6 +30,9 @@ namespace Database
 
     Statement Connection::query(const std::string& query_string)
     {
-        return Statement(p_db_handler, query_string);
+        sqlite3_stmt* stmt_handler;
+        if (sqlite3_prepare(p_db_handler, query_string.c_str(), static_cast<int>(query_string.length()) + 1, &stmt_handler, nullptr))
+            throw std::exception(error());
+        return Statement(stmt_handler);
     }
 }
