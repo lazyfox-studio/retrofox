@@ -22,23 +22,23 @@ namespace Database
         Row& operator=(const Row&) = delete;
         Row& operator=(Row&&) = default;
         
-        int columnCount();
-        int columnBytes(int column_index);
-        int columnType(int column_index);
-        const char* columnName(int column_index);
-        int findColumnByName(const std::string& column_name);
+        int columnCount() const;
+        int columnBytes(int column_index) const;
+        int columnType(int column_index) const;
+        const char* columnName(int column_index) const;
+        int findColumnByName(const std::string& column_name) const;
 
         operator bool() const;
 
         template<typename RType>
-        RType column(int column_index);
+        RType column(int column_index) const;
 
         template<typename RType>
-        RType column(const std::string& column_name);
+        RType column(const std::string& column_name) const;
     };
 
     template<typename RType>
-    RType Row::column(const std::string& column_name)
+    RType Row::column(const std::string& column_name) const
     {
         int column_index = findColumnByName(column_name);
         if (column_index == -1)
