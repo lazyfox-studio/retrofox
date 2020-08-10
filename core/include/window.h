@@ -8,6 +8,7 @@
 #include "interface/labeledbutton.h"
 #include "interface/label.h"
 #include "interface/paragraph.h"
+#include "gamemenu.h"
 
 class Window
 {
