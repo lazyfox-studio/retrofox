@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		Database::Row row;
 		while (row = query.fetchRow())
 		{
-			std::cout << row.column<int>(0) << row.column<std::string>(1) << row.column<int>(2);
+			std::cout << row.column<int>("ID") << row.column<std::string>("NAME") << row.column<int>(2);
 		}
 	}
 	catch (std::exception & e)
