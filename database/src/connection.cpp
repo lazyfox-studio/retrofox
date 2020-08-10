@@ -18,14 +18,19 @@ namespace Database
         return p_db_handler;
     }
 
-    const char* Connection::error()
+    const char* Connection::error() const
     {
         return sqlite3_errmsg(p_db_handler);
     }
 
-    int Connection::errorCode()
+    int Connection::errorCode() const
     {
         return sqlite3_errcode(p_db_handler);
+    }
+
+    int Connection::changes() const
+    {
+        return sqlite3_changes(p_db_handler);
     }
 
     Statement Connection::query(const std::string& query_string)

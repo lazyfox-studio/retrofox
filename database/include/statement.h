@@ -3,6 +3,8 @@
 #include <sqlite3.h>
 
 #include <string>
+#include <vector>
+#include <map>
 
 #include "row.h"
 
@@ -29,6 +31,12 @@ namespace Database
 
         void execute();
         Row fetchRow();
+
+        template<typename Value>
+        std::vector<Value> getColumn();
+
+        template<typename Key, typename Value>
+        std::map<Key, Value> getIndexedColumn();
         
         int columnCount() const;
         int columnBytes(int column_index) const;
@@ -41,4 +49,25 @@ namespace Database
         void bind(int placeholder_index, Type binding_value);
 
     };
+
+
+    template<typename Value>
+    std::vector<Value> Statement::getColumn()
+    {
+        std::vector<Value> result;
+        Database::Row row;
+        while (row = fetchRow())
+            result.push_back(row.column<Value>(0));
+        return result;
+    }
+
+    template<typename Key, typename Value>
+    std::map<Key, Value> Statement::getIndexedColumn()
+    {
+        std::map<Key, Value> result;
+        Database::Row row;
+        while (row = fetchRow())
+            result.insert(std::make_pair(row.column<Key>(0), row.column<Value>(1)));
+        return result;
+    }
 }

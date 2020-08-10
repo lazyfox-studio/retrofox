@@ -3,6 +3,7 @@
 #include <sqlite3.h>
 
 #include <string>
+#include <vector>
 
 #include "statement.h"
 
@@ -21,9 +22,30 @@ namespace Database
         ~Connection();
 
         sqlite3* handler() const;
-        const char* error();
-        int errorCode();
+        const char* error() const;
+        int errorCode() const;
+        int changes() const;
 
         Statement query(const std::string& query_string);
+        
+        template<typename Value>
+        std::vector<Value> getColumn(const std::string& query_string);
+
+        template<typename Key, typename Value>
+        std::map<Key, Value> getIndexedColumn(const std::string& query_string);
     };
+
+    template<typename Value>
+    std::vector<Value> Connection::getColumn(const std::string& query_string)
+    {
+        Database::Statement stmt = query(query_string);
+        return stmt.getColumn<Value>();
+    }
+
+    template<typename Key, typename Value>
+    std::map<Key, Value> Connection::getIndexedColumn(const std::string& query_string)
+    {
+        Database::Statement stmt = query(query_string);
+        return stmt.getIndexedColumn<Key, Value>();
+    }
 }
