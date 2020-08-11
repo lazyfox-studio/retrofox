@@ -12,7 +12,7 @@ endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${core_SOURCE_DIR}/cmake")
 
-set(SDL2_PATH "D:/Libraries/SDL/lib/x64")
+set(SDL2_PATH "D:/Libraries/SDL")
 find_package(SDL2 REQUIRED)
 if (NOT SQLite3_FOUND)
     message(SEND_ERROR "Failed to find SDL2")
@@ -21,15 +21,14 @@ else()
     include_directories(${SDL2_INCLUDE_DIR})
 endif()
 
-#set(SDL2_TTF_PATH "D:/Libraries/SDL_ttf")
-#find_package(SDL2_ttf)
-#if (NOT SDL2_ttf)
-#    message(SEND_ERROR "Failed to find SDL2_ttf")
-#    return()
-#else()
-#    include_directories(${SDL2_ttf_INCLUDE_DIR})
-#endif()
-include_directories("D:/Libraries/SDL_ttf/include")
+set(SDL2_TTF_PATH "D:/Libraries/SDL_ttf")
+find_package(SDL2_ttf)
+if (NOT SDL2_TTF_FOUND)
+    message(SEND_ERROR "Failed to find SDL2_ttf")
+    return()
+else()
+include_directories(${SDL2_TTF_INCLUDE_DIRS})
+endif()
 
 include_directories("../database/include")
 add_library(database STATIC IMPORTED)
@@ -41,6 +40,7 @@ include_directories(include)
 #source files
 set(SOURCE_FILES src/main.cpp
     src/window.cpp
+    src/gamemenu.cpp
     src/graphics/font.cpp
     src/graphics/fontbuffer.cpp
     src/graphics/sprite.cpp
@@ -55,7 +55,6 @@ set(SOURCE_FILES src/main.cpp
     src/interface/widget.cpp
     ) 
 
-
 add_executable(core ${SOURCE_FILES})
 
-target_link_libraries(core database ${SDL2_LIBRARIES})
+target_link_libraries(core database ${SDL2_LIBRARY} ${SDL2_TTF_LIBRARIES})
