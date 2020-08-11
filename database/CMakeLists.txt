@@ -12,4 +12,13 @@ endif()
 
 include_directories(include)
 
-add_library(database STATIC src/connection.cpp src/statement.cpp)
+set(DATABASE_SOURCE_FILES
+    src/connection.cpp
+    src/row.cpp
+    src/statement.cpp
+    src/entities/emulator.cpp
+    src/entities/game.cpp
+    src/entities/platform.cpp
+    )
+
+add_library(database STATIC ${DATABASE_SOURCE_FILES})
