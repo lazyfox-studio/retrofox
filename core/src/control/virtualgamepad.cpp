@@ -2,25 +2,30 @@
 
 namespace Control
 {
-    void VirtualGamepad::processInput(SDL_Event event)
+    VirtualGamepad::KeyCode VirtualGamepad::processInput(SDL_Event event)
     {
         if (event.type == SDL_KEYDOWN)
         {
             switch (event.key.keysym.sym)
             {
+            case SDLK_UP:
+                return KeyCode::up;
+            case SDLK_LEFT:
+                return KeyCode::left;
+            case SDLK_RIGHT:
+                return KeyCode::right;
+            case SDLK_DOWN:
+                return KeyCode::down;
             case SDLK_RETURN:
-                keys.a = true;
-                break;
+                return KeyCode::a;
             case SDLK_BACKSPACE:
-                keys.b = true;
-                break;
+                return KeyCode::b;
+            case SDLK_LCTRL:
+                return KeyCode::x;
+            case SDLK_LSHIFT:
+                return KeyCode::y;
             }
         }
-    }
-
-    void VirtualGamepad::resetState()
-    {
-        keys = {false, false, false, false, false, false, false, false};
     }
 
     VirtualGamepad& VirtualGamepad::instance()

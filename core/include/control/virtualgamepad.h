@@ -7,31 +7,25 @@ namespace Control
     class VirtualGamepad
     {
     public:
-        struct Keys
+        enum KeyCode
         {
             /// Left cross
-            bool up;
-            bool down;
-            bool left;
-            bool right;
+            up,
+            down,
+            left,
+            right,
             /// Right buttons bar
-            bool a;
-            bool b;
-            bool x;
-            bool y;
+            a,
+            b,
+            x,
+            y
         };
-        Keys keys;
 
         /**
          * @brief Process input, and update virtual gamepad status
          * @param event Event that may be an input event
         */
-        void processInput(SDL_Event event);
-
-        /**
-         * @brief Reset key status
-        */
-        void resetState();
+        KeyCode processInput(SDL_Event event);
 
         static VirtualGamepad& instance();
     };
