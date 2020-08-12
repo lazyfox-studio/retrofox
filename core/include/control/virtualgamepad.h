@@ -9,6 +9,7 @@ namespace Control
     public:
         enum KeyCode
         {
+            empty,
             /// Left cross
             up,
             down,

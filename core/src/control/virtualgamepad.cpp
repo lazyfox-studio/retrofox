@@ -24,6 +24,8 @@ namespace Control
                 return KeyCode::x;
             case SDLK_LSHIFT:
                 return KeyCode::y;
+            default:
+                return KeyCode::empty;
             }
         }
     }
