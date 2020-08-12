@@ -25,6 +25,12 @@
     <Filter Include="lib">
       <UniqueIdentifier>{c8cb27d9-e549-475d-9135-02d7a869a707}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\control">
+      <UniqueIdentifier>{2cced075-70e6-4b5d-afe5-d03c89168e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\control">
+      <UniqueIdentifier>{3d1f8240-c70f-40b9-8ba3-c99ee649b97d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\src\main.cpp">
@@ -75,6 +81,9 @@
     <ClCompile Include="..\..\core\src\interface\labeledbutton.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\control\virtualgamepad.cpp">
+      <Filter>src\control</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\window.h">
@@ -121,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\include\interface\labeledbutton.h">
       <Filter>include\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\control\virtualgamepad.h">
+      <Filter>include\control</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

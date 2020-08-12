@@ -2,6 +2,9 @@
 
 #include <SDL.h>
 
+#include <iostream>
+
+#include "control/virtualgamepad.h"
 #include "graphics/fontbuffer.h"
 #include "interface/layout.h"
 #include "interface/button.h"

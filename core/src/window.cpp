@@ -40,13 +40,20 @@ void Window::start()
     SDL_Event event;
     while (true)
     {
+        Control::VirtualGamepad::instance().resetState();
         while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_QUIT)
             {
                 return;
             }
+            else
+            {
+                Control::VirtualGamepad::instance().processInput(event);
+            }
         }
+
+        std::cout << Control::VirtualGamepad::instance().keys.a;
 
         SDL_RenderClear(renderer);
         menu.render();
