@@ -56,8 +56,12 @@ namespace Interface
         widgets.push_front(widget);
     }
 
-    void Menu::next()
+    bool Menu::next()
     {
+        if (current == --widgets.end())
+        {
+            return false;
+        }
         if (current == last)
         {
             layout.popFront();
@@ -66,15 +70,23 @@ namespace Interface
             current++;
             (*current).get().setState(Button::State::Hovered);
             layout.pushBack((*last).get());
+            return true;
         }
         else
         {
+            (*current).get().setState(Button::State::Default);
             current++;
+            (*current).get().setState(Button::State::Hovered);
+            return true;
         }
     }
 
-    void Menu::previous()
+    bool Menu::previous()
     {
+        if (current == widgets.begin())
+        {
+            return false;
+        }
         if (current == first)
         {
             layout.popBack();
@@ -83,10 +95,14 @@ namespace Interface
             current--;
             (*current).get().setState(Button::State::Hovered);
             layout.pushFront((*first).get());
+            return true;
         }
         else
         {
-            current++;
+            (*current).get().setState(Button::State::Default);
+            current--;
+            (*current).get().setState(Button::State::Hovered);
+            return true;
         }
     }
 
@@ -129,25 +145,9 @@ namespace Interface
             switch (code)
             {
             case Control::VirtualGamepad::up:
-                if (current != widgets.begin())
-                {
-                    next();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return previous();
             case Control::VirtualGamepad::down:
-                if (current != widgets.end())
-                {
-                    previous();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return next();
             case Control::VirtualGamepad::a:
                 //(*current).get().onClick();
                 return true;

@@ -30,8 +30,8 @@ namespace Interface
         void pushFront(Button& widget);
         void pushBack(Button& widget);
 
-        void next();
-        void previous();
+        bool next();
+        bool previous();
 
         virtual void setX(int x);
         virtual void setY(int y);

@@ -21,7 +21,8 @@ void GameMenu::showGames(SDL_Renderer* renderer, std::string db_path)
     for (const auto& name : games)
     {
         Interface::LabeledButton* button = new Interface::LabeledButton //TODO: REMOVE MEMORY LEAK!!!!!!!!!!!!!!!!!!!
-        (renderer, name, "../../core/data/testsprite.bmp", "../../core/data/testsprite2.bmp");
+        (renderer, name, "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp",
+            "../../core/data/testsprite2.bmp", "../../core/data/testsprite2.bmp");
         pushBack(*button);
     }
 }
