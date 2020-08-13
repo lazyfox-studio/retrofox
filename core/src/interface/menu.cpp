@@ -118,6 +118,45 @@ namespace Interface
         layout.update();
     }
 
+    bool Menu::onControl(Control::VirtualGamepad::KeyCode code)
+    {
+        if ((*current).get().onControl(code))
+        {
+            return true;
+        }
+        else
+        {
+            switch (code)
+            {
+            case Control::VirtualGamepad::up:
+                if (current != widgets.begin())
+                {
+                    next();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case Control::VirtualGamepad::down:
+                if (current != widgets.end())
+                {
+                    previous();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case Control::VirtualGamepad::a:
+                //(*current).get().onClick();
+                return true;
+            default:
+                return false;
+            }
+        }
+    }
+
     void Menu::render()
     {
         layout.render();

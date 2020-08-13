@@ -2,6 +2,7 @@
 
 #include <limits>
 
+#include "control/virtualgamepad.h"
 #include "graphics/sprite.h"
 
 namespace Interface
@@ -61,6 +62,7 @@ namespace Interface
         virtual void setHeight(unsigned height);
         virtual void setWidth(unsigned width);
 
+        virtual bool onControl(Control::VirtualGamepad::KeyCode code);
         virtual void render() = 0;
     };
 }

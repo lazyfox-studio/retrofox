@@ -89,6 +89,8 @@ namespace Interface
          */
         void setState(State new_state);
 
+        virtual bool onControl(Control::VirtualGamepad::KeyCode code);
+
         /// Renders button via provided renderer
         virtual void render();
     };

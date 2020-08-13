@@ -13,6 +13,8 @@ namespace Interface
         spacing.horizontal = 0;
 
         stacking = Stacking::Vertical;
+
+        current = widgets.begin();
     }
 
     Layout::Layout(int x, int y, unsigned height, unsigned width)
@@ -27,6 +29,8 @@ namespace Interface
         spacing.horizontal = 0;
 
         stacking = Stacking::Vertical;
+
+        current = widgets.begin();
     }
 
     Layout::~Layout()
@@ -141,6 +145,73 @@ namespace Interface
         else if (stacking == Stacking::Horizontal)
         {
 
+        }
+    }
+
+    bool Layout::onControl(Control::VirtualGamepad::KeyCode code)
+    {
+        if ((*current).get().onControl(code))
+        {
+            return true;
+        }
+        else
+        {
+            if (stacking == Stacking::Horizontal)
+            {
+                switch (code)
+                {
+                case Control::VirtualGamepad::left:
+                    if (current != widgets.begin())
+                    {
+                        current--;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case Control::VirtualGamepad::right:
+                    if (current != widgets.end())
+                    {
+                        current++;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                default:
+                    return false;
+                }
+            }
+            else
+            {
+                switch (code)
+                {
+                case Control::VirtualGamepad::up:
+                    if (current != widgets.begin())
+                    {
+                        current--;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case Control::VirtualGamepad::down:
+                    if (current != widgets.end())
+                    {
+                        current++;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                default:
+                    return false;
+                }
+            }
         }
     }
 

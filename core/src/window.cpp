@@ -49,6 +49,10 @@ void Window::start()
             else
             {
                 Control::VirtualGamepad::KeyCode key_code = Control::VirtualGamepad::instance().processInput(event);
+                if (key_code != Control::VirtualGamepad::KeyCode::empty)
+                {
+                    //root.onClick();
+                }
             }
         }
 

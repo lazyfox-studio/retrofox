@@ -19,6 +19,8 @@ namespace Interface
         /// List of references to widgets
         WidgetRefList widgets;
 
+        WidgetRefList::iterator current;
+
     public:
         /// Represents margin size
         struct Margin
@@ -83,6 +85,7 @@ namespace Interface
         /// Removes all widgets from list
         void clear();
 
+        virtual bool onControl(Control::VirtualGamepad::KeyCode code);
 
         /// Renders all widgets in list
         virtual void render();

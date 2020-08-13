@@ -82,4 +82,9 @@ namespace Interface
     {
         geometry.width = width;
     }
+
+    bool Widget::onControl(Control::VirtualGamepad::KeyCode code)
+    {
+        return false;
+    }
 }
