@@ -52,6 +52,9 @@ namespace Interface
         Widget(int x, int y, unsigned height, unsigned width);
         ~Widget();
 
+        virtual void setActive();
+        virtual void setInactive();
+
         int x();
         int y();
         unsigned height();

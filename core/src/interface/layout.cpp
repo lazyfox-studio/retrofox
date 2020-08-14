@@ -163,7 +163,9 @@ namespace Interface
                 case Control::VirtualGamepad::left:
                     if (current != widgets.begin())
                     {
+                        current->get().setInactive();
                         current--;
+                        current->get().setActive();
                         return true;
                     }
                     else
@@ -173,7 +175,9 @@ namespace Interface
                 case Control::VirtualGamepad::right:
                     if (current != widgets.end())
                     {
+                        current->get().setInactive();
                         current++;
+                        current->get().setActive();
                         return true;
                     }
                     else
@@ -191,7 +195,9 @@ namespace Interface
                 case Control::VirtualGamepad::up:
                     if (current != widgets.begin())
                     {
+                        current->get().setInactive();
                         current--;
+                        current->get().setActive();
                         return true;
                     }
                     else
@@ -201,7 +207,9 @@ namespace Interface
                 case Control::VirtualGamepad::down:
                     if (current != widgets.end())
                     {
+                        current->get().setInactive();
                         current++;
+                        current->get().setActive();
                         return true;
                     }
                     else

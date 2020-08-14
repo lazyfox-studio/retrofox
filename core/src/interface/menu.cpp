@@ -106,6 +106,22 @@ namespace Interface
         }
     }
 
+    void Menu::setActive()
+    {
+        if (widgets.begin() != widgets.end())
+        {
+            current->get().setState(Interface::Button::State::Hovered);
+        }
+    }
+
+    void Menu::setInactive()
+    {
+        if (widgets.begin() != widgets.end())
+        {
+            current->get().setState(Interface::Button::State::Default);
+        }
+    }
+
     void Menu::setX(int x)
     {
         geometry.x = x;

@@ -43,6 +43,16 @@ namespace Interface
 
     }
 
+    void Widget::setActive()
+    {
+
+    }
+
+    void Widget::setInactive()
+    {
+
+    }
+
     int Widget::x()
     {
         return geometry.x;

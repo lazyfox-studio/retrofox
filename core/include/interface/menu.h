@@ -33,6 +33,9 @@ namespace Interface
         bool next();
         bool previous();
 
+        virtual void setActive();
+        virtual void setInactive();
+
         virtual void setX(int x);
         virtual void setY(int y);
         virtual void setHeight(unsigned height);
