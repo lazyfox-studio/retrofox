@@ -7,8 +7,8 @@
 
 namespace Interface
 {
-    /// List of button references (reference wrappers)
-    using ButtonRefList = std::list<std::reference_wrapper<Interface::Button>>;
+    /// List of button shared pointers
+    using ButtonPtrList = std::list<std::shared_ptr<Button>>;
 
     /**
      * @brief Menu with buttons
@@ -21,11 +21,11 @@ namespace Interface
         Interface::Layout layout;
 
         /// List of buttons
-        ButtonRefList widgets;
+        ButtonPtrList widgets;
 
-        ButtonRefList::iterator current; ///< Current button iterator
-        ButtonRefList::iterator first;   ///< First button iterator
-        ButtonRefList::iterator last;    ///< Last button iterator
+        ButtonPtrList::iterator current; ///< Current button iterator
+        ButtonPtrList::iterator first;   ///< First button iterator
+        ButtonPtrList::iterator last;    ///< Last button iterator
 
         /// Height of each button
         unsigned m_button_height;
@@ -56,15 +56,15 @@ namespace Interface
 
         /**
          * @brief Adds button to front of list
-         * @param button Button to add
+         * @param button Button pointer to add
          */
-        void pushFront(Button& button);
+        void pushFront(std::shared_ptr<Button> button);
 
         /**
          * @brief Adds button to back of list
-         * @param button Button to add
+         * @param button Button pointer to add
          */
-        void pushBack(Button& button);
+        void pushBack(std::shared_ptr<Button> button);
 
 
         /**

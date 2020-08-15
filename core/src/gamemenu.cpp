@@ -20,9 +20,9 @@ void GameMenu::showGames(SDL_Renderer* renderer, const std::string& db_path)
     auto games = base.getColumn<std::string>("SELECT `name` FROM `games`;");
     for (const auto& name : games)
     {
-        Interface::LabeledButton* button = new Interface::LabeledButton //TODO: REMOVE MEMORY LEAK!!!!!!!!!!!!!!!!!!!
+        auto button = std::make_shared<Interface::LabeledButton>
         (renderer, name, "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp",
             "../../core/data/testsprite2.bmp", "../../core/data/testsprite2.bmp");
-        pushBack(*button);
+        pushBack(button);
     }
 }

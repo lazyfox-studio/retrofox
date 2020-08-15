@@ -28,7 +28,7 @@ namespace Interface
     void Menu::reset()
     {
         current = widgets.begin();
-        current->get().setState(Button::State::Hovered);
+        (*current)->setState(Button::State::Hovered);
         first = widgets.begin();
         last = widgets.begin();
         for (size_t i = 0; (i < visible_buttons_count) && (last != widgets.end()); i++)
@@ -42,18 +42,18 @@ namespace Interface
         }
     }
 
-    void Menu::pushFront(Button& widget)
+    void Menu::pushFront(std::shared_ptr<Button> button)
     {
-        widget.base_size.height = m_button_height;
-        widget.size_policy.vertical = Interface::Button::SizePolicy::Fixed;
-        widgets.push_front(widget);
+        button->base_size.height = m_button_height;
+        button->size_policy.vertical = Interface::Button::SizePolicy::Fixed;
+        widgets.push_front(button);
     }
 
-    void Menu::pushBack(Button& widget)
+    void Menu::pushBack(std::shared_ptr<Button> button)
     {
-        widget.base_size.height = m_button_height;
-        widget.size_policy.vertical = Interface::Button::SizePolicy::Fixed;
-        widgets.push_front(widget);
+        button->base_size.height = m_button_height;
+        button->size_policy.vertical = Interface::Button::SizePolicy::Fixed;
+        widgets.push_back(button);
     }
 
     bool Menu::next()
@@ -66,17 +66,17 @@ namespace Interface
         {
             layout.popFront();
             last++;
-            current->get().setState(Button::State::Default);
+            (*current)->setState(Button::State::Default);
             current++;
-            current->get().setState(Button::State::Hovered);
+            (*current)->setState(Button::State::Hovered);
             layout.pushBack(*last);
             return true;
         }
         else
         {
-            current->get().setState(Button::State::Default);
+            (*current)->setState(Button::State::Default);
             current++;
-            current->get().setState(Button::State::Hovered);
+            (*current)->setState(Button::State::Hovered);
             return true;
         }
     }
@@ -91,17 +91,17 @@ namespace Interface
         {
             layout.popBack();
             first--;
-            current->get().setState(Button::State::Default);
+            (*current)->setState(Button::State::Default);
             current--;
-            current->get().setState(Button::State::Hovered);
+            (*current)->setState(Button::State::Hovered);
             layout.pushFront(*first);
             return true;
         }
         else
         {
-            current->get().setState(Button::State::Default);
+            (*current)->setState(Button::State::Default);
             current--;
-            current->get().setState(Button::State::Hovered);
+            (*current)->setState(Button::State::Hovered);
             return true;
         }
     }
@@ -110,7 +110,7 @@ namespace Interface
     {
         if (widgets.begin() != widgets.end())
         {
-            current->get().setState(Interface::Button::State::Hovered);
+            (*current)->setState(Interface::Button::State::Hovered);
         }
     }
 
@@ -118,7 +118,7 @@ namespace Interface
     {
         if (widgets.begin() != widgets.end())
         {
-            current->get().setState(Interface::Button::State::Default);
+            (*current)->setState(Interface::Button::State::Default);
         }
     }
 
@@ -152,7 +152,7 @@ namespace Interface
 
     bool Menu::onControl(Control::VirtualGamepad::KeyCode code)
     {
-        if (current->get().onControl(code))
+        if ((*current)->onControl(code))
         {
             return true;
         }
