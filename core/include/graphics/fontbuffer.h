@@ -30,7 +30,7 @@ namespace Graphics
          * @brief Loads font to memory if not already presented
          * @param path Path to TrueType font file
          * @param size Size of glyphs (in pixels) to load
-         * @return std::shared_ptr<Font> Pointer to font
+         * @return Pointer to font
         */
         FontPtr load(const std::string& path, int size);
 
@@ -43,7 +43,7 @@ namespace Graphics
 
         /**
          * @brief Returns buffer instance
-         * @return Graphics::FontBuffer Instance reference
+         * @return Instance reference
         */
         static FontBuffer& instance();
     };
