@@ -8,6 +8,10 @@
 
 namespace Interface
 {
+    /**
+     * @brief Labeled button widget
+     * @details Class to represent 'clickable' button with text label
+     */
     class LabeledButton : public Button
     {
     protected:
