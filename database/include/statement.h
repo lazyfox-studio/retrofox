@@ -26,7 +26,7 @@ namespace Database
          * @brief Internal constructor-initializer
          * @param stmt_handler Statement handler
          */
-        explicit Statement(sqlite3_stmt* p_stmt_handler);
+        explicit Statement(sqlite3_stmt* stmt_handler);
 
     public:
         /// Default constructor
@@ -103,6 +103,7 @@ namespace Database
         /**
          * @brief Binds value in preferred type (Type) to placeholder
          * @param placeholder_index Placeholder index
+         * @param binding_value Value to bind
          */
         template<typename Type>
         void bind(int placeholder_index, Type binding_value);

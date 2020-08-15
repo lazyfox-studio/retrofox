@@ -16,7 +16,7 @@ namespace Database
             unsigned id; ///< Emulator ID (ROWID)
             std::string name; ///< Emulator name
             unsigned platform_id; ///< Emulator platform ID
-            std::string execution_command; /// Execution command
+            std::string execution_command; ///< Execution command
 
             /**
              * @brief Typecast constructor
