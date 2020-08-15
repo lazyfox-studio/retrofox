@@ -67,7 +67,7 @@ namespace Interface
 
     void Layout::update()
     {
-        size_t scalable_count = widgets.size();
+        unsigned scalable_count = static_cast<unsigned>(widgets.size());
         unsigned scalable_size = geometry.height - margin.top - margin.bottom - spacing.vertical * (scalable_count - 1);
         unsigned medium_height = scalable_size / scalable_count;
         if (stacking == Stacking::Vertical)

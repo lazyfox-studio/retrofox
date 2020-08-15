@@ -97,13 +97,13 @@ namespace Graphics
          * @brief Getter for width value
          * @return Width value
          */
-        int width() const;
+        unsigned width() const;
 
         /**
          * @brief Getter for height value
          * @return Height value
          */
-        int height() const;
+        unsigned height() const;
 
         /**
          * @brief Getter for renderer
