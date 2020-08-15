@@ -19,6 +19,7 @@ namespace Interface
         /// List of references to widgets
         WidgetRefList widgets;
 
+        /// Current widget iterator
         WidgetRefList::iterator current;
 
     public:
