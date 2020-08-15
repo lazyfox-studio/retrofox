@@ -93,6 +93,31 @@ namespace Interface
 
 
         /**
+         * @brief Getter for coordinate X value
+         * @return Coordinate X value
+         */
+        int x() const;
+
+        /**
+         * @brief Getter for coordinate Y value
+         * @return Coordinate Y value
+         */
+        int y() const;
+
+        /**
+         * @brief Getter for width value
+         * @return Width value
+         */
+        unsigned width() const;
+
+        /**
+         * @brief Getter for height value
+         * @return Height value
+         */
+        unsigned height() const;
+
+
+        /**
          * @brief Setter for coordinate X value
          * @param x New coordinate X value
          */

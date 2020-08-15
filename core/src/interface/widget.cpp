@@ -53,22 +53,22 @@ namespace Interface
 
     }
 
-    int Widget::x()
+    int Widget::x() const
     {
         return geometry.x;
     }
 
-    int Widget::y()
+    int Widget::y() const
     {
         return geometry.y;
     }
 
-    unsigned Widget::height()
+    unsigned Widget::height() const
     {
         return geometry.height;
     }
 
-    unsigned Widget::width()
+    unsigned Widget::width() const
     {
         return geometry.width;
     }

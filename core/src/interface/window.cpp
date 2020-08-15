@@ -45,7 +45,7 @@ namespace Interface
                 else
                 {
                     Control::VirtualGamepad::KeyCode key_code = Control::VirtualGamepad::instance().processInput(event);
-                    if (key_code != Control::VirtualGamepad::KeyCode::empty)
+                    if (key_code != Control::VirtualGamepad::KeyCode::Empty)
                     {
                         root_widget->onControl(key_code);
                     }
