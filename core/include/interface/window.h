@@ -20,7 +20,7 @@ namespace Interface
 
     public:
         Window() = delete;
-        Window(std::string title, int x, int y, int width, int height);
+        Window(const std::string& title, int x, int y, int width, int height);
         ~Window();
 
         virtual void initialize();

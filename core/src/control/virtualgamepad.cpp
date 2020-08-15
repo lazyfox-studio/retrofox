@@ -28,6 +28,7 @@ namespace Control
                 return KeyCode::empty;
             }
         }
+        return KeyCode::empty;
     }
 
     VirtualGamepad& VirtualGamepad::instance()

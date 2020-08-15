@@ -10,7 +10,7 @@ class MainWindow : public Interface::Window
 {
 public:
     MainWindow() = delete;
-    MainWindow(std::string title, int x, int y, int width, int height);
+    MainWindow(const std::string& title, int x, int y, int width, int height);
     ~MainWindow();
 
     virtual void initialize();

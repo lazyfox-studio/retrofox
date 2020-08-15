@@ -2,7 +2,7 @@
 
 namespace Interface
 {
-    Window::Window(std::string title, int x, int y, int width, int height)
+    Window::Window(const std::string& title, int x, int y, int width, int height)
     {
         window = SDL_CreateWindow(title.c_str(), 100, 100, width, height,  SDL_WINDOW_HIDDEN);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -47,13 +47,13 @@ namespace Interface
                     Control::VirtualGamepad::KeyCode key_code = Control::VirtualGamepad::instance().processInput(event);
                     if (key_code != Control::VirtualGamepad::KeyCode::empty)
                     {
-                        root_widget.get()->onControl(key_code);
+                        root_widget->onControl(key_code);
                     }
                 }
             }
 
             SDL_RenderClear(renderer);
-            root_widget.get()->render();
+            root_widget->render();
             SDL_RenderPresent(renderer);
         }
     }

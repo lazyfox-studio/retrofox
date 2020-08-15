@@ -4,7 +4,7 @@ namespace Interface
 {
     LabeledButton::LabeledButton(
         SDL_Renderer* renderer,
-        std::string text,
+        const std::string& text,
         const std::string& path_default,
         const std::string& path_clicked,
         const std::string& path_hovered,
@@ -14,8 +14,12 @@ namespace Interface
     {
         
     }
-    LabeledButton::LabeledButton(SDL_Renderer* renderer, std::string text, const std::string& path_default,
-        const std::string& path_clicked) : Button(renderer, path_default, path_clicked),
+    LabeledButton::LabeledButton(
+        SDL_Renderer* renderer, 
+        const std::string& text, 
+        const std::string& path_default,
+        const std::string& path_clicked
+    ) : Button(renderer, path_default, path_clicked),
         label(renderer, Graphics::FontBuffer::instance().load("../../core/data/roboto-regular.ttf", 0), 0, 0, text)
     {
 
