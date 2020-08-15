@@ -160,7 +160,7 @@ namespace Interface
             {
                 switch (code)
                 {
-                case Control::VirtualGamepad::left:
+                case Control::VirtualGamepad::Left:
                     if (current != widgets.begin())
                     {
                         current->get().setInactive();
@@ -172,7 +172,7 @@ namespace Interface
                     {
                         return false;
                     }
-                case Control::VirtualGamepad::right:
+                case Control::VirtualGamepad::Right:
                     if (current != widgets.end())
                     {
                         current->get().setInactive();
@@ -192,7 +192,7 @@ namespace Interface
             {
                 switch (code)
                 {
-                case Control::VirtualGamepad::up:
+                case Control::VirtualGamepad::Up:
                     if (current != widgets.begin())
                     {
                         current->get().setInactive();
@@ -204,7 +204,7 @@ namespace Interface
                     {
                         return false;
                     }
-                case Control::VirtualGamepad::down:
+                case Control::VirtualGamepad::Down:
                     if (current != widgets.end())
                     {
                         current->get().setInactive();

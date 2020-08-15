@@ -9,26 +9,26 @@ namespace Control
             switch (event.key.keysym.sym)
             {
             case SDLK_UP:
-                return KeyCode::up;
+                return KeyCode::Up;
             case SDLK_LEFT:
-                return KeyCode::left;
+                return KeyCode::Left;
             case SDLK_RIGHT:
-                return KeyCode::right;
+                return KeyCode::Right;
             case SDLK_DOWN:
-                return KeyCode::down;
+                return KeyCode::Down;
             case SDLK_RETURN:
-                return KeyCode::a;
+                return KeyCode::A;
             case SDLK_BACKSPACE:
-                return KeyCode::b;
+                return KeyCode::B;
             case SDLK_LCTRL:
-                return KeyCode::x;
+                return KeyCode::X;
             case SDLK_LSHIFT:
-                return KeyCode::y;
+                return KeyCode::Y;
             default:
-                return KeyCode::empty;
+                return KeyCode::Empty;
             }
         }
-        return KeyCode::empty;
+        return KeyCode::Empty;
     }
 
     VirtualGamepad& VirtualGamepad::instance()

@@ -28,7 +28,7 @@ namespace Interface
     void Menu::reset()
     {
         current = widgets.begin();
-        (*current).get().setState(Button::State::Hovered);
+        current->get().setState(Button::State::Hovered);
         first = widgets.begin();
         last = widgets.begin();
         for (size_t i = 0; (i < visible_buttons_count) && (last != widgets.end()); i++)
@@ -38,7 +38,7 @@ namespace Interface
         layout.clear();
         for (auto i = first; i != last; ++i)
         {
-            layout.pushBack((*i).get());
+            layout.pushBack(*i);
         }
     }
 
@@ -66,17 +66,17 @@ namespace Interface
         {
             layout.popFront();
             last++;
-            (*current).get().setState(Button::State::Default);
+            current->get().setState(Button::State::Default);
             current++;
-            (*current).get().setState(Button::State::Hovered);
-            layout.pushBack((*last).get());
+            current->get().setState(Button::State::Hovered);
+            layout.pushBack(*last);
             return true;
         }
         else
         {
-            (*current).get().setState(Button::State::Default);
+            current->get().setState(Button::State::Default);
             current++;
-            (*current).get().setState(Button::State::Hovered);
+            current->get().setState(Button::State::Hovered);
             return true;
         }
     }
@@ -91,17 +91,17 @@ namespace Interface
         {
             layout.popBack();
             first--;
-            (*current).get().setState(Button::State::Default);
+            current->get().setState(Button::State::Default);
             current--;
-            (*current).get().setState(Button::State::Hovered);
-            layout.pushFront((*first).get());
+            current->get().setState(Button::State::Hovered);
+            layout.pushFront(*first);
             return true;
         }
         else
         {
-            (*current).get().setState(Button::State::Default);
+            current->get().setState(Button::State::Default);
             current--;
-            (*current).get().setState(Button::State::Hovered);
+            current->get().setState(Button::State::Hovered);
             return true;
         }
     }
@@ -152,7 +152,7 @@ namespace Interface
 
     bool Menu::onControl(Control::VirtualGamepad::KeyCode code)
     {
-        if ((*current).get().onControl(code))
+        if (current->get().onControl(code))
         {
             return true;
         }
@@ -160,12 +160,12 @@ namespace Interface
         {
             switch (code)
             {
-            case Control::VirtualGamepad::up:
+            case Control::VirtualGamepad::Up:
                 return previous();
-            case Control::VirtualGamepad::down:
+            case Control::VirtualGamepad::Down:
                 return next();
-            case Control::VirtualGamepad::a:
-                //(*current).get().onClick();
+            case Control::VirtualGamepad::A:
+                // current->get().onClick();
                 return true;
             default:
                 return false;

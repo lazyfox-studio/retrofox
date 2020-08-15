@@ -9,17 +9,17 @@ namespace Control
     public:
         enum KeyCode
         {
-            empty,
+            Empty,
             /// Left cross
-            up,
-            down,
-            left,
-            right,
+            Up,
+            Down,
+            Left,
+            Right,
             /// Right buttons bar
-            a,
-            b,
-            x,
-            y
+            A,
+            B,
+            X,
+            Y
         };
 
         /**
