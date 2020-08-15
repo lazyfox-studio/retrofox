@@ -11,8 +11,13 @@
 
 namespace Graphics
 {
+    /// Font key (name-size pair)
     using FontKey = std::pair<std::string, int>;
+
+    /// Font smart pointer
     using FontPtr = std::shared_ptr<Font>;
+
+    /// Map with font pointers
     using FontMap = std::map <FontKey, FontPtr>;
 
     /**

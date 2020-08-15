@@ -6,6 +6,7 @@
 
 namespace Interface
 {
+    /// List of widget references (reference wrappers)
     using WidgetRefList = std::list<std::reference_wrapper<Interface::Widget>>;
 
     /**

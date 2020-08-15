@@ -7,6 +7,7 @@
 
 namespace Interface
 {
+    /// List of button references (reference wrappers)
     using ButtonRefList = std::list<std::reference_wrapper<Interface::Button>>;
 
     /**
