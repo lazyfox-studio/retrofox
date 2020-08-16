@@ -9,6 +9,7 @@
 #include "pythonref.h"
 
 /**
+ * @ingroup api-service
  * @brief Python environment controller
  * @details Class to manage Python interpreter and its environment
  */

@@ -3,6 +3,7 @@
 #include <Python.h>
 
 /**
+ * @ingroup api-service
  * @brief Simple wrapper for py-reference
  * @details Class to represent py-reference and its typecasting
  */
