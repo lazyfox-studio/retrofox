@@ -145,5 +145,8 @@
     <Library Include="..\x64\Debug\database.lib">
       <Filter>lib</Filter>
     </Library>
+    <Library Include="..\x64\Debug\api-service.lib">
+      <Filter>lib</Filter>
+    </Library>
   </ItemGroup>
 </Project>
