@@ -1,5 +1,6 @@
 #pragma once
 
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
 #include <string>
@@ -17,10 +18,11 @@ protected:
 public:
     ~PythonEnv();
 
-
     bool loadModule(const std::string& module_name);
 
     PythonRef callFunction(const std::string& module_name, const std::string& func_name);
+    PythonRef callFunction(const std::string& module_name, const std::string& func_name, long int_arg);
+    PythonRef callFunction(const std::string& module_name, const std::string& func_name, const std::string& str_arg);
 
     static PythonEnv& instance();
 };

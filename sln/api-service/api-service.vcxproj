@@ -19,15 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\api-service\scripts\test.py" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\api-service\include\pythonenv.h" />
     <ClInclude Include="..\..\api-service\include\pythonref.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\api-service\src\pythonenv.cpp" />
     <ClCompile Include="..\..\api-service\src\pythonref.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\api-service\scripts\igdb.py" />
+    <None Include="..\..\api-service\scripts\testscript.py" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -12,11 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\api-service\scripts\test.py">
-      <Filter>scripts</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\api-service\include\pythonenv.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -31,5 +26,13 @@
     <ClCompile Include="..\..\api-service\src\pythonref.cpp">
       <Filter>src</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\api-service\scripts\igdb.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\testscript.py">
+      <Filter>scripts</Filter>
+    </None>
   </ItemGroup>
 </Project>
