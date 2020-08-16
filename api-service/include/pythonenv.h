@@ -15,6 +15,8 @@ protected:
     std::map<std::string, PyObject*> m_modules;
 
     PythonEnv();
+
+    PyObject* createCallableObject(const std::string& module_name, const std::string& func_name);
 public:
     ~PythonEnv();
 

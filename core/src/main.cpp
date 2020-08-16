@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	try
 	{
 		PythonEnv::instance().loadModule("testscript");
-		int result = PythonEnv::instance().callFunction("testscript", "someMagicFunctionWithoutArgs").cast<int>();
+		int result = PythonEnv::instance().callFunction("testscript", "someMagicFunctionWithArg", "hello").cast<int>();
 		std::cout << result;
 	}
 	catch (std::exception & e)
