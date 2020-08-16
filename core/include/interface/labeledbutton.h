@@ -8,6 +8,10 @@
 
 namespace Interface
 {
+    /**
+     * @brief Labeled button widget
+     * @details Class to represent 'clickable' button with text label
+     */
     class LabeledButton : public Button
     {
     protected:
@@ -26,7 +30,7 @@ namespace Interface
          */
         LabeledButton(
             SDL_Renderer* renderer,
-            std::string text,
+            const std::string& text,
             const std::string& path_default,
             const std::string& path_clicked,
             const std::string& path_hovered,
@@ -40,8 +44,12 @@ namespace Interface
          * @param path_default Path to texture for default button state
          * @param path_clicked Path to texture for clicked button state
          */
-        LabeledButton(SDL_Renderer* renderer, std::string text, const std::string& path_default,
-            const std::string& path_clicked);
+        LabeledButton(
+            SDL_Renderer* renderer, 
+            const std::string& text, 
+            const std::string& path_default, 
+            const std::string& path_clicked
+        );
 
         /// Default destructor
         ~LabeledButton() = default;

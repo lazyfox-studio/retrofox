@@ -3,10 +3,12 @@
 #include "interface/widget.h"
 
 #include <list>
+#include <memory>
 
 namespace Interface
 {
-    using WidgetRefList = std::list<std::reference_wrapper<Interface::Widget>>;
+    /// List of widget shared pointers
+    using WidgetPtrList = std::list<std::shared_ptr<Widget>>;
 
     /**
      * @brief Layout widget
@@ -17,9 +19,10 @@ namespace Interface
     {
     protected:
         /// List of references to widgets
-        WidgetRefList widgets;
+        WidgetPtrList widgets;
 
-        WidgetRefList::iterator current;
+        /// Current widget iterator
+        WidgetPtrList::iterator current;
 
     public:
         /// Represents margin size
@@ -66,21 +69,36 @@ namespace Interface
 
         /**
          * @brief Adds widget to front of list
-         * @param widget Widget to add
+         * @param widget Widget pointer to add
          */
-        void pushFront(Widget& widget);
+        void pushFront(std::shared_ptr<Widget> widget);
 
         /**
          * @brief Adds widget to back of list
-         * @param widget Widget to add
+         * @param widget Widget pointer to add
          */
-        void pushBack(Widget& widget);
+        void pushBack(std::shared_ptr<Widget> widget);
+
+        /**
+         * @brief Emplaces widget WidgetType to front of list
+         * @param ctor_args Constructor arguments
+         */
+        template<typename WidgetType, typename ...CtorArgTypes>
+        std::shared_ptr<WidgetType> emplaceFront(CtorArgTypes ...ctor_args);
+
+        /**
+         * @brief Emplaces widget WidgetType to back of list
+         * @param ctor_args Constructor arguments
+         */
+        template<typename WidgetType, typename ...CtorArgTypes>
+        std::shared_ptr<WidgetType> emplaceBack(CtorArgTypes ...ctor_args);
 
         /// Removes first widget from list
         void popFront();
 
         /// Removes last widget from list
         void popBack();
+
 
         /// Removes all widgets from list
         void clear();
@@ -93,4 +111,20 @@ namespace Interface
         /// Recalculates widget parameters
         void update();
     };
+
+    template<typename WidgetType, typename ...CtorArgTypes>
+    inline std::shared_ptr<WidgetType> Layout::emplaceFront(CtorArgTypes ...ctor_args)
+    {
+        auto widget = std::make_shared<WidgetType>(ctor_args...);
+        widgets.push_front(widget);
+        return widget;
+    }
+
+    template<typename WidgetType, typename ...CtorArgTypes>
+    inline std::shared_ptr<WidgetType> Layout::emplaceBack(CtorArgTypes ...ctor_args)
+    {
+        auto widget = std::make_shared<WidgetType>(ctor_args...);
+        widgets.push_back(widget);
+        return widget;
+    }
 }

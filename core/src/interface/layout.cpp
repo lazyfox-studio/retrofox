@@ -35,16 +35,16 @@ namespace Interface
 
     Layout::~Layout()
     {
-        widgets.clear();
+        //widgets.clear();
     }
 
-    void Layout::pushFront(Widget& widget)
+    void Layout::pushFront(std::shared_ptr<Widget> widget)
     {
         widgets.push_front(widget);
         update();
     }
 
-    void Layout::pushBack(Widget& widget)
+    void Layout::pushBack(std::shared_ptr<Widget> widget)
     {
         widgets.push_back(widget);
         update();
@@ -67,7 +67,7 @@ namespace Interface
 
     void Layout::update()
     {
-        size_t scalable_count = widgets.size();
+        unsigned scalable_count = static_cast<unsigned>(widgets.size());
         unsigned scalable_size = geometry.height - margin.top - margin.bottom - spacing.vertical * (scalable_count - 1);
         unsigned medium_height = scalable_size / scalable_count;
         if (stacking == Stacking::Vertical)
@@ -78,12 +78,12 @@ namespace Interface
             {
                 allocated = true;
                 size_t j = 0;
-                for (auto i = widgets.begin(); i != widgets.end(); ++i)
+                for (auto& widget : widgets)
                 {
-                    Interface::Widget& widget = (*i).get();
+                    //Interface::Widget& widget = (*i).get();
                     if (!processed[j])
                     {
-                        if (widget.size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
+                        if (widget->size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
                         {
                             processed[j] = true;
                             scalable_count--;
@@ -91,11 +91,11 @@ namespace Interface
                             {
                                 break;
                             }
-                            scalable_size -= widget.base_size.height;
+                            scalable_size -= widget->base_size.height;
                             medium_height = scalable_size / scalable_count;
                             allocated = false;
                         }
-                        else if (widget.minimum_size.height > medium_height)
+                        else if (widget->minimum_size.height > medium_height)
                         {
                             processed[j] = true;
                             scalable_count--;
@@ -103,7 +103,7 @@ namespace Interface
                             {
                                 break;
                             }
-                            scalable_size -= widget.minimum_size.height;
+                            scalable_size -= widget->minimum_size.height;
                             medium_height = scalable_size / scalable_count;
                             allocated = false;
                         }
@@ -113,32 +113,32 @@ namespace Interface
             } while ((!allocated) && (scalable_count != 0));
             size_t j = 0;
             unsigned current_y = margin.top;
-            for (auto i = widgets.begin(); i != widgets.end(); ++i)
+            for (auto& widget : widgets)
             {
-                Interface::Widget& widget = (*i).get();
-                widget.setX(geometry.x + margin.left);
-                widget.setY(geometry.y + current_y);
+                //Interface::Widget& widget = (*i).get();
+                widget->setX(geometry.x + margin.left);
+                widget->setY(geometry.y + current_y);
                 if (!processed[j])
                 {
-                    widget.setHeight(medium_height);
+                    widget->setHeight(medium_height);
                 }
-                else if (widget.size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
+                else if (widget->size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
                 {
-                    widget.setHeight(widget.base_size.height);
+                    widget->setHeight(widget->base_size.height);
                 }
                 else
                 {
-                    widget.setHeight(widget.minimum_size.height);
+                    widget->setHeight(widget->minimum_size.height);
                 }
-                if (widget.size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
+                if (widget->size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
                 {
-                    widget.setWidth(widget.base_size.width);
+                    widget->setWidth(widget->base_size.width);
                 }
                 else
                 {
-                    widget.setWidth(geometry.width - margin.left - margin.right);
+                    widget->setWidth(geometry.width - margin.left - margin.right);
                 }
-                current_y += widget.height() + spacing.vertical;
+                current_y += widget->height() + spacing.vertical;
                 j++;
             }
         }
@@ -150,7 +150,8 @@ namespace Interface
 
     bool Layout::onControl(Control::VirtualGamepad::KeyCode code)
     {
-        if ((*current).get().onControl(code))
+        //auto& widget = (*current);
+        if ((*current)->onControl(code))
         {
             return true;
         }
@@ -160,20 +161,24 @@ namespace Interface
             {
                 switch (code)
                 {
-                case Control::VirtualGamepad::left:
+                case Control::VirtualGamepad::Left:
                     if (current != widgets.begin())
                     {
+                        (*current)->setInactive();
                         current--;
+                        (*current)->setActive();
                         return true;
                     }
                     else
                     {
                         return false;
                     }
-                case Control::VirtualGamepad::right:
+                case Control::VirtualGamepad::Right:
                     if (current != widgets.end())
                     {
+                        (*current)->setInactive();
                         current++;
+                        (*current)->setActive();
                         return true;
                     }
                     else
@@ -188,20 +193,24 @@ namespace Interface
             {
                 switch (code)
                 {
-                case Control::VirtualGamepad::up:
+                case Control::VirtualGamepad::Up:
                     if (current != widgets.begin())
                     {
+                        (*current)->setInactive();
                         current--;
+                        (*current)->setActive();
                         return true;
                     }
                     else
                     {
                         return false;
                     }
-                case Control::VirtualGamepad::down:
+                case Control::VirtualGamepad::Down:
                     if (current != widgets.end())
                     {
+                        (*current)->setInactive();
                         current++;
+                        (*current)->setActive();
                         return true;
                     }
                     else
@@ -217,7 +226,7 @@ namespace Interface
 
     void Layout::render()
     {
-        for (auto& widget_reference : widgets)
-            widget_reference.get().render();
+        for (auto& widget : widgets)
+            widget->render();
     }
 }

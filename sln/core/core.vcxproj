@@ -158,8 +158,9 @@
     <ClCompile Include="..\..\core\src\interface\menu.cpp" />
     <ClCompile Include="..\..\core\src\interface\paragraph.cpp" />
     <ClCompile Include="..\..\core\src\interface\widget.cpp" />
+    <ClCompile Include="..\..\core\src\interface\window.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
-    <ClCompile Include="..\..\core\src\window.cpp" />
+    <ClCompile Include="..\..\core\src\mainwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\control\virtualgamepad.h" />
@@ -177,7 +178,8 @@
     <ClInclude Include="..\..\core\include\interface\menu.h" />
     <ClInclude Include="..\..\core\include\interface\paragraph.h" />
     <ClInclude Include="..\..\core\include\interface\widget.h" />
-    <ClInclude Include="..\..\core\include\window.h" />
+    <ClInclude Include="..\..\core\include\interface\window.h" />
+    <ClInclude Include="..\..\core\include\mainwindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\database\database.vcxproj">

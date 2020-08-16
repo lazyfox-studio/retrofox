@@ -11,8 +11,13 @@
 
 namespace Graphics
 {
+    /// Font key (name-size pair)
     using FontKey = std::pair<std::string, int>;
+
+    /// Font smart pointer
     using FontPtr = std::shared_ptr<Font>;
+
+    /// Map with font pointers
     using FontMap = std::map <FontKey, FontPtr>;
 
     /**
@@ -30,7 +35,7 @@ namespace Graphics
          * @brief Loads font to memory if not already presented
          * @param path Path to TrueType font file
          * @param size Size of glyphs (in pixels) to load
-         * @return std::shared_ptr<Font> Pointer to font
+         * @return Pointer to font
         */
         FontPtr load(const std::string& path, int size);
 
@@ -43,7 +48,7 @@ namespace Graphics
 
         /**
          * @brief Returns buffer instance
-         * @return Graphics::FontBuffer Instance reference
+         * @return Instance reference
         */
         static FontBuffer& instance();
     };

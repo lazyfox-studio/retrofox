@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "window.h"
-
 #include <database.h>
+
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -34,7 +34,8 @@ int main(int argc, char *argv[])
 	}
 
 
-	Window window;
+	MainWindow window("RetroFox", 100, 100, 800, 600);
+	//window.setFullscreen();
 	window.show();
 	window.start();
 

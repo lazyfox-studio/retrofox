@@ -56,14 +56,14 @@ namespace Graphics
 
         /**
          * @brief Getter for string with path to loaded font file
-         * @return std::string Path to font file
+         * @return Path to font file
          */
         std::string path() const;
 
         /**
          * @brief Getter for average character width
          * @details See calculateAverageCharWidth()
-         * @return float Average character width
+         * @return Average character width
          */
         float averageCharWidth() const;
 
@@ -71,7 +71,7 @@ namespace Graphics
          * @brief Calculates potential width of surface with given string
          * @details (No rendering)
          * @param text String to calculate width of
-         * @return unsigned Width of surface with text
+         * @return Width of surface with text
          */
         unsigned calculateTextWidth(const std::string& text);
 
@@ -79,7 +79,7 @@ namespace Graphics
          * @brief Calculates potential size of surface with given string
          * @details (No rendering)
          * @param text String to calculate size of
-         * @return SDL_Rect Rectangle with size of surface with text
+         * @return Rectangle with size of surface with text
          */
         SDL_Rect calculateTextRect(const std::string& text);
 
@@ -89,7 +89,7 @@ namespace Graphics
          * @param renderer Renderer
          * @param text Text string (UTF-8) to render
          * @param color Font color
-         * @return std::shared_ptr<Graphics::Texture> Pointer to rendered texture
+         * @return Pointer to rendered texture
          */
         std::shared_ptr<Graphics::Texture> renderText(SDL_Renderer* renderer, const std::string& text, SDL_Color color);
     };

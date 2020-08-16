@@ -60,7 +60,7 @@ namespace Interface
     {
         switch (code)
         {
-        case Control::VirtualGamepad::a:
+        case Control::VirtualGamepad::A:
             //onClick();
             return true;
         default:

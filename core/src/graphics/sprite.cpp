@@ -52,14 +52,14 @@ namespace Graphics
         return m_geometry.y;
     }
 
-    int Sprite::height() const
+    unsigned Sprite::height() const
     {
-        return m_geometry.h;
+        return static_cast<unsigned>(m_geometry.h);
     }
 
-    int Sprite::width() const
+    unsigned Sprite::width() const
     {
-        return m_geometry.w;
+        return static_cast<unsigned>(m_geometry.w);
     }
 
     SDL_Renderer* Sprite::renderer() const
