@@ -2,6 +2,7 @@ import json
 import os
 import re
 import requests
+import sqlite3
 
 
 def find_game(api_key, path, platform):
@@ -17,6 +18,7 @@ def find_game(api_key, path, platform):
     query_params = {
         'apikey': api_key,
         'name': query_string,
+        'fields': 'publishers,genres,overview',
         'filter[platform]': platform
     }
     answer = requests.get("https://api.thegamesdb.net/v1.1/Games/ByGameName", params=query_params)
@@ -51,9 +53,17 @@ def find_game(api_key, path, platform):
     delete_list = []
 
     games = games['games']
-
     print(games)
-    # Add to database
 
+    # Preparing data to insertion
+    records = []
+    for game in games:
+        records.append((game['game_title'], game['release_date'], 0, 0, 0, game['overview']))
+
+
+    # Add to database
+    base = sqlite3.connect('../../sln/core/testbase.db')
+    cursor = base.cursor()
+    cursor.executemany('INSERT INTO scraper_cache VALUES (?,?,?,?,?,?)', )
 
 find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'D:/Games/(1996) Resident Evil[NTSC].cue', '10')
