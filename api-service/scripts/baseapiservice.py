@@ -39,3 +39,7 @@ class BaseAPIService:
     @classmethod
     def update_developers(cls, api_key, path_to_db):
         raise NotImplementedError
+
+    @classmethod
+    def update_publishers(cls, api_key, path_to_db):
+        raise NotImplementedError

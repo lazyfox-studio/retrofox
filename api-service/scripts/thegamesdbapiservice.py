@@ -9,6 +9,50 @@ from baseapiservice import BaseAPIService
 class TheGamesDBAPIService(BaseAPIService):
     api_endpoint = 'https://api.thegamesdb.net/v1.1/Games/ByGameName'
 
+    local_platform_id = {
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10,
+        11: 11,
+        12: 12,
+        13: 13,
+        14: 14,
+        15: 15,
+        16: 16,
+        17: 17,
+        18: 18,
+        20: 20,
+        21: 21,
+        22: 22,
+        23: 23,
+        24: 24,
+        25: 25,
+        26: 26,
+        27: 27,
+        28: 28,
+        29: 29,
+        30: 30,
+        31: 31,
+        32: 32,
+        33: 33,
+        34: 34,
+        35: 35,
+        36: 36,
+        37: 37,
+        38: 38,
+        39: 39,
+        40: 40,
+        41: 41
+        # Add more
+    }
+
     @classmethod
     def load_raw_games_data(cls, api_key, query_string, platform):
         request_params = {
@@ -101,5 +145,28 @@ class TheGamesDBAPIService(BaseAPIService):
         cursor.execute('DROP TABLE IF EXISTS thegamesdb_developers')
         cursor.execute('CREATE TABLE thegamesdb_developers (id INT PRIMARY KEY, name TEXT)')
         cursor.executemany('INSERT INTO thegamesdb_developers VALUES (?,?)', developers)
+        base.commit()
+        base.close()
+
+    @classmethod
+    def update_publishers(cls, api_key, path_to_db):
+        # Sending request
+        request_params = {
+            'apikey': api_key
+        }
+        answer = requests.get('https://api.thegamesdb.net/v1/Publishers', params=request_params)
+        raw_publishers_data = json.loads(answer.content)['data']['publishers'].values()
+
+        # Preparing data for insertion
+        publishers = []
+        for publisher in raw_publishers_data:
+            publishers.append((publisher['id'], publisher['name']))
+
+        # Adding data to database
+        base = sqlite3.connect(path_to_db)
+        cursor = base.cursor()
+        cursor.execute('DROP TABLE IF EXISTS thegamesdb_publishers')
+        cursor.execute('CREATE TABLE thegamesdb_publishers (id INT PRIMARY KEY, name TEXT)')
+        cursor.executemany('INSERT INTO thegamesdb_publishers VALUES (?,?)', publishers)
         base.commit()
         base.close()
