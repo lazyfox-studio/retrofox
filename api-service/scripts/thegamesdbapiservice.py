@@ -24,7 +24,7 @@ class TheGamesDBAPIService(BaseAPIService):
             'apikey': api_key,
             'name': query_string,
             'fields': 'publishers,genres,overview',
-            'filter[platform]': platform
+            'filter[platform]': str(cls.local_platform_id['platform'])
         }
         answer = requests.get(cls.api_endpoint, params=request_params)
         return json.loads(answer.content)['data']
@@ -60,10 +60,10 @@ class TheGamesDBAPIService(BaseAPIService):
         delete_list = []
 
         # Preparing data for insertion
-        # (name, platform_id, developer, publisher, release_date, genre, rating, description, boxart)
+        # (name, platform_id, release_date, developer, publisher, genre, rating, description)
         games = []
         for game in raw_games_data['games']:
-            games.append((game['game_title'], game['release_date'], 0, 0, 0, game['overview']))
+            games.append((game['game_title'], 0, game['release_date'], 0, 0, 0, 0, game['overview']))
 
         return games
 
