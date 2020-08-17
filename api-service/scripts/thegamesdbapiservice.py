@@ -80,3 +80,26 @@ class TheGamesDBAPIService(BaseAPIService):
         cursor.executemany('INSERT INTO thegamesdb_genres VALUES (?,?)', genres)
         base.commit()
         base.close()
+
+    @classmethod
+    def update_developers(cls, api_key, path_to_db):
+        # Sending request
+        request_params = {
+            'apikey': api_key
+        }
+        answer = requests.get('https://api.thegamesdb.net/v1/Developers', params=request_params)
+        raw_developers_data = json.loads(answer.content)['data']['developers'].values()
+
+        # Preparing data for insertion
+        developers = []
+        for developer in raw_developers_data:
+            developers.append((developer['id'], developer['name']))
+
+        # Adding data to database
+        base = sqlite3.connect(path_to_db)
+        cursor = base.cursor()
+        cursor.execute('DROP TABLE IF EXISTS thegamesdb_developers')
+        cursor.execute('CREATE TABLE thegamesdb_developers (id INT PRIMARY KEY, name TEXT)')
+        cursor.executemany('INSERT INTO thegamesdb_developers VALUES (?,?)', developers)
+        base.commit()
+        base.close()
