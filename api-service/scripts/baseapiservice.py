@@ -32,3 +32,6 @@ class BaseAPIService:
         # cursor.executemany('INSERT INTO scraper_cache VALUES (?,?,?,?,?,?)', games)
         return True
 
+    @classmethod
+    def update_genres(cls, api_key, path_to_db):
+        raise NotImplementedError

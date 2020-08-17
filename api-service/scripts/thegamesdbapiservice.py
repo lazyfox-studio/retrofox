@@ -54,7 +54,29 @@ class TheGamesDBAPIService(BaseAPIService):
         # (name, platform_id, developer, publisher, release_date, genre, rating, description, boxart)
         games = []
         for game in raw_games_data['games']:
-            games.append(
-                (game['game_title'], game['release_date'], 0, 0, 0, game['overview']))
+            games.append((game['game_title'], game['release_date'], 0, 0, 0, game['overview']))
 
         return games
+
+    @classmethod
+    def update_genres(cls, api_key, path_to_db):
+        # Sending request
+        request_params = {
+            'apikey': api_key
+        }
+        answer = requests.get('https://api.thegamesdb.net/v1/Genres', params=request_params)
+        raw_genres_data = json.loads(answer.content)['data']['genres'].values()
+
+        # Preparing data for insertion
+        genres = []
+        for genre in raw_genres_data:
+            genres.append((genre['id'], genre['name']))
+
+        # Adding data to database
+        base = sqlite3.connect(path_to_db)
+        cursor = base.cursor()
+        cursor.execute('DROP TABLE IF EXISTS thegamesdb_genres')
+        cursor.execute('CREATE TABLE thegamesdb_genres(id INT PRIMARY KEY, name TEXT)')
+        cursor.executemany('INSERT INTO thegamesdb_genres VALUES (?,?)', genres)
+        base.commit()
+        base.close()
