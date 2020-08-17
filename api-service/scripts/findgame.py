@@ -3,15 +3,15 @@ import thegamesdbapiservice
 
 def find_game(api_key, path_to_game, platform):
     service = thegamesdbapiservice.TheGamesDBAPIService
-    query_string = service.prepareQueryString(path_to_game)
-    raw_games_data = service.loadRawGamesData(api_key, query_string, platform)
+    query_string = service.prepare_query_string(path_to_game)
+    raw_games_data = service.load_raw_games_data(api_key, query_string, platform)
     if raw_games_data == None:
         return 1  # Request error
-    games = service.extractGamesData(raw_games_data, query_string)
+    games = service.extract_games_data(raw_games_data, query_string)
     if len(games) < 1:
         return 2  # Games not found
     # print(games)
-    result = service.cacheGamesIntoDB(games, '../../sln/core/testbase.db')
+    result = service.cache_games_into_db(games, '../../sln/core/testbase.db')
     if not result:
         return 3  # Database error
 

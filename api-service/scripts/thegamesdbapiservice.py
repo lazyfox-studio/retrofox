@@ -10,7 +10,7 @@ class TheGamesDBAPIService(BaseAPIService):
     api_endpoint = 'https://api.thegamesdb.net/v1.1/Games/ByGameName'
 
     @classmethod
-    def loadRawGamesData(cls, api_key, query_string, platform):
+    def load_raw_games_data(cls, api_key, query_string, platform):
         request_params = {
             'apikey': api_key,
             'name': query_string,
@@ -21,7 +21,7 @@ class TheGamesDBAPIService(BaseAPIService):
         return json.loads(answer.content)['data']
 
     @classmethod
-    def extractGamesData(cls, raw_games_data, query_string=""):
+    def extract_games_data(cls, raw_games_data, query_string=""):
         # Remove invalid games
         delete_list = []
 
