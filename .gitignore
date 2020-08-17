@@ -357,3 +357,6 @@ doxygen/**
 # External libraries
 *.dll
 *.lib
+
+# Idea chache
+*.idea/
