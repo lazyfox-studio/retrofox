@@ -29,7 +29,15 @@ class BaseAPIService:
     def cache_games_into_db(cls, games, path_to_db):
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
-        cursor.executemany('INSERT INTO scraper_cache_games VALUES (?,?,?,?,?,?,?,?)', games)
+        for game in games:
+            cursor.execute('INSERT INTO scraper_cache_games VALUES (NULL,?,?,?,?,?)', game['game'])
+            cache_id = cursor.lastrowid
+            for developer in game['developers']:
+                cursor.execute('INSERT INTO scraper_cache_developers VALUES (?,?)', (cache_id, developer))
+            for publisher in game['publishers']:
+                cursor.execute('INSERT INTO scraper_cache_publishers VALUES (?,?)', (cache_id, publisher))
+            for genre in game['genres']:
+                cursor.execute('INSERT INTO scraper_cache_genres VALUES (?,?)', (cache_id, genre))
         base.commit()
         base.close()
         return True
@@ -39,8 +47,14 @@ class BaseAPIService:
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
         cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_games'
-                       '(id INTEGER NOT NULL, name TEXT, release_date TEXT,'
-                       ' developer TEXT, publisher TEXT, genre TEXT, rating TEXT, description TEXT)')
+                       '(id INTEGER PRIMARY KEY,game_id INTEGER NOT NULL, name TEXT, release_date TEXT,'
+                       ' rating TEXT, description TEXT)')
+        cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_developers'
+                       '(cache_id INTEGER NOT NULL, developer TEXT)')
+        cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_publishers'
+                       '(cache_id INTEGER NOT NULL, publisher TEXT)')
+        cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_genres'
+                       '(cache_id INTEGER NOT NULL, genre TEXT)')
         base.commit()
         base.close()
 

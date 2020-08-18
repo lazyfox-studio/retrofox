@@ -7,7 +7,7 @@ class GameFilter:
         delete_list = []
         if not re.search(r'\d', query_string):
             for game in games:
-                if re.search(r'\d', game[1]):
+                if re.search(r'\d', game['game'][1]):
                     delete_list.append(game)
             for game in delete_list:
                 games.remove(game)
@@ -17,7 +17,7 @@ class GameFilter:
     def remove_editions(games):
         delete_list = []
         for game in games:
-            if re.search(r'\(.*\)', game[1]):
+            if re.search(r'\(.*\)',game['game'][1]):
                 delete_list.append(game)
         for game in delete_list:
             games.remove(game)
@@ -27,7 +27,7 @@ class GameFilter:
     def remove_not_equality(games, query_string):
         output = []
         for game in games:
-            if game[1].capitalize() == query_string.capitalize():
+            if game['game'][1].capitalize() == query_string.capitalize():
                 output.append(game)
         if len(output) > 0:
             return output

@@ -20,6 +20,6 @@ def find_game(api_key, game_id, path_to_game, platform):
         return 3  # Database error
 
 thegamesdbapiservice.BaseAPIService.set_up_table('D:/Source/retrofox/sln/core/testbase.db')
-find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Ridge racer[NTSC].cue', 10)
+find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
 
 #thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'E:/Source/retrofox/sln/core/testbase.db')
