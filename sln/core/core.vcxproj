@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libraries\Python-3.8.5\include;D:\Libraries\Python\include;E:\Libraries\Python\include;D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;./../../api-service/include/;./../../database/include/;D:\Libraries\SQLite-3.32.3;D:\Libraries\SQLite;E:\Libraries\SQLite;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -122,8 +122,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Libraries\SDL2_ttf-2.0.15\lib\x64;D:\Libraries\SDL2-2.0.12\lib\x64;D:\Libraries\SDL\lib\x64;D:\Libraries\SDL_ttf\lib\x64;E:\Libraries\SDL\lib\x64;E:\Libraries\SDL_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Libraries\Python-3.8.5\lib;D:\Libraries\Python\lib;E:\Libraries\Python\lib;D:\Libraries\SDL2_ttf-2.0.15\lib\x64;D:\Libraries\SDL2-2.0.12\lib\x64;D:\Libraries\SDL\lib\x64;D:\Libraries\SDL_ttf\lib\x64;E:\Libraries\SDL\lib\x64;E:\Libraries\SDL_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;python38_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\core\src\control\virtualgamepad.cpp" />
+    <ClCompile Include="..\..\core\src\gamemenu.cpp" />
     <ClCompile Include="..\..\core\src\graphics\font.cpp" />
     <ClCompile Include="..\..\core\src\graphics\fontbuffer.cpp" />
     <ClCompile Include="..\..\core\src\graphics\text.cpp" />
@@ -151,13 +153,18 @@
     <ClCompile Include="..\..\core\src\graphics\texturebuffer.cpp" />
     <ClCompile Include="..\..\core\src\interface\button.cpp" />
     <ClCompile Include="..\..\core\src\interface\label.cpp" />
+    <ClCompile Include="..\..\core\src\interface\labeledbutton.cpp" />
     <ClCompile Include="..\..\core\src\interface\layout.cpp" />
+    <ClCompile Include="..\..\core\src\interface\menu.cpp" />
     <ClCompile Include="..\..\core\src\interface\paragraph.cpp" />
     <ClCompile Include="..\..\core\src\interface\widget.cpp" />
+    <ClCompile Include="..\..\core\src\interface\window.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
-    <ClCompile Include="..\..\core\src\window.cpp" />
+    <ClCompile Include="..\..\core\src\mainwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\include\control\virtualgamepad.h" />
+    <ClInclude Include="..\..\core\include\gamemenu.h" />
     <ClInclude Include="..\..\core\include\graphics\font.h" />
     <ClInclude Include="..\..\core\include\graphics\fontbuffer.h" />
     <ClInclude Include="..\..\core\include\graphics\text.h" />
@@ -166,10 +173,25 @@
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h" />
     <ClInclude Include="..\..\core\include\interface\button.h" />
     <ClInclude Include="..\..\core\include\interface\label.h" />
+    <ClInclude Include="..\..\core\include\interface\labeledbutton.h" />
     <ClInclude Include="..\..\core\include\interface\layout.h" />
+    <ClInclude Include="..\..\core\include\interface\menu.h" />
     <ClInclude Include="..\..\core\include\interface\paragraph.h" />
     <ClInclude Include="..\..\core\include\interface\widget.h" />
-    <ClInclude Include="..\..\core\include\window.h" />
+    <ClInclude Include="..\..\core\include\interface\window.h" />
+    <ClInclude Include="..\..\core\include\mainwindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\api-service\api-service.vcxproj">
+      <Project>{019549b4-8c87-4404-813a-f4312caf5a66}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\database\database.vcxproj">
+      <Project>{8b7a3c23-ff6d-4366-9427-c5447a33f569}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\x64\Debug\api-service.lib" />
+    <Library Include="..\x64\Debug\database.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

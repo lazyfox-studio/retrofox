@@ -12,33 +12,33 @@
 namespace Graphics
 {
     /**
-     * @brief Texture buffer   
-    */
+     * @brief Texture buffer 
+     * @details Stores textures loaded by Graphics::Texture class
+     */
     class TextureBuffer
     {
      private:
-         /**
-          * @brief Map as a buffer for textures
-         */
+         /// Map as a buffer for textures
          std::map<std::string, std::shared_ptr<Graphics::Texture>> buffer;
 
     public:
         /**
-         * @brief Loads texture to memory if not already present
-         * @param path Path to texture
-         * @return QImage Pointer to texture
+         * @brief Loads texture to memory if not already presented
+         * @param renderer Renderer
+         * @param path Path to texture image file
+         * @return Pointer to texture
         */
         std::shared_ptr<Graphics::Texture> load(SDL_Renderer* renderer, const std::string& path);
 
         /**
          * @brief Unloads texture from memory
-         * @param path Path to texture
+         * @param path Path to texture image file
         */
         void unload(const std::string& path);
 
         /**
          * @brief Returns buffer instance
-         * @return Graphics::TextureBuffer Instance reference
+         * @return Instance reference
         */
         static TextureBuffer& instance();
     };

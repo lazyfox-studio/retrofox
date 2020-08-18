@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{23991223-0e0e-4b7f-a92f-13d4104fd800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{5c0292c7-11bf-4775-9213-4d41c3bf0332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scripts">
+      <UniqueIdentifier>{e0f3fd91-4862-469a-887f-b23c1ffea76d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\api-service\include\pythonenv.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\api-service\include\pythonref.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\api-service\src\pythonenv.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\api-service\src\pythonref.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\api-service\scripts\igdb.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\testscript.py">
+      <Filter>scripts</Filter>
+    </None>
+  </ItemGroup>
+</Project>

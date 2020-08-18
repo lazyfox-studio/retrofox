@@ -56,6 +56,18 @@ namespace Interface
         geometry.width = width;
     }
 
+    bool Button::onControl(Control::VirtualGamepad::KeyCode code)
+    {
+        switch (code)
+        {
+        case Control::VirtualGamepad::A:
+            //onClick();
+            return true;
+        default:
+            return false;
+        }
+    }
+
     void Button::render()
     {
         sprites[state].render();

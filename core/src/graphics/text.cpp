@@ -7,7 +7,7 @@ namespace Graphics
         p_texture = p_font->renderText(p_renderer, m_text, m_color);
     }
 
-    Text::Text(SDL_Renderer* renderer, FontPtr font, int x, int y, const std::string& text, SDL_Color color)
+    Text::Text(SDL_Renderer* renderer, std::shared_ptr<Font> font, int x, int y, const std::string& text, SDL_Color color)
         : p_font(font), m_text(text), m_color(color)
     {
         p_renderer = renderer;
