@@ -29,7 +29,7 @@ class BaseAPIService:
     def cache_games_into_db(cls, games, path_to_db):
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
-        cursor.executemany('INSERT INTO scraper_cache_games VALUES (?,?,?,?,?,?,?,?)', games)
+        cursor.executemany('INSERT INTO scraper_cache_games VALUES (NULL,?,?,?,?,?,?,?,?)', games)
         base.commit()
         base.close()
         return True
@@ -39,8 +39,8 @@ class BaseAPIService:
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
         cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_games'
-                       '(name TEXT, platform_id INT, release_date TEXT, developer TEXT, publisher TEXT, genre TEXT,'
-                       ' rating TEXT, description TEXT)')
+                       '(id INTEGER PRIMARY KEY, name TEXT, platform_id INTEGER, release_date TEXT,'
+                       ' developer TEXT, publisher TEXT, genre TEXT, rating TEXT, description TEXT)')
         base.commit()
         base.close()
 
