@@ -84,7 +84,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Libraries\Python-3.8.5\include;./../../api-service/include/;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libraries\Python-3.8.5\include;D:\Libraries\Python\include;E:\Libraries\Python\include;./../../api-service/include/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -113,7 +113,7 @@
       <AdditionalDependencies>python38_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>D:\Libraries\Python-3.8.5\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Libraries\Python-3.8.5\lib;D:\Libraries\Python\lib;E:\Libraries\Python\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
