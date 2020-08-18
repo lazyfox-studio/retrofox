@@ -22,3 +22,14 @@ class GameFilter:
         for game in delete_list:
             games.remove(game)
         return games
+
+    @staticmethod
+    def remove_not_equality(games, query_string):
+        output = []
+        for game in games:
+            if game[1].capitalize() == query_string.capitalize():
+                output.append(game)
+        if len(output) > 0:
+            return output
+        else:
+            return games
