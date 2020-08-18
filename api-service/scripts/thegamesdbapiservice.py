@@ -30,7 +30,7 @@ class TheGamesDBAPIService(BaseAPIService):
         return json.loads(answer.content)['data']
 
     @classmethod
-    def extract_games_data(cls, raw_games_data, query_string, path_to_db):
+    def extract_games_data(cls, raw_games_data, game_id, query_string, path_to_db):
         # Remove invalid games
         delete_list = []
 
@@ -60,7 +60,7 @@ class TheGamesDBAPIService(BaseAPIService):
         delete_list = []
 
         # Preparing data for insertion
-        # (name, platform_id, release_date, developer, publisher, genre, rating, description)
+        # (path, name, platform_id, release_date, developer, publisher, genre, rating, description)
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
         games = []
@@ -71,7 +71,8 @@ class TheGamesDBAPIService(BaseAPIService):
             publisher = cursor.fetchone()[0]
             cursor.execute('SELECT name FROM thegamesdb_genres WHERE id=?', (game['genres'][0],))
             genre = cursor.fetchone()[0]
-            games.append((game['game_title'], 10, game['release_date'], developer, publisher, genre, game['rating'], game['overview']))
+            games.append((game_id, game['game_title'], game['release_date'], developer, publisher, genre,
+                          game['rating'], game['overview']))
         base.close()
 
         return games
