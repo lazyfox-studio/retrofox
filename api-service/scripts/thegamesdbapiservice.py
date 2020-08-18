@@ -31,35 +31,6 @@ class TheGamesDBAPIService(BaseAPIService):
 
     @classmethod
     def extract_games_data(cls, raw_games_data, game_id, query_string, path_to_db):
-        # Remove invalid games
-        delete_list = []
-
-        # Check if searching for first game in series
-        if not raw_games_data['count'] == 1:
-            if raw_games_data['count'] == 0:
-                return 1
-            if not re.search(r'\d', query_string):
-                for game in raw_games_data['games']:
-                    if re.search(r'\d', game['game_title']):
-                        delete_list.append(game)
-                        raw_games_data['count'] -= 1
-        for game in delete_list:
-            raw_games_data['games'].remove(game)
-        delete_list = []
-
-        # Remove all "xxx edition" from result
-        if not raw_games_data['count'] == 1:
-            if raw_games_data['count'] == 0:
-                return 1
-            for game in raw_games_data['games']:
-                if re.search(r'\(.*\)', game['game_title']):
-                    delete_list.append(game)
-                    raw_games_data['count'] -= 1
-        for game in delete_list:
-            raw_games_data['games'].remove(game)
-        delete_list = []
-
-        # Preparing data for insertion
         # (path, name, platform_id, release_date, developer, publisher, genre, rating, description)
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()

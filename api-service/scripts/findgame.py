@@ -1,3 +1,4 @@
+from gamefilter import GameFilter
 import thegamesdbapiservice
 
 
@@ -8,6 +9,8 @@ def find_game(api_key, game_id, path_to_game, platform):
     if raw_games_data == None:
         return 1  # Request error
     games = service.extract_games_data(raw_games_data, game_id, query_string, '../../sln/core/testbase.db')
+    games = GameFilter.remove_sequels(games, query_string)
+    games = GameFilter.remove_editions(games)
     if len(games) < 1:
         return 2  # Games not found
     # print(games)
