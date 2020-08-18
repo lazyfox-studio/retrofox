@@ -7,7 +7,7 @@ def find_game(api_key, path_to_game, platform):
     raw_games_data = service.load_raw_games_data(api_key, query_string, platform)
     if raw_games_data == None:
         return 1  # Request error
-    games = service.extract_games_data(raw_games_data, query_string)
+    games = service.extract_games_data(raw_games_data, query_string, '../../sln/core/testbase.db')
     if len(games) < 1:
         return 2  # Games not found
     # print(games)
@@ -15,8 +15,7 @@ def find_game(api_key, path_to_game, platform):
     if not result:
         return 3  # Database error
 
-# find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'D:/Games/(1996) Resident Evil[NTSC].cue', '10')
+find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
 
 
-thegamesdbapiservice.TheGamesDBAPIService.update_publishers(
-    '445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'D:/Source/retrofox/sln/core/testbase.db')
+# thegamesdbapiservice.TheGamesDBAPIService.update_publishers('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'D:/Source/retrofox/sln/core/testbase.db')

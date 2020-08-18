@@ -23,14 +23,14 @@ class TheGamesDBAPIService(BaseAPIService):
         request_params = {
             'apikey': api_key,
             'name': query_string,
-            'fields': 'publishers,genres,overview',
-            'filter[platform]': str(cls.local_platform_id['platform'])
+            'fields': 'publishers,genres,overview,rating',
+            'filter[platform]': str(cls.local_platform_id[platform])
         }
         answer = requests.get(cls.api_endpoint, params=request_params)
         return json.loads(answer.content)['data']
 
     @classmethod
-    def extract_games_data(cls, raw_games_data, query_string=""):
+    def extract_games_data(cls, raw_games_data, query_string, path_to_db):
         # Remove invalid games
         delete_list = []
 
@@ -61,9 +61,18 @@ class TheGamesDBAPIService(BaseAPIService):
 
         # Preparing data for insertion
         # (name, platform_id, release_date, developer, publisher, genre, rating, description)
+        base = sqlite3.connect(path_to_db)
+        cursor = base.cursor()
         games = []
         for game in raw_games_data['games']:
-            games.append((game['game_title'], 0, game['release_date'], 0, 0, 0, 0, game['overview']))
+            cursor.execute('SELECT name FROM thegamesdb_developers WHERE id=?', (game['developers'][0], ))
+            developer = cursor.fetchone()[0]
+            cursor.execute('SELECT name FROM thegamesdb_publishers WHERE id=?', (game['publishers'][0],))
+            publisher = cursor.fetchone()[0]
+            cursor.execute('SELECT name FROM thegamesdb_genres WHERE id=?', (game['genres'][0],))
+            genre = cursor.fetchone()[0]
+            games.append((game['game_title'], 10, game['release_date'], developer, publisher, genre, game['rating'], game['overview']))
+        base.close()
 
         return games
 

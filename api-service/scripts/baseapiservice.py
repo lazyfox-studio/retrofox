@@ -22,14 +22,16 @@ class BaseAPIService:
         raise NotImplementedError
     
     @classmethod
-    def extract_games_data(cls, raw_games_data, query_string):
+    def extract_games_data(cls, raw_games_data, query_string, path_to_db):
         raise NotImplementedError
     
     @classmethod
     def cache_games_into_db(cls, games, path_to_db):
-        # base = sqlite3.connect(path_to_db)
-        # cursor = base.cursor()
-        # cursor.executemany('INSERT INTO scraper_cache VALUES (?,?,?,?,?,?)', games)
+        base = sqlite3.connect(path_to_db)
+        cursor = base.cursor()
+        cursor.executemany('INSERT INTO scraper_cache VALUES (?,?,?,?,?,?,?,?)', games)
+        base.commit()
+        base.close()
         return True
 
     @classmethod

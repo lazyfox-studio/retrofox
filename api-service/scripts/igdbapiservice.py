@@ -17,5 +17,5 @@ class IGDBAPIService(BaseAPIService):
         return json.loads(answer.content)
     
     @classmethod
-    def extract_games_data(cls, raw_games_data, query_string=""):
+    def extract_games_data(cls, raw_games_data, query_string, path_to_db):
         raise NotImplementedError
