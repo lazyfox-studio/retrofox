@@ -46,6 +46,14 @@ class BaseAPIService:
     def set_up_table(cls, path_to_db):
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
+        # Game information tables
+        #cursor.execute('CREATE TABLE IF NOT EXISTS games'
+        #               '(id INTEGER PRIMARY KEY, name TEXT, platform_id INTEGER NOT NULL, release_date TEXT,'
+        #               'rating TEXT, description TEXT)')
+        cursor.execute('CREATE TABLE IF NOT EXISTS extensions'
+                       '(platform_id INTEGER NOT NULL, extension TEXT)')
+
+        # Scraper cache tables
         cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_games'
                        '(id INTEGER PRIMARY KEY,game_id INTEGER NOT NULL, name TEXT, release_date TEXT,'
                        ' rating TEXT, description TEXT)')

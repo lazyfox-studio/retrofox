@@ -1,5 +1,28 @@
 from gamefilter import GameFilter
+import os
+import sqlite3
 import thegamesdbapiservice
+
+
+def scan_folder(path, extensions):
+    roms = []
+    for fs_object in os.listdir(path):
+        if os.path.isdir(path + '/' + fs_object):
+            roms.extend(scan_folder(path + '/' + fs_object, extensions))
+        for extension in extensions:
+            if fs_object.endswith(extension):
+                roms.append(path + '/' + fs_object)
+    return roms
+
+
+def find_games_in_folder(roms_path, platform, path_to_db):
+    base = sqlite3.connect(path_to_db)
+    cursor = base.cursor()
+    cursor.execute('SELECT extension FROM extensions WHERE platform_id=?', (platform, ))
+    extensions = cursor.fetchall()
+    roms = scan_folder(roms_path, extensions)
+    print(roms)
+    # TODO: Insert games in base
 
 
 def find_game(api_key, game_id, path_to_game, platform):
@@ -20,6 +43,8 @@ def find_game(api_key, game_id, path_to_game, platform):
         return 3  # Database error
 
 thegamesdbapiservice.BaseAPIService.set_up_table('D:/Source/retrofox/sln/core/testbase.db')
-find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
+# find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
 
 #thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'E:/Source/retrofox/sln/core/testbase.db')
+
+find_games_in_folder('E:/Games/Emulators Library/PlayStation', 10, 'D:/Source/retrofox/sln/core/testbase.db')
