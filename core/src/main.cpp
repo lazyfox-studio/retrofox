@@ -5,6 +5,8 @@
 
 #include "mainwindow.h"
 
+#include "scraper.h"
+
 int main(int argc, char *argv[])
 {
 	try

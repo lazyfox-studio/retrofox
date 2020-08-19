@@ -161,6 +161,7 @@
     <ClCompile Include="..\..\core\src\interface\window.cpp" />
     <ClCompile Include="..\..\core\src\main.cpp" />
     <ClCompile Include="..\..\core\src\mainwindow.cpp" />
+    <ClCompile Include="..\..\core\src\scraper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\control\virtualgamepad.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="..\..\core\include\interface\widget.h" />
     <ClInclude Include="..\..\core\include\interface\window.h" />
     <ClInclude Include="..\..\core\include\mainwindow.h" />
+    <ClInclude Include="..\..\core\include\scraper.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\api-service\api-service.vcxproj">
