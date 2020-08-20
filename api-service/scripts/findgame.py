@@ -21,8 +21,10 @@ def find_games_in_folder(roms_path, platform, path_to_db):
     cursor.execute('SELECT extension FROM extensions WHERE platform_id=?', (platform, ))
     extensions = cursor.fetchall()
     roms = scan_folder(roms_path, extensions)
-    print(roms)
-    # TODO: Insert games in base
+    for rom in roms:
+        cursor.execute('INSERT INTO games VALUES (NULL, ?, NULL, ?, NULL, NULL, NULL, NULL)', (rom, platform))
+    base.commit()
+    base.close()
 
 
 def find_game(api_key, game_id, path_to_game, platform):
@@ -42,8 +44,9 @@ def find_game(api_key, game_id, path_to_game, platform):
     if not result:
         return 3  # Database error
 
-thegamesdbapiservice.BaseAPIService.set_up_table('D:/Source/retrofox/sln/core/testbase.db')
-# find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
+
+thegamesdbapiservice.BaseAPIService.set_up_tables('D:/Source/retrofox/sln/core/testbase.db')
+#find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
 
 #thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'E:/Source/retrofox/sln/core/testbase.db')
 
