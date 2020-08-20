@@ -34,21 +34,6 @@ class TheGamesDBAPIService(BaseAPIService):
         cursor = base.cursor()
         games = []
         for game in raw_games_data['games']:
-            #developers = []
-            #publishers = []
-            #genres = []
-            #if not game['developers'] is None:
-            #    for developer in game['developers']:
-            #        cursor.execute('SELECT name FROM thegamesdb_developers WHERE id=?', (developer, ))
-            #        developers.append(cursor.fetchone()[0])
-            #if not game['publishers'] is None:
-            #    for publisher in game['publishers']:
-            #        cursor.execute('SELECT name FROM thegamesdb_publishers WHERE id=?', (publisher, ))
-            #        publishers.append(cursor.fetchone()[0])
-            #if not game['genres'] is None:
-            #    for genre in game['genres']:
-            #        cursor.execute('SELECT name FROM thegamesdb_genres WHERE id=?', (genre, ))
-            #        genres.append(cursor.fetchone()[0])
             games.append(
                 {
                     'game': (game_id, game['game_title'], game['release_date'], game['rating'], game['overview'],
