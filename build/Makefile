@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named core
+# Target rules for targets named retrofox
 
 # Build rule for target.
-core: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 core
-.PHONY : core
+retrofox: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 retrofox
+.PHONY : retrofox
 
 # fast build rule for target.
-core/fast:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/build
-.PHONY : core/fast
+retrofox/fast:
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/build
+.PHONY : retrofox/fast
 
 #=============================================================================
 # Target rules for targets named database
@@ -155,7 +155,7 @@ core/src/control/virtualgamepad.o: core/src/control/virtualgamepad.cpp.o
 
 # target to build an object file
 core/src/control/virtualgamepad.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/control/virtualgamepad.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/control/virtualgamepad.cpp.o
 .PHONY : core/src/control/virtualgamepad.cpp.o
 
 core/src/control/virtualgamepad.i: core/src/control/virtualgamepad.cpp.i
@@ -164,7 +164,7 @@ core/src/control/virtualgamepad.i: core/src/control/virtualgamepad.cpp.i
 
 # target to preprocess a source file
 core/src/control/virtualgamepad.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/control/virtualgamepad.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/control/virtualgamepad.cpp.i
 .PHONY : core/src/control/virtualgamepad.cpp.i
 
 core/src/control/virtualgamepad.s: core/src/control/virtualgamepad.cpp.s
@@ -173,8 +173,35 @@ core/src/control/virtualgamepad.s: core/src/control/virtualgamepad.cpp.s
 
 # target to generate assembly for a file
 core/src/control/virtualgamepad.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/control/virtualgamepad.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/control/virtualgamepad.cpp.s
 .PHONY : core/src/control/virtualgamepad.cpp.s
+
+core/src/gamemenu.o: core/src/gamemenu.cpp.o
+
+.PHONY : core/src/gamemenu.o
+
+# target to build an object file
+core/src/gamemenu.cpp.o:
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/gamemenu.cpp.o
+.PHONY : core/src/gamemenu.cpp.o
+
+core/src/gamemenu.i: core/src/gamemenu.cpp.i
+
+.PHONY : core/src/gamemenu.i
+
+# target to preprocess a source file
+core/src/gamemenu.cpp.i:
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/gamemenu.cpp.i
+.PHONY : core/src/gamemenu.cpp.i
+
+core/src/gamemenu.s: core/src/gamemenu.cpp.s
+
+.PHONY : core/src/gamemenu.s
+
+# target to generate assembly for a file
+core/src/gamemenu.cpp.s:
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/gamemenu.cpp.s
+.PHONY : core/src/gamemenu.cpp.s
 
 core/src/graphics/font.o: core/src/graphics/font.cpp.o
 
@@ -182,7 +209,7 @@ core/src/graphics/font.o: core/src/graphics/font.cpp.o
 
 # target to build an object file
 core/src/graphics/font.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/font.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/font.cpp.o
 .PHONY : core/src/graphics/font.cpp.o
 
 core/src/graphics/font.i: core/src/graphics/font.cpp.i
@@ -191,7 +218,7 @@ core/src/graphics/font.i: core/src/graphics/font.cpp.i
 
 # target to preprocess a source file
 core/src/graphics/font.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/font.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/font.cpp.i
 .PHONY : core/src/graphics/font.cpp.i
 
 core/src/graphics/font.s: core/src/graphics/font.cpp.s
@@ -200,7 +227,7 @@ core/src/graphics/font.s: core/src/graphics/font.cpp.s
 
 # target to generate assembly for a file
 core/src/graphics/font.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/font.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/font.cpp.s
 .PHONY : core/src/graphics/font.cpp.s
 
 core/src/graphics/fontbuffer.o: core/src/graphics/fontbuffer.cpp.o
@@ -209,7 +236,7 @@ core/src/graphics/fontbuffer.o: core/src/graphics/fontbuffer.cpp.o
 
 # target to build an object file
 core/src/graphics/fontbuffer.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/fontbuffer.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/fontbuffer.cpp.o
 .PHONY : core/src/graphics/fontbuffer.cpp.o
 
 core/src/graphics/fontbuffer.i: core/src/graphics/fontbuffer.cpp.i
@@ -218,7 +245,7 @@ core/src/graphics/fontbuffer.i: core/src/graphics/fontbuffer.cpp.i
 
 # target to preprocess a source file
 core/src/graphics/fontbuffer.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/fontbuffer.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/fontbuffer.cpp.i
 .PHONY : core/src/graphics/fontbuffer.cpp.i
 
 core/src/graphics/fontbuffer.s: core/src/graphics/fontbuffer.cpp.s
@@ -227,7 +254,7 @@ core/src/graphics/fontbuffer.s: core/src/graphics/fontbuffer.cpp.s
 
 # target to generate assembly for a file
 core/src/graphics/fontbuffer.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/fontbuffer.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/fontbuffer.cpp.s
 .PHONY : core/src/graphics/fontbuffer.cpp.s
 
 core/src/graphics/sprite.o: core/src/graphics/sprite.cpp.o
@@ -236,7 +263,7 @@ core/src/graphics/sprite.o: core/src/graphics/sprite.cpp.o
 
 # target to build an object file
 core/src/graphics/sprite.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/sprite.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/sprite.cpp.o
 .PHONY : core/src/graphics/sprite.cpp.o
 
 core/src/graphics/sprite.i: core/src/graphics/sprite.cpp.i
@@ -245,7 +272,7 @@ core/src/graphics/sprite.i: core/src/graphics/sprite.cpp.i
 
 # target to preprocess a source file
 core/src/graphics/sprite.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/sprite.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/sprite.cpp.i
 .PHONY : core/src/graphics/sprite.cpp.i
 
 core/src/graphics/sprite.s: core/src/graphics/sprite.cpp.s
@@ -254,7 +281,7 @@ core/src/graphics/sprite.s: core/src/graphics/sprite.cpp.s
 
 # target to generate assembly for a file
 core/src/graphics/sprite.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/sprite.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/sprite.cpp.s
 .PHONY : core/src/graphics/sprite.cpp.s
 
 core/src/graphics/text.o: core/src/graphics/text.cpp.o
@@ -263,7 +290,7 @@ core/src/graphics/text.o: core/src/graphics/text.cpp.o
 
 # target to build an object file
 core/src/graphics/text.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/text.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/text.cpp.o
 .PHONY : core/src/graphics/text.cpp.o
 
 core/src/graphics/text.i: core/src/graphics/text.cpp.i
@@ -272,7 +299,7 @@ core/src/graphics/text.i: core/src/graphics/text.cpp.i
 
 # target to preprocess a source file
 core/src/graphics/text.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/text.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/text.cpp.i
 .PHONY : core/src/graphics/text.cpp.i
 
 core/src/graphics/text.s: core/src/graphics/text.cpp.s
@@ -281,7 +308,7 @@ core/src/graphics/text.s: core/src/graphics/text.cpp.s
 
 # target to generate assembly for a file
 core/src/graphics/text.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/text.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/text.cpp.s
 .PHONY : core/src/graphics/text.cpp.s
 
 core/src/graphics/texture.o: core/src/graphics/texture.cpp.o
@@ -290,7 +317,7 @@ core/src/graphics/texture.o: core/src/graphics/texture.cpp.o
 
 # target to build an object file
 core/src/graphics/texture.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/texture.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/texture.cpp.o
 .PHONY : core/src/graphics/texture.cpp.o
 
 core/src/graphics/texture.i: core/src/graphics/texture.cpp.i
@@ -299,7 +326,7 @@ core/src/graphics/texture.i: core/src/graphics/texture.cpp.i
 
 # target to preprocess a source file
 core/src/graphics/texture.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/texture.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/texture.cpp.i
 .PHONY : core/src/graphics/texture.cpp.i
 
 core/src/graphics/texture.s: core/src/graphics/texture.cpp.s
@@ -308,7 +335,7 @@ core/src/graphics/texture.s: core/src/graphics/texture.cpp.s
 
 # target to generate assembly for a file
 core/src/graphics/texture.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/texture.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/texture.cpp.s
 .PHONY : core/src/graphics/texture.cpp.s
 
 core/src/graphics/texturebuffer.o: core/src/graphics/texturebuffer.cpp.o
@@ -317,7 +344,7 @@ core/src/graphics/texturebuffer.o: core/src/graphics/texturebuffer.cpp.o
 
 # target to build an object file
 core/src/graphics/texturebuffer.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/texturebuffer.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/texturebuffer.cpp.o
 .PHONY : core/src/graphics/texturebuffer.cpp.o
 
 core/src/graphics/texturebuffer.i: core/src/graphics/texturebuffer.cpp.i
@@ -326,7 +353,7 @@ core/src/graphics/texturebuffer.i: core/src/graphics/texturebuffer.cpp.i
 
 # target to preprocess a source file
 core/src/graphics/texturebuffer.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/texturebuffer.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/texturebuffer.cpp.i
 .PHONY : core/src/graphics/texturebuffer.cpp.i
 
 core/src/graphics/texturebuffer.s: core/src/graphics/texturebuffer.cpp.s
@@ -335,7 +362,7 @@ core/src/graphics/texturebuffer.s: core/src/graphics/texturebuffer.cpp.s
 
 # target to generate assembly for a file
 core/src/graphics/texturebuffer.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/graphics/texturebuffer.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/graphics/texturebuffer.cpp.s
 .PHONY : core/src/graphics/texturebuffer.cpp.s
 
 core/src/interface/button.o: core/src/interface/button.cpp.o
@@ -344,7 +371,7 @@ core/src/interface/button.o: core/src/interface/button.cpp.o
 
 # target to build an object file
 core/src/interface/button.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/button.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/button.cpp.o
 .PHONY : core/src/interface/button.cpp.o
 
 core/src/interface/button.i: core/src/interface/button.cpp.i
@@ -353,7 +380,7 @@ core/src/interface/button.i: core/src/interface/button.cpp.i
 
 # target to preprocess a source file
 core/src/interface/button.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/button.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/button.cpp.i
 .PHONY : core/src/interface/button.cpp.i
 
 core/src/interface/button.s: core/src/interface/button.cpp.s
@@ -362,7 +389,7 @@ core/src/interface/button.s: core/src/interface/button.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/button.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/button.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/button.cpp.s
 .PHONY : core/src/interface/button.cpp.s
 
 core/src/interface/label.o: core/src/interface/label.cpp.o
@@ -371,7 +398,7 @@ core/src/interface/label.o: core/src/interface/label.cpp.o
 
 # target to build an object file
 core/src/interface/label.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/label.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/label.cpp.o
 .PHONY : core/src/interface/label.cpp.o
 
 core/src/interface/label.i: core/src/interface/label.cpp.i
@@ -380,7 +407,7 @@ core/src/interface/label.i: core/src/interface/label.cpp.i
 
 # target to preprocess a source file
 core/src/interface/label.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/label.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/label.cpp.i
 .PHONY : core/src/interface/label.cpp.i
 
 core/src/interface/label.s: core/src/interface/label.cpp.s
@@ -389,7 +416,7 @@ core/src/interface/label.s: core/src/interface/label.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/label.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/label.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/label.cpp.s
 .PHONY : core/src/interface/label.cpp.s
 
 core/src/interface/labeledbutton.o: core/src/interface/labeledbutton.cpp.o
@@ -398,7 +425,7 @@ core/src/interface/labeledbutton.o: core/src/interface/labeledbutton.cpp.o
 
 # target to build an object file
 core/src/interface/labeledbutton.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/labeledbutton.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/labeledbutton.cpp.o
 .PHONY : core/src/interface/labeledbutton.cpp.o
 
 core/src/interface/labeledbutton.i: core/src/interface/labeledbutton.cpp.i
@@ -407,7 +434,7 @@ core/src/interface/labeledbutton.i: core/src/interface/labeledbutton.cpp.i
 
 # target to preprocess a source file
 core/src/interface/labeledbutton.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/labeledbutton.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/labeledbutton.cpp.i
 .PHONY : core/src/interface/labeledbutton.cpp.i
 
 core/src/interface/labeledbutton.s: core/src/interface/labeledbutton.cpp.s
@@ -416,7 +443,7 @@ core/src/interface/labeledbutton.s: core/src/interface/labeledbutton.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/labeledbutton.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/labeledbutton.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/labeledbutton.cpp.s
 .PHONY : core/src/interface/labeledbutton.cpp.s
 
 core/src/interface/layout.o: core/src/interface/layout.cpp.o
@@ -425,7 +452,7 @@ core/src/interface/layout.o: core/src/interface/layout.cpp.o
 
 # target to build an object file
 core/src/interface/layout.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/layout.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/layout.cpp.o
 .PHONY : core/src/interface/layout.cpp.o
 
 core/src/interface/layout.i: core/src/interface/layout.cpp.i
@@ -434,7 +461,7 @@ core/src/interface/layout.i: core/src/interface/layout.cpp.i
 
 # target to preprocess a source file
 core/src/interface/layout.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/layout.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/layout.cpp.i
 .PHONY : core/src/interface/layout.cpp.i
 
 core/src/interface/layout.s: core/src/interface/layout.cpp.s
@@ -443,7 +470,7 @@ core/src/interface/layout.s: core/src/interface/layout.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/layout.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/layout.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/layout.cpp.s
 .PHONY : core/src/interface/layout.cpp.s
 
 core/src/interface/menu.o: core/src/interface/menu.cpp.o
@@ -452,7 +479,7 @@ core/src/interface/menu.o: core/src/interface/menu.cpp.o
 
 # target to build an object file
 core/src/interface/menu.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/menu.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/menu.cpp.o
 .PHONY : core/src/interface/menu.cpp.o
 
 core/src/interface/menu.i: core/src/interface/menu.cpp.i
@@ -461,7 +488,7 @@ core/src/interface/menu.i: core/src/interface/menu.cpp.i
 
 # target to preprocess a source file
 core/src/interface/menu.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/menu.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/menu.cpp.i
 .PHONY : core/src/interface/menu.cpp.i
 
 core/src/interface/menu.s: core/src/interface/menu.cpp.s
@@ -470,7 +497,7 @@ core/src/interface/menu.s: core/src/interface/menu.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/menu.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/menu.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/menu.cpp.s
 .PHONY : core/src/interface/menu.cpp.s
 
 core/src/interface/paragraph.o: core/src/interface/paragraph.cpp.o
@@ -479,7 +506,7 @@ core/src/interface/paragraph.o: core/src/interface/paragraph.cpp.o
 
 # target to build an object file
 core/src/interface/paragraph.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/paragraph.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/paragraph.cpp.o
 .PHONY : core/src/interface/paragraph.cpp.o
 
 core/src/interface/paragraph.i: core/src/interface/paragraph.cpp.i
@@ -488,7 +515,7 @@ core/src/interface/paragraph.i: core/src/interface/paragraph.cpp.i
 
 # target to preprocess a source file
 core/src/interface/paragraph.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/paragraph.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/paragraph.cpp.i
 .PHONY : core/src/interface/paragraph.cpp.i
 
 core/src/interface/paragraph.s: core/src/interface/paragraph.cpp.s
@@ -497,7 +524,7 @@ core/src/interface/paragraph.s: core/src/interface/paragraph.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/paragraph.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/paragraph.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/paragraph.cpp.s
 .PHONY : core/src/interface/paragraph.cpp.s
 
 core/src/interface/widget.o: core/src/interface/widget.cpp.o
@@ -506,7 +533,7 @@ core/src/interface/widget.o: core/src/interface/widget.cpp.o
 
 # target to build an object file
 core/src/interface/widget.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/widget.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/widget.cpp.o
 .PHONY : core/src/interface/widget.cpp.o
 
 core/src/interface/widget.i: core/src/interface/widget.cpp.i
@@ -515,7 +542,7 @@ core/src/interface/widget.i: core/src/interface/widget.cpp.i
 
 # target to preprocess a source file
 core/src/interface/widget.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/widget.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/widget.cpp.i
 .PHONY : core/src/interface/widget.cpp.i
 
 core/src/interface/widget.s: core/src/interface/widget.cpp.s
@@ -524,7 +551,7 @@ core/src/interface/widget.s: core/src/interface/widget.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/widget.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/widget.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/widget.cpp.s
 .PHONY : core/src/interface/widget.cpp.s
 
 core/src/interface/window.o: core/src/interface/window.cpp.o
@@ -533,7 +560,7 @@ core/src/interface/window.o: core/src/interface/window.cpp.o
 
 # target to build an object file
 core/src/interface/window.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/window.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/window.cpp.o
 .PHONY : core/src/interface/window.cpp.o
 
 core/src/interface/window.i: core/src/interface/window.cpp.i
@@ -542,7 +569,7 @@ core/src/interface/window.i: core/src/interface/window.cpp.i
 
 # target to preprocess a source file
 core/src/interface/window.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/window.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/window.cpp.i
 .PHONY : core/src/interface/window.cpp.i
 
 core/src/interface/window.s: core/src/interface/window.cpp.s
@@ -551,7 +578,7 @@ core/src/interface/window.s: core/src/interface/window.cpp.s
 
 # target to generate assembly for a file
 core/src/interface/window.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/interface/window.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/interface/window.cpp.s
 .PHONY : core/src/interface/window.cpp.s
 
 core/src/main.o: core/src/main.cpp.o
@@ -560,7 +587,7 @@ core/src/main.o: core/src/main.cpp.o
 
 # target to build an object file
 core/src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/main.cpp.o
 .PHONY : core/src/main.cpp.o
 
 core/src/main.i: core/src/main.cpp.i
@@ -569,7 +596,7 @@ core/src/main.i: core/src/main.cpp.i
 
 # target to preprocess a source file
 core/src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/main.cpp.i
 .PHONY : core/src/main.cpp.i
 
 core/src/main.s: core/src/main.cpp.s
@@ -578,7 +605,7 @@ core/src/main.s: core/src/main.cpp.s
 
 # target to generate assembly for a file
 core/src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/main.cpp.s
 .PHONY : core/src/main.cpp.s
 
 core/src/mainwindow.o: core/src/mainwindow.cpp.o
@@ -587,7 +614,7 @@ core/src/mainwindow.o: core/src/mainwindow.cpp.o
 
 # target to build an object file
 core/src/mainwindow.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/mainwindow.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/mainwindow.cpp.o
 .PHONY : core/src/mainwindow.cpp.o
 
 core/src/mainwindow.i: core/src/mainwindow.cpp.i
@@ -596,7 +623,7 @@ core/src/mainwindow.i: core/src/mainwindow.cpp.i
 
 # target to preprocess a source file
 core/src/mainwindow.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/mainwindow.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/mainwindow.cpp.i
 .PHONY : core/src/mainwindow.cpp.i
 
 core/src/mainwindow.s: core/src/mainwindow.cpp.s
@@ -605,7 +632,7 @@ core/src/mainwindow.s: core/src/mainwindow.cpp.s
 
 # target to generate assembly for a file
 core/src/mainwindow.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/mainwindow.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/mainwindow.cpp.s
 .PHONY : core/src/mainwindow.cpp.s
 
 core/src/scraper.o: core/src/scraper.cpp.o
@@ -614,7 +641,7 @@ core/src/scraper.o: core/src/scraper.cpp.o
 
 # target to build an object file
 core/src/scraper.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/scraper.cpp.o
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/scraper.cpp.o
 .PHONY : core/src/scraper.cpp.o
 
 core/src/scraper.i: core/src/scraper.cpp.i
@@ -623,7 +650,7 @@ core/src/scraper.i: core/src/scraper.cpp.i
 
 # target to preprocess a source file
 core/src/scraper.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/scraper.cpp.i
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/scraper.cpp.i
 .PHONY : core/src/scraper.cpp.i
 
 core/src/scraper.s: core/src/scraper.cpp.s
@@ -632,7 +659,7 @@ core/src/scraper.s: core/src/scraper.cpp.s
 
 # target to generate assembly for a file
 core/src/scraper.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/core/src/scraper.cpp.s
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/core/src/scraper.cpp.s
 .PHONY : core/src/scraper.cpp.s
 
 # Help Target
@@ -643,12 +670,15 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... core"
+	@echo "... retrofox"
 	@echo "... database"
 	@echo "... api-service"
 	@echo "... core/src/control/virtualgamepad.o"
 	@echo "... core/src/control/virtualgamepad.i"
 	@echo "... core/src/control/virtualgamepad.s"
+	@echo "... core/src/gamemenu.o"
+	@echo "... core/src/gamemenu.i"
+	@echo "... core/src/gamemenu.s"
 	@echo "... core/src/graphics/font.o"
 	@echo "... core/src/graphics/font.i"
 	@echo "... core/src/graphics/font.s"

@@ -218,13 +218,10 @@ Project_SOURCE_DIR:STATIC=/home/bfdestroyeer/Source/retrofox
 Python_LIBRARY_DEBUG:FILEPATH=
 
 //Path to a library.
-Python_LIBRARY_RELEASE:FILEPATH=/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+Python_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.8.so
 
 //Path to a library.
 SDL2MAIN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2main.a
-
-//The directory containing a CMake configuration file for SDL2.
-SDL2_DIR:PATH=SDL2_DIR-NOTFOUND
 
 //Path to a file.
 SDL2_INCLUDE_DIR:PATH=/usr/include/SDL2
@@ -245,7 +242,7 @@ SQLite3_INCLUDE_DIR:PATH=/usr/include
 SQLite3_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libsqlite3.so
 
 //Path to a file.
-_Python_INCLUDE_DIR:PATH=/usr/include/python2.7
+_Python_INCLUDE_DIR:PATH=/usr/include/python3.8
 
 //Value Computed by CMake
 api-service_BINARY_DIR:STATIC=/home/bfdestroyeer/Source/retrofox/build/api-service
@@ -422,7 +419,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Python
-FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/bin/python2.7][/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so][/usr/include/python2.7][cfound components: Interpreter Development ][v2.7.18()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/bin/python3.8][/usr/lib/x86_64-linux-gnu/libpython3.8.so][/usr/include/python3.8][cfound components: Interpreter Development ][v3.8.2()]
 //Details about finding SDL2
 FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2.so;-lpthread][/usr/include/SDL2][v()]
 //Details about finding SDL2_ttf
@@ -435,23 +432,23 @@ FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 Python_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Python_LIBRARY_RELEASE
 Python_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
-SDL2_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2.so;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread
+SDL2_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2.so;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread
 //ADVANCED property for variable: SQLite3_INCLUDE_DIR
 SQLite3_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SQLite3_LIBRARY
 SQLite3_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: _Python_DEVELOPMENT_SIGNATURE
 _Python_DEVELOPMENT_SIGNATURE-ADVANCED:INTERNAL=1
-_Python_DEVELOPMENT_SIGNATURE:INTERNAL=796e768aaa28330df6b1520629331d47
+_Python_DEVELOPMENT_SIGNATURE:INTERNAL=4a4167209e8a167eff1f1b37da22ba0f
 //ADVANCED property for variable: _Python_EXECUTABLE
 _Python_EXECUTABLE-ADVANCED:INTERNAL=1
-_Python_EXECUTABLE:INTERNAL=/usr/bin/python2.7
+_Python_EXECUTABLE:INTERNAL=/usr/bin/python3.8
 //ADVANCED property for variable: _Python_INCLUDE_DIR
 _Python_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: _Python_INTERPRETER_SIGNATURE
 _Python_INTERPRETER_SIGNATURE-ADVANCED:INTERNAL=1
-_Python_INTERPRETER_SIGNATURE:INTERNAL=14bae248b86952e452aa288c4f135526
+_Python_INTERPRETER_SIGNATURE:INTERNAL=60fbcba4d3ec42cb22d9b25de2c7c03a
 //ADVANCED property for variable: _Python_LIBRARY_RELEASE
 _Python_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
-_Python_LIBRARY_RELEASE:INTERNAL=/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+_Python_LIBRARY_RELEASE:INTERNAL=/usr/lib/x86_64-linux-gnu/libpython3.8.so
 

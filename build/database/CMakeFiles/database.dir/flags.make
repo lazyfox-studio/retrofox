@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/python2.7 -I/usr/lib/python2.7/config-x86_64-linux-gnu -I/usr/include/SDL2 -I/home/bfdestroyeer/Source/retrofox/database/include 
+CXX_INCLUDES = -I/usr/include/python3.8 -I/usr/lib/x86_64-linux-gnu -I/usr/include/SDL2 -I/home/bfdestroyeer/Source/retrofox/database/include 
 

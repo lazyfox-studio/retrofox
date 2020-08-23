@@ -63,7 +63,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/core.dir/DependInfo.cmake"
+  "CMakeFiles/retrofox.dir/DependInfo.cmake"
   "database/CMakeFiles/database.dir/DependInfo.cmake"
   "api-service/CMakeFiles/api-service.dir/DependInfo.cmake"
   )

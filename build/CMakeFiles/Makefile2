@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/bfdestroyeer/Source/retrofox/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/core.dir/all
+all: CMakeFiles/retrofox.dir/all
 all: core/all
 all: database/all
 all: api-service/all
@@ -68,7 +68,7 @@ preinstall: api-service/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/core.dir/clean
+clean: CMakeFiles/retrofox.dir/clean
 clean: core/clean
 clean: database/clean
 clean: api-service/clean
@@ -130,31 +130,32 @@ database/clean: database/CMakeFiles/database.dir/clean
 .PHONY : database/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/core.dir
+# Target rules for target CMakeFiles/retrofox.dir
 
 # All Build rule for target.
-CMakeFiles/core.dir/all: database/CMakeFiles/database.dir/all
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/depend
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bfdestroyeer/Source/retrofox/build/CMakeFiles --progress-num=4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 "Built target core"
-.PHONY : CMakeFiles/core.dir/all
+CMakeFiles/retrofox.dir/all: api-service/CMakeFiles/api-service.dir/all
+CMakeFiles/retrofox.dir/all: database/CMakeFiles/database.dir/all
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/depend
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bfdestroyeer/Source/retrofox/build/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 "Built target retrofox"
+.PHONY : CMakeFiles/retrofox.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bfdestroyeer/Source/retrofox/build/CMakeFiles 26
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/core.dir/all
+CMakeFiles/retrofox.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bfdestroyeer/Source/retrofox/build/CMakeFiles 30
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/retrofox.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bfdestroyeer/Source/retrofox/build/CMakeFiles 0
-.PHONY : CMakeFiles/core.dir/rule
+.PHONY : CMakeFiles/retrofox.dir/rule
 
 # Convenience name for target.
-core: CMakeFiles/core.dir/rule
+retrofox: CMakeFiles/retrofox.dir/rule
 
-.PHONY : core
+.PHONY : retrofox
 
 # clean rule for target.
-CMakeFiles/core.dir/clean:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/clean
-.PHONY : CMakeFiles/core.dir/clean
+CMakeFiles/retrofox.dir/clean:
+	$(MAKE) -f CMakeFiles/retrofox.dir/build.make CMakeFiles/retrofox.dir/clean
+.PHONY : CMakeFiles/retrofox.dir/clean
 
 #=============================================================================
 # Target rules for target database/CMakeFiles/database.dir
@@ -163,7 +164,7 @@ CMakeFiles/core.dir/clean:
 database/CMakeFiles/database.dir/all:
 	$(MAKE) -f database/CMakeFiles/database.dir/build.make database/CMakeFiles/database.dir/depend
 	$(MAKE) -f database/CMakeFiles/database.dir/build.make database/CMakeFiles/database.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bfdestroyeer/Source/retrofox/build/CMakeFiles --progress-num=23,24,25,26,27,28,29 "Built target database"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bfdestroyeer/Source/retrofox/build/CMakeFiles --progress-num=4,5,6,7,8,9,10 "Built target database"
 .PHONY : database/CMakeFiles/database.dir/all
 
 # Build rule for subdir invocation for target.

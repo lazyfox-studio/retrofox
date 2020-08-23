@@ -1,6 +1,6 @@
 /home/bfdestroyeer/Source/retrofox/build/CMakeFiles/rebuild_cache.dir
 /home/bfdestroyeer/Source/retrofox/build/CMakeFiles/edit_cache.dir
-/home/bfdestroyeer/Source/retrofox/build/CMakeFiles/core.dir
+/home/bfdestroyeer/Source/retrofox/build/CMakeFiles/retrofox.dir
 /home/bfdestroyeer/Source/retrofox/build/core/CMakeFiles/rebuild_cache.dir
 /home/bfdestroyeer/Source/retrofox/build/core/CMakeFiles/edit_cache.dir
 /home/bfdestroyeer/Source/retrofox/build/database/CMakeFiles/rebuild_cache.dir
