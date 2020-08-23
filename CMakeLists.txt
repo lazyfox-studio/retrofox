@@ -17,6 +17,7 @@ if (NOT Python_FOUND)
 else()
     include_directories(${Python_INCLUDE_DIRS})
     include_directories(${Python_LIBRARY_DIRS})
+    set(Python_LIBRARIES ${Python_LIBRARIES} ${Python_LIBRARY_DIRS}/python38_d.lib)
 endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
