@@ -9,6 +9,7 @@ compiler:
 addons:
   apt:
     packages:
+      - cmake
       - libsdl2-dev
       - libsdl2-ttf-2.0-0
       - libsqlite3-dev
