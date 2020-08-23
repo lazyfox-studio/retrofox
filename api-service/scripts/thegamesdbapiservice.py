@@ -1,5 +1,3 @@
-import os
-import re
 import requests
 import json
 import sqlite3
@@ -30,48 +28,21 @@ class TheGamesDBAPIService(BaseAPIService):
         return json.loads(answer.content)['data']
 
     @classmethod
-    def extract_games_data(cls, raw_games_data, query_string, path_to_db):
-        # Remove invalid games
-        delete_list = []
-
-        # Check if searching for first game in series
-        if not raw_games_data['count'] == 1:
-            if raw_games_data['count'] == 0:
-                return 1
-            if not re.search(r'\d', query_string):
-                for game in raw_games_data['games']:
-                    if re.search(r'\d', game['game_title']):
-                        delete_list.append(game)
-                        raw_games_data['count'] -= 1
-        for game in delete_list:
-            raw_games_data['games'].remove(game)
-        delete_list = []
-
-        # Remove all "xxx edition" from result
-        if not raw_games_data['count'] == 1:
-            if raw_games_data['count'] == 0:
-                return 1
-            for game in raw_games_data['games']:
-                if re.search(r'\(.*\)', game['game_title']):
-                    delete_list.append(game)
-                    raw_games_data['count'] -= 1
-        for game in delete_list:
-            raw_games_data['games'].remove(game)
-        delete_list = []
-
-        # Preparing data for insertion
-        # (name, platform_id, release_date, developer, publisher, genre, rating, description)
+    def extract_games_data(cls, raw_games_data, game_id, query_string, path_to_db):
+        # (path, name, platform_id, release_date, developer, publisher, genre, rating, description)
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
         games = []
         for game in raw_games_data['games']:
-            cursor.execute('SELECT name FROM thegamesdb_developers WHERE id=?', (game['developers'][0], ))
-            developer = cursor.fetchone()[0]
-            cursor.execute('SELECT name FROM thegamesdb_publishers WHERE id=?', (game['publishers'][0],))
-            publisher = cursor.fetchone()[0]
-            cursor.execute('SELECT name FROM thegamesdb_genres WHERE id=?', (game['genres'][0],))
-            genre = cursor.fetchone()[0]
-            games.append((game['game_title'], 10, game['release_date'], developer, publisher, genre, game['rating'], game['overview']))
+            games.append(
+                {
+                    'game': (game_id, game['game_title'], game['release_date'], game['rating'], game['overview'],
+                            'thegamesdb'),
+                    'developers': game['developers'],
+                    'publishers': game['publishers'],
+                    'genres': game['genres']
+                }
+            )
         base.close()
 
         return games

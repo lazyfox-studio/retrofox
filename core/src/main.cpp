@@ -5,6 +5,8 @@
 
 #include "mainwindow.h"
 
+#include "scraper.h"
+
 int main(int argc, char *argv[])
 {
 	try
@@ -13,7 +15,7 @@ int main(int argc, char *argv[])
 		int result = PythonEnv::instance().callFunction("testscript", "someMagicFunctionWithArg", "hello").cast<int>();
 		std::cout << result;
 	}
-	catch (std::exception & e)
+	catch (std::runtime_error & e)
 	{
 		std::cerr << e.what();
 	}

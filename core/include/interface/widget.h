@@ -1,6 +1,7 @@
 #pragma once
 
 #include <limits>
+#include <stdexcept>
 
 #include "control/virtualgamepad.h"
 #include "graphics/sprite.h"
