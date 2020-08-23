@@ -1,0 +1,17 @@
+notifications:
+  email: true
+
+language: cpp
+compiler:
+  - gcc
+
+addons:
+  apt:
+    packages:
+      - libsdl2-dev
+      - libsdl2-ttf
+      - libsqlite-dev
+      - python-dev
+
+script:
+  - cmake
