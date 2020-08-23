@@ -11,6 +11,8 @@ else()
     include_directories(${Python_LIBRARY_DIRS})
 endif()
 
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
 find_package(SQLite3 REQUIRED)
 if (NOT SQLite3_FOUND)
     message(SEND_ERROR "Failed to find SQLite3")
@@ -18,8 +20,6 @@ if (NOT SQLite3_FOUND)
 else()
     include_directories(${SQLite3_INCLUDE_DIRS})
 endif()
-
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(SDL2_PATH "D:/Libraries/SDL")
 find_package(SDL2 REQUIRED)
