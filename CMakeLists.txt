@@ -1,7 +1,15 @@
 cmake_minimum_required(VERSION 2.8)
 
-add_subdirectory(core)
 
+add_subdirectory(api-service)
+add_subdirectory(core)
+add_subdirectory(database)
+
+include_directories(${API_SERVICE_INCLUDE_DIRS})
+include_directories(${CORE_INCLUDE_DIRS})
+include_directories(${DATASE_INCLUDE_DIRS})
+
+#Finding libraries
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 if (NOT Python_FOUND)
     message(SEND_ERROR "Failed to find Python")
@@ -39,37 +47,11 @@ else()
 include_directories(${SDL2_TTF_INCLUDE_DIRS})
 endif()
 
-add_subdirectory(database)
-include_directories("database/include")
+#Configuring projects
+add_library(api-service STATIC ${API_SERVICE_SOURCE_FILES})
+add_library(database STATIC ${DATABASE_SOURCE_FILES})
 
-add_subdirectory(api-service)
-include_directories("api-service/include")
-
-#source files
-include_directories(core/include)
-set(SOURCE_FILES
-    core/src/gamemenu.cpp
-    core/src/main.cpp
-    core/src/mainwindow.cpp
-    core/src/scraper.cpp
-    core/src/control/virtualgamepad.cpp
-    core/src/graphics/font.cpp
-    core/src/graphics/fontbuffer.cpp
-    core/src/graphics/sprite.cpp
-    core/src/graphics/text.cpp
-    core/src/graphics/texture.cpp
-    core/src/graphics/texturebuffer.cpp
-    core/src/interface/button.cpp
-    core/src/interface/label.cpp
-    core/src/interface/labeledbutton.cpp
-    core/src/interface/layout.cpp
-    core/src/interface/menu.cpp
-    core/src/interface/paragraph.cpp
-    core/src/interface/widget.cpp
-    core/src/interface/window.cpp
-    )
-
-add_executable(retrofox ${SOURCE_FILES})
+add_executable(retrofox ${CORE_SOURCE_FILES})
 
 target_link_libraries(retrofox database)
 target_link_libraries(retrofox api-service)

@@ -360,3 +360,6 @@ doxygen/**
 
 # Idea chache
 *.idea/
+
+# Vscode cmake build folder
+build/*
