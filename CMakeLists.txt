@@ -23,7 +23,7 @@ endif()
 
 set(SDL2_PATH "D:/Libraries/SDL")
 find_package(SDL2 REQUIRED)
-if (NOT SQLite3_FOUND)
+if (NOT SDL2_FOUND)
     message(SEND_ERROR "Failed to find SDL2")
     return()
 else()
