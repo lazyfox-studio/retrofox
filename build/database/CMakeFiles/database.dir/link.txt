@@ -1,2 +1,0 @@
-/bin/ar qc libdatabase.a  CMakeFiles/database.dir/src/connection.cpp.o CMakeFiles/database.dir/src/row.cpp.o CMakeFiles/database.dir/src/statement.cpp.o CMakeFiles/database.dir/src/entities/emulator.cpp.o CMakeFiles/database.dir/src/entities/game.cpp.o CMakeFiles/database.dir/src/entities/platform.cpp.o
-/bin/ranlib libdatabase.a
