@@ -5,7 +5,7 @@ namespace Database
     Connection::Connection(const std::string& db_path)
     {
         if (sqlite3_open(db_path.c_str(), &p_db_handler))
-            throw std::exception("Cannot open database");
+            throw std::runtime_error("Cannot open database");
     }
 
     Connection::~Connection()
@@ -37,7 +37,7 @@ namespace Database
     {
         sqlite3_stmt* stmt_handler;
         if (sqlite3_prepare(p_db_handler, query_string.c_str(), static_cast<int>(query_string.length()) + 1, &stmt_handler, nullptr))
-            throw std::exception(error());
+            throw std::runtime_error(error());
         return Statement(stmt_handler);
     }
 }

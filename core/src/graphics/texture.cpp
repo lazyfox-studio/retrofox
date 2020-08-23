@@ -14,7 +14,7 @@ namespace Graphics
         if (surface == nullptr)
         {
             SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Can't load file %s", path.c_str());
-            throw std::exception("Can't load file");
+            throw std::runtime_error("Can't load file");
         }
         size = { surface->h, surface->w };
         sdl_texture = SDL_CreateTextureFromSurface(renderer, surface);
