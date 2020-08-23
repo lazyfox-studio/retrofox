@@ -1,2 +1,0 @@
-/bin/ar qc libapi-service.a  CMakeFiles/api-service.dir/src/pythonenv.cpp.o CMakeFiles/api-service.dir/src/pythonref.cpp.o
-/bin/ranlib libapi-service.a

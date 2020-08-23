@@ -48,7 +48,7 @@ include_directories("api-service/include")
 #source files
 include_directories(core/include)
 set(SOURCE_FILES
-    #core/scr/gamemenu.cpp
+    core/src/gamemenu.cpp
     core/src/main.cpp
     core/src/mainwindow.cpp
     core/src/scraper.cpp
@@ -69,7 +69,8 @@ set(SOURCE_FILES
     core/src/interface/window.cpp
     )
 
-add_executable(core.e ${SOURCE_FILES})
+add_executable(retrofox ${SOURCE_FILES})
 
-target_link_libraries(core database)
-target_link_libraries(core database ${SDL2_LIBRARY} ${SDL2_TTF_LIBRARIES} ${SQLite3_LIBRARIES})
+target_link_libraries(retrofox database)
+target_link_libraries(retrofox api-service)
+target_link_libraries(retrofox database ${SDL2_LIBRARY} ${SDL2_TTF_LIBRARIES} ${SQLite3_LIBRARIES} ${Python_LIBRARIES})

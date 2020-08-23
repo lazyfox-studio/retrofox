@@ -1,8 +1,8 @@
 #include "scraper.h"
 
-void Scraper::setDatabasePath(std::string path)
+void Scraper::setDatabasePath(const std::string& path)
 {
-    db_path = path;
+    
 }
 
 void Scraper::scanFloder(std::string path, int platform_id)

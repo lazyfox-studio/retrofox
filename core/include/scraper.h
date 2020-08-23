@@ -9,7 +9,7 @@ class Scraper
     static std::string db_path;
 
 public:
-    static void setDatabasePath(std::string path);
+    static void setDatabasePath(const std::string& path);
 
     static void scanFloder(std::string path, int platform_id);
     static void findGameInformation(std::string path);
