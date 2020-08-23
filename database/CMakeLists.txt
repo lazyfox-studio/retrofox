@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(database)
 
-find_package(SQLITE3 REQUIRED)
+find_package(SQLite3 REQUIRED)
 if (NOT SQLITE3_FOUND)
     message(SEND_ERROR "Failed to find SQLITE3")
     return()
