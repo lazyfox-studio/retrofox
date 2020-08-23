@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 2.8)
 
 add_subdirectory(core)
 
+find_package(Python COMPONENTS Interpreter Development REQUIRED)
+if (NOT Python_FOUND)
+    message(SEND_ERROR "Failed to find Python")
+    return()
+else()
+    include_directories(${Python_INCLUDE_DIRS})
+    include_directories(${Python_LIBRARY_DIRS})
+endif()
 
 find_package(SQLite3 REQUIRED)
 if (NOT SQLite3_FOUND)
@@ -11,7 +19,7 @@ else()
     include_directories(${SQLite3_INCLUDE_DIRS})
 endif()
 
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${core_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(SDL2_PATH "D:/Libraries/SDL")
 find_package(SDL2 REQUIRED)
@@ -34,12 +42,17 @@ endif()
 add_subdirectory(database)
 include_directories("database/include")
 
+add_subdirectory(api-service)
+include_directories("api-service/include")
+
 #source files
 include_directories(core/include)
 set(SOURCE_FILES
+    #core/scr/gamemenu.cpp
     core/src/main.cpp
-    core/src/window.cpp
-    core/src/gamemenu.cpp
+    core/src/mainwindow.cpp
+    core/src/scraper.cpp
+    core/src/control/virtualgamepad.cpp
     core/src/graphics/font.cpp
     core/src/graphics/fontbuffer.cpp
     core/src/graphics/sprite.cpp
@@ -53,9 +66,10 @@ set(SOURCE_FILES
     core/src/interface/menu.cpp
     core/src/interface/paragraph.cpp
     core/src/interface/widget.cpp
+    core/src/interface/window.cpp
     )
 
-add_executable(core ${SOURCE_FILES})
+add_executable(core.e ${SOURCE_FILES})
 
 target_link_libraries(core database)
 target_link_libraries(core database ${SDL2_LIBRARY} ${SDL2_TTF_LIBRARIES} ${SQLite3_LIBRARIES})

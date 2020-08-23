@@ -47,8 +47,8 @@ namespace Database
         if (result == SQLITE_ROW)
             return Row(p_stmt_handler);
         if (result == SQLITE_MISUSE)
-            throw std::exception("Library used incorrectly");
-        throw std::exception("SQL Error, check db connection");
+            throw std::runtime_error("Library used incorrectly");
+        throw std::runtime_error("SQL Error, check db connection");
     }
 
     int Statement::columnCount() const

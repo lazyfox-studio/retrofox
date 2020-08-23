@@ -1,0 +1,3 @@
+/home/bfdestroyeer/Source/retrofox/api-service/build/CMakeFiles/rebuild_cache.dir
+/home/bfdestroyeer/Source/retrofox/api-service/build/CMakeFiles/edit_cache.dir
+/home/bfdestroyeer/Source/retrofox/api-service/build/CMakeFiles/api-service.dir

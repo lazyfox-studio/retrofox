@@ -2,6 +2,7 @@
 
 #include <sqlite3.h>
 
+#include <stdexcept>
 #include <string>
 
 namespace Database
@@ -101,7 +102,7 @@ namespace Database
     {
         int column_index = findColumnByName(column_name);
         if (column_index == -1)
-            throw std::exception("Column not fount - cannot get value");
+            throw std::runtime_error("Column not fount - cannot get value");
         return column<RType>(column_index);
     }
 }

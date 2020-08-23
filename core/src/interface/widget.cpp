@@ -1,4 +1,4 @@
-#include "interface/Widget.h"
+#include "interface/widget.h"
 
 namespace Interface
 {

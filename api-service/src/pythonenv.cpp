@@ -23,7 +23,7 @@ PyObject* PythonEnv::createCallableObject(const std::string& module_name, const 
         if (PyErr_Occurred())
             PyErr_Print();
         Py_XDECREF(func);
-        throw std::exception("Cannot find function");
+        throw std::runtime_error("Cannot find function");
     }
 }
 
@@ -31,7 +31,12 @@ PythonEnv::~PythonEnv()
 {
     for (auto& pair : m_modules)
         Py_DECREF(pair.second);
+    #ifdef _WIN64
     Py_FinalizeEx();
+    #endif
+    #ifdef linux
+    Py_Finalize();
+    #endif
 }
 
 bool PythonEnv::loadModule(const std::string& module_name)
@@ -62,7 +67,7 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     {
         Py_DECREF(func);
         PyErr_Print();
-        throw std::exception("Function call failed");
+        throw std::runtime_error("Function call failed");
     }
 }
 
@@ -83,7 +88,7 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     {
         Py_DECREF(func);
         PyErr_Print();
-        throw std::exception("Function call failed");
+        throw std::runtime_error("Function call failed");
     }
 }
 
@@ -104,7 +109,7 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     {
         Py_DECREF(func);
         PyErr_Print();
-        throw std::exception("Function call failed");
+        throw std::runtime_error("Function call failed");
     }
 }
 
