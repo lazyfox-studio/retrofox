@@ -26,7 +26,7 @@ class BaseAPIService:
         raise NotImplementedError
     
     @classmethod
-    def extract_games_data(cls, raw_games_data, game_id, query_string, path_to_db):
+    def extract_games_data(cls, raw_games_data, game_id, query_string):
         raise NotImplementedError
     
     @classmethod

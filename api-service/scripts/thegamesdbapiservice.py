@@ -28,10 +28,7 @@ class TheGamesDBAPIService(BaseAPIService):
         return json.loads(answer.content)['data']
 
     @classmethod
-    def extract_games_data(cls, raw_games_data, game_id, query_string, path_to_db):
-        # (path, name, platform_id, release_date, developer, publisher, genre, rating, description)
-        base = sqlite3.connect(path_to_db)
-        cursor = base.cursor()
+    def extract_games_data(cls, raw_games_data, game_id, query_string):
         games = []
         for game in raw_games_data['games']:
             games.append(
@@ -43,8 +40,6 @@ class TheGamesDBAPIService(BaseAPIService):
                     'genres': game['genres']
                 }
             )
-        base.close()
-
         return games
 
     @classmethod

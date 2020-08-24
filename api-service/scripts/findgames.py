@@ -19,6 +19,10 @@ def scan_folder(path, extensions):
 def find_games_in_folder(roms_path, platform_id, path_to_db):
     base = sqlite3.connect(path_to_db)
     cursor = base.cursor()
+    # Reset records about games in search path
+    cursor.execute('DELETE FROM games WHERE path LIKE ?', (roms_path + '%', ))
+
+    # Saning
     cursor.execute('SELECT extension FROM extensions WHERE platform_id=?', (platform_id, ))
     extensions = cursor.fetchall()
     roms = scan_folder(roms_path, extensions)
@@ -44,7 +48,7 @@ def find_game(api_key, game_id, path_to_db):
     raw_games_data = service.load_raw_games_data(api_key, query_string, platform)
     if raw_games_data is None:
         return 1  # Request error
-    games = service.extract_games_data(raw_games_data, game_id, query_string, '../../sln/core/testbase.db')
+    games = service.extract_games_data(raw_games_data, game_id, query_string)
     games = GameFilter.remove_sequels(games, query_string)
     games = GameFilter.remove_editions(games)
     games = GameFilter.remove_not_equality(games, query_string)
@@ -58,7 +62,7 @@ def find_game(api_key, game_id, path_to_db):
 
 
 #thegamesdbapiservice.BaseAPIService.set_up_tables('E:/Source/retrofox/sln/core/testbase.db')
-#find_games_in_folder('Z:\PlayStation', 10, 'E:/Source/retrofox/sln/core/testbase.db')
+find_games_in_folder('E:/Games/Emulators Library/PlayStation', 10, 'D:/Source/retrofox/sln/core/testbase.db')
 #find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 1, 'E:/Source/retrofox/sln/core/testbase.db')
 
 #thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'E:/Source/retrofox/sln/core/testbase.db')
