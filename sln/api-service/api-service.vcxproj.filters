@@ -18,12 +18,18 @@
     <ClInclude Include="..\..\api-service\include\pythonref.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\api-service\include\pythonfunctions.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\api-service\src\pythonenv.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\api-service\src\pythonref.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\api-service\src\pythonfunctions.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
