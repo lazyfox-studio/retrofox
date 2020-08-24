@@ -27,8 +27,12 @@
     <ClCompile Include="..\..\api-service\src\pythonref.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\api-service\scripts\igdb.py" />
+    <None Include="..\..\api-service\scripts\baseapiservice.py" />
+    <None Include="..\..\api-service\scripts\findgame.py" />
+    <None Include="..\..\api-service\scripts\gamefilter.py" />
+    <None Include="..\..\api-service\scripts\igdbapiservice.py" />
     <None Include="..\..\api-service\scripts\testscript.py" />
+    <None Include="..\..\api-service\scripts\thegamesdbapiservice.py" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

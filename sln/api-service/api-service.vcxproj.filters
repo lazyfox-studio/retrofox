@@ -28,10 +28,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\api-service\scripts\igdb.py">
+    <None Include="..\..\api-service\scripts\testscript.py">
       <Filter>scripts</Filter>
     </None>
-    <None Include="..\..\api-service\scripts\testscript.py">
+    <None Include="..\..\api-service\scripts\baseapiservice.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\findgame.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\gamefilter.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\igdbapiservice.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\thegamesdbapiservice.py">
       <Filter>scripts</Filter>
     </None>
   </ItemGroup>
