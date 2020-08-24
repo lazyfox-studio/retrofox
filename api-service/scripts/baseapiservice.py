@@ -8,6 +8,10 @@ import sqlite3
 class BaseAPIService:
     api_endpoint = ''
 
+    standard_extensions = [
+        (10, 'cue'), (10, 'CUE')
+    ]
+
     @classmethod
     def prepare_query_string(cls, path_to_game):
         query_string = os.path.splitext(path_to_game)[0]
@@ -65,6 +69,7 @@ class BaseAPIService:
         # Rom extensions information table
         cursor.execute('CREATE TABLE IF NOT EXISTS extensions'
                        '(platform_id INTEGER NOT NULL, extension TEXT)')
+        cursor.executemany('INSERT INTO extensions VALUES (?, ?)', cls.standard_extensions)
 
         # Scraper cache tables
         cursor.execute('CREATE TABLE IF NOT EXISTS scraper_cache_games'
