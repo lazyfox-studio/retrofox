@@ -76,6 +76,8 @@ public:
      */
     PythonRef callFunction(const std::string& module_name, const std::string& func_name, const std::string& str_arg);
 
+    PythonRef callFunction(const std::string& module_name, const std::string& func_name, const std::string& arg1, long arg2, const std::string& arg3);
+
     /**
      * @brief Returns environment instance
      * @return Instance reference
