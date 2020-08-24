@@ -54,6 +54,7 @@ def find_game(api_key, game_id, path_to_db):
     result = service.cache_games_into_db(games, '../../sln/core/testbase.db')
     if not result:
         return 3  # Database error
+    return 0
 
 
 #thegamesdbapiservice.BaseAPIService.set_up_tables('E:/Source/retrofox/sln/core/testbase.db')

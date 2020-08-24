@@ -40,9 +40,6 @@
     <None Include="..\..\api-service\scripts\baseapiservice.py">
       <Filter>scripts</Filter>
     </None>
-    <None Include="..\..\api-service\scripts\findgame.py">
-      <Filter>scripts</Filter>
-    </None>
     <None Include="..\..\api-service\scripts\gamefilter.py">
       <Filter>scripts</Filter>
     </None>
@@ -50,6 +47,9 @@
       <Filter>scripts</Filter>
     </None>
     <None Include="..\..\api-service\scripts\thegamesdbapiservice.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\findgames.py">
       <Filter>scripts</Filter>
     </None>
   </ItemGroup>

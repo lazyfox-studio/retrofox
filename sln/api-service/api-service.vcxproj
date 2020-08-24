@@ -30,7 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\api-service\scripts\baseapiservice.py" />
-    <None Include="..\..\api-service\scripts\findgame.py" />
+    <None Include="..\..\api-service\scripts\findgames.py" />
     <None Include="..\..\api-service\scripts\gamefilter.py" />
     <None Include="..\..\api-service\scripts\igdbapiservice.py" />
     <None Include="..\..\api-service\scripts\testscript.py" />

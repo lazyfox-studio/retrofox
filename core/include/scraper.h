@@ -4,6 +4,7 @@
 
 #include <database.h>
 #include <pythonenv.h>
+#include <pythonfunctions.h>
 
 namespace Scraper
 {

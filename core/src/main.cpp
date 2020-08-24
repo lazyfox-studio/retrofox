@@ -9,8 +9,8 @@
 
 int main(int argc, char *argv[])
 {
-	Scraper::scanFloder("Z:/PlayStation", 10, "testbase.db");
-	//Scraper::findGamesInformation("testbase.db");
+	//Scraper::scanFloder("Z:/PlayStation", 10, "testbase.db");
+	Scraper::findGamesInformation("testbase.db");
 	//MainWindow window("RetroFox", 100, 100, 800, 600);
 	//window.setFullscreen();
 	//window.show();
