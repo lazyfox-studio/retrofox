@@ -27,8 +27,17 @@ def find_games_in_folder(roms_path, platform, path_to_db):
     base.close()
 
 
-def find_game(api_key, game_id, path_to_game, platform):
+def find_game(api_key, game_id, path_to_db):
     service = thegamesdbapiservice.TheGamesDBAPIService
+
+    base = sqlite3.connect(path_to_db)
+    cursor = base.cursor()
+    cursor.execute('SELECT path, platform_id FROM games')
+    game_information = cursor.fetchone()
+    path_to_game = game_information[0]
+    platform = game_information[1]
+    base.close()
+
     query_string = service.prepare_query_string(path_to_game)
     raw_games_data = service.load_raw_games_data(api_key, query_string, platform)
     if raw_games_data == None:
@@ -45,9 +54,8 @@ def find_game(api_key, game_id, path_to_game, platform):
         return 3  # Database error
 
 
-thegamesdbapiservice.BaseAPIService.set_up_tables('D:/Source/retrofox/sln/core/testbase.db')
-#find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 26, 'D:/Games/(1996) Resident Evil[NTSC].cue', 10)
+thegamesdbapiservice.BaseAPIService.set_up_tables('E:/Source/retrofox/sln/core/testbase.db')
+#find_games_in_folder('Z:\PlayStation', 10, 'E:/Source/retrofox/sln/core/testbase.db')
+#find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 1, 'E:/Source/retrofox/sln/core/testbase.db')
 
 #thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'E:/Source/retrofox/sln/core/testbase.db')
-
-find_games_in_folder('E:/Games/Emulators Library/PlayStation', 10, 'D:/Source/retrofox/sln/core/testbase.db')
