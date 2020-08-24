@@ -79,6 +79,7 @@ class BaseAPIService:
         base.commit()
         base.close()
 
+
     @classmethod
     def update_genres(cls, api_key, path_to_db):
         raise NotImplementedError
