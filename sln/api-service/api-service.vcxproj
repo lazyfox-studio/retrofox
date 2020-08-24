@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\api-service\include\pythonenv.h" />
+    <ClInclude Include="..\..\api-service\include\pythonfunctions.h" />
     <ClInclude Include="..\..\api-service\include\pythonref.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\api-service\src\pythonenv.cpp" />
+    <ClCompile Include="..\..\api-service\src\pythonfunctions.cpp" />
     <ClCompile Include="..\..\api-service\src\pythonref.cpp" />
   </ItemGroup>
   <ItemGroup>
