@@ -2,7 +2,7 @@
 
 namespace Scraper
 {
-    void scanFloder(std::string path, int platform_id, const std::string& db_path)
+    void scanFloder(std::string path, long platform_id, const std::string& db_path)
     {
         PythonEnv::instance().loadModule("findgame");
         PythonEnv::instance().callFunction("findgame", "find_games_in_folder", path, platform_id, db_path);

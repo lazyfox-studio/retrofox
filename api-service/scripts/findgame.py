@@ -32,7 +32,7 @@ def find_game(api_key, game_id, path_to_db):
 
     base = sqlite3.connect(path_to_db)
     cursor = base.cursor()
-    cursor.execute('SELECT path, platform_id FROM games')
+    cursor.execute('SELECT path, platform_id FROM games WHERE id = game_id')
     game_information = cursor.fetchone()
     path_to_game = game_information[0]
     platform = game_information[1]
