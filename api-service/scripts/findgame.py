@@ -15,16 +15,17 @@ def scan_folder(path, extensions):
     return roms
 
 
-def find_games_in_folder(roms_path, platform, path_to_db):
+def find_games_in_folder(roms_path, platform_id, path_to_db):
     base = sqlite3.connect(path_to_db)
     cursor = base.cursor()
-    cursor.execute('SELECT extension FROM extensions WHERE platform_id=?', (platform, ))
+    cursor.execute('SELECT extension FROM extensions WHERE platform_id=?', (platform_id))
     extensions = cursor.fetchall()
     roms = scan_folder(roms_path, extensions)
     for rom in roms:
-        cursor.execute('INSERT INTO games VALUES (NULL, ?, NULL, ?, NULL, NULL, NULL, NULL)', (rom, platform))
+        cursor.execute('INSERT INTO games VALUES (NULL, ?, NULL, ?, NULL, NULL, NULL, NULL)', (rom, platform_id))
     base.commit()
     base.close()
+    return 0
 
 
 def find_game(api_key, game_id, path_to_db):
