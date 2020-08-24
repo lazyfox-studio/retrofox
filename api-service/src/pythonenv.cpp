@@ -43,10 +43,9 @@ PythonEnv::~PythonEnv()
 
 bool PythonEnv::loadModule(const std::string& module_name)
 {
-    std::string py_path = c_modules_path + module_name;
     if (m_modules.find(module_name) != m_modules.end())
         return true;
-    PyObject* module = PyImport_ImportModule(py_path.c_str());
+    PyObject* module = PyImport_ImportModule(module_name.c_str());
     if (module != nullptr)
     {
         m_modules[module_name] = module;
