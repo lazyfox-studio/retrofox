@@ -38,6 +38,8 @@ protected:
     template<typename ArgType>
     PyObject* createArgObject(ArgType arg);
 
+    PythonRef processFunctionCall(PyObject* function, PyObject* args);
+
 public:
     /// Destructor
     ~PythonEnv();
@@ -61,18 +63,37 @@ public:
 
     /**
      * @brief Calls Python function and returns its result
-     * @details For functions with one argument with type int
+     * @details For functions with one argument
      * @param module_name Module name
      * @param func_name Function name
-     * @param int_arg Argument for passing to function
+     * @param arg Argument for passing to function
      * @return Reference to result object
      */
     template<typename Arg1Type>
     PythonRef callFunction(const std::string& module_name, const std::string& func_name, Arg1Type arg1);
 
+    /**
+     * @brief Calls Python function and returns its result
+     * @details For functions with two arguments
+     * @param module_name Module name
+     * @param func_name Function name
+     * @param arg1 Argument for passing to function
+     * @param arg2 Argument for passing to function
+     * @return Reference to result object
+     */
     template<typename Arg1Type, typename Arg2Type>
     PythonRef callFunction(const std::string& module_name, const std::string& func_name, Arg1Type arg1, Arg2Type arg2);
 
+    /**
+     * @brief Calls Python function and returns its result
+     * @details For functions with three arguments
+     * @param module_name Module name
+     * @param func_name Function name
+     * @param arg1 Argument for passing to function
+     * @param arg2 Argument for passing to function
+     * @param arg3 Argument for passing to function
+     * @return Reference to result object
+     */
     template<typename Arg1Type, typename Arg2Type, typename Arg3Type>
     PythonRef callFunction(const std::string& module_name, const std::string& func_name, Arg1Type arg1, Arg2Type arg2, Arg3Type arg3);
 
@@ -90,24 +111,16 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     PyObject* func = createCallableObject(module_name, func_name);
     PyObject* args = PyTuple_New(1);
     PyTuple_SetItem(args, 0, createArgObject(arg1));
-    PyObject* ret_value = PyObject_CallObject(func, args);
-    Py_DECREF(args);
-    Py_XDECREF(func);
-    if (ret_value != nullptr)
-        return PythonRef(ret_value);
-    else
-    {
-        PyErr_Print();
-        throw std::runtime_error("Function call failed");
-    }
+    return processFunctionCall(func, args);
 }
 
 template<typename Arg1Type, typename Arg2Type>
 PythonRef PythonEnv::callFunction(const std::string& module_name, const std::string& func_name, Arg1Type arg1, Arg2Type arg2)
 {
+    constexpr int arg_count = 2;
+
     loadModule(module_name);
     PyObject* func = createCallableObject(module_name, func_name);
-    constexpr int arg_count = 2;
     PyObject* args = PyTuple_New(arg_count);
     PyObject* arg_vals[arg_count] = {
         createArgObject(arg1),
@@ -115,24 +128,16 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     };
     for (int i = 0; i < arg_count; i++)
         PyTuple_SetItem(args, i, arg_vals[i]);
-    PyObject* ret_value = PyObject_CallObject(func, args);
-    Py_DECREF(args);
-    Py_XDECREF(func);
-    if (ret_value != nullptr)
-        return PythonRef(ret_value);
-    else
-    {
-        PyErr_Print();
-        throw std::runtime_error("Function call failed");
-    }
+    return processFunctionCall(func, args);
 }
 
 template<typename Arg1Type, typename Arg2Type, typename Arg3Type>
 PythonRef PythonEnv::callFunction(const std::string& module_name, const std::string& func_name, Arg1Type arg1, Arg2Type arg2, Arg3Type arg3)
 {
+    constexpr int arg_count = 3;
+
     loadModule(module_name);
     PyObject* func = createCallableObject(module_name, func_name);
-    constexpr int arg_count = 3;
     PyObject* args = PyTuple_New(arg_count);
     PyObject* arg_vals[arg_count] = {
         createArgObject(arg1),
@@ -141,14 +146,5 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     };
     for (int i = 0; i < arg_count; i++)
         PyTuple_SetItem(args, i, arg_vals[i]);
-    PyObject* ret_value = PyObject_CallObject(func, args);
-    Py_DECREF(args);
-    Py_XDECREF(func);
-    if (ret_value != nullptr)
-        return PythonRef(ret_value);
-    else
-    {
-        PyErr_Print();
-        throw std::runtime_error("Function call failed");
-    }
+    return processFunctionCall(func, args);
 }

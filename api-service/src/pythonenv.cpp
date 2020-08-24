@@ -59,6 +59,20 @@ PyObject* PythonEnv::createArgObject(const std::string& arg)
     return Py_BuildValue("s", arg.c_str());
 }
 
+PythonRef PythonEnv::processFunctionCall(PyObject* func, PyObject* args)
+{
+    PyObject* ret_value = PyObject_CallObject(func, args);
+    Py_DECREF(args);
+    Py_XDECREF(func);
+    if (ret_value != nullptr)
+        return PythonRef(ret_value);
+    else
+    {
+        PyErr_Print();
+        throw std::runtime_error("Function call failed");
+    }
+}
+
 PythonEnv::~PythonEnv()
 {
     for (auto& pair : m_modules)
