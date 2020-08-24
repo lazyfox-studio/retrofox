@@ -1,16 +1,12 @@
 #pragma once
 
 #include <string>
-#include <filesystem>
+
 #include <database.h>
+#include <pythonenv.h>
 
-class Scraper
+namespace Scraper
 {
-    static std::string db_path;
-
-public:
-    static void setDatabasePath(const std::string& path);
-
-    static void scanFloder(std::string path, int platform_id);
-    static void findGameInformation(std::string path);
+    void scanFloder(std::string path, int platform_id, const std::string& db_path);
+    void findGamesInformation(const std::string& db_path);
 };
