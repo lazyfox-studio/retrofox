@@ -9,12 +9,12 @@
 
 int main(int argc, char *argv[])
 {
-	//Scraper::scanFloder("Z:/PlayStation", 10, "testbase.db");
+	//Scraper::scanFloder("E:/Games/Emulators Library/PlayStation", 10, "testbase.db");
 	Scraper::findGamesInformation("testbase.db");
-	//MainWindow window("RetroFox", 100, 100, 800, 600);
+	MainWindow window("RetroFox", 100, 100, 800, 600);
 	//window.setFullscreen();
-	//window.show();
-	//window.start();
+	window.show();
+	window.start();
 
 	return 0;
 }
