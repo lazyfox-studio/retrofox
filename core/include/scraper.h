@@ -4,9 +4,10 @@
 
 #include <database.h>
 #include <pythonenv.h>
+#include <pythonfunctions.h>
 
 namespace Scraper
 {
-    void scanFloder(std::string path, int platform_id, const std::string& db_path);
+    void scanFloder(std::string path, long platform_id, const std::string& db_path);
     void findGamesInformation(const std::string& db_path);
 };
