@@ -29,6 +29,36 @@ PyObject* PythonEnv::createCallableObject(const std::string& module_name, const 
     }
 }
 
+template<>
+PyObject* PythonEnv::createArgObject(int arg)
+{
+    return PyLong_FromLong(arg);
+}
+
+template<>
+PyObject* PythonEnv::createArgObject(long arg)
+{
+    return PyLong_FromLong(arg);
+}
+
+template<>
+PyObject* PythonEnv::createArgObject(const char* arg)
+{
+    return Py_BuildValue("s", arg);
+}
+
+template<>
+PyObject* PythonEnv::createArgObject(std::string arg)
+{
+    return Py_BuildValue("s", arg.c_str());
+}
+
+template<>
+PyObject* PythonEnv::createArgObject(const std::string& arg)
+{
+    return Py_BuildValue("s", arg.c_str());
+}
+
 PythonEnv::~PythonEnv()
 {
     for (auto& pair : m_modules)
@@ -64,69 +94,6 @@ PythonRef PythonEnv::callFunction(const std::string& module_name, const std::str
     if (ret_value != nullptr) 
         return PythonRef(ret_value);
     else 
-    {
-        PyErr_Print();
-        throw std::runtime_error("Function call failed");
-    }
-}
-
-PythonRef PythonEnv::callFunction(const std::string& module_name, const std::string& func_name, long int_arg)
-{
-    loadModule(module_name);
-    PyObject* func = createCallableObject(module_name, func_name);
-    PyObject* args = PyTuple_New(1);
-    PyObject* int_val = PyLong_FromLong(int_arg);
-    PyTuple_SetItem(args, 0, int_val);
-    PyObject* ret_value = PyObject_CallObject(func, args);
-    Py_DECREF(args);
-    Py_XDECREF(func);
-    if (ret_value != nullptr)
-        return PythonRef(ret_value);
-    else
-    {
-        PyErr_Print();
-        throw std::runtime_error("Function call failed");
-    }
-}
-
-PythonRef PythonEnv::callFunction(const std::string& module_name, const std::string& func_name, const std::string& str_arg)
-{
-    loadModule(module_name);
-    PyObject* func = createCallableObject(module_name, func_name);
-    PyObject* args = PyTuple_New(1);
-    PyObject* str_val = Py_BuildValue("s", str_arg.c_str());
-    PyTuple_SetItem(args, 0, str_val);
-    PyObject* ret_value = PyObject_CallObject(func, args);
-    Py_DECREF(args);
-    Py_XDECREF(func);
-    if (ret_value != nullptr)
-        return PythonRef(ret_value);
-    else
-    {
-        PyErr_Print();
-        throw std::runtime_error("Function call failed");
-    }
-}
-
-PythonRef PythonEnv::callFunction(const std::string& module_name, const std::string& func_name, const std::string& arg1, long arg2, const std::string& arg3)
-{
-    loadModule(module_name);
-    PyObject* func = createCallableObject(module_name, func_name);
-    constexpr int arg_count = 3;
-    PyObject* args = PyTuple_New(arg_count);
-    PyObject* arg_vals[arg_count] = {
-        Py_BuildValue("s", arg1.c_str()),
-        PyLong_FromLong(arg2),
-        Py_BuildValue("s", arg3.c_str())
-    };
-    for (int i = 0; i < arg_count; i++)
-        PyTuple_SetItem(args, i, arg_vals[i]);
-    PyObject* ret_value = PyObject_CallObject(func, args);
-    Py_DECREF(args);
-    Py_XDECREF(func);
-    if (ret_value != nullptr)
-        return PythonRef(ret_value);
-    else
     {
         PyErr_Print();
         throw std::runtime_error("Function call failed");
