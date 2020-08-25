@@ -32,13 +32,27 @@ namespace Scraper
             }
             if (count == 1)
             {
-                auto query2 = base.query("UPDATE `games` SET `name` = ? WHERE `id` = ?");
+                auto query2 = base.query("UPDATE `games` SET `name` = ? WHERE `id` = ?;");
                 //query.bind(1, row.column<std::string>("name"));
                 query2.bind(1, "I FIND ONLY ONE");
                 query2.bind(2, std::stoi(id)); 
                 query2.execute();
             }
         }
+    }
+
+    void cleanCache(const std::string& db_path)
+    {
+        Database::Connection base(db_path);
+        Database::Statement query;
+        query = base.query("DELETE FROM `scraper_cache_games`;");
+        query.execute();
+        query = base.query("DELETE FROM `scraper_cache_developers`;");
+        query.execute();
+        query = base.query("DELETE FROM `scraper_cache_publishers`;");
+        query.execute();
+        query = base.query("DELETE FROM `scraper_cache_genres`;");
+        query.execute();
     }
 }
 
