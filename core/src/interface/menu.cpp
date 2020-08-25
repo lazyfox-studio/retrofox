@@ -31,7 +31,7 @@ namespace Interface
         (*current)->setState(Button::State::Hovered);
         first = widgets.begin();
         last = widgets.begin();
-        for (size_t i = 0; (i < visible_buttons_count) && (last != widgets.end()); i++)
+        for (size_t i = 1; (i < visible_buttons_count) && (last != widgets.end()); i++)
         {
             last++;
         }
@@ -40,6 +40,7 @@ namespace Interface
         {
             layout.pushBack(*i);
         }
+        layout.pushBack(*last);
     }
 
     void Menu::pushFront(std::shared_ptr<Button> button)
@@ -66,6 +67,7 @@ namespace Interface
         {
             layout.popFront();
             last++;
+            first++;
             (*current)->setState(Button::State::Default);
             current++;
             (*current)->setState(Button::State::Hovered);
@@ -91,6 +93,7 @@ namespace Interface
         {
             layout.popBack();
             first--;
+            last--;
             (*current)->setState(Button::State::Default);
             current--;
             (*current)->setState(Button::State::Hovered);

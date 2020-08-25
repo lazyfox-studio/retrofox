@@ -13,7 +13,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::initialize()
 {
-    auto temp = std::make_shared<GameMenu>(5, 5, 500, 700, 80);
+    auto temp = std::make_shared<GameMenu>(5, 5, 400, 700, 80);
     temp->showGames(renderer, "testbase.db");
     temp->reset();
     root_widget = temp;
