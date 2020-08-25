@@ -17,27 +17,35 @@ namespace Scraper
 
         for (const auto& id : games)
         {
-            PythonFunctions::findGame(stolen_api_key, std::stol(id), db_path);
+            PythonFunctions::findGame(stolen_api_key, std::stol(id), db_path);;
 
-            auto query = base.query("SELECT * FROM `scraper_cache_games` WHERE `game_id` = ?;");
-            query.bind(1, std::stoi(id));
-            query.execute();
-
-            //TODO: REWORK
-            size_t count = 0;
+            Database::Statement query;
             Database::Row row;
-            while (row = query.fetchRow())
-            { 
-                count++;
-            }
-            if (count == 1)
+
+            //Check founded variants count
+            query = base.query("SELECT COUNT (`id`) FROM scraper_cache_games WHERE `game_id` = ?;");
+            query.bind(1, std::stol(id));
+            query.execute();
+            row = query.fetchRow();
+            if (row.column<size_t>(row.columnName(0)) != 1)
             {
-                auto query2 = base.query("UPDATE `games` SET `name` = ? WHERE `id` = ?;");
-                //query.bind(1, row.column<std::string>("name"));
-                query2.bind(1, "I FIND ONLY ONE");
-                query2.bind(2, std::stoi(id)); 
-                query2.execute();
+                //TODO: Game selecting dialog
+                break;
             }
+
+            //Read data from scraper_cache
+            query = base.query("SELECT `name` FROM scraper_cache_games WHERE `game_id` = ?;");
+            query.bind(1, std::stol(id));
+            query.execute();
+            row = query.fetchRow();
+
+            std::string name = row.column<std::string>("name");
+
+            //Write data to games
+            query = base.query("UPDATE `games` SET `name` = ? WHERE `id` = ?;");
+            query.bind(1, name.c_str());
+            query.bind(2, std::stol(id));
+            query.execute();
         }
     }
 
