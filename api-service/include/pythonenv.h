@@ -79,7 +79,7 @@ public:
      * @details For functions with one argument
      * @param module_name Module name
      * @param func_name Function name
-     * @param arg Argument for passing to function
+     * @param arg1 Argument for passing to function
      * @return Reference to result object
      */
     template<typename Arg1Type>
