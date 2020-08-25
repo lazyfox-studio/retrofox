@@ -4,6 +4,10 @@
 
 #include "pythonenv.h"
 
+/**
+ * @ingroup api-service
+ * @brief Wrappers for python functions to call from C++ code
+ */
 namespace PythonFunctions
 {
     /// Name of module with embedded functions in 'scripts' folder
