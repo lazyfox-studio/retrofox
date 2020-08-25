@@ -123,18 +123,48 @@ namespace Database
         template<typename Type>
         void bind(int placeholder_index, Type binding_value);
 
+        /**
+         * @brief Binds one value to placeholder
+         * @param binding_value1 Value to bind
+         */
         template<typename Type1>
         void bindMany(Type1 binding_value1);
 
+        /**
+         * @brief Binds two values to placeholders one-by-one
+         * @param binding_value1 First value to bind
+         * @param binding_value2 Second value to bind
+         */
         template<typename Type1, typename Type2>
         void bindMany(Type1 binding_value1, Type2 binding_value2);
 
+        /**
+         * @brief Binds three values to placeholders one-by-one
+         * @param binding_value1 First value to bind
+         * @param binding_value2 Second value to bind
+         * @param binding_value3 Third value to bind
+         */
         template<typename Type1, typename Type2, typename Type3>
         void bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3);
 
+        /**
+         * @brief Binds four values to placeholders one-by-one
+         * @param binding_value1 First value to bind
+         * @param binding_value2 Second value to bind
+         * @param binding_value3 Third value to bind
+         * @param binding_value4 Fourth value to bind
+         */
         template<typename Type1, typename Type2, typename Type3, typename Type4>
         void bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3, Type4 binding_value4);
 
+        /**
+         * @brief Binds five values to placeholders one-by-one
+         * @param binding_value1 First value to bind
+         * @param binding_value2 Second value to bind
+         * @param binding_value3 Third value to bind
+         * @param binding_value4 Fourth value to bind
+         * @param binding_value5 Fifth value to bind
+         */
         template<typename Type1, typename Type2, typename Type3, typename Type4, typename Type5>
         void bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3, Type4 binding_value4, Type5 binding_value5);
     };
