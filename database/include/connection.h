@@ -70,6 +70,12 @@ namespace Database
          */
         Statement query(const std::string& query_string);
         
+        template<typename Value>
+        Value getOne(const std::string& query_string);
+
+        template<typename FValue, typename SValue>
+        std::pair<FValue, SValue> getPair(const std::string& query_string);
+
         /**
          * @brief Returns single column values as vector
          * @details Helper method: performs query, then fetches first columns of all rows into vector
@@ -88,6 +94,20 @@ namespace Database
         template<typename Key, typename Value>
         std::map<Key, Value> getIndexedColumn(const std::string& query_string);
     };
+
+    template<typename Value>
+    Value Connection::getOne(const std::string& query_string)
+    {
+        Database::Statement stmt = query(query_string);
+        return stmt.getOne<Value>();
+    }
+
+    template<typename FValue, typename SValue>
+    std::pair<FValue, SValue> Connection::getPair(const std::string& query_string)
+    {
+        Database::Statement stmt = query(query_string);
+        return stmt.getPair<FValue, SValue>();
+    }
 
     template<typename Value>
     std::vector<Value> Connection::getColumn(const std::string& query_string)

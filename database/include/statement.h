@@ -57,6 +57,11 @@ namespace Database
          */
         Row fetchRow();
 
+        template<typename Value>
+        Value getOne();
+
+        template<typename FValue, typename SValue>
+        std::pair<FValue, SValue> getPair();
 
         /**
          * @brief Returns single column values as vector
@@ -107,8 +112,37 @@ namespace Database
          */
         template<typename Type>
         void bind(int placeholder_index, Type binding_value);
+
+        template<typename Type1>
+        void bindMany(Type1 binding_value1);
+
+        template<typename Type1, typename Type2>
+        void bindMany(Type1 binding_value1, Type2 binding_value2);
+
+        template<typename Type1, typename Type2, typename Type3>
+        void bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3);
+
+        template<typename Type1, typename Type2, typename Type3, typename Type4>
+        void bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3, Type4 binding_value4);
+
+        template<typename Type1, typename Type2, typename Type3, typename Type4, typename Type5>
+        void bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3, Type4 binding_value4, Type5 binding_value5);
     };
 
+
+    template<typename Value>
+    Value Statement::getOne()
+    {
+        Database::Row row = fetchRow();
+        return row.column<Value>(0);
+    }
+
+    template<typename FValue, typename SValue>
+    std::pair<FValue, SValue> Statement::getPair()
+    {
+        Database::Row row = fetchRow();
+        return std::make_pair(row.column<FValue>(0), row.column<SValue>(1));
+    }
 
     template<typename Value>
     std::vector<Value> Statement::getColumn()
@@ -128,5 +162,45 @@ namespace Database
         while (row = fetchRow())
             result.insert(std::make_pair(row.column<Key>(0), row.column<Value>(1)));
         return result;
+    }
+
+    template<typename Type1>
+    void Statement::bindMany(Type1 binding_value1)
+    {
+        bind(1, binding_value1);
+    }
+
+    template<typename Type1, typename Type2>
+    void Statement::bindMany(Type1 binding_value1, Type2 binding_value2)
+    {
+        bind(1, binding_value1);
+        bind(2, binding_value2);
+    }
+
+    template<typename Type1, typename Type2, typename Type3>
+    void Statement::bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3)
+    {
+        bind(1, binding_value1);
+        bind(2, binding_value2);
+        bind(3, binding_value3);
+    }
+
+    template<typename Type1, typename Type2, typename Type3, typename Type4>
+    void Statement::bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3, Type4 binding_value4)
+    {
+        bind(1, binding_value1);
+        bind(2, binding_value2);
+        bind(3, binding_value3);
+        bind(4, binding_value4);
+    }
+
+    template<typename Type1, typename Type2, typename Type3, typename Type4, typename Type5>
+    void Statement::bindMany(Type1 binding_value1, Type2 binding_value2, Type3 binding_value3, Type4 binding_value4, Type5 binding_value5)
+    {
+        bind(1, binding_value1);
+        bind(2, binding_value2);
+        bind(3, binding_value3);
+        bind(4, binding_value4);
+        bind(5, binding_value5);
     }
 }
