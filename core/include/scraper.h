@@ -13,7 +13,7 @@ namespace Scraper
 {
     /**
      * @brief Scans folder, finds ROM files, and saves info to database
-     * @param roms_path Path to folder with ROMs
+     * @param path Path to folder to scan
      * @param platform_id Platform ID
      * @param db_path Path to SQLite database
      */

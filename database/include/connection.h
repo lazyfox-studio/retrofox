@@ -70,9 +70,21 @@ namespace Database
          */
         Statement query(const std::string& query_string);
         
+        /**
+         * @brief Returns single value
+         * @details Helper method: performs query, then fetches first column of first row
+         * @param query_string SQL query string
+         * @return Column value
+         */
         template<typename Value>
         Value getOne(const std::string& query_string);
 
+        /**
+         * @brief Returns pair of values
+         * @details Helper method: performs query, then fetches first two columns of first row
+         * @param query_string SQL query string
+         * @return Pair of columns values
+         */
         template<typename FValue, typename SValue>
         std::pair<FValue, SValue> getPair(const std::string& query_string);
 

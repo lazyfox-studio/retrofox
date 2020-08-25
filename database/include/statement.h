@@ -57,9 +57,19 @@ namespace Database
          */
         Row fetchRow();
 
+        /**
+         * @brief Returns single value
+         * @details Helper method: fetches first column of first row
+         * @return Column value
+         */
         template<typename Value>
         Value getOne();
 
+        /**
+         * @brief Returns pair of values
+         * @details Helper method: fetches first two columns of first row
+         * @return Pair of columns values
+         */
         template<typename FValue, typename SValue>
         std::pair<FValue, SValue> getPair();
 
