@@ -11,8 +11,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database", "database\databa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "api-service", "api-service\api-service.vcxproj", "{019549B4-8C87-4404-813A-F4312CAF5A66}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "manager", "manager\manager.vcxproj", "{8432A00A-C8B8-4123-B282-159541024563}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -53,12 +51,6 @@ Global
 		{019549B4-8C87-4404-813A-F4312CAF5A66}.Release|x64.Build.0 = Release|x64
 		{019549B4-8C87-4404-813A-F4312CAF5A66}.Release|x86.ActiveCfg = Release|Win32
 		{019549B4-8C87-4404-813A-F4312CAF5A66}.Release|x86.Build.0 = Release|Win32
-		{8432A00A-C8B8-4123-B282-159541024563}.Debug|x64.ActiveCfg = Debug|x64
-		{8432A00A-C8B8-4123-B282-159541024563}.Debug|x64.Build.0 = Debug|x64
-		{8432A00A-C8B8-4123-B282-159541024563}.Debug|x86.ActiveCfg = Debug|x64
-		{8432A00A-C8B8-4123-B282-159541024563}.Release|x64.ActiveCfg = Release|x64
-		{8432A00A-C8B8-4123-B282-159541024563}.Release|x64.Build.0 = Release|x64
-		{8432A00A-C8B8-4123-B282-159541024563}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
