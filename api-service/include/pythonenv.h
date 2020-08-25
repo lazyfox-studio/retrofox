@@ -35,9 +35,22 @@ protected:
      */
     PyObject* createCallableObject(const std::string& module_name, const std::string& func_name);
 
+    /**
+     * @brief Creates a py-reference to arg object
+     * @details Service method
+     * @param arg Arg object
+     * @return Py-reference to created object
+     */
     template<typename ArgType>
     PyObject* createArgObject(ArgType arg);
 
+    /**
+     * @brief Calls py-function and processes returned value
+     * @details Service method
+     * @param function Py-reference to function
+     * @param args Py-reference to args tuple
+     * @return Reference to returned object
+     */
     PythonRef processFunctionCall(PyObject* function, PyObject* args);
 
 public:
