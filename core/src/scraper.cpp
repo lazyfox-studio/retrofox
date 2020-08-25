@@ -27,7 +27,7 @@ namespace Scraper
             query.bind(1, std::stol(id));
             query.execute();
             row = query.fetchRow();
-            if (row.column<size_t>(row.columnName(0)) != 1)
+            if (row.column<size_t>(0) != 1)
             {
                 //TODO: Game selecting dialog
                 break;
