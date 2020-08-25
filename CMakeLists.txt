@@ -4,10 +4,12 @@ cmake_minimum_required(VERSION 2.8)
 add_subdirectory(api-service)
 add_subdirectory(core)
 add_subdirectory(database)
+add_subdirectory(manager)
 
 include_directories(${API_SERVICE_INCLUDE_DIRS})
 include_directories(${CORE_INCLUDE_DIRS})
-include_directories(${DATASE_INCLUDE_DIRS})
+include_directories(${DATABASE_INCLUDE_DIRS})
+include_directories(${MANAGER_INCLUDE_DIRS})
 
 
 #Finding libraries
@@ -49,12 +51,28 @@ include_directories(${SDL2_TTF_INCLUDE_DIRS})
 endif()
 
 
-#Configuring projects
+#Find Qt
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+
+
+#Configuring internal libraries
 add_library(api-service STATIC ${API_SERVICE_SOURCE_FILES})
 add_library(database STATIC ${DATABASE_SOURCE_FILES})
 
+
+#Linking core project
 add_executable(retrofox ${CORE_SOURCE_FILES})
 
 target_link_libraries(retrofox database)
 target_link_libraries(retrofox api-service)
 target_link_libraries(retrofox database ${SDL2_LIBRARY} ${SDL2_TTF_LIBRARIES} ${SQLITE3_LIBRARIES} ${Python_LIBRARIES})
+
+
+#Linking manager project
+add_executable(retrofox-manager ${MANAGER_SOURCE_FILES} ${MANAGER_UI_FILES})
+
+target_link_libraries(retrofox-manager Qt5::Core Qt5::Gui Qt5::Widgets)

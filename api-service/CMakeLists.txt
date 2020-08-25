@@ -10,6 +10,7 @@ set(API_SERVICE_INCLUDE_DIRS
 
 set(API_SERVICE_SOURCE_FILES
     api-service/src/pythonenv.cpp
+    api-service/src/pythonfunctions.cpp
     api-service/src/pythonref.cpp
     PARENT_SCOPE
     )

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(database)
 
 
-set(DATASE_INCLUDE_DIRS
+set(DATABASE_INCLUDE_DIRS
     database/include
     PARENT_SCOPE)
 
