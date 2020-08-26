@@ -20,4 +20,6 @@ addons:
 
 script:
   - cmake CMakeLists.txt
-  - qmake manager/manager.pro
+  - cd manager
+  - qmake manager.pro
+  - make
