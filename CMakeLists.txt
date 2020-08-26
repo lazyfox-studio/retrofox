@@ -7,7 +7,7 @@ add_subdirectory(database)
 
 include_directories(${API_SERVICE_INCLUDE_DIRS})
 include_directories(${CORE_INCLUDE_DIRS})
-include_directories(${DATASE_INCLUDE_DIRS})
+include_directories(${DATABASE_INCLUDE_DIRS})
 
 
 #Finding libraries
