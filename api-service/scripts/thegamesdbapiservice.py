@@ -5,6 +5,8 @@ from baseapiservice import BaseAPIService
 
 
 class TheGamesDBAPIService(BaseAPIService):
+    base_prefix = 1
+
     api_endpoint = 'https://api.thegamesdb.net/v1.1/Games/ByGameName'
 
     local_platform_id = {
@@ -33,11 +35,10 @@ class TheGamesDBAPIService(BaseAPIService):
         for game in raw_games_data['games']:
             games.append(
                 {
-                    'game': (game_id, game['game_title'], game['release_date'], game['rating'], game['overview'],
-                            'thegamesdb'),
-                    'developers': game['developers'],
-                    'publishers': game['publishers'],
-                    'genres': game['genres']
+                    'game': (game_id, game['game_title'], game['release_date'], game['rating'], game['overview']),
+                    'developers': game['developers'] + cls.base_prefix * cls.prefix_order,
+                    'publishers': game['publishers'] + cls.base_prefix * cls.prefix_order,
+                    'genres': game['genres'] + cls.base_prefix * cls.prefix_order
                 }
             )
         return games
@@ -54,14 +55,14 @@ class TheGamesDBAPIService(BaseAPIService):
         # Preparing data for insertion
         genres = []
         for genre in raw_genres_data:
-            genres.append((genre['id'], genre['name']))
+            genres.append((genre['id'] + cls.base_prefix * cls.prefix_order, genre['name']))
 
         # Adding data to database
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
-        cursor.execute('DROP TABLE IF EXISTS thegamesdb_genres')
-        cursor.execute('CREATE TABLE thegamesdb_genres(id INTEGER PRIMARY KEY, name TEXT)')
-        cursor.executemany('INSERT INTO thegamesdb_genres VALUES (?,?)', genres)
+        cursor.execute('CREATE TABLE IF NOT EXISTS genres(id INTEGER PRIMARY KEY, name TEXT)')
+        cursor.execute('DELETE FROM genres WHERE (id / ?) == ?', (cls.prefix_order, cls.base_prefix))
+        cursor.executemany('INSERT INTO genres VALUES (?,?)', genres)
         base.commit()
         base.close()
 
@@ -77,14 +78,14 @@ class TheGamesDBAPIService(BaseAPIService):
         # Preparing data for insertion
         developers = []
         for developer in raw_developers_data:
-            developers.append((developer['id'], developer['name']))
+            developers.append((developer['id'] + cls.base_prefix * cls.prefix_order, developer['name']))
 
         # Adding data to database
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
-        cursor.execute('DROP TABLE IF EXISTS thegamesdb_developers')
-        cursor.execute('CREATE TABLE thegamesdb_developers (id INTEGER PRIMARY KEY, name TEXT)')
-        cursor.executemany('INSERT INTO thegamesdb_developers VALUES (?,?)', developers)
+        cursor.execute('CREATE TABLE IF NOT EXISTS developers (id INTEGER PRIMARY KEY, name TEXT)')
+        cursor.execute('DELETE FROM developers WHERE (id / ?) == ?', (cls.prefix_order, cls.base_prefix))
+        cursor.executemany('INSERT INTO developers VALUES (?,?)', developers)
         base.commit()
         base.close()
 
@@ -100,13 +101,13 @@ class TheGamesDBAPIService(BaseAPIService):
         # Preparing data for insertion
         publishers = []
         for publisher in raw_publishers_data:
-            publishers.append((publisher['id'], publisher['name']))
+            publishers.append((publisher['id'] + cls.base_prefix * cls.prefix_order, publisher['name']))
 
         # Adding data to database
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
-        cursor.execute('DROP TABLE IF EXISTS thegamesdb_publishers')
-        cursor.execute('CREATE TABLE thegamesdb_publishers (id INTEGER PRIMARY KEY, name TEXT)')
-        cursor.executemany('INSERT INTO thegamesdb_publishers VALUES (?,?)', publishers)
+        cursor.execute('CREATE TABLE IF NOT EXISTS publishers (id INTEGER PRIMARY KEY, name TEXT)')
+        cursor.execute('DELETE FROM publishers WHERE (id / ?) == ?', (cls.prefix_order, cls.base_prefix))
+        cursor.executemany('INSERT INTO publishers VALUES (?,?)', publishers)
         base.commit()
         base.close()

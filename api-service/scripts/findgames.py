@@ -27,7 +27,7 @@ def find_games_in_folder(roms_path, platform_id, path_to_db):
     extensions = cursor.fetchall()
     roms = scan_folder(roms_path, extensions)
     for rom in roms:
-        cursor.execute('INSERT INTO games VALUES (NULL, ?, NULL, ?, NULL, NULL, NULL, NULL)', (rom, platform_id))
+        cursor.execute('INSERT INTO games VALUES (NULL, ?, NULL, ?, NULL, NULL, NULL)', (rom, platform_id))
     base.commit()
     base.close()
     return 0
@@ -61,8 +61,8 @@ def find_game(api_key, game_id, path_to_db):
     return 0
 
 
-#thegamesdbapiservice.BaseAPIService.set_up_tables('E:/Source/retrofox/sln/core/testbase.db')
+#thegamesdbapiservice.BaseAPIService.set_up_tables('D:/Source/retrofox/sln/core/testbase.db')
 #find_games_in_folder('E:/Games/Emulators Library/PlayStation', 10, 'D:/Source/retrofox/sln/core/testbase.db')
 #find_game('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 1, 'E:/Source/retrofox/sln/core/testbase.db')
 
-#thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'E:/Source/retrofox/sln/core/testbase.db')
+#thegamesdbapiservice.TheGamesDBAPIService.update_genres('445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600', 'D:/Source/retrofox/sln/core/testbase.db')
