@@ -19,13 +19,16 @@ INCLUDEPATH += \
     include
 
 SOURCES += \
+    src/gamewindow.cpp \
     src/main.cpp \
     src/mainwindow.cpp
 
 HEADERS += \
+    include/gamewindow.h \
     include/mainwindow.h
 
 FORMS += \
+    ui/gamewindow.ui \
     ui/mainwindow.ui
 
 TRANSLATIONS += \
