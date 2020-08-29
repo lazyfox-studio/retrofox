@@ -27,6 +27,8 @@ namespace Interface
 
     void Menu::reset()
     {
+        visible_buttons_count = (layout.height() - layout.margin.top - layout.margin.bottom) /
+            (m_button_height + layout.spacing.vertical);
         current = widgets.begin();
         (*current)->setState(Button::State::Hovered);
         first = widgets.begin();
@@ -40,7 +42,14 @@ namespace Interface
         {
             layout.pushBack(*i);
         }
-        layout.pushBack(*last);
+        if (last == widgets.end())
+        {
+            last--;
+        }
+        else
+        {
+            layout.pushBack(*last);
+        }
     }
 
     void Menu::pushFront(std::shared_ptr<Button> button)

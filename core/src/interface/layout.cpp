@@ -212,6 +212,7 @@ namespace Interface
                 j++;
             }
         }
+        current = widgets.begin();
     }
 
     bool Layout::onControl(Control::VirtualGamepad::KeyCode code)

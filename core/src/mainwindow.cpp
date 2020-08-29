@@ -13,15 +13,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::initialize()
 {
-    //auto temp = std::make_shared<GameMenu>(5, 5, 400, 700, 80);
-    //temp->showGames(renderer, "testbase.db");
-    //temp->reset();
-    //root_widget = temp;
-    auto layout = std::make_shared<Interface::Layout>(5, 5, 500, 500);
+    auto layout = std::make_shared<Interface::Layout>(0, 0, geometry.h, geometry.w);
     layout->stacking = Interface::Layout::Stacking::Horizontal;
-    auto button1 = std::make_shared<Interface::Button>(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp");
-    auto button2 = std::make_shared<Interface::Button>(renderer, "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp");
-    layout->pushBack(button1);
-    layout->pushBack(button2);
+
+    auto gamemenu = std::make_shared<GameMenu>(5, 5, 400, 700, 80);
+    gamemenu->showGames(renderer, "testbase.db");
+    gamemenu->reset();
+    layout->pushBack(gamemenu);
+    gamemenu->reset();
+
     root_widget = layout;
 }
