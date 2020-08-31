@@ -18,7 +18,4 @@ protected:
 
 signals:
     void clicked(bool checked = false);
-
-public slots:
-    void showGameWindow();
 };

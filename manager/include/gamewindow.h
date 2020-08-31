@@ -11,7 +11,7 @@ class GameWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit GameWindow(QWidget *parent = nullptr);
+    GameWindow(std::string path, std::string name, /*date*/);
     ~GameWindow();
 
 private:

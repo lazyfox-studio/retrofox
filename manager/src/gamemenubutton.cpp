@@ -14,8 +14,3 @@ long GameMenuButton::gameId()
 {
     return c_game_id;
 }
-
-void GameMenuButton::showGameWindow()
-{
-    //Show;
-}

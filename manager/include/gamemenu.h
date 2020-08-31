@@ -20,4 +20,7 @@ public:
     ~GameMenu();
 
     void loadGames(std::string db_path);
+
+public slots:
+    void showGameWindow(long game_id);
 };
