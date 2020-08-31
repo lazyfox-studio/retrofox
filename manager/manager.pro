@@ -16,16 +16,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += \
-    include
+    include \
+    ../database/include \
+    ../api-service/include \
+    D:/Libraries/Python/include \
+    E:/Libraries/Python/include \
+    D:/Libraries/SQLite \
+    E:/Libraries/SQLite
+
+LIBS += \
+    -L"$$_PRO_FILE_PWD_/../sln/x64/Debug" \
+    -lapi-service \
+    -ldatabase \
+    -L"D:/Libraries/Python/lib" \
+    -L"E:/Libraries/Python/lib" \
+    -lpython38_d \
+    -L"D:/Libraries/SQLite" \
+    -L"E:/Libraries/SQLite" \
+    -lsqlite3
 
 SOURCES += \
     src/gamewindow.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/scraper.cpp
 
 HEADERS += \
     include/gamewindow.h \
-    include/mainwindow.h
+    include/mainwindow.h \
+    include/scraper.h
 
 FORMS += \
     ui/gamewindow.ui \
