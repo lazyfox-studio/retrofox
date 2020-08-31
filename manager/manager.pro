@@ -36,12 +36,16 @@ LIBS += \
     -lsqlite3
 
 SOURCES += \
+    src/gamemenu.cpp \
+    src/gamemenubutton.cpp \
     src/gamewindow.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/scraper.cpp
 
 HEADERS += \
+    include/gamemenu.h \
+    include/gamemenubutton.h \
     include/gamewindow.h \
     include/mainwindow.h \
     include/scraper.h
