@@ -1,6 +1,11 @@
 #include "gamestablemodel.h"
 
-GamesTableModel::GamesTableModel()
+GamesTableModel::GamesTableModel(QObject *parent) : QAbstractTableModel(parent)
+{
+
+}
+
+GamesTableModel::~GamesTableModel()
 {
 
 }

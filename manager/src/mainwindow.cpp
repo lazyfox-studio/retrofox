@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->games_table->setModel(table_model);
     ui->games_table->horizontalHeader()->setStretchLastSection(true);
     ui->games_table->verticalHeader()->setVisible(false);
+    ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 MainWindow::~MainWindow()

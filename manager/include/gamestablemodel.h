@@ -6,8 +6,11 @@
 
 class GamesTableModel : public QAbstractTableModel
 {
+Q_OBJECT
+
 public:
-    GamesTableModel();
+    GamesTableModel(QObject *parent = nullptr);
+    ~GamesTableModel();
 
 protected:
     int rowCount(const QModelIndex &parent) const;
