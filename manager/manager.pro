@@ -36,17 +36,20 @@ LIBS += \
     -lsqlite3
 
 SOURCES += \
+    src/gameeditdialog.cpp \
     src/gamestablemodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/scraper.cpp
 
 HEADERS += \
+    include/gameeditdialog.h \
     include/gamestablemodel.h \
     include/mainwindow.h \
     include/scraper.h
 
 FORMS += \
+    ui/gameeditdialog.ui \
     ui/mainwindow.ui
 
 TRANSLATIONS += \

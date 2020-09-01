@@ -1,7 +1,10 @@
 #pragma once
 
 #include <QMainWindow>
+
 #include <QWidget>
+
+#include "gameeditdialog.h"
 #include "gamestablemodel.h"
 
 QT_BEGIN_NAMESPACE
@@ -12,10 +15,13 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Ui::MainWindow *ui;
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
+public slots:
+    void editGame(const QModelIndex & index);
 };
