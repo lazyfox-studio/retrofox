@@ -33,9 +33,9 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tab_viewer">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="games_tab">
        <attribute name="title">
         <string>Games</string>
        </attribute>
@@ -56,56 +56,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QScrollArea" name="scrollArea">
-          <property name="widgetResizable">
-           <bool>true</bool>
-          </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents_2">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>792</width>
-             <height>531</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QToolBox" name="toolBox">
-              <property name="currentIndex">
-               <number>0</number>
-              </property>
-              <widget class="QWidget" name="page_0">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>0</y>
-                 <width>774</width>
-                 <height>459</height>
-                </rect>
-               </property>
-               <attribute name="label">
-                <string>Game 1</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="page_1">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>0</y>
-                 <width>774</width>
-                 <height>459</height>
-                </rect>
-               </property>
-               <attribute name="label">
-                <string>Game 2</string>
-               </attribute>
-              </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
+         <widget class="QTableView" name="games_table"/>
         </item>
        </layout>
       </widget>
@@ -167,8 +118,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>756</width>
-                 <height>441</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <attribute name="label">

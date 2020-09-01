@@ -36,22 +36,17 @@ LIBS += \
     -lsqlite3
 
 SOURCES += \
-    src/gamemenu.cpp \
-    src/gamemenubutton.cpp \
-    src/gamewindow.cpp \
+    src/gamestablemodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/scraper.cpp
 
 HEADERS += \
-    include/gamemenu.h \
-    include/gamemenubutton.h \
-    include/gamewindow.h \
+    include/gamestablemodel.h \
     include/mainwindow.h \
     include/scraper.h
 
 FORMS += \
-    ui/gamewindow.ui \
     ui/mainwindow.ui
 
 TRANSLATIONS += \
