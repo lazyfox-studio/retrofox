@@ -3,7 +3,7 @@
 
 void MainWindow::setLanguage(const QString &locale)
 {
-    translator.load(QString("manager_") + locale, ":/ts");
+    qDebug() << translator.load(QString("manager_") + locale, "ts");
     qApp->installTranslator(&translator);
     ui->retranslateUi(this);
 }
@@ -19,10 +19,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->games_table->verticalHeader()->setVisible(false);
     ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     connect(ui->games_table, &QTableView::doubleClicked, this, &MainWindow::editGame);
+
+    setLanguage("en_US"); // TODO: load user defined language
     connect(ui->action_english, &QAction::triggered, this, &MainWindow::setLanguageEnglish);
     connect(ui->action_russian, &QAction::triggered, this, &MainWindow::setLanguageRussian);
-    translator.load("manager_en_US", ":/ts");
-    qApp->installTranslator(&translator);
 }
 
 MainWindow::~MainWindow()
