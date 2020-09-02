@@ -22,7 +22,7 @@ private:
     Ui::MainWindow *ui;
     QTranslator translator;
 
-    void setLanguage(const QString& locale);
+    bool setLanguage(const QLocale& locale);
 
 public:
     MainWindow(QWidget *parent = nullptr);

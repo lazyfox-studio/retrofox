@@ -1,11 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-void MainWindow::setLanguage(const QString &locale)
+bool MainWindow::setLanguage(const QLocale& locale)
 {
-    translator.load(QString("manager_") + locale, "../manager/translations");
+    QTranslator translator;
+    if (!translator.load(locale, "manager", "_", "../manager/translations"))
+    {
+        return false;
+    }
     qApp->installTranslator(&translator);
     ui->retranslateUi(this);
+    return true;
 }
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -20,14 +25,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     connect(ui->games_table, &QTableView::doubleClicked, this, &MainWindow::editGame);
 
-    // TODO: load user defined language
-    if (QLocale::system().language() == QLocale::Russian)
+    //Setup user system language
+    if (!setLanguage(QLocale::system()))
     {
-        setLanguage("ru_RU");
-    }
-    else
-    {
-    setLanguage("en_US");
+        setLanguage(QLocale("en_US"));
     }
 
     connect(ui->action_english, &QAction::triggered, this, &MainWindow::setLanguageEnglish);
@@ -56,11 +57,11 @@ void MainWindow::editGame(const QModelIndex &index)
 
 void MainWindow::setLanguageEnglish()
 {
-    setLanguage("en_US");
+    setLanguage(QLocale("en_US"));
 }
 
 void MainWindow::setLanguageRussian()
 {
-    setLanguage("ru_RU");
+    setLanguage(QLocale("ru_RU"));
 }
 
