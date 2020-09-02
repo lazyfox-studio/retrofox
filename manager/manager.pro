@@ -53,8 +53,8 @@ FORMS += \
     ui/mainwindow.ui
 
 TRANSLATIONS += \
-    ts/manager_en_US.ts \
-    ts/manager_ru_RU.ts
+    translations/manager_en_US.ts \
+    translations/manager_ru_RU.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

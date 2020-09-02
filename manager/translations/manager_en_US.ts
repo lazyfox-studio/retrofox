@@ -5,8 +5,8 @@
     <name>GameEditDialog</name>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <source>Edit game</source>
+        <translation>Edit game</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="32"/>
@@ -30,11 +30,24 @@
     </message>
 </context>
 <context>
+    <name>GamesTableModel</name>
+    <message>
+        <location filename="../src/gamestablemodel.cpp" line="87"/>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <location filename="../src/gamestablemodel.cpp" line="89"/>
+        <source>Path</source>
+        <translation>Path</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../ui/mainwindow.ui" line="14"/>
-        <source>MainWindow</source>
-        <translation></translation>
+        <source>RetroFox Settings</source>
+        <translation>RetroFox Settings</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="40"/>
