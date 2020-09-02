@@ -118,8 +118,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -179,8 +179,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -240,6 +240,14 @@
     <property name="title">
      <string>Tools</string>
     </property>
+    <widget class="QMenu" name="menuLanguages">
+     <property name="title">
+      <string>Languages</string>
+     </property>
+     <addaction name="action_english"/>
+     <addaction name="action_russian"/>
+    </widget>
+    <addaction name="menuLanguages"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -253,6 +261,16 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_english">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="action_russian">
+   <property name="text">
+    <string>Русский</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

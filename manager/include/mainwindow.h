@@ -1,8 +1,9 @@
 #pragma once
 
 #include <QMainWindow>
-
+#include <QTranslator>
 #include <QWidget>
+#include <QDebug>
 
 #include "gameeditdialog.h"
 #include "gamestablemodel.h"
@@ -19,6 +20,9 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
+    QTranslator translator;
+
+    void setLanguage(const QString& locale);
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -26,4 +30,7 @@ public:
 
 public slots:
     void editGame(const QModelIndex & index);
+
+    void setLanguageEnglish();
+    void setLanguageRussian();
 };
