@@ -1,10 +1,15 @@
-#include "mainwindow.h"
 #include <QApplication>
+#include <QTranslator>
+
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    MainWindow window;
+    QTranslator translator;
+    translator.load("manager_", "ts");
+    app.installTranslator(&translator);
+    window.show();
+    return app.exec();
 }

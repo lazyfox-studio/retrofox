@@ -53,12 +53,10 @@ FORMS += \
     ui/mainwindow.ui
 
 TRANSLATIONS += \
-    manager_en_US.ts
+    ts/manager_en_US.ts \
+    ts/manager_ru_RU.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
-    ts/manager_en_US.ts

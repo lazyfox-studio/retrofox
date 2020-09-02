@@ -29,7 +29,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>developer</string>
+      <string>Developer</string>
      </property>
     </widget>
    </item>
@@ -45,7 +45,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>publisher</string>
+      <string>Publisher</string>
      </property>
     </widget>
    </item>
@@ -74,7 +74,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>path</string>
+      <string>Path</string>
      </property>
     </widget>
    </item>
@@ -87,7 +87,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>name</string>
+      <string>Name</string>
      </property>
     </widget>
    </item>

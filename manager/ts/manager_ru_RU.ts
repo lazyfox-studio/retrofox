@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="manager_en_US">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>GameEditDialog</name>
     <message>
@@ -11,22 +11,22 @@
     <message>
         <location filename="../ui/gameeditdialog.ui" line="32"/>
         <source>Developer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Разработчик</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="48"/>
         <source>Publisher</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Издатель</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="77"/>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Путь</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="90"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Название</translation>
     </message>
 </context>
 <context>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="40"/>
         <source>Games</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Игры</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="65"/>
         <source>Platforms</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Платформы</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="113"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="139"/>
         <source>Emulators</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Эмуляторы</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="187"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="246"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Помощь</translation>
     </message>
 </context>
 </TS>
