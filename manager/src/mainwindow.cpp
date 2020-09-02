@@ -20,7 +20,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     connect(ui->games_table, &QTableView::doubleClicked, this, &MainWindow::editGame);
 
-    setLanguage("en_US"); // TODO: load user defined language
+    // TODO: load user defined language
+    if (QLocale::system().language() == QLocale::Russian)
+    {
+        setLanguage("ru_RU");
+    }
+    else
+    {
+    setLanguage("en_US");
+    }
+
     connect(ui->action_english, &QAction::triggered, this, &MainWindow::setLanguageEnglish);
     connect(ui->action_russian, &QAction::triggered, this, &MainWindow::setLanguageRussian);
 }
