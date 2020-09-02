@@ -15,6 +15,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    GamesTableModel* games_table_model;
+
 private:
     Ui::MainWindow *ui;
 

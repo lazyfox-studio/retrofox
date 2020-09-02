@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     //Setup games table
-    auto table_model = new GamesTableModel();
-    ui->games_table->setModel(table_model);
+    games_table_model = new GamesTableModel();
+    ui->games_table->setModel(games_table_model);
     ui->games_table->horizontalHeader()->setStretchLastSection(true);
     ui->games_table->verticalHeader()->setVisible(false);
     ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -22,6 +22,8 @@ MainWindow::~MainWindow()
 void MainWindow::editGame(const QModelIndex &index)
 {
     auto dialog = new GameEditDialog();
+    auto game = games_table_model->game(index);
+    dialog->loadGameData(game);
     dialog->exec();
 }
 

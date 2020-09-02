@@ -25,6 +25,8 @@ public:
     GamesTableModel(QObject *parent = nullptr);
     ~GamesTableModel();
 
+    Database::Entities::Game game(const QModelIndex &index);
+
 protected:
     int rowCount(const QModelIndex &parent) const;
     int columnCount(const QModelIndex &parent) const;

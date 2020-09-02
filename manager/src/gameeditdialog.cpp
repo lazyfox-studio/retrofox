@@ -10,3 +10,9 @@ GameEditDialog::~GameEditDialog()
 {
     delete ui;
 }
+
+void GameEditDialog::loadGameData(Database::Entities::Game game)
+{
+    ui->edit_name->setText(game.name.c_str());
+    ui->edit_path->setText(game.path.c_str());
+}

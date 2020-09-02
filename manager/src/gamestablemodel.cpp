@@ -12,6 +12,11 @@ GamesTableModel::~GamesTableModel()
 
 }
 
+Database::Entities::Game GamesTableModel::game(const QModelIndex &index)
+{
+    return games[index.row()];
+}
+
 int GamesTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
