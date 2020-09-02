@@ -26,6 +26,7 @@ namespace Database
             std::string description;  ///< Game short description
             //std::string boxart;     ///< Game boxart image path
 
+            Game();
             /**
              * @brief Typecast constructor
              * @param row Row with game info

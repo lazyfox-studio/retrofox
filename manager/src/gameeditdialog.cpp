@@ -13,6 +13,17 @@ GameEditDialog::~GameEditDialog()
 
 void GameEditDialog::loadGameData(Database::Entities::Game game)
 {
+    m_game = game;
     ui->edit_name->setText(game.name.c_str());
     ui->edit_path->setText(game.path.c_str());
+}
+
+Database::Entities::Game GameEditDialog::resultGameData()
+{
+    Database::Entities::Game result = m_game;
+
+    result.name = ui->edit_name->text().toStdString();
+    result.path = ui->edit_path->text().toStdString();
+
+    return result;
 }

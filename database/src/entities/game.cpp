@@ -4,6 +4,17 @@ namespace Database
 {
     namespace Entities
     {
+        Game::Game()
+        {
+            id           = 0;
+            path         = "";
+            name         = "";
+            platform_id  = 0;
+            release_date = "";
+            rating       = "";
+            description  = "";
+        }
+
         Game::Game(const Database::Row& row)
         {
             id           = row.column<long>("id");

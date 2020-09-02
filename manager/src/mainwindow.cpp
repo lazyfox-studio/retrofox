@@ -25,5 +25,10 @@ void MainWindow::editGame(const QModelIndex &index)
     auto game = games_table_model->game(index);
     dialog->loadGameData(game);
     dialog->exec();
+
+    if (dialog->result() == QDialog::Accepted)
+    {
+        auto result_game = dialog->resultGameData();
+    }
 }
 
