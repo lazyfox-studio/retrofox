@@ -6,17 +6,13 @@ namespace Database
     {
         Game::Game(const Database::Row& row)
         {
-            id = row.column<unsigned>("id");
-            path = row.column<std::string>("path");
-            name = row.column<std::string>("name");
-            platform_id = row.column<unsigned>("platform_id");
-            developer = row.column<std::string>("developer");
-            publisher = row.column<std::string>("publisher");
+            id           = row.column<long>("id");
+            path         = row.column<std::string>("path");
+            name         = row.column<std::string>("name");
+            platform_id  = row.column<long>("platform_id");
             release_date = row.column<std::string>("release_date");
-            genre = row.column<std::string>("genre");
-            rating = row.column<float>("rating");
-            description = row.column<std::string>("description");
-            boxart = row.column<std::string>("boxart");
+            rating       = row.column<std::string>("rating");
+            description  = row.column<std::string>("description");
         }
 
         std::vector<Game> Game::fetchEntities(Database::Statement& stmt)
