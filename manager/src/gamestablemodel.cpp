@@ -17,6 +17,16 @@ Database::Entities::Game GamesTableModel::game(const QModelIndex &index)
     return games[index.row()];
 }
 
+void GamesTableModel::updateGame(Database::Entities::Game game)
+{
+    auto base = Database::Connection("D:/Source/retrofox/sln/core/testbase.db");
+    auto query = base.query("UPDATE `games` SET name = ?, path = ? WHERE id = ?");
+    query.bind(1, game.name.c_str());
+    query.bind(2, game.path.c_str());
+    query.bind(3, game.id);
+    query.execute();
+}
+
 int GamesTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
