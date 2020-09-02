@@ -19,7 +19,7 @@ Database::Entities::Game GamesTableModel::game(const QModelIndex &index)
 
 void GamesTableModel::updateGame(Database::Entities::Game game)
 {
-    auto base = Database::Connection("D:/Source/retrofox/sln/core/testbase.db");
+    auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `games` SET name = ?, path = ? WHERE id = ?");
     query.bind(1, game.name.c_str());
     query.bind(2, game.path.c_str());
@@ -29,7 +29,7 @@ void GamesTableModel::updateGame(Database::Entities::Game game)
 
 void GamesTableModel::updateRow(const QModelIndex &index)
 {
-    auto base = Database::Connection("D:/Source/retrofox/sln/core/testbase.db");
+    auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games` WHERE id = ?");
     query.bind(1, games[index.row()].id);
 
@@ -84,9 +84,9 @@ QVariant GamesTableModel::headerData(int section, Qt::Orientation orientation, i
     switch (section)
     {
         case CollumnName::Name:
-            return "name";
+            return tr("Name");
         case CollumnName::Path:
-            return "path";
+            return tr("Path");
     }
 
     throw std::runtime_error("Unexpected result");
