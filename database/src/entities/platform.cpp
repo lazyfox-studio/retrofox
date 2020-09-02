@@ -4,6 +4,12 @@ namespace Database
 {
     namespace Entities
     {
+        Platform::Platform()
+        {
+            id = 0;
+            default_emulator_id = 0;
+        }
+
         Platform::Platform(const Database::Row& row)
         {
             id = row.column<unsigned>("id");

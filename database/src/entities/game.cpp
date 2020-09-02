@@ -6,13 +6,8 @@ namespace Database
     {
         Game::Game()
         {
-            id           = 0;
-            path         = "";
-            name         = "";
+            id = 0;
             platform_id  = 0;
-            release_date = "";
-            rating       = "";
-            description  = "";
         }
 
         Game::Game(const Database::Row& row)

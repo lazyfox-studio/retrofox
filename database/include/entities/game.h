@@ -26,7 +26,21 @@ namespace Database
             std::string description;  ///< Game short description
             //std::string boxart;     ///< Game boxart image path
 
+            /// Default constructor
             Game();
+
+            /// Copy constructor
+            Game(const Game&) = default;
+
+            /// Move constructor
+            Game(Game&&) = default;
+
+            /// Copy-assignment operator
+            Game& operator=(const Game&) = default;
+
+            /// Move-assignment operator
+            Game& operator=(Game&&) = default;
+
             /**
              * @brief Typecast constructor
              * @param row Row with game info
