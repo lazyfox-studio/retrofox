@@ -2,11 +2,24 @@
 
 #include <QAbstractTableModel>
 
+#include <vector>
+
 #include <QVariant>
+
+#include <database.h>
+#include <entities/game.h>
 
 class GamesTableModel : public QAbstractTableModel
 {
 Q_OBJECT
+
+    enum CollumnName
+    {
+        Name,
+        Path
+    };
+
+    std::vector<Database::Entities::Game> games;
 
 public:
     GamesTableModel(QObject *parent = nullptr);
