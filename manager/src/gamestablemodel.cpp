@@ -40,7 +40,7 @@ void GamesTableModel::updateRow(const QModelIndex &index)
 int GamesTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return games.size();
+    return static_cast<int>(games.size());
 }
 
 int GamesTableModel::columnCount(const QModelIndex &parent) const
@@ -88,4 +88,6 @@ QVariant GamesTableModel::headerData(int section, Qt::Orientation orientation, i
         case CollumnName::Path:
             return "path";
     }
+
+    throw std::runtime_error("Unexpected result");
 }
