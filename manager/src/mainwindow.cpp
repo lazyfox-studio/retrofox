@@ -30,6 +30,7 @@ void MainWindow::editGame(const QModelIndex &index)
     {
         auto result_game = dialog->resultGameData();
         games_table_model->updateGame(result_game);
+        games_table_model->updateRow(index);
     }
 }
 

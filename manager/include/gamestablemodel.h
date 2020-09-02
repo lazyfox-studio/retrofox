@@ -29,6 +29,8 @@ public:
 
     void updateGame(Database::Entities::Game game);
 
+    void updateRow(const QModelIndex &index);
+
 protected:
     int rowCount(const QModelIndex &parent) const;
     int columnCount(const QModelIndex &parent) const;
