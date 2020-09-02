@@ -11,22 +11,22 @@
     <message>
         <location filename="../ui/gameeditdialog.ui" line="32"/>
         <source>Developer</source>
-        <translation type="unfinished">Разработчик</translation>
+        <translation>Разработчик</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="48"/>
         <source>Publisher</source>
-        <translation type="unfinished">Издатель</translation>
+        <translation>Издатель</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="77"/>
         <source>Path</source>
-        <translation type="unfinished">Путь</translation>
+        <translation>Путь</translation>
     </message>
     <message>
         <location filename="../ui/gameeditdialog.ui" line="90"/>
         <source>Name</source>
-        <translation type="unfinished">Название</translation>
+        <translation>Название</translation>
     </message>
 </context>
 <context>
@@ -34,67 +34,82 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="14"/>
         <source>MainWindow</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="40"/>
         <source>Games</source>
-        <translation type="unfinished">Игры</translation>
+        <translation>Игры</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="65"/>
         <source>Platforms</source>
-        <translation type="unfinished">Платформы</translation>
+        <translation>Платформы</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="113"/>
         <source>Platform 1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="126"/>
         <source>Platform 2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="139"/>
         <source>Emulators</source>
-        <translation type="unfinished">Эмуляторы</translation>
+        <translation>Эмуляторы</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="187"/>
         <source>Emulator 1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="200"/>
         <source>Emulator 2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="226"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="231"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="236"/>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="241"/>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервис</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="246"/>
+        <location filename="../ui/mainwindow.ui" line="245"/>
+        <source>Languages</source>
+        <translation>Языки</translation>
+    </message>
+    <message>
+        <location filename="../ui/mainwindow.ui" line="254"/>
         <source>Help</source>
-        <translation type="unfinished">Помощь</translation>
+        <translation>Помощь</translation>
+    </message>
+    <message>
+        <location filename="../ui/mainwindow.ui" line="266"/>
+        <source>English</source>
+        <translation>English</translation>
+    </message>
+    <message>
+        <location filename="../ui/mainwindow.ui" line="271"/>
+        <source>Русский</source>
+        <translation>Русский</translation>
     </message>
 </context>
 </TS>

@@ -3,7 +3,7 @@
 
 void MainWindow::setLanguage(const QString &locale)
 {
-    qDebug() << translator.load(QString("manager_") + locale, "ts");
+    qDebug() << translator.load(QString("manager_") + locale, "./ts");
     qApp->installTranslator(&translator);
     ui->retranslateUi(this);
 }
