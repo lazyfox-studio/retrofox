@@ -2,7 +2,7 @@
 
 GamesTableModel::GamesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
-    auto base = Database::Connection("D:/Source/retrofox/sln/core/testbase.db");
+    auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games`");
     games = Database::Entities::Game::fetchEntities(query);
 }
