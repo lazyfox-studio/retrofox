@@ -15,4 +15,11 @@ namespace PythonFunctions
         PythonRef ret_value = PythonEnv::instance().callFunction(MODULE_NAME, FUNC_NAME, roms_path, platform_id, path_to_db);
         return ret_value.cast<int>();
     }
+
+    int setUpTables(const std::string& path_to_db)
+    {
+        constexpr const char* FUNC_NAME = "set_up_tables";
+        PythonRef ret_value = PythonEnv::instance().callFunction(MODULE_NAME, FUNC_NAME, path_to_db);
+        return ret_value.cast<int>();
+    }
 }
