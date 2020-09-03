@@ -31,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         setLanguage(QLocale("en_US"));
     }
 
+    //Setup menu slots
+    connect(ui->action_import_games, &QAction::triggered, this, &MainWindow::importGames);
+
     connect(ui->action_english, &QAction::triggered, this, &MainWindow::setLanguageEnglish);
     connect(ui->action_russian, &QAction::triggered, this, &MainWindow::setLanguageRussian);
 }
@@ -38,6 +41,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::importGames()
+{
+    GamesImportWizard::Wizard wizard;
+    wizard.show();
 }
 
 void MainWindow::editGame(const QModelIndex &index)

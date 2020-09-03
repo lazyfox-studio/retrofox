@@ -2,9 +2,12 @@
 
 #include <QWizard>
 
+#include "gamesimportwizard/pages.h"
+#include "gamesimportwizard/welcomepage.h"
+
 namespace GamesImportWizard
 {
-    class Wizard : QWizard
+    class Wizard : public QWizard
     {
         Q_OBJECT
 

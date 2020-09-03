@@ -225,6 +225,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="action_import_games"/>
    </widget>
    <widget class="QMenu" name="menuEDit">
     <property name="title">
@@ -269,6 +270,11 @@
   <action name="action_russian">
    <property name="text">
     <string>Русский</string>
+   </property>
+  </action>
+  <action name="action_import_games">
+   <property name="text">
+    <string>Import games</string>
    </property>
   </action>
  </widget>

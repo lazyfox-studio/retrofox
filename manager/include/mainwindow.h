@@ -6,6 +6,7 @@
 #include <QDebug>
 
 #include "gameeditdialog.h"
+#include "gamesimportwizard/wizard.h"
 #include "gamestablemodel.h"
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,7 @@ public:
     ~MainWindow();
 
 public slots:
+    void importGames();
     void editGame(const QModelIndex & index);
 
     void setLanguageEnglish();
