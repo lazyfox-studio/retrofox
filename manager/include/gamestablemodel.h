@@ -11,7 +11,7 @@
 
 class GamesTableModel : public QAbstractTableModel
 {
-Q_OBJECT
+    Q_OBJECT
 
     enum CollumnName
     {
@@ -22,7 +22,7 @@ Q_OBJECT
     std::vector<Database::Entities::Game> games;
 
 public:
-    GamesTableModel(QObject *parent = nullptr);
+    explicit GamesTableModel(QObject *parent = nullptr);
     ~GamesTableModel();
 
     Database::Entities::Game game(const QModelIndex &index);

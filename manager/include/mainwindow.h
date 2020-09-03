@@ -25,7 +25,7 @@ private:
     bool setLanguage(const QLocale& locale);
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 public slots:
