@@ -4,6 +4,7 @@
 
 #include "gamesimportwizard/finalpage.h"
 #include "gamesimportwizard/pages.h"
+#include "gamesimportwizard/pathselectpage.h"
 #include "gamesimportwizard/welcomepage.h"
 
 namespace GamesImportWizard

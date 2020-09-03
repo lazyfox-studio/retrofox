@@ -15,11 +15,6 @@ namespace GamesImportWizard
 
     int WelcomePage::nextId() const
     {
-        return Pages::Final;
-    }
-
-    bool WelcomePage::validatePage()
-    {
-        return true;
+        return Pages::PathSelect;
     }
 }
