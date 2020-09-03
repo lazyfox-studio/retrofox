@@ -2,6 +2,7 @@
 
 #include <QWizard>
 
+#include "gamesimportwizard/finalpage.h"
 #include "gamesimportwizard/pages.h"
 #include "gamesimportwizard/welcomepage.h"
 

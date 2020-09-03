@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include <QMainWindow>
 #include <QTranslator>
 #include <QWidget>
@@ -18,6 +20,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
     GamesTableModel* games_table_model;
+
+    std::shared_ptr<QWizard> wizard;
 
 private:
     Ui::MainWindow *ui;

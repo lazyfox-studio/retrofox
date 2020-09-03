@@ -1,7 +1,8 @@
 #include "gamesimportwizard/welcomepage.h"
 #include "ui_welcomepage.h"
 
-namespace GamesImportWizard {
+namespace GamesImportWizard
+{
     WelcomePage::WelcomePage(QWidget *parent) : QWizardPage(parent), ui(new Ui::WelcomePage)
     {
       ui->setupUi(this);
@@ -14,7 +15,7 @@ namespace GamesImportWizard {
 
     int WelcomePage::nextId() const
     {
-        return Pages::Welcome;
+        return Pages::Final;
     }
 
     bool WelcomePage::validatePage()

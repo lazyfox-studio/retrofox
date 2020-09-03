@@ -36,6 +36,8 @@ LIBS += \
     -lsqlite3
 
 SOURCES += \
+    src/gamesimportwizard/finalpage.cpp \
+    src/gamesimportwizard/finalpage.cpp \
     src/gamesimportwizard/welcomepage.cpp \
     src/gameeditdialog.cpp \
     src/gamesimportwizard/wizard.cpp \
@@ -46,6 +48,8 @@ SOURCES += \
 
 HEADERS += \
     include/gameeditdialog.h \
+    include/gamesimportwizard/finalpage.h \
+    include/gamesimportwizard/finalpage.h \
     include/gamesimportwizard/pages.h \
     include/gamesimportwizard/welcomepage.h \
     include/gamesimportwizard/wizard.h \
@@ -54,6 +58,8 @@ HEADERS += \
     include/scraper.h
 
 FORMS += \
+    ui/gamesimportwizard/finalpage.ui \
+    ui/gamesimportwizard/finalpage.ui \
     ui/gamesimportwizard/welcomepage.ui \
     ui/gameeditdialog.ui \
     ui/mainwindow.ui

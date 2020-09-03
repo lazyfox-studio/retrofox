@@ -45,8 +45,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::importGames()
 {
-    GamesImportWizard::Wizard wizard;
-    wizard.show();
+    wizard = std::make_shared<GamesImportWizard::Wizard>();
+    wizard->setModal(true);
+    wizard->show();
+
 }
 
 void MainWindow::editGame(const QModelIndex &index)

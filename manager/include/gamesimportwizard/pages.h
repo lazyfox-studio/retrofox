@@ -6,6 +6,6 @@ namespace GamesImportWizard
     {
       Welcome,
       PathSelect,
-      Finish
+      Final
     };
 }
