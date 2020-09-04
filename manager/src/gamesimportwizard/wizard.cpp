@@ -6,6 +6,7 @@ namespace GamesImportWizard
     {
         setPage(Pages::Welcome, new WelcomePage);
         setPage(Pages::PathSelect, new PathSelectPage);
+        setPage(Pages::GameSelect, new GameSelectPage);
         setPage(Pages::Final, new FinalPage);
     }
 

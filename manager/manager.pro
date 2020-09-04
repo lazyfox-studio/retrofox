@@ -37,6 +37,7 @@ LIBS += \
 
 SOURCES += \
     src/gamesimportwizard/finalpage.cpp \
+    src/gamesimportwizard/gameselectpage.cpp \
     src/gamesimportwizard/pathselectpage.cpp \
     src/gamesimportwizard/welcomepage.cpp \
     src/gameeditdialog.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     include/gameeditdialog.h \
     include/gamesimportwizard/finalpage.h \
     include/gamesimportwizard/finalpage.h \
+    include/gamesimportwizard/gameselectpage.h \
     include/gamesimportwizard/pages.h \
     include/gamesimportwizard/pathselectpage.h \
     include/gamesimportwizard/welcomepage.h \
@@ -60,6 +62,7 @@ HEADERS += \
 
 FORMS += \
     ui/gamesimportwizard/finalpage.ui \
+    ui/gamesimportwizard/gameselectpage.ui \
     ui/gamesimportwizard/pathselectpage.ui \
     ui/gamesimportwizard/welcomepage.ui \
     ui/gameeditdialog.ui \

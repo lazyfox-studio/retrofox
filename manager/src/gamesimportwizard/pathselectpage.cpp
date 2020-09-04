@@ -7,6 +7,7 @@ namespace GamesImportWizard
     PathSelectPage::PathSelectPage(QWidget *parent) : QWizardPage(parent), ui(new Ui::PathSelectPage)
     {
         ui->setupUi(this);
+        registerField("path", ui->edit_path);
         connect(ui->button_explore, &QPushButton::clicked, this, &PathSelectPage::openDialog);
     }
 
@@ -17,7 +18,7 @@ namespace GamesImportWizard
 
     int PathSelectPage::nextId() const
     {
-        return Pages::Final;
+        return Pages::GameSelect;
     }
 
     bool PathSelectPage::validatePage()
