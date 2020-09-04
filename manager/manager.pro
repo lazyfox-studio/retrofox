@@ -25,19 +25,28 @@ INCLUDEPATH += \
     D:/Libraries/SQLite \
     E:/Libraries/SQLite
 
+win32 {
 LIBS += \
     -L"$$_PRO_FILE_PWD_/../sln/x64/Debug" \
-    -L"$$_PRO_FILE_PWD_/.." \
     -lapi-service \
     -ldatabase \
     -L"D:/Libraries/Python/lib" \
     -L"E:/Libraries/Python/lib" \
-    -L "/usr/lib/x86_64-linux-gnu" \
     -lpython38_d \
-    -lpython3.8 \
     -L"D:/Libraries/SQLite" \
     -L"E:/Libraries/SQLite" \
     -lsqlite3
+}
+
+!win32 {
+    LIBS += \
+        -L"$$_PRO_FILE_PWD_/.." \
+        -lapi-service \
+        -ldatabase \
+        -L "/usr/lib/x86_64-linux-gnu" \
+        -lpython3.8 \
+        -lsqlite3
+}
 
 SOURCES += \
     src/gamesimportwizard/finalpage.cpp \
