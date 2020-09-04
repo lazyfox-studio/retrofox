@@ -21,17 +21,20 @@ INCLUDEPATH += \
     ../api-service/include \
     D:/Libraries/Python/include \
     E:/Libraries/Python/include \
+    /usr/include/python3.8 \
     D:/Libraries/SQLite \
     E:/Libraries/SQLite
 
 LIBS += \
     -L"$$_PRO_FILE_PWD_/../sln/x64/Debug" \
-    -L"$$_PRO_FILE_PWD_/..
+    -L"$$_PRO_FILE_PWD_/.." \
     -lapi-service \
     -ldatabase \
     -L"D:/Libraries/Python/lib" \
     -L"E:/Libraries/Python/lib" \
+    -L "/usr/lib/x86_64-linux-gnu" \
     -lpython38_d \
+    -lpython3.8 \
     -L"D:/Libraries/SQLite" \
     -L"E:/Libraries/SQLite" \
     -lsqlite3
