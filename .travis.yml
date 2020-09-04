@@ -2,7 +2,7 @@ notifications:
   email: true
 
 language: cpp
-dist: bionic
+dist: focal
 compiler:
   - gcc
 
@@ -10,10 +10,17 @@ addons:
   apt:
     packages:
       - cmake
+      - qt5-qmake
       - libsdl2-dev
       - libsdl2-ttf-dev
       - libsqlite3-dev
-      - python-dev
+      - python3-dev
+      - qtbase5-dev
+      - qtdeclarative5-dev
 
 script:
   - cmake CMakeLists.txt
+  - make
+  - cd manager
+  - qmake manager.pro
+  - make

@@ -358,5 +358,12 @@ doxygen/**
 *.dll
 *.lib
 
-# Idea chache
+# IDE user files
 *.idea/
+.vscode/*
+
+# Builder cache
+build/*
+build*/
+CMakeCache.txt
+CMakeFiles/

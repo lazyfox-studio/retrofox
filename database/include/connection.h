@@ -71,6 +71,24 @@ namespace Database
         Statement query(const std::string& query_string);
         
         /**
+         * @brief Returns single value
+         * @details Helper method: performs query, then fetches first column of first row
+         * @param query_string SQL query string
+         * @return Column value
+         */
+        template<typename Value>
+        Value getOne(const std::string& query_string);
+
+        /**
+         * @brief Returns pair of values
+         * @details Helper method: performs query, then fetches first two columns of first row
+         * @param query_string SQL query string
+         * @return Pair of columns values
+         */
+        template<typename FValue, typename SValue>
+        std::pair<FValue, SValue> getPair(const std::string& query_string);
+
+        /**
          * @brief Returns single column values as vector
          * @details Helper method: performs query, then fetches first columns of all rows into vector
          * @param query_string SQL query string
@@ -88,6 +106,20 @@ namespace Database
         template<typename Key, typename Value>
         std::map<Key, Value> getIndexedColumn(const std::string& query_string);
     };
+
+    template<typename Value>
+    Value Connection::getOne(const std::string& query_string)
+    {
+        Database::Statement stmt = query(query_string);
+        return stmt.getOne<Value>();
+    }
+
+    template<typename FValue, typename SValue>
+    std::pair<FValue, SValue> Connection::getPair(const std::string& query_string)
+    {
+        Database::Statement stmt = query(query_string);
+        return stmt.getPair<FValue, SValue>();
+    }
 
     template<typename Value>
     std::vector<Value> Connection::getColumn(const std::string& query_string)

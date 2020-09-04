@@ -18,6 +18,21 @@ namespace Database
             unsigned platform_id; ///< Emulator platform ID
             std::string execution_command; ///< Execution command
 
+            /// Default constructor
+            Emulator();
+
+            /// Copy constructor
+            Emulator(const Emulator&) = default;
+
+            /// Move constructor
+            Emulator(Emulator&&) = default;
+
+            /// Copy-assignment operator
+            Emulator& operator=(const Emulator&) = default;
+
+            /// Move-assignment operator
+            Emulator& operator=(Emulator&&) = default;
+
             /**
              * @brief Typecast constructor
              * @param row Row with emulator info

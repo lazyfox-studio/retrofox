@@ -7,6 +7,7 @@
 #include "gamemenu.h"
 
 /**
+ * @ingroup core
  * @brief Main window of application
  * @details Class to represent main window of application
  */

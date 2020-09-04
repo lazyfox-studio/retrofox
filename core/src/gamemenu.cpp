@@ -21,7 +21,7 @@ void GameMenu::showGames(SDL_Renderer* renderer, const std::string& db_path)
     for (const auto& name : games)
     {
         auto button = std::make_shared<Interface::LabeledButton>
-        (renderer, name, "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp",
+        (renderer, (name == "" ? "NULL" : name), "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp",
             "../../core/data/testsprite2.bmp", "../../core/data/testsprite2.bmp");
         pushBack(button);
     }

@@ -68,10 +68,10 @@ namespace Interface
     void Layout::update()
     {
         unsigned scalable_count = static_cast<unsigned>(widgets.size());
-        unsigned scalable_size = geometry.height - margin.top - margin.bottom - spacing.vertical * (scalable_count - 1);
-        unsigned medium_height = scalable_size / scalable_count;
         if (stacking == Stacking::Vertical)
         {
+            unsigned scalable_size = geometry.height - margin.top - margin.bottom - spacing.vertical * (scalable_count - 1);
+            unsigned medium_height = scalable_size / scalable_count;
             bool allocated;
             bool* processed = new bool[widgets.size()]{ };
             do
@@ -80,7 +80,6 @@ namespace Interface
                 size_t j = 0;
                 for (auto& widget : widgets)
                 {
-                    //Interface::Widget& widget = (*i).get();
                     if (!processed[j])
                     {
                         if (widget->size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
@@ -115,7 +114,6 @@ namespace Interface
             unsigned current_y = margin.top;
             for (auto& widget : widgets)
             {
-                //Interface::Widget& widget = (*i).get();
                 widget->setX(geometry.x + margin.left);
                 widget->setY(geometry.y + current_y);
                 if (!processed[j])
@@ -144,8 +142,77 @@ namespace Interface
         }
         else if (stacking == Stacking::Horizontal)
         {
-
+            unsigned scalable_size = geometry.width - margin.left - margin.right - spacing.horizontal * (scalable_count - 1);
+            unsigned medium_width = scalable_size / scalable_count;
+            bool allocated;
+            bool* processed = new bool[widgets.size()]{ };
+            do
+            {
+                allocated = true;
+                size_t j = 0;
+                for (auto& widget : widgets)
+                {
+                    if (!processed[j])
+                    {
+                        if (widget->size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
+                        {
+                            processed[j] = true;
+                            scalable_count--;
+                            if (scalable_count == 0)
+                            {
+                                break;
+                            }
+                            scalable_size -= widget->base_size.width;
+                            medium_width = scalable_size / scalable_count;
+                            allocated = false;
+                        }
+                        else if (widget->minimum_size.width > medium_width)
+                        {
+                            processed[j] = true;
+                            scalable_count--;
+                            if (scalable_count == 0)
+                            {
+                                break;
+                            }
+                            scalable_size -= widget->minimum_size.width;
+                            medium_width = scalable_size / scalable_count;
+                            allocated = false;
+                        }
+                    }
+                    j++;
+                }
+            } while ((!allocated) && (scalable_count != 0));
+            size_t j = 0;
+            unsigned current_x = margin.left;
+            for (auto& widget : widgets)
+            {
+                widget->setX(geometry.x + current_x);
+                widget->setY(geometry.y + margin.top);
+                if (!processed[j])
+                {
+                    widget->setWidth(medium_width);
+                }
+                else if (widget->size_policy.horizontal == Interface::Widget::SizePolicy::Fixed)
+                {
+                    widget->setWidth(widget->base_size.width);
+                }
+                else
+                {
+                    widget->setWidth(widget->minimum_size.width);
+                }
+                if (widget->size_policy.vertical == Interface::Widget::SizePolicy::Fixed)
+                {
+                    widget->setHeight(widget->base_size.height);
+                }
+                else
+                {
+                    widget->setHeight(geometry.height - margin.top - margin.bottom);
+                }
+                current_x += widget->width() + spacing.horizontal;
+                j++;
+            }
         }
+        current = widgets.begin();
     }
 
     bool Layout::onControl(Control::VirtualGamepad::KeyCode code)

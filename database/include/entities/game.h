@@ -14,17 +14,32 @@ namespace Database
         /// Game entity
         struct Game
         {
-            unsigned id; ///< Game ID (ROWID)
-            std::string path; ///< Path to game executable
-            std::string name; ///< Game name
-            unsigned platform_id; ///< Platform ID
-            std::string developer; ///< Developer name
-            std::string publisher; ///< Publisher name
+            long        id;           ///< Game ID (ROWID)
+            std::string path;         ///< Path to game executable
+            std::string name;         ///< Game name
+            long        platform_id;  ///< Platform ID
+            //std::string developers; ///< Developer name
+            //std::string publishers; ///< Publisher name
             std::string release_date; ///< Release date
-            std::string genre; ///< Game genre
-            float rating; ///< Rating value
-            std::string description; ///< Game short description
-            std::string boxart; ///< Game boxart image path
+            //std::string genre;      ///< Game genre
+            std::string rating;       ///< Rating value
+            std::string description;  ///< Game short description
+            //std::string boxart;     ///< Game boxart image path
+
+            /// Default constructor
+            Game();
+
+            /// Copy constructor
+            Game(const Game&) = default;
+
+            /// Move constructor
+            Game(Game&&) = default;
+
+            /// Copy-assignment operator
+            Game& operator=(const Game&) = default;
+
+            /// Move-assignment operator
+            Game& operator=(Game&&) = default;
 
             /**
              * @brief Typecast constructor

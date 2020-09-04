@@ -18,6 +18,21 @@ namespace Database
             std::string extensions; ///< File extensions supported by platform
             unsigned default_emulator_id; ///< Default emulator ID
 
+            /// Default constructor
+            Platform();
+
+            /// Copy constructor
+            Platform(const Platform&) = default;
+
+            /// Move constructor
+            Platform(Platform&&) = default;
+
+            /// Copy-assignment operator
+            Platform& operator=(const Platform&) = default;
+
+            /// Move-assignment operator
+            Platform& operator=(Platform&&) = default;
+
             /**
              * @brief Typecast constructor
              * @param row Row with platform info

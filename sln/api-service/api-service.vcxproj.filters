@@ -18,6 +18,9 @@
     <ClInclude Include="..\..\api-service\include\pythonref.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\api-service\include\pythonfunctions.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\api-service\src\pythonenv.cpp">
@@ -26,12 +29,27 @@
     <ClCompile Include="..\..\api-service\src\pythonref.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\api-service\src\pythonfunctions.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\api-service\scripts\igdb.py">
+    <None Include="..\..\api-service\scripts\testscript.py">
       <Filter>scripts</Filter>
     </None>
-    <None Include="..\..\api-service\scripts\testscript.py">
+    <None Include="..\..\api-service\scripts\baseapiservice.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\gamefilter.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\igdbapiservice.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\thegamesdbapiservice.py">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\api-service\scripts\findgames.py">
       <Filter>scripts</Filter>
     </None>
   </ItemGroup>

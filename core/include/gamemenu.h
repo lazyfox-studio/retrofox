@@ -10,6 +10,7 @@
 #include "interface/labeledbutton.h"
 
 /**
+ * @ingroup core
  * @brief Game menu widget
  * @details Class to represent menu with games buttons
  */

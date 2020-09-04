@@ -27,11 +27,13 @@ namespace Interface
 
     void Menu::reset()
     {
+        visible_buttons_count = (layout.height() - layout.margin.top - layout.margin.bottom) /
+            (m_button_height + layout.spacing.vertical);
         current = widgets.begin();
         (*current)->setState(Button::State::Hovered);
         first = widgets.begin();
         last = widgets.begin();
-        for (size_t i = 0; (i < visible_buttons_count) && (last != widgets.end()); i++)
+        for (size_t i = 1; (i < visible_buttons_count) && (last != widgets.end()); i++)
         {
             last++;
         }
@@ -39,6 +41,14 @@ namespace Interface
         for (auto i = first; i != last; ++i)
         {
             layout.pushBack(*i);
+        }
+        if (last == widgets.end())
+        {
+            last--;
+        }
+        else
+        {
+            layout.pushBack(*last);
         }
     }
 
@@ -66,6 +76,7 @@ namespace Interface
         {
             layout.popFront();
             last++;
+            first++;
             (*current)->setState(Button::State::Default);
             current++;
             (*current)->setState(Button::State::Hovered);
@@ -91,6 +102,7 @@ namespace Interface
         {
             layout.popBack();
             first--;
+            last--;
             (*current)->setState(Button::State::Default);
             current--;
             (*current)->setState(Button::State::Hovered);

@@ -23,6 +23,9 @@ namespace Interface
         /// Pointer to renderer
         SDL_Renderer* renderer;
         
+        /// Window geometry
+        SDL_Rect geometry;
+
         /// Pointer to root widget
         std::shared_ptr<Interface::Widget> root_widget;
 

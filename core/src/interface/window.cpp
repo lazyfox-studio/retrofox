@@ -6,6 +6,7 @@ namespace Interface
     {
         window = SDL_CreateWindow(title.c_str(), 100, 100, width, height,  SDL_WINDOW_HIDDEN);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+        geometry = { x, y, width, height };
     }
 
     Window::~Window()

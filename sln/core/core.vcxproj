@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Libraries\Python-3.8.5\include;D:\Libraries\Python\include;E:\Libraries\Python\include;D:\Libraries\SDL2_ttf-2.0.15\include;D:\Libraries\SDL2-2.0.12\include;./../../api-service/include/;./../../database/include/;D:\Libraries\SQLite-3.32.3;D:\Libraries\SQLite;E:\Libraries\SQLite;$(IncludePath)</IncludePath>
+    <IncludePath>../../core/include;./../../api-service/include;./../../database/include;D:\Libraries\Python\include;E:\Libraries\Python\include;D:\Libraries\SDL_ttf\include;E:\Libraries\SDL_ttf\include;D:\Libraries\SDL\include;E:\Libraries\SDL\include;D:\Libraries\SQLite;E:\Libraries\SQLite;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -117,12 +117,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../core/include;D:\Libraries\SDL\include;E:\Libraries\SDL\include;D:\Libraries\SDL_ttf\include;E:\Libraries\SDL_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Libraries\Python-3.8.5\lib;D:\Libraries\Python\lib;E:\Libraries\Python\lib;D:\Libraries\SDL2_ttf-2.0.15\lib\x64;D:\Libraries\SDL2-2.0.12\lib\x64;D:\Libraries\SDL\lib\x64;D:\Libraries\SDL_ttf\lib\x64;E:\Libraries\SDL\lib\x64;E:\Libraries\SDL_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Libraries\Python\lib;E:\Libraries\Python\lib;D:\Libraries\SDL\lib\x64;E:\Libraries\SDL\lib\x64;D:\Libraries\SDL_ttf\lib\x64;E:\Libraries\SDL_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;python38_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

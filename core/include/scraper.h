@@ -1,16 +1,33 @@
 #pragma once
 
 #include <string>
-#include <filesystem>
+
 #include <database.h>
+#include <pythonfunctions.h>
 
-class Scraper
+/**
+ * @ingroup core
+ * @brief Scraping utilities
+ */
+namespace Scraper
 {
-    static std::string db_path;
+    /**
+     * @brief Scans folder, finds ROM files, and saves info to database
+     * @param path Path to folder to scan
+     * @param platform_id Platform ID
+     * @param db_path Path to SQLite database
+     */
+    void scanFloder(std::string path, long platform_id, const std::string& db_path);
 
-public:
-    static void setDatabasePath(const std::string& path);
+    /**
+     * @brief Fetches metadata for games in previously scanned folder and saves to database
+     * @param db_path Path to SQLite database
+     */
+    void findGamesInformation(const std::string& db_path);
 
-    static void scanFloder(std::string path, int platform_id);
-    static void findGameInformation(std::string path);
+    /**
+     * @brief Cleans cache after scraping in database
+     * @param db_path Path to SQLite database
+     */
+    void cleanCache(const std::string& db_path);
 };
