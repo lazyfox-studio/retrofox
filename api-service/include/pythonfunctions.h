@@ -29,4 +29,6 @@ namespace PythonFunctions
      * @param path_to_db Path to SQLite database
      */
     int findGamesInFolder(const std::string& roms_path, long platform_id, const std::string& path_to_db);
+
+    int setUpTables(const std::string& path_to_db);
 }
