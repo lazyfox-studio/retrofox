@@ -26,6 +26,7 @@ INCLUDEPATH += \
 
 LIBS += \
     -L"$$_PRO_FILE_PWD_/../sln/x64/Debug" \
+    -L"$$_PRO_FILE_PWD_/..
     -lapi-service \
     -ldatabase \
     -L"D:/Libraries/Python/lib" \
