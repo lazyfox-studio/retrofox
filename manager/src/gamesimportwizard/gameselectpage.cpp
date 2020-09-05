@@ -16,8 +16,8 @@ namespace GamesImportWizard
     void GameSelectPage::initializePage()
     {
         //TODO: Platform selection
-        //Scraper::cleanCache("../sln/core/testbase.db");
-        //Scraper::scanFloder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
+        Scraper::cleanCache("../sln/core/testbase.db");
+        Scraper::scanFloder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
     }
 
     int GameSelectPage::nextId() const
