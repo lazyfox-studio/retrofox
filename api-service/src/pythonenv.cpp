@@ -1,14 +1,16 @@
 #include "pythonenv.h"
 
 PythonEnv::PythonEnv()
-    : c_modules_path("./../../api-service/scripts")
+    : c_modules_paths{"./../../api-service/scripts", "./../api-service/scripts"}
 {
     Py_Initialize();
     PyObject* sys_module = PyImport_ImportModule("sys");
     PyObject* main_module = PyImport_AddModule("__main__");
     PyObject_SetAttrString(main_module, "sys", sys_module);
     Py_XDECREF(sys_module);
-    std::string init_code = "sys.path.append('" + c_modules_path + "')\n";
+    std::string init_code;
+    for (const std::string& path : c_modules_paths)
+        init_code += "sys.path.append('" + path + "')\n";
     PyRun_SimpleString(init_code.c_str());
 }
 

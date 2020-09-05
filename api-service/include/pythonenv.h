@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <string>
 #include <map>
+#include <vector>
 
 #include "pythonref.h"
 
@@ -18,7 +19,7 @@ class PythonEnv
 {
 protected:
     /// Path to modules ('scripts' folder)
-    const std::string c_modules_path;
+    const std::vector<std::string> c_modules_paths;
 
     /// Map with py-references to loaded modules
     std::map<std::string, PyObject*> m_modules;
