@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include <database.h>
 #include <pythonfunctions.h>
@@ -19,11 +20,13 @@ namespace Scraper
      */
     void scanFloder(std::string path, long platform_id, const std::string& db_path);
 
+    std::vector<long> findGameInformation(long game_id, const std::string& db_path);
+
     /**
      * @brief Fetches metadata for games in previously scanned folder and saves to database
      * @param db_path Path to SQLite database
      */
-    void findGamesInformation(const std::string& db_path);
+    void findGamesInformation(const std::string& db_path); //TODO: Should be removed
 
     /**
      * @brief Cleans cache after scraping in database

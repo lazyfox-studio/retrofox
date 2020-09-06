@@ -18,6 +18,19 @@ namespace GamesImportWizard
         //TODO: Platform selection
         Scraper::cleanCache("../sln/core/testbase.db");
         Scraper::scanFloder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
+
+        //TODO: Get games id from python script
+        auto base = Database::Connection("../sln/core/testbase.db");
+        auto query = base.query("SELECT `id` FROM `games`");
+        while (auto row = query.fetchRow())
+        {
+            auto games = Scraper::findGameInformation(row.column<long>("id"), "../sln/core/testbase.db");
+            if (games.size() > 1)
+            {
+                //Send to table
+            }
+        }
+
     }
 
     int GameSelectPage::nextId() const

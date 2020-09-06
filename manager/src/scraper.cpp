@@ -7,6 +7,24 @@ namespace Scraper
         PythonFunctions::findGamesInFolder(path, platform_id, db_path);
     }
 
+    std::vector<long> findGameInformation(long game_id, const std::string &db_path)
+    {
+        // TODO: ADD KEY GET FROM SERVER
+        std::string stolen_api_key = "445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600";
+        PythonFunctions::findGame(stolen_api_key, game_id, db_path);
+
+        //TODO: Get games id from python script
+        std::vector<long> result;
+        Database::Connection base(db_path);
+        auto query = base.query("SELECT `id` FROM `scraper_cache_games` WHERE game_id = ?;");
+        query.bind(1, game_id);
+        while (auto row = query.fetchRow())
+        {
+            result.push_back(row.column<long>("id"));
+        }
+        return result;
+    }
+
     void findGamesInformation(const std::string& db_path)
     {
         Database::Connection base(db_path);
