@@ -2,6 +2,7 @@
 
 #include <Python.h>
 
+#include <stdexcept>
 #include <vector>
 
 /**
@@ -58,4 +59,42 @@ public:
      */
     template<typename RType>
     RType cast();
+
+    template<typename RType>
+    std::vector<RType> tuple();
+
+    template<typename RType>
+    std::vector<RType> list();
 };
+
+template<typename RType>
+std::vector<RType> PythonRef::tuple()
+{
+    PyObject* ref = p_ref;
+    if (!PyTuple_Check(ref))
+    {
+        if (PyList_Check(ref))
+            ref = PyList_AsTuple(ref);
+        else
+            throw std::runtime_error("Ref is not a tuple object");
+    }
+    size_t size = PyTuple_Size(p_ref);
+    std::vector<RType> tuple(0);
+    tuple.reserve(size);
+    for (size_t i = 0; i < size; i++)
+        tuple.push_back(PythonRef(PyTuple_GetItem(p_ref, i)).cast<RType>());
+    return tuple;
+}
+
+template<typename RType>
+std::vector<RType> PythonRef::list()
+{
+    if (!PyList_Check(p_ref))
+        throw std::runtime_error("Ref is not a list object");
+    size_t size = PyList_Size(p_ref);
+    std::vector<RType> list(0);
+    list.reserve(size);
+    for (size_t i = 0; i < size; i++)
+        list.push_back(PythonRef(PyList_GetItem(p_ref, i)).cast<RType>());
+    return list;
+}
