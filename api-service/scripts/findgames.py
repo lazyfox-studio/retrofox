@@ -54,8 +54,7 @@ def find_game(api_key, game_id, path_to_db):
     games = GameFilter.remove_not_equality(games, query_string)
     if len(games) < 1:
         return 2  # Games not found
-    # print(games)
-    result = service.cache_games_into_db(games, '../../sln/core/testbase.db')
+    result = service.cache_games_into_db(games, path_to_db)
     if not result:
         return 3  # Database error
     return 0

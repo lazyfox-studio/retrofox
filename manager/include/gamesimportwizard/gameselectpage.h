@@ -4,7 +4,7 @@
 
 #include "gamesimportwizard/pages.h"
 #undef slots
-#include "scraper.h"
+#include "scraper/scanfolder.h"
 #define slots
 
 namespace Ui {
