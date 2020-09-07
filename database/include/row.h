@@ -82,6 +82,20 @@ namespace Database
 
         /**
          * @brief Returns column value in preferred type (RType) by index
+         * @details Supported types for RType:
+         * @code{.txt}
+         * char        unsigned char
+         * short       unsigned short
+         * int         unsigned int
+         * long        unsigned long
+         * long long   unsigned long long
+         * float
+         * double
+         * const char* 
+         * const unsigned char*
+         * const void*
+         * std::string
+         * @endcode
          * @param column_index Column index
          * @return Column value
          */
@@ -90,6 +104,20 @@ namespace Database
 
         /**
          * @brief Returns column value in preferred type (RType) by name
+         * @details Supported types for RType:
+         * @code{.txt}
+         * char        unsigned char
+         * short       unsigned short
+         * int         unsigned int
+         * long        unsigned long
+         * long long   unsigned long long
+         * float
+         * double
+         * const char* 
+         * const unsigned char*
+         * const void*
+         * std::string
+         * @endcode
          * @param column_name Column name
          * @return Column value
          */
