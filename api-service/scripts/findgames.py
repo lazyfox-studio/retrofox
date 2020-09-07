@@ -65,6 +65,9 @@ def set_up_tables(path_to_db):
     service.set_up_tables(path_to_db)
     return 0
 
+def list_test(roms_path, platform_id, path_to_db):
+    return [1, 2, 3]
+
 
 #thegamesdbapiservice.BaseAPIService.set_up_tables('D:/Source/retrofox/sln/core/testbase.db')
 #find_games_in_folder('E:/Games/Emulators Library/PlayStation', 10, 'D:/Source/retrofox/sln/core/testbase.db')

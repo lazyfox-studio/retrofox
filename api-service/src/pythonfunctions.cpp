@@ -22,4 +22,11 @@ namespace PythonFunctions
         PythonRef ret_value = PythonEnv::instance().callFunction(MODULE_NAME, FUNC_NAME, path_to_db);
         return ret_value.cast<int>();
     }
+
+    std::vector<long> listTest(const std::string& roms_path, long platform_id, const std::string& path_to_db)
+    {
+        constexpr const char* FUNC_NAME = "list_test";
+        PythonRef ret_value = PythonEnv::instance().callFunction(MODULE_NAME, FUNC_NAME, roms_path, platform_id, path_to_db);
+        return ret_value.list<long>();
+    }
 }

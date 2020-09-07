@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include "pythonenv.h"
 
@@ -31,4 +32,6 @@ namespace PythonFunctions
     int findGamesInFolder(const std::string& roms_path, long platform_id, const std::string& path_to_db);
 
     int setUpTables(const std::string& path_to_db);
+
+    std::vector<long> listTest(const std::string& roms_path, long platform_id, const std::string& path_to_db);
 }
