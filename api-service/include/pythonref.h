@@ -2,6 +2,8 @@
 
 #include <Python.h>
 
+#include <vector>
+
 /**
  * @ingroup api-service
  * @brief Simple wrapper for py-reference
@@ -42,7 +44,20 @@ public:
 
     /**
      * @brief Casts object (in py-reference) to preferred type (RType)
-     * @details Available types: int, long
+     * @details Supported types for RType:
+     * @code{.txt}
+     * char        unsigned char
+     * short       unsigned short
+     * int         unsigned int
+     * long        unsigned long
+     * long long   unsigned long long
+     * float
+     * double
+     * const char*
+     * const unsigned char*
+     * const void*
+     * std::string
+     * @endcode
      * @return Value with RType type
      */
     template<typename RType>
