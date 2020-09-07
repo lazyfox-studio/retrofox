@@ -60,9 +60,21 @@ public:
     template<typename RType>
     RType cast();
 
+    /**
+     * @brief Casts py-tuple to vector with elements of preferred type (RType)
+     * @details Also converts list into tuple if needed, 
+     * hence can be used both with lists and tuples.
+     * Supported types for RType: see cast()
+     * @return Vector of elements of RType type
+     */
     template<typename RType>
     std::vector<RType> tuple();
 
+    /**
+     * @brief Casts py-list to vector with elements of preferred type (RType)
+     * @details Supported types for RType: see cast()
+     * @return Vector of elements of RType type
+     */
     template<typename RType>
     std::vector<RType> list();
 };
