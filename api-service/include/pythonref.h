@@ -53,10 +53,6 @@ public:
      * long long   unsigned long long
      * float
      * double
-     * const char*
-     * const unsigned char*
-     * const void*
-     * std::string
      * @endcode
      * @return Value with RType type
      */
