@@ -16,11 +16,12 @@ namespace GamesImportWizard
     void GameSelectPage::initializePage()
     {
         //TODO: Platform selection
-        Scraper::cleanCache("../sln/core/testbase.db");
-        Scraper::scanFloder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
-
+        //Scraper::cleanCache("../sln/core/testbase.db");
+        //Scraper::scanFloder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
+        Scraper::ScanFolder scan_folder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
+        scan_folder.run();
         //TODO: Get games id from python script
-        auto base = Database::Connection("../sln/core/testbase.db");
+        /*auto base = Database::Connection("../sln/core/testbase.db");
         auto query = base.query("SELECT `id` FROM `games`");
         while (auto row = query.fetchRow())
         {
@@ -29,7 +30,7 @@ namespace GamesImportWizard
             {
                 //Send to table
             }
-        }
+        }*/
 
     }
 

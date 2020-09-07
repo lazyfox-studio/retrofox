@@ -58,7 +58,8 @@ SOURCES += \
     src/gamestablemodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/scraper.cpp
+    src/scraper.cpp \
+    src/scraper/scanfolder.cpp
 
 HEADERS += \
     include/gameeditdialog.h \
@@ -71,7 +72,9 @@ HEADERS += \
     include/gamesimportwizard/wizard.h \
     include/gamestablemodel.h \
     include/mainwindow.h \
-    include/scraper.h
+    include/scraper.h \
+    include/scraper/findgameinformation.h \
+    include/scraper/scanfolder.h
 
 FORMS += \
     ui/gamesimportwizard/finalpage.ui \
