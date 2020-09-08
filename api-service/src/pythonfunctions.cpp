@@ -2,11 +2,11 @@
 
 namespace PythonFunctions
 {
-    int findGame(const std::string& api_key, long game_id, const std::string& path_to_db)
+    std::vector<long> findGame(const std::string& api_key, long game_id, const std::string& path_to_db)
     {
         constexpr const char* FUNC_NAME = "find_game";
         PythonRef ret_value = PythonEnv::instance().callFunction(MODULE_NAME, FUNC_NAME, api_key, game_id, path_to_db);
-        return ret_value.cast<int>();
+        return ret_value.list<long>();
     }
 
     std::vector<long> findGamesInFolder(const std::string& roms_path, long platform_id, const std::string& path_to_db)

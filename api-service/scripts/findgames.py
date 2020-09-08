@@ -49,17 +49,17 @@ def find_game(api_key, game_id, path_to_db):
     query_string = service.prepare_query_string(path_to_game)
     raw_games_data = service.load_raw_games_data(api_key, query_string, platform)
     if raw_games_data is None:
-        return 1  # Request error
+        return []  # Request error
     games = service.extract_games_data(raw_games_data, game_id, query_string)
     games = GameFilter.remove_sequels(games, query_string)
     games = GameFilter.remove_editions(games)
     games = GameFilter.remove_not_equality(games, query_string)
     if len(games) < 1:
-        return 2  # Games not found
+        return p[]  # Games not found
     result = service.cache_games_into_db(games, path_to_db)
     if not result:
-        return 3  # Database error
-    return 0
+        return []  # Database error
+    return result
 
 
 def set_up_tables(path_to_db):

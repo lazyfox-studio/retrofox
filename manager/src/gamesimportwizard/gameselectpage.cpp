@@ -16,22 +16,9 @@ namespace GamesImportWizard
     void GameSelectPage::initializePage()
     {
         //TODO: Platform selection
-        //Scraper::cleanCache("../sln/core/testbase.db");
-        //Scraper::scanFloder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
-        Scraper::ScanFolder scan_folder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
-        scan_folder.run();
-        //TODO: Get games id from python script
-        /*auto base = Database::Connection("../sln/core/testbase.db");
-        auto query = base.query("SELECT `id` FROM `games`");
-        while (auto row = query.fetchRow())
-        {
-            auto games = Scraper::findGameInformation(row.column<long>("id"), "../sln/core/testbase.db");
-            if (games.size() > 1)
-            {
-                //Send to table
-            }
-        }*/
-
+        p_scan_folder = new Scraper::ScanFolder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
+        connect(p_scan_folder, &Scraper::ScanFolder::finished, this, &GameSelectPage::findGamesInformation);
+        p_scan_folder->run();
     }
 
     int GameSelectPage::nextId() const
@@ -42,5 +29,10 @@ namespace GamesImportWizard
     bool GameSelectPage::validatePage()
     {
         return true;
+    }
+
+    void GameSelectPage::findGamesInformation()
+    {
+        Scraper::cleanCache("../sln/core/testbase.db");
     }
 }

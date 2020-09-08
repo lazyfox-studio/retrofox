@@ -27,10 +27,4 @@ namespace Scraper
      * @param db_path Path to SQLite database
      */
     void findGamesInformation(const std::string& db_path); //TODO: Should be removed
-
-    /**
-     * @brief Cleans cache after scraping in database
-     * @param db_path Path to SQLite database
-     */
-    void cleanCache(const std::string& db_path);
 };

@@ -21,7 +21,7 @@ namespace PythonFunctions
      * @param path_to_db Path to SQLite database
      * @return Result code (0 on Success, 1 on Request error, 2 if Games not found, 3 on Database error)
      */
-    int findGame(const std::string& api_key, long game_id, const std::string& path_to_db);
+    std::vector<long> findGame(const std::string& api_key, long game_id, const std::string& path_to_db);
 
     /**
      * @brief Scans folder, finds ROM files, and saves info to database
