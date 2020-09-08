@@ -6,6 +6,12 @@ namespace GamesImportWizard
     GameSelectPage::GameSelectPage(QWidget *parent) : QWizardPage(parent), ui(new Ui::GameSelectPage)
     {
         ui->setupUi(this);
+
+        p_scraper_table_model = new ScraperTableModel();
+        ui->scraper_table->setModel(p_scraper_table_model);
+        ui->scraper_table->horizontalHeader()->setStretchLastSection(true);
+        ui->scraper_table->verticalHeader()->setVisible(false);
+        ui->scraper_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     }
 
     GameSelectPage::~GameSelectPage()

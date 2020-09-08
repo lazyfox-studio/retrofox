@@ -52,6 +52,7 @@ SOURCES += \
     src/gamesimportwizard/finalpage.cpp \
     src/gamesimportwizard/gameselectpage.cpp \
     src/gamesimportwizard/pathselectpage.cpp \
+    src/gamesimportwizard/scrapertablemodel.cpp \
     src/gamesimportwizard/welcomepage.cpp \
     src/gameeditdialog.cpp \
     src/gamesimportwizard/wizard.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
     include/gamesimportwizard/gameselectpage.h \
     include/gamesimportwizard/pages.h \
     include/gamesimportwizard/pathselectpage.h \
+    include/gamesimportwizard/scrapertablemodel.h \
     include/gamesimportwizard/welcomepage.h \
     include/gamesimportwizard/wizard.h \
     include/gamestablemodel.h \

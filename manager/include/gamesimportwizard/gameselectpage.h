@@ -5,11 +5,13 @@
 #include <QWizardPage>
 
 #include "gamesimportwizard/pages.h"
-#undef slots
-#include "scraper/scanfolder.h"
-#include "scraper/findgameinformation.h"
-#define slots
+#include "gamesimportwizard/scrapertablemodel.h"
+
 #include "scraper/functions.h"
+#undef slots
+#include "scraper/findgameinformation.h"
+#include "scraper/scanfolder.h"
+#define slots
 
 namespace Ui {
 class GameSelectPage;
@@ -22,6 +24,8 @@ namespace GamesImportWizard
         Q_OBJECT
     protected:
         Scraper::ScanFolder* p_scan_folder;
+
+        ScraperTableModel* p_scraper_table_model;
 
     private:
       Ui::GameSelectPage *ui;

@@ -55,7 +55,7 @@
     </spacer>
    </item>
    <item row="1" column="0" colspan="4">
-    <widget class="QTableView" name="tableView"/>
+    <widget class="QTableView" name="scraper_table"/>
    </item>
   </layout>
  </widget>

@@ -55,7 +55,7 @@ def find_game(api_key, game_id, path_to_db):
     games = GameFilter.remove_editions(games)
     games = GameFilter.remove_not_equality(games, query_string)
     if len(games) < 1:
-        return p[]  # Games not found
+        return []  # Games not found
     result = service.cache_games_into_db(games, path_to_db)
     if not result:
         return []  # Database error
