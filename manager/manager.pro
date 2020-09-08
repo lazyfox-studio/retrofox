@@ -59,6 +59,7 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/scraper.cpp \
+    src/scraper/findgameinformation.cpp \
     src/scraper/scanfolder.cpp
 
 HEADERS += \

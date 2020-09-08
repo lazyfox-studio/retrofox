@@ -29,7 +29,7 @@ namespace PythonFunctions
      * @param platform_id Platform ID
      * @param path_to_db Path to SQLite database
      */
-    int findGamesInFolder(const std::string& roms_path, long platform_id, const std::string& path_to_db);
+    std::vector<long> findGamesInFolder(const std::string& roms_path, long platform_id, const std::string& path_to_db);
 
     /**
      * @brief Creates and configures all required tables for application database

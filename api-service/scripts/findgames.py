@@ -26,11 +26,13 @@ def find_games_in_folder(roms_path, platform_id, path_to_db):
     cursor.execute('SELECT extension FROM extensions WHERE platform_id=?', (platform_id, ))
     extensions = cursor.fetchall()
     roms = scan_folder(roms_path, extensions)
+    result_ids = []
     for rom in roms:
         cursor.execute('INSERT INTO games VALUES (NULL, ?, NULL, ?, NULL, NULL, NULL)', (rom, platform_id))
+        result_ids.append(cursor.lastrowid)
     base.commit()
     base.close()
-    return 0
+    return result_ids
 
 
 def find_game(api_key, game_id, path_to_db):

@@ -13,8 +13,14 @@ namespace Scraper
 
     }
 
+    std::vector<long> ScanFolder::result()
+    {
+        return m_result;
+    }
+
     void ScanFolder::run()
     {
-        PythonFunctions::findGamesInFolder(m_path, m_platform_id, m_db_path);
+        m_result = PythonFunctions::findGamesInFolder(m_path, m_platform_id, m_db_path);
+        emit finished();
     }
 }
