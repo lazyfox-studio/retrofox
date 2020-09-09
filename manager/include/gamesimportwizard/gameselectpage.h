@@ -22,6 +22,11 @@ namespace GamesImportWizard
     class GameSelectPage : public QWizardPage
     {
         Q_OBJECT
+
+    public:
+        std::vector<long> game_ids;
+        std::vector<long>::iterator i_game_ids;
+
     protected:
         Scraper::ScanFolder* p_scan_folder;
 
@@ -40,6 +45,7 @@ namespace GamesImportWizard
         bool validatePage();
 
     public slots:
-        void findGamesInformation();
+        void setupTable();
+        void findNextGameInformation();
     };
 }

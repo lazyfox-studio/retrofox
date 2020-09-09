@@ -5,9 +5,8 @@
 #include <vector>
 
 #include <QVariant>
-
 #include <database.h>
-#include <entities/game.h>
+#include <entities/scrapergame.h>
 
 namespace GamesImportWizard
 {
@@ -21,15 +20,15 @@ namespace GamesImportWizard
             Year
         };
 
-        std::vector<Database::Entities::Game> games;
+        std::vector<Database::Entities::ScraperGame> games;
 
     public:
         explicit ScraperTableModel(QObject *parent = nullptr);
         ~ScraperTableModel();
 
-        Database::Entities::Game game(const QModelIndex &index);
+        Database::Entities::ScraperGame game(const QModelIndex &index);
 
-        void load(std::vector<long> scraper_game_ids);
+        void load(long game_id, std::string path_to_db);
 
     protected:
         int rowCount(const QModelIndex &parent) const;

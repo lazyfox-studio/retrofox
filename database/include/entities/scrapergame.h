@@ -16,9 +16,7 @@ namespace Database
         {
             long        id;           ///< Game ID (ROWID)
             long        game_id;
-            std::string path;         ///< Path to game executable
             std::string name;         ///< Game name
-            long        platform_id;  ///< Platform ID
             //std::string developers; ///< Developer name
             //std::string publishers; ///< Publisher name
             std::string release_date; ///< Release date

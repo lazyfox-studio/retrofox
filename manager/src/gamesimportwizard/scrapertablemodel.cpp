@@ -12,9 +12,17 @@ namespace GamesImportWizard
 
     }
 
-    Database::Entities::Game ScraperTableModel::game(const QModelIndex &index)
+    Database::Entities::ScraperGame ScraperTableModel::game(const QModelIndex &index)
     {
         return games[index.row()];
+    }
+
+    void ScraperTableModel::load(long game_id, std::string path_to_db)
+    {
+        auto base = Database::Connection(path_to_db);
+        auto query = base.query("SELECT * FROM `scraper_cache_games` WHERE `game_id` = ?");
+        query.bind(1, game_id);
+        games = Database::Entities::ScraperGame::fetchEntities(query);
     }
 
 
@@ -41,7 +49,7 @@ namespace GamesImportWizard
                     result = games[index.row()].name;
                     break;
                 case CollumnName::Year:
-                    result = games[index.row()].id; //TODO: Year support
+                    result = games[index.row()].release_date; //TODO: Year support
                     break;
             }
             return QVariant(result.c_str());
