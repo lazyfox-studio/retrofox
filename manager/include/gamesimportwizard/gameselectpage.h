@@ -1,5 +1,5 @@
 #pragma once
-#include <QDebug>
+
 #include <memory>
 
 #include <QWizardPage>
@@ -9,7 +9,7 @@
 
 #include "scraper/functions.h"
 #undef slots
-#include "scraper/findgameinformation.h"
+#include "scraper/findgamesinformation.h"
 #include "scraper/scanfolder.h"
 #define slots
 
@@ -28,6 +28,7 @@ namespace GamesImportWizard
 
     protected:
         Scraper::ScanFolder* p_scan_folder;
+        Scraper::FindGamesInformation* p_find_games_information;
 
         ScraperTableModel* p_scraper_table_model;
 
@@ -45,6 +46,8 @@ namespace GamesImportWizard
 
     public slots:
         void findGamesInformation();
+        void setupTable();
+
     signals:
         void runScanFolder();
     };

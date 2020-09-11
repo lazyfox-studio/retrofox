@@ -60,7 +60,7 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/scraper.cpp \
-    src/scraper/findgameinformation.cpp \
+    src/scraper/findgamesinformation.cpp \
     src/scraper/functions.cpp \
     src/scraper/scanfolder.cpp
 
@@ -77,7 +77,7 @@ HEADERS += \
     include/gamestablemodel.h \
     include/mainwindow.h \
     include/scraper.h \
-    include/scraper/findgameinformation.h \
+    include/scraper/findgamesinformation.h \
     include/scraper/functions.h \
     include/scraper/scanfolder.h
 
