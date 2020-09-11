@@ -1,5 +1,5 @@
 #pragma once
-
+#include <QDebug>
 #include <memory>
 
 #include <QWizardPage>
@@ -25,7 +25,6 @@ namespace GamesImportWizard
 
     public:
         std::vector<long> game_ids;
-        std::vector<long>::iterator i_game_ids;
 
     protected:
         Scraper::ScanFolder* p_scan_folder;
@@ -45,7 +44,8 @@ namespace GamesImportWizard
         bool validatePage();
 
     public slots:
-        void setupTable();
-        void findNextGameInformation();
+        void findGamesInformation();
+    signals:
+        void runScanFolder();
     };
 }

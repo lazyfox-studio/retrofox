@@ -12,8 +12,6 @@ namespace GamesImportWizard
         ui->scraper_table->horizontalHeader()->setStretchLastSection(true);
         ui->scraper_table->verticalHeader()->setVisible(false);
         ui->scraper_table->setSelectionBehavior(QAbstractItemView::SelectRows);
-
-        connect(ui->button_next_game, &QPushButton::clicked, this, &GameSelectPage::findNextGameInformation);
     }
 
     GameSelectPage::~GameSelectPage()
@@ -25,8 +23,9 @@ namespace GamesImportWizard
     {
         //TODO: Platform selection
         p_scan_folder = new Scraper::ScanFolder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
-        connect(p_scan_folder, &Scraper::ScanFolder::finished, this, &GameSelectPage::setupTable);
-        p_scan_folder->run();
+        connect(p_scan_folder, &Scraper::ScanFolder::finished, this, &GameSelectPage::findGamesInformation);
+        p_scan_folder->start();
+        qDebug() << "First";
     }
 
     int GameSelectPage::nextId() const
@@ -39,7 +38,19 @@ namespace GamesImportWizard
         return true;
     }
 
-    void GameSelectPage::setupTable()
+    void GameSelectPage::findGamesInformation()
+    {
+        qDebug() << "Second";
+        Scraper::cleanCache("../sln/core/testbase.db");
+        game_ids = p_scan_folder->result();
+        for (long id : game_ids)
+        {
+            PythonFunctions::findGame("445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600", id,
+                                      "../sln/core/testbase.db");
+        }
+    }
+
+    /*void GameSelectPage::setupTable()
     {
         Scraper::cleanCache("../sln/core/testbase.db");
         game_ids = p_scan_folder->result();
@@ -60,5 +71,5 @@ namespace GamesImportWizard
         {
             ui->button_next_game->setDisabled(true);
         }
-    }
+    }*/
 }
