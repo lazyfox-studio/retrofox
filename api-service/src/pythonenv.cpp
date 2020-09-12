@@ -3,6 +3,11 @@
 PythonEnv::PythonEnv()
     : c_modules_paths{"./../../api-service/scripts", "./../api-service/scripts"}
 {
+    
+}
+
+void PythonEnv::initialize()
+{
     Py_Initialize();
     PyObject* sys_module = PyImport_ImportModule("sys");
     PyObject* main_module = PyImport_AddModule("__main__");
@@ -12,6 +17,18 @@ PythonEnv::PythonEnv()
     for (const std::string& path : c_modules_paths)
         init_code += "sys.path.append('" + path + "')\n";
     PyRun_SimpleString(init_code.c_str());
+}
+
+void PythonEnv::finalize()
+{
+    for (auto& pair : m_modules)
+        Py_DECREF(pair.second);
+#ifdef _WIN64
+    Py_FinalizeEx();
+#endif
+#ifdef linux
+    Py_Finalize();
+#endif
 }
 
 PyObject* PythonEnv::createCallableObject(const std::string& module_name, const std::string& func_name)
@@ -77,14 +94,7 @@ PythonRef PythonEnv::processFunctionCall(PyObject* func, PyObject* args)
 
 PythonEnv::~PythonEnv()
 {
-    for (auto& pair : m_modules)
-        Py_DECREF(pair.second);
-    #ifdef _WIN64
-    Py_FinalizeEx();
-    #endif
-    #ifdef linux
-    Py_Finalize();
-    #endif
+    
 }
 
 bool PythonEnv::loadModule(const std::string& module_name)

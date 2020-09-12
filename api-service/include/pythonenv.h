@@ -18,6 +18,9 @@
 class PythonEnv
 {
 protected:
+    /// Thread with parent interpreter
+    friend class PythonMainThread;
+
     /// Path to modules ('scripts' folder)
     const std::vector<std::string> c_modules_paths;
 
@@ -26,6 +29,12 @@ protected:
 
     /// Default constructor
     PythonEnv();
+
+    /// Initializes main interpreter environment and adds modules paths
+    void initialize();
+
+    /// Unloads modules and finalizes all interpreters
+    void finalize();
 
     /**
      * @brief Creates a py-reference to callable object
