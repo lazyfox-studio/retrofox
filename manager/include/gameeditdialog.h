@@ -8,6 +8,11 @@ namespace Ui {
 class GameEditDialog;
 }
 
+/**
+ * @ingroup manager
+ * @brief The GameEditDialog class
+ * @todo Docs
+ */
 class GameEditDialog : public QDialog
 {
     Q_OBJECT

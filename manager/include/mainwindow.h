@@ -15,28 +15,58 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+/**
+ * @ingroup manager
+ * @brief Main window of manager application
+ * @details Class to represent main window of application
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    /// Games table Qt model
     GamesTableModel* games_table_model;
 
+    /// Wizard
     std::shared_ptr<QWizard> wizard;
 
-private:
+    /// UI elements
     Ui::MainWindow *ui;
+
+    /// App translator
     QTranslator translator;
 
+    /**
+     * @brief Translates application to preferred locale
+     * @param locale Locale to translate
+     * @return True on success
+     */
     bool setLanguage(const QLocale& locale);
 
 public:
+    /**
+     * @brief Constructor-initializer
+     * @param parent Parent widget
+     */
     explicit MainWindow(QWidget *parent = nullptr);
+
+    /// Destructor
     ~MainWindow();
 
 public slots:
+    /// Imports games
     void importGames();
+
+    /**
+     * @brief Edits game info
+     * @param index Game index
+     */
     void editGame(const QModelIndex & index);
 
+    /// Translates app into English
     void setLanguageEnglish();
+
+    /// Translates app into Russian
     void setLanguageRussian();
 };
