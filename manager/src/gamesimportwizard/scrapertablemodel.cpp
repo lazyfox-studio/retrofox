@@ -49,7 +49,7 @@ namespace GamesImportWizard
                     result = games[index.row()].name;
                     break;
                 case CollumnName::Year:
-                    result = games[index.row()].release_date; //TODO: Year support
+                    result = games[index.row()].release_date;
                     break;
             }
             return QVariant(result.c_str());

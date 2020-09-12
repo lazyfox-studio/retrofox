@@ -33,10 +33,9 @@ namespace GamesImportWizard
         ScraperTableModel* p_scraper_table_model;
 
         std::vector<long> game_ids;
-        std::vector<long>::iterator i_game_ids;
-
         std::vector<std::vector<long>> scraper_game_ids;
-        std::vector<std::vector<long>>::iterator i_scraper_game_ids;
+
+        size_t showed_game_id;
 
     private:
       Ui::GameSelectPage *ui;

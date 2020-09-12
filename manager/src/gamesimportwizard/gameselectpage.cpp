@@ -66,16 +66,19 @@ namespace GamesImportWizard
         }
         if (need_user_choice)
         {
-            ui->button_next_game->setEnabled(true);
-            i_game_ids = game_ids.begin();
-            i_scraper_game_ids = scraper_game_ids.begin();
+            ui->button_select_game->setEnabled(true);
+            showed_game_id = 0;
+            while ((showed_game_id < scraper_game_ids.size()) && (scraper_game_ids[showed_game_id].size() <= 1))
+            {
+                showed_game_id++;
+            }
             showGame();
         }
     }
 
     void GameSelectPage::showGame()
     {
-        p_scraper_table_model->load(*i_game_ids, "../sln/core/testbase.db");
-        ui->button_next_game->setDisabled(true);
+        p_scraper_table_model->load(game_ids[showed_game_id], "../sln/core/testbase.db");
+        ui->button_select_game->setDisabled(true);
     }
 }
