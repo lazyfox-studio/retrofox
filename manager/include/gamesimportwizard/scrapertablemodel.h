@@ -6,7 +6,6 @@
 
 #include <QVariant>
 #include <database.h>
-#include <entities/scrapergame.h>
 
 namespace GamesImportWizard
 {

@@ -4,9 +4,7 @@
 
 #include <vector>
 
-#undef slots
-#include <pythonfunctions.h>
-#define slots
+#include <api-service.h>
 
 namespace Scraper
 {

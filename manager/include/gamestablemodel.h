@@ -7,7 +7,6 @@
 #include <QVariant>
 
 #include <database.h>
-#include <entities/game.h>
 
 /**
  * @ingroup manager

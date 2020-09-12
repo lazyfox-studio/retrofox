@@ -8,10 +8,8 @@
 #include "gamesimportwizard/scrapertablemodel.h"
 
 #include "scraper/functions.h"
-#undef slots
 #include "scraper/findgamesinformation.h"
 #include "scraper/scanfolder.h"
-#define slots
 
 namespace Ui {
 class GameSelectPage;

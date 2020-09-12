@@ -2,7 +2,7 @@
 
 #include <QDialog>
 
-#include <entities/game.h>
+#include <database.h>
 
 namespace Ui {
 class GameEditDialog;

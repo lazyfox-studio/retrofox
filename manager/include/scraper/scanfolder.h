@@ -1,11 +1,10 @@
 #pragma once
 
 #include <QThread>
-
-#undef slots
-#include <pythonfunctions.h>
-#define slots
 #include <QDebug>
+
+#include <api-service.h>
+
 namespace Scraper
 {
     class ScanFolder : public QThread
