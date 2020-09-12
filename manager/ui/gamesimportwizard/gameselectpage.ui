@@ -16,8 +16,11 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="2">
     <widget class="QPushButton" name="button_next_game">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="text">
-      <string>Next</string>
+      <string>Select</string>
      </property>
     </widget>
    </item>

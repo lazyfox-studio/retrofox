@@ -20,7 +20,9 @@ namespace Scraper
 
     void ScanFolder::run()
     {
+        PythonThreadController::instance().useInterpreter();
         m_result = PythonFunctions::findGamesInFolder(m_path, m_platform_id, m_db_path);
+        PythonThreadController::instance().releaseInterpreter();
         emit finished();
     }
 }

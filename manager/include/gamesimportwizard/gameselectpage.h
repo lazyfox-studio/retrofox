@@ -4,6 +4,8 @@
 
 #include <QWizardPage>
 
+#include <api-service.h>
+
 #include "gamesimportwizard/pages.h"
 #include "gamesimportwizard/scrapertablemodel.h"
 
@@ -22,13 +24,19 @@ namespace GamesImportWizard
         Q_OBJECT
 
     public:
-        std::vector<long> game_ids;
+
 
     protected:
         Scraper::ScanFolder* p_scan_folder;
         Scraper::FindGamesInformation* p_find_games_information;
 
         ScraperTableModel* p_scraper_table_model;
+
+        std::vector<long> game_ids;
+        std::vector<long>::iterator i_game_ids;
+
+        std::vector<std::vector<long>> scraper_game_ids;
+        std::vector<std::vector<long>>::iterator i_scraper_game_ids;
 
     private:
       Ui::GameSelectPage *ui;
@@ -41,6 +49,8 @@ namespace GamesImportWizard
         void initializePage();
         int nextId() const;
         bool validatePage();
+
+        void showGame();
 
     public slots:
         void findGamesInformation();

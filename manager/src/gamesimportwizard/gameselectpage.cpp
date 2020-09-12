@@ -24,6 +24,7 @@ namespace GamesImportWizard
         //TODO: Platform selection
         p_scan_folder = new Scraper::ScanFolder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
         connect(p_scan_folder, &Scraper::ScanFolder::finished, this, &GameSelectPage::findGamesInformation);
+        PythonThreadController::instance().releaseInterpreter();
         p_scan_folder->start();
     }
 
@@ -39,9 +40,10 @@ namespace GamesImportWizard
 
     void GameSelectPage::findGamesInformation()
     {
+        game_ids = p_scan_folder->result();
         Scraper::cleanCache("../sln/core/testbase.db");
         p_find_games_information = new Scraper::FindGamesInformation(
-                    "445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600", p_scan_folder->result(),
+                    "445fcbc3f32bb2474bc27016b99eb963d318ee3a608212c543b9a79de1041600", game_ids,
                     "../sln/core/testbase.db");
         connect(p_find_games_information, &Scraper::FindGamesInformation::finished, this, &GameSelectPage::setupTable);
         p_find_games_information->start();
@@ -49,6 +51,31 @@ namespace GamesImportWizard
 
     void GameSelectPage::setupTable()
     {
-        return;
+        bool need_user_choice = false;
+        scraper_game_ids = p_find_games_information->result();
+        for (std::vector<long> game : scraper_game_ids)
+        {
+            if (game.size() == 1)
+            {
+                //Push game in table
+            }
+            else if (game.size() > 1)
+            {
+                need_user_choice = true;
+            }
+        }
+        if (need_user_choice)
+        {
+            ui->button_next_game->setEnabled(true);
+            i_game_ids = game_ids.begin();
+            i_scraper_game_ids = scraper_game_ids.begin();
+            showGame();
+        }
+    }
+
+    void GameSelectPage::showGame()
+    {
+        p_scraper_table_model->load(*i_game_ids, "../sln/core/testbase.db");
+        ui->button_next_game->setDisabled(true);
     }
 }

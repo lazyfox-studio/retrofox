@@ -20,10 +20,12 @@ namespace Scraper
 
     void FindGamesInformation::run()
     {
+        PythonThreadController::instance().useInterpreter();
         for (long game_id : m_game_ids)
         {
             m_result.push_back(PythonFunctions::findGame(m_api_key, game_id, m_db_path));
         }
+        PythonThreadController::instance().releaseInterpreter();
         emit finished();
     }
 }
