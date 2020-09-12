@@ -57,7 +57,7 @@ namespace GamesImportWizard
         {
             if (game.size() == 1)
             {
-                //Push game in table
+                Scraper::updateGameFromScraper(game[0], "../sln/core/testbase.db");
             }
             else if (game.size() > 1)
             {
