@@ -19,14 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\api-service\include\api-service.h" />
     <ClInclude Include="..\..\api-service\include\pythonenv.h" />
     <ClInclude Include="..\..\api-service\include\pythonfunctions.h" />
+    <ClInclude Include="..\..\api-service\include\pythonmainthread.h" />
     <ClInclude Include="..\..\api-service\include\pythonref.h" />
+    <ClInclude Include="..\..\api-service\include\pythonthread.h" />
+    <ClInclude Include="..\..\api-service\include\pythonthreadcontroller.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\api-service\src\pythonenv.cpp" />
     <ClCompile Include="..\..\api-service\src\pythonfunctions.cpp" />
+    <ClCompile Include="..\..\api-service\src\pythonmainthread.cpp" />
     <ClCompile Include="..\..\api-service\src\pythonref.cpp" />
+    <ClCompile Include="..\..\api-service\src\pythonthread.cpp" />
+    <ClCompile Include="..\..\api-service\src\pythonthreadcontroller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\api-service\scripts\baseapiservice.py" />
