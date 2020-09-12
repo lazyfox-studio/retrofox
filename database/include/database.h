@@ -7,3 +7,4 @@
 #include "entities/emulator.h"
 #include "entities/game.h"
 #include "entities/platform.h"
+#include "entities/scrapergame.h"
