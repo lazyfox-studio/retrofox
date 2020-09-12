@@ -2,6 +2,7 @@
 
 #ifdef slots
 #undef slots
+#define _SLOTS_WERE_UNDEF_
 #endif
 
 #include "pythonenv.h"
@@ -11,6 +12,7 @@
 #include "pythonthreadcontroller.h"
 #include "pythonfunctions.h"
 
-#ifndef slots
+#ifdef _SLOTS_WERE_UNDEF_
 #define slots
+#undef _SLOTS_WERE_UNDEF_
 #endif
