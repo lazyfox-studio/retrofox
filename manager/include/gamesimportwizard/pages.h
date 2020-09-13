@@ -6,6 +6,7 @@ namespace GamesImportWizard
     {
       Welcome,
       PathSelect,
+      DataProcessing,
       GameSelect,
       Final
     };

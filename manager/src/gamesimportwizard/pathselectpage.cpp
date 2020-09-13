@@ -18,7 +18,7 @@ namespace GamesImportWizard
 
     int PathSelectPage::nextId() const
     {
-        return Pages::GameSelect;
+        return Pages::DataProcessing;
     }
 
     bool PathSelectPage::validatePage()
