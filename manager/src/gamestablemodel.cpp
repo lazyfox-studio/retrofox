@@ -56,10 +56,10 @@ QVariant GamesTableModel::data(const QModelIndex &index, int role) const
         std::string result;
         switch(index.column())
         {
-            case CollumnName::Name:
+            case ColumnName::Name:
                 result = games[index.row()].name;
                 break;
-            case CollumnName::Path:
+            case ColumnName::Path:
                 result = games[index.row()].path;
                 break;
         }

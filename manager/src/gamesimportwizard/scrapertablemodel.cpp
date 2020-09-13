@@ -69,9 +69,9 @@ namespace GamesImportWizard
         }
         switch (section)
         {
-            case CollumnName::Name:
+            case ColumnName::Name:
                 return tr("Name");
-            case CollumnName::Year:
+            case ColumnName::Year:
                 return tr("Year");
         }
         throw std::runtime_error("Unexpected result");
