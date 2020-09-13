@@ -17,7 +17,7 @@ class GamesTableModel : public QAbstractTableModel
 {
     Q_OBJECT
 
-    enum CollumnName
+    enum ColumnName
     {
         Name,
         Path

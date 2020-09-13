@@ -13,7 +13,7 @@ namespace GamesImportWizard
     {
         Q_OBJECT
 
-        enum CollumnName
+        enum ColumnName
         {
             Name,
             Year

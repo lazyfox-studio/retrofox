@@ -45,10 +45,10 @@ namespace GamesImportWizard
             std::string result;
             switch(index.column())
             {
-                case CollumnName::Name:
+                case ColumnName::Name:
                     result = games[index.row()].name;
                     break;
-                case CollumnName::Year:
+                case ColumnName::Year:
                     result = games[index.row()].release_date;
                     break;
             }

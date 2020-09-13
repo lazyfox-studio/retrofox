@@ -83,9 +83,9 @@ QVariant GamesTableModel::headerData(int section, Qt::Orientation orientation, i
 
     switch (section)
     {
-        case CollumnName::Name:
+        case ColumnName::Name:
             return tr("Name");
-        case CollumnName::Path:
+        case ColumnName::Path:
             return tr("Path");
     }
 
