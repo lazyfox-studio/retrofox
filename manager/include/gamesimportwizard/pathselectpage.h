@@ -26,7 +26,7 @@ namespace GamesImportWizard
 
     protected:
         int nextId() const;
-        bool validatePage();
+        bool isComplete() const;
 
     public slots:
         void openDialog();
