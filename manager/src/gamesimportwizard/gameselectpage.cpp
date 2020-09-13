@@ -16,6 +16,9 @@ namespace GamesImportWizard
         ui->scraper_table->horizontalHeader()->setStretchLastSection(true);
         ui->scraper_table->verticalHeader()->setVisible(false);
         ui->scraper_table->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+        connect(ui->scraper_table, &QTableView::clicked, this, &GameSelectPage::selectGame);
+        connect(ui->button_select_game, &QPushButton::clicked, this, &GameSelectPage::updateGameAndGoNext);
     }
 
     GameSelectPage::~GameSelectPage()
@@ -50,6 +53,36 @@ namespace GamesImportWizard
     void GameSelectPage::showGame()
     {
         p_scraper_table_model->load(game_ids[showed_game_id], "../sln/core/testbase.db");
+        ui->button_select_game->setDisabled(true);
+    }
+
+    bool GameSelectPage::findNextGame()
+    {
+        showed_game_id++;
+        while ((showed_game_id < scraper_game_ids.size()) && (scraper_game_ids[showed_game_id].size() <= 1))
+        {
+            showed_game_id++;
+        }
+        return (showed_game_id != scraper_game_ids.size());
+    }
+
+    void GameSelectPage::selectGame(const QModelIndex& index)
+    {
+        m_selected_scraper_game_id = p_scraper_table_model->game(index).id;
+        ui->button_select_game->setEnabled(true);
+    }
+
+    void GameSelectPage::updateGameAndGoNext()
+    {
+        Scraper::updateGameFromScraper(m_selected_scraper_game_id,  "../sln/core/testbase.db");
+        if (findNextGame())
+        {
+            showGame();
+        }
+        else
+        {
+            disconnect(ui->scraper_table, &QTableView::clicked, this, &GameSelectPage::selectGame);
+        }
         ui->button_select_game->setDisabled(true);
     }
 }

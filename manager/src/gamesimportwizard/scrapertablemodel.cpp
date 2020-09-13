@@ -25,6 +25,11 @@ namespace GamesImportWizard
         games = Database::Entities::ScraperGame::fetchEntities(query);
     }
 
+    Database::Entities::ScraperGame ScraperTableModel::game(QModelIndex &index)
+    {
+        return games[index.row()];
+    }
+
 
     int ScraperTableModel::rowCount(const QModelIndex &parent) const
     {

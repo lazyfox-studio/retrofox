@@ -36,6 +36,8 @@ namespace GamesImportWizard
 
         size_t showed_game_id;
 
+        long m_selected_scraper_game_id;
+
     public:
         explicit GameSelectPage(QWidget *parent = nullptr);
         ~GameSelectPage();
@@ -46,5 +48,10 @@ namespace GamesImportWizard
         bool validatePage();
 
         void showGame();
+        bool findNextGame();
+
+    protected slots:
+        void selectGame(const QModelIndex& index);
+        void updateGameAndGoNext();
     };
 }
