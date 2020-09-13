@@ -47,9 +47,9 @@ def setup_platforms(path_to_db):
 
     base = sqlite3.connect(path_to_db)
     cursor = base.cursor()
-    cursor.execute('CREATE TABLE IF NOT EXISTS platforms (id INTEGER PRIMARY KEY, name TEXT)')
+    cursor.execute('CREATE TABLE IF NOT EXISTS platforms (id INTEGER PRIMARY KEY, name TEXT, default_emulator_id INTEGER)')
     cursor.execute('DELETE FROM platforms')
-    cursor.executemany('INSERT INTO platforms VALUES (?,?)', platforms)
+    cursor.executemany('INSERT INTO platforms VALUES (?,?, NULL)', platforms)
     base.commit()
     base.close()
 
