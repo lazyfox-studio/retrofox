@@ -21,7 +21,7 @@ namespace GamesImportWizard
     {
         auto base = Database::Connection(path_to_db);
         auto query = base.query("SELECT * FROM `scraper_cache_games` WHERE `game_id` = ?");
-        query.bind(1, game_id);
+        query.bindMany(game_id);
         games = Database::Entities::ScraperGame::fetchEntities(query);
     }
 

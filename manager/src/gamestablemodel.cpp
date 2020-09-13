@@ -21,9 +21,7 @@ void GamesTableModel::updateGame(Database::Entities::Game game)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `games` SET name = ?, path = ? WHERE id = ?");
-    query.bind(1, game.name.c_str());
-    query.bind(2, game.path.c_str());
-    query.bind(3, game.id);
+    query.bindMany(game.name.c_str(), game.path.c_str(), game.id);
     query.execute();
 }
 
@@ -31,7 +29,7 @@ void GamesTableModel::updateRow(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games` WHERE id = ?");
-    query.bind(1, games[index.row()].id);
+    query.bindMany(games[index.row()].id);
 
     Database::Entities::Game game(query.fetchRow());
     games[index.row()] = game;
