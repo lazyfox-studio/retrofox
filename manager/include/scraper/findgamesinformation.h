@@ -30,5 +30,6 @@ namespace Scraper
 
     signals:
         void finished();
+        void gameFetched(int current, int total);
     };
 }

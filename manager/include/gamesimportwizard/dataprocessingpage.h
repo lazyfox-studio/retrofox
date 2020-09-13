@@ -42,6 +42,7 @@ namespace GamesImportWizard
 
     public slots:
         void findGamesInformation();
+        void updateFetchingProgress(int current, int total);
         void finalize();
 
     protected:

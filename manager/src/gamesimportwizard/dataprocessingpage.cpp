@@ -47,8 +47,15 @@ namespace GamesImportWizard
                     game_ids,
                     "../sln/core/testbase.db");
         connect(p_find_games_information, &Scraper::FindGamesInformation::finished, this, &DataProcessingPage::finalize);
+        connect(p_find_games_information, &Scraper::FindGamesInformation::gameFetched, this, &DataProcessingPage::updateFetchingProgress);
         ui->status_label->setText(tr("Fetching games information from Internet..."));
         p_find_games_information->start();
+    }
+
+    void DataProcessingPage::updateFetchingProgress(int current, int total)
+    {
+        ui->progress_bar->setRange(0, total);
+        ui->progress_bar->setValue(current);
     }
 
     void DataProcessingPage::finalize()

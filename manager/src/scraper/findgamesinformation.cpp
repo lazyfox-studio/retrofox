@@ -21,9 +21,13 @@ namespace Scraper
     void FindGamesInformation::run()
     {
         PythonThreadController::instance().useInterpreter();
+        int current = 0;
+        int total = static_cast<int>(m_game_ids.size());
+        emit gameFetched(current, total);
         for (long game_id : m_game_ids)
         {
             m_result.push_back(PythonFunctions::findGame(m_api_key, game_id, m_db_path));
+            emit gameFetched(++current, total);
         }
         PythonThreadController::instance().releaseInterpreter();
         emit finished();
