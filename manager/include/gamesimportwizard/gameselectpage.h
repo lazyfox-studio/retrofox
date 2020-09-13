@@ -8,6 +8,7 @@
 
 #include "gamesimportwizard/pages.h"
 #include "gamesimportwizard/scrapertablemodel.h"
+#include "gamesimportwizard/shareddata.h"
 
 #include "scraper/functions.h"
 #include "scraper/findgamesinformation.h"
@@ -23,22 +24,17 @@ namespace GamesImportWizard
     {
         Q_OBJECT
 
-    public:
-
-
-    protected:
-        Scraper::ScanFolder* p_scan_folder;
-        Scraper::FindGamesInformation* p_find_games_information;
-
-        ScraperTableModel* p_scraper_table_model;
-
-        std::vector<long> game_ids;
-        std::vector<std::vector<long>> scraper_game_ids;
-
-        size_t showed_game_id;
-
     private:
       Ui::GameSelectPage *ui;
+
+    protected:
+        ScraperTableModel* p_scraper_table_model;
+
+        std::vector<long>& game_ids;
+        std::vector<std::vector<long>>& scraper_game_ids;
+        bool& need_user_choice;
+
+        size_t showed_game_id;
 
     public:
         explicit GameSelectPage(QWidget *parent = nullptr);
@@ -50,12 +46,5 @@ namespace GamesImportWizard
         bool validatePage();
 
         void showGame();
-
-    public slots:
-        void findGamesInformation();
-        void setupTable();
-
-    signals:
-        void runScanFolder();
     };
 }
