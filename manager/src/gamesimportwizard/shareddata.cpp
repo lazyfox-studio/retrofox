@@ -15,6 +15,11 @@ namespace GamesImportWizard
         delete m_scraper_game_ids;
     }
 
+    long SharedData::platformId()
+    {
+        return m_platform_id;
+    }
+
     std::vector<long> &SharedData::gameIds()
     {
         return *m_game_ids;

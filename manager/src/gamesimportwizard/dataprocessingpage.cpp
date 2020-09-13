@@ -20,7 +20,8 @@ namespace GamesImportWizard
     void DataProcessingPage::initializePage()
     {
         //TODO: Platform selection
-        p_scan_folder = new Scraper::ScanFolder(field("path").toString().toStdString(), 10, "../sln/core/testbase.db");
+        p_scan_folder = new Scraper::ScanFolder(field("path").toString().toStdString(),
+                                                SharedData::instance().m_platform_id, "../sln/core/testbase.db");
         connect(p_scan_folder, &Scraper::ScanFolder::finished, this, &DataProcessingPage::findGamesInformation);
         PythonThreadController::instance().releaseInterpreter();
         ui->status_label->setText(tr("Scanning folder..."));

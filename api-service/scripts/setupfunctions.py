@@ -2,19 +2,19 @@ import sqlite3
 
 def setup_platforms(path_to_db):
     platforms = [
-        (1, 'PC'),
-        (2, 'Nintendo GameCube'),
-        (3, 'Nintendo 64'),
-        (4, 'Nintendo Game Boy'),
-        (5, 'Nintendo Game Boy Advance'),
-        (6, 'Super Nintendo Entertainment System'),
-        (7, 'Nintendo Entertainment System'),
-        (8, 'Nintendo DS'),
-        (9, 'Nintendo Wii'),
+        (1,  'PC'),
+        (2,  'Nintendo GameCube'),
+        (3,  'Nintendo 64'),
+        (4,  'Nintendo Game Boy'),
+        (5,  'Nintendo Game Boy Advance'),
+        (6,  'Super Nintendo Entertainment System'),
+        (7,  'Nintendo Entertainment System'),
+        (8,  'Nintendo DS'),
+        (9,  'Nintendo Wii'),
         (10, 'Sony PlayStation'),
         (11, 'Sony PlayStation 2'),
         (12, 'Sony PlayStation 3'),
-        (13, 'Sony PLayStation Portable'),
+        (13, 'Sony PlayStation Portable'),
         (14, 'Microsoft Xbox'),
         (15, 'Microsoft Xbox 360'),
         (16, 'Sega Dreamcast'),
@@ -40,7 +40,7 @@ def setup_platforms(path_to_db):
         (36, 'Sega Mega Drive'),
         (37, 'Mac OS'),
         (38, 'Nintendo Wii U'),
-        (39, 'Sony PlayStation Vite'),
+        (39, 'Sony PlayStation Vita'),
         (40, 'Commodore 64'),
         (41, 'Nintendo Game Boy Color')
     ]

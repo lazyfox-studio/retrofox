@@ -53,6 +53,7 @@ SOURCES += \
     src/gamesimportwizard/finalpage.cpp \
     src/gamesimportwizard/gameselectpage.cpp \
     src/gamesimportwizard/pathselectpage.cpp \
+    src/gamesimportwizard/platformlistmodel.cpp \
     src/gamesimportwizard/scrapertablemodel.cpp \
     src/gamesimportwizard/shareddata.cpp \
     src/gamesimportwizard/welcomepage.cpp \
@@ -74,6 +75,7 @@ HEADERS += \
     include/gamesimportwizard/gameselectpage.h \
     include/gamesimportwizard/pages.h \
     include/gamesimportwizard/pathselectpage.h \
+    include/gamesimportwizard/platformlistmodel.h \
     include/gamesimportwizard/scrapertablemodel.h \
     include/gamesimportwizard/shareddata.h \
     include/gamesimportwizard/welcomepage.h \

@@ -40,6 +40,7 @@
     <None Include="..\..\api-service\scripts\findgames.py" />
     <None Include="..\..\api-service\scripts\gamefilter.py" />
     <None Include="..\..\api-service\scripts\igdbapiservice.py" />
+    <None Include="..\..\api-service\scripts\setupfunctions.py" />
     <None Include="..\..\api-service\scripts\testscript.py" />
     <None Include="..\..\api-service\scripts\thegamesdbapiservice.py" />
   </ItemGroup>

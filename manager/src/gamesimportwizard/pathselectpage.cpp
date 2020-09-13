@@ -8,6 +8,11 @@ namespace GamesImportWizard
         : QWizardPage(parent), ui(new Ui::PathSelectPage)
     {
         ui->setupUi(this);
+
+        p_platform_list_model = new PlatformListModel();
+        ui->combobox_platform->setModel(p_platform_list_model);
+        connect(ui->combobox_platform, SIGNAL(currentIndexChanged(int)), this, SLOT(selectPlatform(int)));
+
         ui->edit_path->setReadOnly(true);
         registerField("path", ui->edit_path);
         connect(ui->button_explore, &QPushButton::clicked, this, &PathSelectPage::openDialog);
@@ -42,5 +47,10 @@ namespace GamesImportWizard
             ui->edit_path->setText(path);
         }
         emit completeChanged();
+    }
+
+    void PathSelectPage::selectPlatform(int index)
+    {
+        SharedData::instance().m_platform_id = p_platform_list_model->platform(index).id;
     }
 }
