@@ -49,10 +49,12 @@ LIBS += \
 }
 
 SOURCES += \
+    src/gamesimportwizard/dataprocessingpage.cpp \
     src/gamesimportwizard/finalpage.cpp \
     src/gamesimportwizard/gameselectpage.cpp \
     src/gamesimportwizard/pathselectpage.cpp \
     src/gamesimportwizard/scrapertablemodel.cpp \
+    src/gamesimportwizard/shareddata.cpp \
     src/gamesimportwizard/welcomepage.cpp \
     src/gameeditdialog.cpp \
     src/gamesimportwizard/wizard.cpp \
@@ -66,12 +68,14 @@ SOURCES += \
 
 HEADERS += \
     include/gameeditdialog.h \
+    include/gamesimportwizard/dataprocessingpage.h \
     include/gamesimportwizard/finalpage.h \
     include/gamesimportwizard/finalpage.h \
     include/gamesimportwizard/gameselectpage.h \
     include/gamesimportwizard/pages.h \
     include/gamesimportwizard/pathselectpage.h \
     include/gamesimportwizard/scrapertablemodel.h \
+    include/gamesimportwizard/shareddata.h \
     include/gamesimportwizard/welcomepage.h \
     include/gamesimportwizard/wizard.h \
     include/gamestablemodel.h \
@@ -82,6 +86,7 @@ HEADERS += \
     include/scraper/scanfolder.h
 
 FORMS += \
+    ui/gamesimportwizard/dataprocessingpage.ui \
     ui/gamesimportwizard/finalpage.ui \
     ui/gamesimportwizard/gameselectpage.ui \
     ui/gamesimportwizard/pathselectpage.ui \
