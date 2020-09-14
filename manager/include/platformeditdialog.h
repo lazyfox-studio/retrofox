@@ -2,6 +2,8 @@
 
 #include <QDialog>
 
+#include <QString>
+
 #include <database.h>
 
 namespace Ui {
@@ -19,8 +21,10 @@ public:
     explicit PlatformEditDialog(QWidget *parent = nullptr);
     ~PlatformEditDialog();
 
-    void load(const Database::Entities::Platform& platform);
+    void load(const Database::Entities::Platform& platform, const std::vector<std::string>& extensions);
     Database::Entities::Platform resultPlatform();
+    std::vector<std::string> resultExtensions();
+
 
 private:
     Ui::PlatformEditDialog *ui;
