@@ -33,9 +33,9 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tab_viewer">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="games_tab">
+      <widget class="QWidget" name="tab_games">
        <attribute name="title">
         <string>Games</string>
        </attribute>
@@ -56,7 +56,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QTableView" name="games_table"/>
+         <widget class="QTableView" name="table_games"/>
         </item>
        </layout>
       </widget>

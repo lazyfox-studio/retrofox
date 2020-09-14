@@ -23,8 +23,8 @@ public:
     explicit GameEditDialog(QWidget *parent = nullptr);
     ~GameEditDialog();
 
-    void loadGameData(Database::Entities::Game game);
-    Database::Entities::Game resultGameData();
+    void load(Database::Entities::Game game);
+    Database::Entities::Game resultGame();
 
 private:
     Ui::GameEditDialog *ui;

@@ -28,7 +28,7 @@ class MainWindow : public QMainWindow
 
 private:
     /// Games table Qt model
-    GamesTableModel* games_table_model;
+    GamesTableModel* p_games_table_model;
 
     // Platforms table QT model
     PlatformsTableModel* p_platforms_table_model;

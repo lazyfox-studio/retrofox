@@ -18,12 +18,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     //Setup games table
-    games_table_model = new GamesTableModel();
-    ui->games_table->setModel(games_table_model);
-    ui->games_table->horizontalHeader()->setStretchLastSection(true);
-    ui->games_table->verticalHeader()->setVisible(false);
-    ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
-    connect(ui->games_table, &QTableView::doubleClicked, this, &MainWindow::editGame);
+    p_games_table_model = new GamesTableModel();
+    ui->table_games->setModel(p_games_table_model);
+    ui->table_games->horizontalHeader()->setStretchLastSection(true);
+    ui->table_games->verticalHeader()->setVisible(false);
+    ui->table_games->setSelectionBehavior(QAbstractItemView::SelectRows);
+    connect(ui->table_games, &QTableView::doubleClicked, this, &MainWindow::editGame);
 
     //Setup platforms table
     p_platforms_table_model = new PlatformsTableModel();
@@ -62,15 +62,15 @@ void MainWindow::importGames()
 void MainWindow::editGame(const QModelIndex &index)
 {
     auto dialog = new GameEditDialog();
-    auto game = games_table_model->game(index);
-    dialog->loadGameData(game);
+    auto game = p_games_table_model->game(index);
+    dialog->load(game);
     dialog->exec();
 
     if (dialog->result() == QDialog::Accepted)
     {
-        auto result_game = dialog->resultGameData();
-        games_table_model->updateGame(result_game);
-        games_table_model->updateRow(index);
+        auto result_game = dialog->resultGame();
+        p_games_table_model->updateGame(result_game);
+        p_games_table_model->updateRow(index);
     }
 }
 
