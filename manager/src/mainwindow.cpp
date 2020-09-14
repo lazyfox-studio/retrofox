@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_platforms->horizontalHeader()->setStretchLastSection(true);
     ui->table_platforms->verticalHeader()->setVisible(false);
     ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
+    connect(ui->table_platforms, &QTableView::doubleClicked, this, &MainWindow::editPlatform);
 
     //Setup user system language
     if (!setLanguage(QLocale::system()))
@@ -70,6 +71,21 @@ void MainWindow::editGame(const QModelIndex &index)
         auto result_game = dialog->resultGameData();
         games_table_model->updateGame(result_game);
         games_table_model->updateRow(index);
+    }
+}
+
+void MainWindow::editPlatform(const QModelIndex &index)
+{
+    auto dialog = new PlatformEditDialog();
+    auto platform = p_platforms_table_model->platform(index);
+    dialog->load(platform);
+    dialog->exec();
+
+    if (dialog->result() == QDialog::Accepted)
+    {
+        auto result_platform = dialog->resultPlatform();
+        p_platforms_table_model->updatePlatform(result_platform);
+        p_platforms_table_model->updateRow(index);
     }
 }
 

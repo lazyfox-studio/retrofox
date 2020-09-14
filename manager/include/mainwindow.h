@@ -10,6 +10,7 @@
 #include "gameeditdialog.h"
 #include "gamesimportwizard/wizard.h"
 #include "gamestablemodel.h"
+#include "platformeditdialog.h"
 #include "platformstablemodel.h"
 
 QT_BEGIN_NAMESPACE
@@ -67,6 +68,8 @@ public slots:
      * @param index Game index
      */
     void editGame(const QModelIndex & index);
+
+    void editPlatform(const QModelIndex& index);
 
     /// Translates app into English
     void setLanguageEnglish();
