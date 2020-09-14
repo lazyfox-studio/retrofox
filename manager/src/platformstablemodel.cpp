@@ -17,12 +17,36 @@ Database::Entities::Platform PlatformsTableModel::platform(const QModelIndex &in
     return m_platforms[index.row()];
 }
 
+std::vector<Database::Entities::Extension> PlatformsTableModel::extensions(const QModelIndex &index)
+{
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("SELECT * FROM `extensions` WHERE `platform_id` = ?");
+    query.bindMany(m_platforms[index.row()].id);
+    return Database::Entities::Extension::fetchEntities(query);
+}
+
 void PlatformsTableModel::updatePlatform(Database::Entities::Platform platform)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `platforms` SET name = ?, `default_emulator_id` = ? WHERE id = ?");
     query.bindMany(platform.name.c_str(), platform.default_emulator_id, platform.id);
     query.execute();
+}
+
+void PlatformsTableModel::updateExtensions(const std::vector<Database::Entities::Extension> &extensions, long platform_id)
+{
+    auto base = Database::Connection("../sln/core/testbase.db");
+
+    auto query = base.query("DELETE FROM `extensions` WHERE `platform_id` = ?");
+    query.bindMany(platform_id);
+    query.execute();
+
+    for (auto extension : extensions)
+    {
+        query = base.query("INSERT INTO `extensions` (platform_id, extension) VALUES (?,?)");
+        query.bindMany(extension.platform_id, extension.extension.c_str());
+        query.execute();
+    }
 }
 
 void PlatformsTableModel::updateRow(const QModelIndex &index)

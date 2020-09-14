@@ -13,7 +13,7 @@ PlatformEditDialog::~PlatformEditDialog()
     delete ui;
 }
 
-void PlatformEditDialog::load(const Database::Entities::Platform& platform, const std::vector<std::string>& extensions)
+void PlatformEditDialog::load(const Database::Entities::Platform& platform, const std::vector<Database::Entities::Extension>& extensions)
 {
     m_platform = platform;
     ui->edit_name->setText(m_platform.name.c_str());
@@ -23,12 +23,12 @@ void PlatformEditDialog::load(const Database::Entities::Platform& platform, cons
     }
 
     QString result_extensions = "";
-    for (std::string extension : extensions)
+    for (auto extension : extensions)
     {
-        result_extensions += extension.c_str();
+        result_extensions += extension.extension.c_str();
         result_extensions += "; ";
     }
-    ui->edit_extensions->setText(result_extensions);
+    ui->edit_extensions->setText(result_extensions.trimmed());
 }
 
 Database::Entities::Platform PlatformEditDialog::resultPlatform()
@@ -42,15 +42,22 @@ Database::Entities::Platform PlatformEditDialog::resultPlatform()
     return platform;
 }
 
-std::vector<std::string> PlatformEditDialog::resultExtensions()
+std::vector<Database::Entities::Extension> PlatformEditDialog::resultExtensions()
 {
-    QString extesions = ui->edit_extensions->text();
-    extesions.replace(" ", "");
-    auto extensions_vector = extesions.split(';').toVector();
-    std::vector<std::string> result_extensions;
-    for (QString extension : extensions_vector)
+    QString extensions = ui->edit_extensions->text();
+    extensions.replace(" ", "");
+    if (extensions.endsWith(';'))
     {
-        result_extensions.push_back(extension.toStdString());
+        extensions.chop(1);
+    }
+    auto extensions_vector = extensions.split(';').toVector();
+    std::vector<Database::Entities::Extension> result_extensions;
+    for (auto extension : extensions_vector)
+    {
+        Database::Entities::Extension temp_extension;
+        temp_extension.platform_id = m_platform.id;
+        temp_extension.extension = extension.toStdString();
+        result_extensions.push_back(temp_extension);
     }
     return result_extensions;
 }

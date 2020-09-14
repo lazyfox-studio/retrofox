@@ -77,14 +77,13 @@ void MainWindow::editGame(const QModelIndex &index)
 void MainWindow::editPlatform(const QModelIndex &index)
 {
     auto dialog = new PlatformEditDialog();
-    auto platform = p_platforms_table_model->platform(index);
-    dialog->load(platform);
+    dialog->load(p_platforms_table_model->platform(index), p_platforms_table_model->extensions(index));
     dialog->exec();
 
     if (dialog->result() == QDialog::Accepted)
     {
-        auto result_platform = dialog->resultPlatform();
-        p_platforms_table_model->updatePlatform(result_platform);
+        p_platforms_table_model->updatePlatform(dialog->resultPlatform());
+        p_platforms_table_model->updateExtensions(dialog->resultExtensions(), dialog->resultPlatform().id);
         p_platforms_table_model->updateRow(index);
     }
 }

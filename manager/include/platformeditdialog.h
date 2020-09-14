@@ -21,9 +21,10 @@ public:
     explicit PlatformEditDialog(QWidget *parent = nullptr);
     ~PlatformEditDialog();
 
-    void load(const Database::Entities::Platform& platform, const std::vector<std::string>& extensions);
+    void load(const Database::Entities::Platform& platform,
+              const std::vector<Database::Entities::Extension>& extensions);
     Database::Entities::Platform resultPlatform();
-    std::vector<std::string> resultExtensions();
+    std::vector<Database::Entities::Extension> resultExtensions();
 
 
 private:

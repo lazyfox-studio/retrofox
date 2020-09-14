@@ -30,8 +30,10 @@ public:
     ~PlatformsTableModel();
 
     Database::Entities::Platform platform(const QModelIndex &index);
+    std::vector<Database::Entities::Extension> extensions(const QModelIndex& index);
 
     void updatePlatform(Database::Entities::Platform platform);
+    void updateExtensions(const std::vector<Database::Entities::Extension>& extensions, long platform_id);
 
     void updateRow(const QModelIndex &index);
 
