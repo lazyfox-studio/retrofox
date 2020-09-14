@@ -39,6 +39,9 @@
     <ClInclude Include="..\..\database\include\entities\scrapergame.h">
       <Filter>include\entities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\extension.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp">
@@ -60,6 +63,9 @@
       <Filter>src\entities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\database\src\entities\scrapergame.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\extensions.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
   </ItemGroup>
