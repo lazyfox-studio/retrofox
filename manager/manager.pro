@@ -62,6 +62,8 @@ SOURCES += \
     src/gamestablemodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/platformeditdialog.cpp \
+    src/platformstablemodel.cpp \
     src/scraper.cpp \
     src/scraper/findgamesinformation.cpp \
     src/scraper/functions.cpp \
@@ -82,6 +84,8 @@ HEADERS += \
     include/gamesimportwizard/wizard.h \
     include/gamestablemodel.h \
     include/mainwindow.h \
+    include/platformeditdialog.h \
+    include/platformstablemodel.h \
     include/scraper.h \
     include/scraper/findgamesinformation.h \
     include/scraper/functions.h \
@@ -94,7 +98,8 @@ FORMS += \
     ui/gamesimportwizard/pathselectpage.ui \
     ui/gamesimportwizard/welcomepage.ui \
     ui/gameeditdialog.ui \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/platformeditdialog.ui
 
 TRANSLATIONS += \
     translations/manager_en_US.ts \

@@ -10,6 +10,7 @@
 #include "gameeditdialog.h"
 #include "gamesimportwizard/wizard.h"
 #include "gamestablemodel.h"
+#include "platformstablemodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,9 @@ class MainWindow : public QMainWindow
 private:
     /// Games table Qt model
     GamesTableModel* games_table_model;
+
+    // Platforms table QT model
+    PlatformsTableModel* p_platforms_table_model;
 
     /// Wizard
     std::shared_ptr<QWizard> wizard;

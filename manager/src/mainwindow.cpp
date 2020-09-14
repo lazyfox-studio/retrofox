@@ -25,6 +25,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->games_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     connect(ui->games_table, &QTableView::doubleClicked, this, &MainWindow::editGame);
 
+    //Setup platforms table
+    p_platforms_table_model = new PlatformsTableModel();
+    ui->table_platforms->setModel(p_platforms_table_model);
+    ui->table_platforms->horizontalHeader()->setStretchLastSection(true);
+    ui->table_platforms->verticalHeader()->setVisible(false);
+    ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
+
     //Setup user system language
     if (!setLanguage(QLocale::system()))
     {
