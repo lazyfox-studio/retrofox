@@ -20,8 +20,8 @@ Database::Entities::Emulator EmulatorsTableModel::emulator(const QModelIndex &in
 void EmulatorsTableModel::updateEmulator(Database::Entities::Emulator emulator)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("UPDATE `emulators` SET name = ?, execution_command = ? WHERE id = ?");
-    query.bindMany(emulator.name.c_str(), emulator.execution_command.c_str(), emulator.id);
+    auto query = base.query("UPDATE `emulators` SET name = ?, emulator_path = ?, execution_parameters = ? WHERE id = ?");
+    query.bindMany(emulator.name.c_str(), emulator.emulator_path.c_str(), emulator.execution_parameters.c_str(), emulator.id);
     query.execute();
 }
 
