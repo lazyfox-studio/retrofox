@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_emulators->horizontalHeader()->setStretchLastSection(true);
     ui->table_emulators->verticalHeader()->setVisible(false);
     ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
+    connect(ui->table_emulators, &QTableView::doubleClicked, this, &MainWindow::editEmulator);
 
     //Setup user system language
     if (!setLanguage(QLocale::system()))
@@ -92,6 +93,19 @@ void MainWindow::editPlatform(const QModelIndex &index)
         p_platforms_table_model->updatePlatform(dialog->resultPlatform());
         p_platforms_table_model->updateExtensions(dialog->resultExtensions(), dialog->resultPlatform().id);
         p_platforms_table_model->updateRow(index);
+    }
+}
+
+void MainWindow::editEmulator(const QModelIndex &index)
+{
+    auto dialog = new EmulatorEditDialog();
+    dialog->load(p_emulators_table_model->emulator(index));
+    dialog->exec();
+
+    if (dialog->result() == QDialog::Accepted)
+    {
+        p_emulators_table_model->updateEmulator(dialog->resultEmulator());
+        p_emulators_table_model->updateRow(index);
     }
 }
 

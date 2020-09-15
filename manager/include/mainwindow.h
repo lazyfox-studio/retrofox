@@ -8,6 +8,7 @@
 #include <QDebug>
 
 #include "emulatorstablemodel.h"
+#include "emulatoreditdialog.h"
 #include "gameeditdialog.h"
 #include "gamesimportwizard/wizard.h"
 #include "gamestablemodel.h"
@@ -74,6 +75,8 @@ public slots:
     void editGame(const QModelIndex & index);
 
     void editPlatform(const QModelIndex& index);
+
+    void editEmulator(const QModelIndex& index);
 
     /// Translates app into English
     void setLanguageEnglish();

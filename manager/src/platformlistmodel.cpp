@@ -18,6 +18,18 @@ Database::Entities::Platform PlatformListModel::platform(int index)
     return platforms[index];
 }
 
+int PlatformListModel::findPlatformIndex(long platform_id)
+{
+    for (int i = 0; i < static_cast<int>(platforms.size()); i++)
+    {
+        if (platforms[i].id == platform_id)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int PlatformListModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
