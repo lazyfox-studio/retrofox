@@ -6,8 +6,8 @@
 #include <QFileDialog>
 
 #include "gamesimportwizard/pages.h"
-#include "gamesimportwizard/platformlistmodel.h"
 #include "gamesimportwizard/shareddata.h"
+#include "platformlistmodel.h"
 
 namespace Ui {
 class PathSelectPage;
