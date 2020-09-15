@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QDebug>
 
+#include "emulatorstablemodel.h"
 #include "gameeditdialog.h"
 #include "gamesimportwizard/wizard.h"
 #include "gamestablemodel.h"
@@ -27,6 +28,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
+    //Emulators table Qt model
+    EmulatorsTableModel* p_emulators_table_model;
+
     /// Games table Qt model
     GamesTableModel* p_games_table_model;
 

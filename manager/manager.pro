@@ -49,6 +49,7 @@ LIBS += \
 }
 
 SOURCES += \
+    src/emulatorstablemodel.cpp \
     src/gamesimportwizard/dataprocessingpage.cpp \
     src/gamesimportwizard/finalpage.cpp \
     src/gamesimportwizard/gameselectpage.cpp \
@@ -70,6 +71,7 @@ SOURCES += \
     src/scraper/scanfolder.cpp
 
 HEADERS += \
+    include/emulatorstablemodel.h \
     include/gameeditdialog.h \
     include/gamesimportwizard/dataprocessingpage.h \
     include/gamesimportwizard/finalpage.h \

@@ -33,6 +33,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
     connect(ui->table_platforms, &QTableView::doubleClicked, this, &MainWindow::editPlatform);
 
+    //Setup emulators table
+    p_emulators_table_model = new EmulatorsTableModel();
+    ui->table_emulators->setModel(p_emulators_table_model);
+    ui->table_emulators->horizontalHeader()->setStretchLastSection(true);
+    ui->table_emulators->verticalHeader()->setVisible(false);
+    ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
+
     //Setup user system language
     if (!setLanguage(QLocale::system()))
     {
