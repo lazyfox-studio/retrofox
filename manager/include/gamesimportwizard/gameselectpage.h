@@ -1,11 +1,18 @@
 #pragma once
 
+#include <memory>
+
 #include <QWizardPage>
 
+#include <api-service.h>
+
 #include "gamesimportwizard/pages.h"
-#undef slots
-#include "scraper.h"
-#define slots
+#include "gamesimportwizard/scrapertablemodel.h"
+#include "gamesimportwizard/shareddata.h"
+
+#include "scraper/functions.h"
+#include "scraper/findgamesinformation.h"
+#include "scraper/scanfolder.h"
 
 namespace Ui {
 class GameSelectPage;
@@ -20,6 +27,17 @@ namespace GamesImportWizard
     private:
       Ui::GameSelectPage *ui;
 
+    protected:
+        ScraperTableModel* p_scraper_table_model;
+
+        std::vector<long>& game_ids;
+        std::vector<std::vector<long>>& scraper_game_ids;
+        bool& need_user_choice;
+
+        size_t showed_game_id;
+
+        long m_selected_scraper_game_id;
+
     public:
         explicit GameSelectPage(QWidget *parent = nullptr);
         ~GameSelectPage();
@@ -28,5 +46,12 @@ namespace GamesImportWizard
         void initializePage();
         int nextId() const;
         bool validatePage();
+
+        void showGame();
+        bool findNextGame();
+
+    protected slots:
+        void selectGame(const QModelIndex& index);
+        void updateGameAndGoNext();
     };
 }

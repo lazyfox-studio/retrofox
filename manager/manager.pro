@@ -49,37 +49,62 @@ LIBS += \
 }
 
 SOURCES += \
+    src/emulatoreditdialog.cpp \
+    src/emulatorstablemodel.cpp \
+    src/gamesimportwizard/dataprocessingpage.cpp \
     src/gamesimportwizard/finalpage.cpp \
     src/gamesimportwizard/gameselectpage.cpp \
     src/gamesimportwizard/pathselectpage.cpp \
+    src/gamesimportwizard/scrapertablemodel.cpp \
+    src/gamesimportwizard/shareddata.cpp \
     src/gamesimportwizard/welcomepage.cpp \
     src/gameeditdialog.cpp \
     src/gamesimportwizard/wizard.cpp \
     src/gamestablemodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/scraper.cpp
+    src/platformeditdialog.cpp \
+    src/platformlistmodel.cpp \
+    src/platformstablemodel.cpp \
+    src/scraper.cpp \
+    src/scraper/findgamesinformation.cpp \
+    src/scraper/functions.cpp \
+    src/scraper/scanfolder.cpp
 
 HEADERS += \
+    include/emulatoreditdialog.h \
+    include/emulatorstablemodel.h \
     include/gameeditdialog.h \
+    include/gamesimportwizard/dataprocessingpage.h \
     include/gamesimportwizard/finalpage.h \
     include/gamesimportwizard/finalpage.h \
     include/gamesimportwizard/gameselectpage.h \
     include/gamesimportwizard/pages.h \
     include/gamesimportwizard/pathselectpage.h \
+    include/gamesimportwizard/scrapertablemodel.h \
+    include/gamesimportwizard/shareddata.h \
     include/gamesimportwizard/welcomepage.h \
     include/gamesimportwizard/wizard.h \
     include/gamestablemodel.h \
     include/mainwindow.h \
-    include/scraper.h
+    include/platformeditdialog.h \
+    include//platformlistmodel.h \
+    include/platformstablemodel.h \
+    include/scraper.h \
+    include/scraper/findgamesinformation.h \
+    include/scraper/functions.h \
+    include/scraper/scanfolder.h
 
 FORMS += \
+    ui/emulatoreditdialog.ui \
+    ui/gamesimportwizard/dataprocessingpage.ui \
     ui/gamesimportwizard/finalpage.ui \
     ui/gamesimportwizard/gameselectpage.ui \
     ui/gamesimportwizard/pathselectpage.ui \
     ui/gamesimportwizard/welcomepage.ui \
     ui/gameeditdialog.ui \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/platformeditdialog.ui
 
 TRANSLATIONS += \
     translations/manager_en_US.ts \

@@ -1,17 +1,15 @@
 #include <iostream>
 
 #include <database.h>
-#include <pythonfunctions.h>
+#include <api-service.h>
 
 #include "mainwindow.h"
-
 #include "scraper.h"
+
 
 int main(int argc, char *argv[])
 {
-	//Scraper::scanFloder("E:/Games/Emulators Library/PlayStation", 10, "testbase.db");
-	//Scraper::cleanCache("testbase.db");
-	//Scraper::findGamesInformation("testbase.db");
+	PythonMainThread py_main_thread;
 	MainWindow window("RetroFox", 100, 100, 800, 600);
 	//window.setFullscreen();
 	window.show();

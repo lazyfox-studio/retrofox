@@ -11,14 +11,14 @@ GameEditDialog::~GameEditDialog()
     delete ui;
 }
 
-void GameEditDialog::loadGameData(Database::Entities::Game game)
+void GameEditDialog::load(Database::Entities::Game game)
 {
     m_game = game;
     ui->edit_name->setText(game.name.c_str());
     ui->edit_path->setText(game.path.c_str());
 }
 
-Database::Entities::Game GameEditDialog::resultGameData()
+Database::Entities::Game GameEditDialog::resultGame()
 {
     Database::Entities::Game result = m_game;
 

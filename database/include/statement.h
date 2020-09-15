@@ -189,7 +189,7 @@ namespace Database
     {
         std::vector<Value> result;
         Database::Row row;
-        while (row = fetchRow())
+        while ((row = fetchRow()))
             result.push_back(row.column<Value>(0));
         return result;
     }
@@ -199,7 +199,7 @@ namespace Database
     {
         std::map<Key, Value> result;
         Database::Row row;
-        while (row = fetchRow())
+        while ((row = fetchRow()))
             result.insert(std::make_pair(row.column<Key>(0), row.column<Value>(1)));
         return result;
     }

@@ -22,16 +22,20 @@
     <ClInclude Include="..\..\database\include\connection.h" />
     <ClInclude Include="..\..\database\include\database.h" />
     <ClInclude Include="..\..\database\include\entities\emulator.h" />
+    <ClInclude Include="..\..\database\include\entities\extension.h" />
     <ClInclude Include="..\..\database\include\entities\game.h" />
     <ClInclude Include="..\..\database\include\entities\platform.h" />
+    <ClInclude Include="..\..\database\include\entities\scrapergame.h" />
     <ClInclude Include="..\..\database\include\row.h" />
     <ClInclude Include="..\..\database\include\statement.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp" />
     <ClCompile Include="..\..\database\src\entities\emulator.cpp" />
+    <ClCompile Include="..\..\database\src\entities\extensions.cpp" />
     <ClCompile Include="..\..\database\src\entities\game.cpp" />
     <ClCompile Include="..\..\database\src\entities\platform.cpp" />
+    <ClCompile Include="..\..\database\src\entities\scrapergame.cpp" />
     <ClCompile Include="..\..\database\src\row.cpp" />
     <ClCompile Include="..\..\database\src\statement.cpp" />
   </ItemGroup>

@@ -2,12 +2,17 @@
 
 #include <QDialog>
 
-#include <entities/game.h>
+#include <database.h>
 
 namespace Ui {
 class GameEditDialog;
 }
 
+/**
+ * @ingroup manager
+ * @brief The GameEditDialog class
+ * @todo Docs
+ */
 class GameEditDialog : public QDialog
 {
     Q_OBJECT
@@ -18,8 +23,8 @@ public:
     explicit GameEditDialog(QWidget *parent = nullptr);
     ~GameEditDialog();
 
-    void loadGameData(Database::Entities::Game game);
-    Database::Entities::Game resultGameData();
+    void load(Database::Entities::Game game);
+    Database::Entities::Game resultGame();
 
 private:
     Ui::GameEditDialog *ui;

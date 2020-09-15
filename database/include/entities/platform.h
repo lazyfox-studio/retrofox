@@ -15,7 +15,6 @@ namespace Database
         {
             unsigned id; ///< Platform ID (ROWID)
             std::string name; ///< Platform name
-            std::string extensions; ///< File extensions supported by platform
             unsigned default_emulator_id; ///< Default emulator ID
 
             /// Default constructor

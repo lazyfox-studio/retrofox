@@ -15,7 +15,8 @@ namespace Database
             id = row.column<unsigned>("id");
             name = row.column<std::string>("name");
             platform_id = row.column<unsigned>("platform_id");
-            execution_command = row.column<std::string>("execution_command");
+            emulator_path = row.column<std::string>("emulator_path");
+            execution_parameters = row.column<std::string>("execution_parameters");
         }
 
         std::vector<Emulator> Emulator::fetchEntities(Database::Statement& stmt)

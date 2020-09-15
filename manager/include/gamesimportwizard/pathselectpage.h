@@ -6,6 +6,8 @@
 #include <QFileDialog>
 
 #include "gamesimportwizard/pages.h"
+#include "gamesimportwizard/shareddata.h"
+#include "platformlistmodel.h"
 
 namespace Ui {
 class PathSelectPage;
@@ -20,15 +22,19 @@ namespace GamesImportWizard
     private:
         Ui::PathSelectPage *ui;
 
+    protected:
+        PlatformListModel* p_platform_list_model;
+
     public:
         explicit PathSelectPage(QWidget *parent = nullptr);
         ~PathSelectPage();
 
     protected:
         int nextId() const;
-        bool validatePage();
+        bool isComplete() const;
 
     public slots:
         void openDialog();
+        void selectPlatform(int index);
     };
 }

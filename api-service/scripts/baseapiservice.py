@@ -34,6 +34,7 @@ class BaseAPIService:
     def cache_games_into_db(cls, games, path_to_db):
         base = sqlite3.connect(path_to_db)
         cursor = base.cursor()
+        result = []
         for game in games:
             cursor.execute('INSERT INTO scraper_cache_games VALUES (NULL,?,?,?,?,?)', game['game'])
             cache_id = cursor.lastrowid
@@ -46,9 +47,10 @@ class BaseAPIService:
             if not game['developers'] is None:
                 for genre in game['genres']:
                     cursor.execute('INSERT INTO scraper_cache_genres VALUES (?,?)', (cache_id, genre))
+            result.append(cache_id)
         base.commit()
         base.close()
-        return True
+        return result
 
     @classmethod
     def set_up_tables(cls, path_to_db):

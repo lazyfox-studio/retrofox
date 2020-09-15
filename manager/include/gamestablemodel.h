@@ -7,13 +7,17 @@
 #include <QVariant>
 
 #include <database.h>
-#include <entities/game.h>
 
+/**
+ * @ingroup manager
+ * @brief The GamesTableModel class
+ * @todo Docs
+ */
 class GamesTableModel : public QAbstractTableModel
 {
     Q_OBJECT
 
-    enum CollumnName
+    enum ColumnName
     {
         Name,
         Path

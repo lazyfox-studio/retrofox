@@ -5,5 +5,7 @@
 #include "row.h"
 
 #include "entities/emulator.h"
+#include "entities/extension.h"
 #include "entities/game.h"
 #include "entities/platform.h"
+#include "entities/scrapergame.h"

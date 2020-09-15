@@ -21,9 +21,7 @@ void GamesTableModel::updateGame(Database::Entities::Game game)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `games` SET name = ?, path = ? WHERE id = ?");
-    query.bind(1, game.name.c_str());
-    query.bind(2, game.path.c_str());
-    query.bind(3, game.id);
+    query.bindMany(game.name.c_str(), game.path.c_str(), game.id);
     query.execute();
 }
 
@@ -31,7 +29,7 @@ void GamesTableModel::updateRow(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games` WHERE id = ?");
-    query.bind(1, games[index.row()].id);
+    query.bindMany(games[index.row()].id);
 
     Database::Entities::Game game(query.fetchRow());
     games[index.row()] = game;
@@ -56,10 +54,10 @@ QVariant GamesTableModel::data(const QModelIndex &index, int role) const
         std::string result;
         switch(index.column())
         {
-            case CollumnName::Name:
+            case ColumnName::Name:
                 result = games[index.row()].name;
                 break;
-            case CollumnName::Path:
+            case ColumnName::Path:
                 result = games[index.row()].path;
                 break;
         }
@@ -83,9 +81,9 @@ QVariant GamesTableModel::headerData(int section, Qt::Orientation orientation, i
 
     switch (section)
     {
-        case CollumnName::Name:
+        case ColumnName::Name:
             return tr("Name");
-        case CollumnName::Path:
+        case ColumnName::Path:
             return tr("Path");
     }
 

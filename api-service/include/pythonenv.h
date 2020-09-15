@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <string>
 #include <map>
+#include <vector>
 
 #include "pythonref.h"
 
@@ -17,14 +18,23 @@
 class PythonEnv
 {
 protected:
+    /// Thread with parent interpreter
+    friend class PythonMainThread;
+
     /// Path to modules ('scripts' folder)
-    const std::string c_modules_path;
+    const std::vector<std::string> c_modules_paths;
 
     /// Map with py-references to loaded modules
     std::map<std::string, PyObject*> m_modules;
 
     /// Default constructor
     PythonEnv();
+
+    /// Initializes main interpreter environment and adds modules paths
+    void initialize();
+
+    /// Unloads modules and finalizes all interpreters
+    void finalize();
 
     /**
      * @brief Creates a py-reference to callable object
