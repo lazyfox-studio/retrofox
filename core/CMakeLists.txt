@@ -10,6 +10,7 @@ set(CORE_INCLUDE_DIRS
 
 set(CORE_SOURCE_FILES
     core/src/gamemenu.cpp
+    core/src/gamerunbutton.cpp
     core/src/main.cpp
     core/src/mainwindow.cpp
     core/src/scraper.cpp

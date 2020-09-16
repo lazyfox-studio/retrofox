@@ -20,5 +20,21 @@ GameRunButton::GameRunButton(SDL_Renderer* renderer, Database::Entities::Game ga
 
 void GameRunButton::onClick()
 {
-    std::cout << "do magick!";
+    auto base = Database::Connection("testbase.db");
+
+    auto query = base.query("SELECT * from `platforms` WHERE id = ?;");
+    query.bindMany(m_game.platform_id);
+    Database::Entities::Platform platform = Database::Entities::Platform::fetchEntities(query)[0];
+
+    query = base.query("SELECT * from `emulators` WHERE id = ?");
+    query.bindMany(platform.default_emulator_id);
+    Database::Entities::Emulator emulator = Database::Entities::Emulator::fetchEntities(query)[0];
+
+    std::string command;
+    command += emulator.emulator_path + ' ' + emulator.execution_parameters;
+    command.replace(command.find("%ROM%"), std::string("%ROM%").length(), m_game.path);
+
+    system(command.c_str());
+
+    std::cout << command;
 }

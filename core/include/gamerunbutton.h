@@ -3,6 +3,7 @@
 #include "interface/labeledbutton.h"
 
 #include <iostream>
+#include <string>
 
 #include <database.h>
 
