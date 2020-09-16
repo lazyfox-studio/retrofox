@@ -6,6 +6,8 @@
 
 #include <database.h>
 
+#include "emulatorlistmodel.h"
+
 namespace Ui {
     class PlatformEditDialog;
 }
@@ -16,6 +18,9 @@ class PlatformEditDialog : public QDialog
 
 protected:
     Database::Entities::Platform m_platform;
+    long m_result_emulator_id;
+
+    EmulatorListModel* p_emulator_list_model;
 
 public:
     explicit PlatformEditDialog(QWidget *parent = nullptr);
@@ -29,5 +34,8 @@ public:
 
 private:
     Ui::PlatformEditDialog *ui;
+
+public slots:
+    void selectEmulator(int index);
 };
 
