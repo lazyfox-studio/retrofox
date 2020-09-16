@@ -90,6 +90,9 @@
     <ClCompile Include="..\..\core\src\scraper.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\src\gamerunbutton.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\include\graphics\texturebuffer.h">
@@ -144,6 +147,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\include\scraper.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\include\gamerunbutton.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

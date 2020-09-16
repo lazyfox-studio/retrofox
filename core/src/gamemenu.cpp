@@ -17,11 +17,13 @@ void GameMenu::showGames(SDL_Renderer* renderer, const std::string& db_path)
     layout.clear();
     widgets.clear();
 
-    auto games = base.getColumn<std::string>("SELECT `name` FROM `games`;");
-    for (const auto& name : games)
+    auto query = base.query("SELECT * FROM `games`;");
+
+    auto games = Database::Entities::Game::fetchEntities(query);
+    for (const auto& game : games)
     {
-        auto button = std::make_shared<Interface::LabeledButton>
-        (renderer, (name == "" ? "NULL" : name), "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp",
+        auto button = std::make_shared<GameRunButton>
+        (renderer, game, "../../core/data/testsprite.bmp", "../../core/data/testsprite.bmp",
             "../../core/data/testsprite2.bmp", "../../core/data/testsprite2.bmp");
         pushBack(button);
     }

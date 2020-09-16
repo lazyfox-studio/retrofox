@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\core\src\control\virtualgamepad.cpp" />
     <ClCompile Include="..\..\core\src\gamemenu.cpp" />
+    <ClCompile Include="..\..\core\src\gamerunbutton.cpp" />
     <ClCompile Include="..\..\core\src\graphics\font.cpp" />
     <ClCompile Include="..\..\core\src\graphics\fontbuffer.cpp" />
     <ClCompile Include="..\..\core\src\graphics\text.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\core\include\control\virtualgamepad.h" />
     <ClInclude Include="..\..\core\include\gamemenu.h" />
+    <ClInclude Include="..\..\core\include\gamerunbutton.h" />
     <ClInclude Include="..\..\core\include\graphics\font.h" />
     <ClInclude Include="..\..\core\include\graphics\fontbuffer.h" />
     <ClInclude Include="..\..\core\include\graphics\text.h" />

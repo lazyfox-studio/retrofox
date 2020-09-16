@@ -7,7 +7,7 @@
 
 #include <database.h>
 
-#include "interface/labeledbutton.h"
+#include "gamerunbutton.h"
 
 /**
  * @ingroup core

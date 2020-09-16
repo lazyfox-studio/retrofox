@@ -91,6 +91,8 @@ namespace Interface
 
         virtual bool onControl(Control::VirtualGamepad::KeyCode code);
 
+        virtual void onClick();
+
         /// Renders button via provided renderer
         virtual void render();
     };

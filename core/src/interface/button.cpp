@@ -61,11 +61,16 @@ namespace Interface
         switch (code)
         {
         case Control::VirtualGamepad::A:
-            //onClick();
+            onClick();
             return true;
         default:
             return false;
         }
+    }
+
+    void Button::onClick()
+    {
+        return;
     }
 
     void Button::render()
