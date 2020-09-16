@@ -1,11 +1,12 @@
 #include "platformeditdialog.h"
 #include "ui_platformeditdialog.h"
 
-PlatformEditDialog::PlatformEditDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::PlatformEditDialog)
+PlatformEditDialog::PlatformEditDialog(QWidget *parent) : QDialog(parent), ui(new Ui::PlatformEditDialog)
 {
     ui->setupUi(this);
+    p_emulator_list_model = new EmulatorListModel;
+    ui->combobox_default_emulator->setModel(p_emulator_list_model);
+    connect(ui->combobox_default_emulator, SIGNAL(currentIndexChanged(int)), this, SLOT(selectEmulator(int)));
 }
 
 PlatformEditDialog::~PlatformEditDialog()
@@ -21,6 +22,7 @@ void PlatformEditDialog::load(const Database::Entities::Platform& platform, cons
     {
         ui->edit_name->setReadOnly(true);
     }
+    m_result_emulator_id = m_platform.default_emulator_id;
 
     QString result_extensions = "";
     for (auto extension : extensions)
@@ -37,7 +39,7 @@ Database::Entities::Platform PlatformEditDialog::resultPlatform()
 
     platform.id = m_platform.id;
     platform.name = ui->edit_name->text().toStdString();
-    platform.default_emulator_id = m_platform.default_emulator_id; //TODO: emulator select support
+    platform.default_emulator_id = m_result_emulator_id;
 
     return platform;
 }
@@ -60,4 +62,9 @@ std::vector<Database::Entities::Extension> PlatformEditDialog::resultExtensions(
         result_extensions.push_back(temp_extension);
     }
     return result_extensions;
+}
+
+void PlatformEditDialog::selectEmulator(int index)
+{
+    m_result_emulator_id = p_emulator_list_model->emulator(index).id;
 }

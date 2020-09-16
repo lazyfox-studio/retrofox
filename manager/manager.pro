@@ -50,6 +50,7 @@ LIBS += \
 
 SOURCES += \
     src/emulatoreditdialog.cpp \
+    src/emulatorlistmodel.cpp \
     src/emulatorstablemodel.cpp \
     src/gamesimportwizard/dataprocessingpage.cpp \
     src/gamesimportwizard/finalpage.cpp \
@@ -73,6 +74,7 @@ SOURCES += \
 
 HEADERS += \
     include/emulatoreditdialog.h \
+    include/emulatorlistmodel.h \
     include/emulatorstablemodel.h \
     include/gameeditdialog.h \
     include/gamesimportwizard/dataprocessingpage.h \
