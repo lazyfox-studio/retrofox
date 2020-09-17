@@ -128,7 +128,7 @@ void MainWindow::insertRecord()
             }
             break;
         }
-        case 1:
+        case 1: ///< Platforms table
         {
             auto dialog = new PlatformEditDialog;
             dialog->exec();
@@ -139,7 +139,7 @@ void MainWindow::insertRecord()
             }
             break;
         }
-        case 2:
+        case 2: ///< Emulators table
         {
             auto dialog = new EmulatorEditDialog;
             dialog->exec();
