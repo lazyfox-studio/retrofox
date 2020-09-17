@@ -31,25 +31,28 @@ class TheGamesDBAPIService(BaseAPIService):
 
     @classmethod
     def extract_games_data(cls, raw_games_data, game_id, query_string):
+        developers = []
+        publishers = []
+        genres = []
         for game in raw_games_data['games']:
             if not game['developers'] is None:
                 for developer in game['developers']:
-                    developer += cls.base_prefix * cls.prefix_order
+                    developers.append(developer +  cls.base_prefix * cls.prefix_order)
             if not game['publishers'] is None:
                 for publisher in game['publishers']:
-                    publisher += cls.base_prefix * cls.prefix_order
+                    publishers.append(publisher + cls.base_prefix * cls.prefix_order)
             if not game['genres'] is None:
                 for genre in game['genres']:
-                    genre += cls.base_prefix * cls.prefix_order
+                    genres.append(genre + cls.base_prefix * cls.prefix_order)
 
         games = []
         for game in raw_games_data['games']:
             games.append(
                 {
                     'game': (game_id, game['game_title'], game['release_date'], game['rating'], game['overview']),
-                    'developers': game['developers'],
-                    'publishers': game['publishers'],
-                    'genres': game['genres']
+                    'developers': developers,
+                    'publishers': publishers,
+                    'genres': genres
                 }
             )
         return games
