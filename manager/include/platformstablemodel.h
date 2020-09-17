@@ -37,7 +37,9 @@ public:
 
     void updateRow(const QModelIndex &index);
 
-     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
+    bool insertRow(const Database::Entities::Platform& platform);
+
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
 protected:
     int rowCount(const QModelIndex &parent) const;

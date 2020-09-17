@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     //Setup toolbar
     connect (ui->action_delete, &QAction::triggered, this, &MainWindow::removeRecords);
-    connect (ui->action_new, &QAction::triggered, this, &MainWindow::insertRecords);
+    connect (ui->action_new, &QAction::triggered, this, &MainWindow::insertRecord);
 
     //Setup games table
     p_games_table_model = new GamesTableModel();
@@ -113,18 +113,43 @@ void MainWindow::editEmulator(const QModelIndex &index)
     }
 }
 
-void MainWindow::insertRecords()
+void MainWindow::insertRecord()
 {
     int table_index = ui->tab_viewer->currentIndex();
     switch (table_index)
     {
         case 0: ///< Games table
+        {
             auto dialog = new GameEditDialog;
             dialog->exec();
             if (dialog->result() == QDialog::Accepted)
             {
                 p_games_table_model->insertRow(dialog->resultGame());
             }
+            break;
+        }
+        case 1:
+        {
+            auto dialog = new PlatformEditDialog;
+            dialog->exec();
+            if (dialog->result() == QDialog::Accepted)
+            {
+                p_platforms_table_model->insertRow(dialog->resultPlatform());
+                p_platforms_table_model->updateExtensions(dialog->resultExtensions(), dialog->resultPlatform().id);
+            }
+            break;
+        }
+        case 2:
+        {
+            auto dialog = new EmulatorEditDialog;
+            dialog->exec();
+            if (dialog->result() == QDialog::Accepted)
+            {
+                p_emulators_table_model->insertRow(dialog->resultEmulator());
+            }
+            break;
+        }
+
     }
 }
 

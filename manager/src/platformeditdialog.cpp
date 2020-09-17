@@ -6,7 +6,6 @@ PlatformEditDialog::PlatformEditDialog(QWidget *parent) : QDialog(parent), ui(ne
     ui->setupUi(this);
     p_emulator_list_model = new EmulatorListModel;
     ui->combobox_default_emulator->setModel(p_emulator_list_model);
-    connect(ui->combobox_default_emulator, SIGNAL(currentIndexChanged(int)), this, SLOT(selectEmulator(int)));
 }
 
 PlatformEditDialog::~PlatformEditDialog()

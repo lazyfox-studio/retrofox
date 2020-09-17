@@ -35,6 +35,18 @@ void EmulatorsTableModel::updateRow(const QModelIndex &index)
     m_emulators[index.row()] = emulator;
 }
 
+bool EmulatorsTableModel::insertRow(const Database::Entities::Emulator &emulator)
+{
+    beginInsertRows(QModelIndex(), static_cast<int>(m_emulators.size()), static_cast<int>(m_emulators.size()));
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("INSERT INTO `emulators` (name, platform_id, emulator_path, execution_parameters) VALUES (?, ?, ?, ?);");
+    query.bindMany(emulator.name.c_str(), emulator.platform_id, emulator.emulator_path.c_str(), emulator.execution_parameters.c_str());
+    query.execute();
+    m_emulators.push_back(emulator);
+    endInsertRows();
+    return true;
+}
+
 bool EmulatorsTableModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);

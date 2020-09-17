@@ -6,7 +6,6 @@ EmulatorEditDialog::EmulatorEditDialog(QWidget *parent) : QDialog(parent), ui(ne
     ui->setupUi(this);
     p_platform_list_model = new PlatformListModel;
     ui->combobox_platform->setModel(p_platform_list_model);
-    connect(ui->combobox_platform, SIGNAL(currentIndexChanged(int)), this, SLOT(selectPlatform(int)));
     connect(ui->button_explore, &QPushButton::clicked, this, &EmulatorEditDialog::pathSelectDialog);
 }
 

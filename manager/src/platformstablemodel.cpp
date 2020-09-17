@@ -59,6 +59,18 @@ void PlatformsTableModel::updateRow(const QModelIndex &index)
     m_platforms[index.row()] = platform;
 }
 
+bool PlatformsTableModel::insertRow(const Database::Entities::Platform &platform)
+{
+    beginInsertRows(QModelIndex(), static_cast<int>(m_platforms.size()), static_cast<int>(m_platforms.size()));
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("INSERT INTO `platforms` (name, default_emulator_id) VALUES (?, ?);");
+    query.bindMany(platform.name.c_str(), platform.default_emulator_id);
+    query.execute();
+    m_platforms.push_back(platform);
+    endInsertRows();
+    return true;
+}
+
 bool PlatformsTableModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);
