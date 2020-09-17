@@ -25,9 +25,9 @@ namespace Scraper
         query.bind(1, scraper_game_id);
         Database::Entities::ScraperGame scraper_game(query.fetchRow());
 
-        query = base.query("UPDATE `games` SET name = ? WHERE `id` = ?;");
-        query.bind(1, scraper_game.name.c_str());
-        query.bind(2, scraper_game.game_id);
+        query = base.query("UPDATE `games` SET `name` = ?, `release_date` = ?, `rating` = ?, `description` = ? WHERE `id` = ?;");
+        query.bindMany(scraper_game.name.c_str(), scraper_game.release_date.c_str(), scraper_game.rating.c_str(),
+                       scraper_game.description.c_str(), scraper_game.game_id);
         query.execute();
     }
 
