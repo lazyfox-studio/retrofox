@@ -2,6 +2,8 @@
 
 #include <QDialog>
 
+#include <QFileDialog>
+
 #include <database.h>
 
 #include "platformlistmodel.h"
@@ -33,5 +35,8 @@ public:
 
 private:
     Ui::GameEditDialog *ui;
+
+public slots:
+    void pathSelectDialog();
 };
 

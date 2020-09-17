@@ -6,6 +6,9 @@ GameEditDialog::GameEditDialog(QWidget *parent) : QDialog(parent), ui(new Ui::Ga
     ui->setupUi(this);
     p_platform_list_model = new PlatformListModel;
     ui->combobox_platform->setModel(p_platform_list_model);
+    connect(ui->button_explore, &QPushButton::clicked, this, &GameEditDialog::pathSelectDialog);
+    ui->edit_developers->setReadOnly(true);
+    ui->edit_publishers->setReadOnly(true);
 }
 
 GameEditDialog::~GameEditDialog()
@@ -19,6 +22,7 @@ void GameEditDialog::load(Database::Entities::Game game)
     ui->edit_name->setText(game.name.c_str());
     ui->edit_path->setText(game.path.c_str());
     ui->combobox_platform->setCurrentIndex(p_platform_list_model->findPlatformIndex(game.platform_id));
+    ui->plaintextedit_description->setPlainText(game.description.c_str());
 }
 
 Database::Entities::Game GameEditDialog::resultGame()
@@ -30,4 +34,13 @@ Database::Entities::Game GameEditDialog::resultGame()
     result.platform_id = p_platform_list_model->platform(ui->combobox_platform->currentIndex()).id;
 
     return result;
+}
+
+void GameEditDialog::pathSelectDialog()
+{
+    QString path = QFileDialog::getOpenFileName();
+    if (path != "")
+    {
+        ui->edit_path->setText(path);
+    }
 }
