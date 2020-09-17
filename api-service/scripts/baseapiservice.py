@@ -61,13 +61,13 @@ class BaseAPIService:
                        '(id INTEGER PRIMARY KEY, path TEXT, name TEXT, platform_id INTEGER NOT NULL, release_date TEXT,'
                        'rating TEXT, description TEXT)')
         # Developer information table
-        cursor.execute('CREATE TABLE IF NOT EXISTS developers'
+        cursor.execute('CREATE TABLE IF NOT EXISTS game_developers'
                        '(game_id INTEGER NOT NULL, developer_id INTEGER NOT NULL)')
         # Publisher information table
-        cursor.execute('CREATE TABLE IF NOT EXISTS publishers'
+        cursor.execute('CREATE TABLE IF NOT EXISTS game_publishers'
                        '(game_id INTEGER NOT NULL, publisher_id INTEGER NOT NULL)')
         # Genre information table
-        cursor.execute('CREATE TABLE IF NOT EXISTS genres'
+        cursor.execute('CREATE TABLE IF NOT EXISTS game_genres'
                        '(game_id INTEGER NOT NULL, genre_id INTEGER NOT NULL)')
         # Rom extensions information table
         cursor.execute('CREATE TABLE IF NOT EXISTS extensions'
