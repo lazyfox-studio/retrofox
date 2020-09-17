@@ -78,6 +78,7 @@ public slots:
 
     void editEmulator(const QModelIndex& index);
 
+    void insertRecords();
     void removeRecords();
 
     /// Translates app into English

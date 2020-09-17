@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     //Setup toolbar
     connect (ui->action_delete, &QAction::triggered, this, &MainWindow::removeRecords);
+    connect (ui->action_new, &QAction::triggered, this, &MainWindow::insertRecords);
 
     //Setup games table
     p_games_table_model = new GamesTableModel();
@@ -109,6 +110,21 @@ void MainWindow::editEmulator(const QModelIndex &index)
     {
         p_emulators_table_model->updateEmulator(dialog->resultEmulator());
         p_emulators_table_model->updateRow(index);
+    }
+}
+
+void MainWindow::insertRecords()
+{
+    int table_index = ui->tab_viewer->currentIndex();
+    switch (table_index)
+    {
+        case 0: ///< Games table
+            auto dialog = new GameEditDialog;
+            dialog->exec();
+            if (dialog->result() == QDialog::Accepted)
+            {
+                p_games_table_model->insertRow(dialog->resultGame());
+            }
     }
 }
 

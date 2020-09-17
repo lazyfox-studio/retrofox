@@ -35,6 +35,18 @@ void GamesTableModel::updateRow(const QModelIndex &index)
     games[index.row()] = game;
 }
 
+bool GamesTableModel::insertRow(const Database::Entities::Game& game)
+{
+    beginInsertRows(QModelIndex(), static_cast<int>(games.size()), static_cast<int>(games.size()));
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("INSERT INTO `games` (name, path, platform_id) VALUES (?, ?, 10);");
+    query.bindMany(game.name.c_str(), game.path.c_str());
+    query.execute();
+    games.push_back(game);
+    endInsertRows();
+    return true;
+}
+
 bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);
