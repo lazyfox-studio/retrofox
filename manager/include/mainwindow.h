@@ -78,7 +78,7 @@ public slots:
 
     void editEmulator(const QModelIndex& index);
 
-    void deleteRecords();
+    void removeRecords();
 
     /// Translates app into English
     void setLanguageEnglish();

@@ -59,6 +59,31 @@ void PlatformsTableModel::updateRow(const QModelIndex &index)
     m_platforms[index.row()] = platform;
 }
 
+bool PlatformsTableModel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+
+    if (count == 0)
+    {
+        return false;
+    }
+
+    auto base = Database::Connection("../sln/core/testbase.db");
+
+    auto i_remove_start = m_platforms.begin() + row;
+    auto i_remove_end = m_platforms.begin() + row + count;
+    beginRemoveRows(QModelIndex(), row, row + count - 1);
+    for (size_t i = 0; i < static_cast<size_t>(count); i++)
+    {
+        auto query = base.query("DELETE FROM `platforms` WHERE id = ?");
+        query.bindMany(m_platforms[row + i].id);
+        query.execute();
+    }
+    m_platforms.erase(i_remove_start, i_remove_end);
+    endRemoveRows();
+    return true;
+}
+
 int PlatformsTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

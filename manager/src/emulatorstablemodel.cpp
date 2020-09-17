@@ -35,6 +35,31 @@ void EmulatorsTableModel::updateRow(const QModelIndex &index)
     m_emulators[index.row()] = emulator;
 }
 
+bool EmulatorsTableModel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+
+    if (count == 0)
+    {
+        return false;
+    }
+
+    auto base = Database::Connection("../sln/core/testbase.db");
+
+    auto i_remove_start = m_emulators.begin() + row;
+    auto i_remove_end = m_emulators.begin() + row + count;
+    beginRemoveRows(QModelIndex(), row, row + count - 1);
+    for (size_t i = 0; i < static_cast<size_t>(count); i++)
+    {
+        auto query = base.query("DELETE FROM `emulators` WHERE id = ?");
+        query.bindMany(m_emulators[row + i].id);
+        query.execute();
+    }
+    m_emulators.erase(i_remove_start, i_remove_end);
+    endRemoveRows();
+    return true;
+}
+
 int EmulatorsTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

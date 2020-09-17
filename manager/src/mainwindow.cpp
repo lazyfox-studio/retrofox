@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     //Setup toolbar
-    connect (ui->action_delete, &QAction::triggered, this, &MainWindow::deleteRecords);
+    connect (ui->action_delete, &QAction::triggered, this, &MainWindow::removeRecords);
 
     //Setup games table
     p_games_table_model = new GamesTableModel();
@@ -112,7 +112,7 @@ void MainWindow::editEmulator(const QModelIndex &index)
     }
 }
 
-void MainWindow::deleteRecords()
+void MainWindow::removeRecords()
 {
     int table_index = ui->tab_viewer->currentIndex();
     switch (table_index)
@@ -122,21 +122,23 @@ void MainWindow::deleteRecords()
             {
                 return;
             }
+            p_games_table_model->removeRows(ui->table_games->selectionModel()->selectedRows().first().row(), 1);
             break;
         case 1: ///< Platforms table
             if (!ui->table_platforms->selectionModel()->hasSelection())
             {
                 return;
             }
+            p_platforms_table_model->removeRows(ui->table_platforms->selectionModel()->selectedRows().first().row(), 1);
             break;
         case 2: ///< Emulators table
-            if (!ui->table_platforms->selectionModel()->hasSelection())
+            if (!ui->table_emulators->selectionModel()->hasSelection())
             {
                 return;
             }
+            p_emulators_table_model->removeRows(ui->table_emulators->selectionModel()->selectedRows().first().row(), 1);
             break;
     }
-    ui->table_games->model()->removeRows(ui->table_games->selectionModel()->selectedRows().first().row(), 1);
 }
 
 void MainWindow::setLanguageEnglish()
