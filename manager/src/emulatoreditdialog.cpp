@@ -28,7 +28,7 @@ Database::Entities::Emulator EmulatorEditDialog::resultEmulator()
 {
     auto result = m_emulator;
     result.name = ui->edit_name->text().toStdString();
-    result.platform_id = m_result_platform_id;
+    result.platform_id = p_platform_list_model->platform(ui->combobox_platform->currentIndex()).id;
     result.emulator_path = ui->edit_emulator_path->text().toStdString();
     result.execution_parameters = ui->edit_execution_parameters->text().toStdString();
     return result;
@@ -41,10 +41,5 @@ void EmulatorEditDialog::pathSelectDialog()
     {
         ui->edit_emulator_path->setText(path);
     }
-}
-
-void EmulatorEditDialog::selectPlatform(int index)
-{
-    m_result_platform_id = p_platform_list_model->platform(index).id;
 }
 

@@ -4,6 +4,8 @@
 
 #include <database.h>
 
+#include "platformlistmodel.h"
+
 namespace Ui {
 class GameEditDialog;
 }
@@ -16,6 +18,9 @@ class GameEditDialog;
 class GameEditDialog : public QDialog
 {
     Q_OBJECT
+
+protected:
+    PlatformListModel* p_platform_list_model;
 
     Database::Entities::Game m_game;
 

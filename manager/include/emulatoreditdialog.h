@@ -18,8 +18,6 @@ class EmulatorEditDialog : public QDialog
 protected:
     Database::Entities::Emulator m_emulator;
 
-    long m_result_platform_id;
-
     PlatformListModel* p_platform_list_model;
 
 public:
@@ -34,6 +32,5 @@ private:
 
 public slots:
     void pathSelectDialog();
-    void selectPlatform(int index);
 };
 

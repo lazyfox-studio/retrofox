@@ -4,7 +4,7 @@ GamesTableModel::GamesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games`");
-    games = Database::Entities::Game::fetchEntities(query);
+    m_games = Database::Entities::Game::fetchEntities(query);
 }
 
 GamesTableModel::~GamesTableModel()
@@ -14,14 +14,14 @@ GamesTableModel::~GamesTableModel()
 
 Database::Entities::Game GamesTableModel::game(const QModelIndex &index)
 {
-    return games[index.row()];
+    return m_games[index.row()];
 }
 
 void GamesTableModel::updateGame(Database::Entities::Game game)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("UPDATE `games` SET name = ?, path = ? WHERE id = ?");
-    query.bindMany(game.name.c_str(), game.path.c_str(), game.id);
+    auto query = base.query("UPDATE `games` SET name = ?, path = ?, platform_id = ? WHERE id = ?");
+    query.bindMany(game.name.c_str(), game.path.c_str(), game.platform_id, game.id);
     query.execute();
 }
 
@@ -29,20 +29,20 @@ void GamesTableModel::updateRow(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games` WHERE id = ?");
-    query.bindMany(games[index.row()].id);
+    query.bindMany(m_games[index.row()].id);
 
     Database::Entities::Game game(query.fetchRow());
-    games[index.row()] = game;
+    m_games[index.row()] = game;
 }
 
 bool GamesTableModel::insertRow(const Database::Entities::Game& game)
 {
-    beginInsertRows(QModelIndex(), static_cast<int>(games.size()), static_cast<int>(games.size()));
+    beginInsertRows(QModelIndex(), static_cast<int>(m_games.size()), static_cast<int>(m_games.size()));
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("INSERT INTO `games` (name, path, platform_id) VALUES (?, ?, 10);");
-    query.bindMany(game.name.c_str(), game.path.c_str());
+    auto query = base.query("INSERT INTO `games` (name, path, platform_id) VALUES (?, ?, ?);");
+    query.bindMany(game.name.c_str(), game.path.c_str(), game.platform_id);
     query.execute();
-    games.push_back(game);
+    m_games.push_back(game);
     endInsertRows();
     return true;
 }
@@ -58,16 +58,16 @@ bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
 
     auto base = Database::Connection("../sln/core/testbase.db");
 
-    auto i_remove_start = games.begin() + row;
-    auto i_remove_end = games.begin() + row + count;
+    auto i_remove_start = m_games.begin() + row;
+    auto i_remove_end = m_games.begin() + row + count;
     beginRemoveRows(QModelIndex(), row, row + count - 1);
     for (size_t i = 0; i < static_cast<size_t>(count); i++)
     {
         auto query = base.query("DELETE FROM `games` WHERE id = ?");
-        query.bindMany(games[row + i].id);
+        query.bindMany(m_games[row + i].id);
         query.execute();
     }
-    games.erase(i_remove_start, i_remove_end);
+    m_games.erase(i_remove_start, i_remove_end);
     endRemoveRows();
     return true;
 }
@@ -75,7 +75,7 @@ bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
 int GamesTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(games.size());
+    return static_cast<int>(m_games.size());
 }
 
 int GamesTableModel::columnCount(const QModelIndex &parent) const
@@ -92,10 +92,10 @@ QVariant GamesTableModel::data(const QModelIndex &index, int role) const
         switch(index.column())
         {
             case ColumnName::Name:
-                result = games[index.row()].name;
+                result = m_games[index.row()].name;
                 break;
             case ColumnName::Path:
-                result = games[index.row()].path;
+                result = m_games[index.row()].path;
                 break;
         }
 

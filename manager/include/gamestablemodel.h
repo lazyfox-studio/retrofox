@@ -23,7 +23,7 @@ class GamesTableModel : public QAbstractTableModel
         Path
     };
 
-    std::vector<Database::Entities::Game> games;
+    std::vector<Database::Entities::Game> m_games;
 
 public:
     explicit GamesTableModel(QObject *parent = nullptr);

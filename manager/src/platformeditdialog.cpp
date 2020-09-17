@@ -22,7 +22,6 @@ void PlatformEditDialog::load(const Database::Entities::Platform& platform, cons
     {
         ui->edit_name->setReadOnly(true);
     }
-    m_result_emulator_id = m_platform.default_emulator_id;
 
     QString result_extensions = "";
     for (auto extension : extensions)
@@ -39,7 +38,7 @@ Database::Entities::Platform PlatformEditDialog::resultPlatform()
 
     platform.id = m_platform.id;
     platform.name = ui->edit_name->text().toStdString();
-    platform.default_emulator_id = m_result_emulator_id;
+    platform.default_emulator_id = p_emulator_list_model->emulator(ui->combobox_default_emulator->currentIndex()).id;
 
     return platform;
 }
@@ -62,9 +61,4 @@ std::vector<Database::Entities::Extension> PlatformEditDialog::resultExtensions(
         result_extensions.push_back(temp_extension);
     }
     return result_extensions;
-}
-
-void PlatformEditDialog::selectEmulator(int index)
-{
-    m_result_emulator_id = p_emulator_list_model->emulator(index).id;
 }
