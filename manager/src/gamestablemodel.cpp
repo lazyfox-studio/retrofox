@@ -35,6 +35,31 @@ void GamesTableModel::updateRow(const QModelIndex &index)
     games[index.row()] = game;
 }
 
+bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+
+    if (count == 0)
+    {
+        return false;
+    }
+
+    auto base = Database::Connection("../sln/core/testbase.db");
+
+    auto i_remove_start = games.begin() + row;
+    auto i_remove_end = games.begin() + row + count;
+    beginRemoveRows(QModelIndex(), row, row + count - 1);
+    for (size_t i = 0; i < static_cast<size_t>(count); i++)
+    {
+        auto query = base.query("DELETE FROM `games` WHERE id = ?");
+        query.bindMany(games[row + i].id);
+        query.execute();
+    }
+    games.erase(i_remove_start, i_remove_end);
+    endRemoveRows();
+    return true;
+}
+
 int GamesTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

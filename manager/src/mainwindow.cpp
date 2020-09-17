@@ -17,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
+    //Setup toolbar
+    connect (ui->action_delete, &QAction::triggered, this, &MainWindow::deleteRecords);
+
     //Setup games table
     p_games_table_model = new GamesTableModel();
     ui->table_games->setModel(p_games_table_model);
@@ -107,6 +110,33 @@ void MainWindow::editEmulator(const QModelIndex &index)
         p_emulators_table_model->updateEmulator(dialog->resultEmulator());
         p_emulators_table_model->updateRow(index);
     }
+}
+
+void MainWindow::deleteRecords()
+{
+    int table_index = ui->tab_viewer->currentIndex();
+    switch (table_index)
+    {
+        case 0: ///< Games table
+            if (!ui->table_games->selectionModel()->hasSelection())
+            {
+                return;
+            }
+            break;
+        case 1: ///< Platforms table
+            if (!ui->table_platforms->selectionModel()->hasSelection())
+            {
+                return;
+            }
+            break;
+        case 2: ///< Emulators table
+            if (!ui->table_platforms->selectionModel()->hasSelection())
+            {
+                return;
+            }
+            break;
+    }
+    ui->table_games->model()->removeRows(ui->table_games->selectionModel()->selectedRows().first().row(), 1);
 }
 
 void MainWindow::setLanguageEnglish()
