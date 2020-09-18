@@ -24,6 +24,9 @@
     <ClInclude Include="..\..\database\include\entities\emulator.h" />
     <ClInclude Include="..\..\database\include\entities\extension.h" />
     <ClInclude Include="..\..\database\include\entities\game.h" />
+    <ClInclude Include="..\..\database\include\entities\gamedeveloper.h" />
+    <ClInclude Include="..\..\database\include\entities\gamegenre.h" />
+    <ClInclude Include="..\..\database\include\entities\gamepublisher.h" />
     <ClInclude Include="..\..\database\include\entities\platform.h" />
     <ClInclude Include="..\..\database\include\entities\scrapergame.h" />
     <ClInclude Include="..\..\database\include\row.h" />
