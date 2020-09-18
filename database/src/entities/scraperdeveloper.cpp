@@ -12,7 +12,7 @@ namespace Database
 
         ScraperDeveloper::ScraperDeveloper(const Database::Row& row)
         {
-            cache_id = row.column<long>("cahce_id");
+            cache_id = row.column<long>("cache_id");
             developer_id = row.column<long>("developer_id");
         }
 

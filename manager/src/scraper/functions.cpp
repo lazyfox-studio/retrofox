@@ -29,6 +29,15 @@ namespace Scraper
         query.bindMany(scraper_game.name.c_str(), scraper_game.release_date.c_str(), scraper_game.rating.c_str(),
                        scraper_game.description.c_str(), scraper_game.game_id);
         query.execute();
-    }
 
+        query = base.query("SELECT * FROM `scraper_cache_developers` WHERE `cache_id` = ?;");
+        query.bindMany(scraper_game_id);
+        auto developers = Database::Entities::ScraperDeveloper::fetchEntities(query);
+        for (auto developer : developers)
+        {
+            query = base.query("INSERT INTO `game_developers` (game_id, developer_id) VALUES (?,?)");
+            query.bindMany(scraper_game.game_id, developer.developer_id);
+            query.execute();
+        }
+    }
 }

@@ -12,7 +12,7 @@ namespace Database
 
         ScraperPublisher::ScraperPublisher(const Database::Row& row)
         {
-            cache_id = row.column<long>("cahce_id");
+            cache_id = row.column<long>("cache_id");
             publisher_id = row.column<long>("publisher_id");
         }
 
