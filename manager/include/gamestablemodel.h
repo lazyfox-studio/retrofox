@@ -31,6 +31,12 @@ public:
 
     Database::Entities::Game game(const QModelIndex &index);
 
+    std::vector<Database::Entities::GameDeveloper> developers(const QModelIndex& index);
+
+    std::vector<Database::Entities::GamePublisher> publishers(const QModelIndex& index);
+
+    std::vector<Database::Entities::GameGenre> genres(const QModelIndex& index);
+
     void updateGame(Database::Entities::Game game);
 
     void updateRow(const QModelIndex &index);

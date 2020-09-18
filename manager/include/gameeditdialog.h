@@ -30,7 +30,11 @@ public:
     explicit GameEditDialog(QWidget *parent = nullptr);
     ~GameEditDialog();
 
-    void load(Database::Entities::Game game);
+    void load(Database::Entities::Game game,
+              std::vector<Database::Entities::GameDeveloper> developers,
+              std::vector<Database::Entities::GamePublisher> publishers,
+              std::vector<Database::Entities::GameGenre> genres
+              );
     Database::Entities::Game resultGame();
 
 private:

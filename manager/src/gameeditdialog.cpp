@@ -16,7 +16,11 @@ GameEditDialog::~GameEditDialog()
     delete ui;
 }
 
-void GameEditDialog::load(Database::Entities::Game game)
+void GameEditDialog::load(Database::Entities::Game game,
+                          std::vector<Database::Entities::GameDeveloper> developers,
+                          std::vector<Database::Entities::GamePublisher> publishers,
+                          std::vector<Database::Entities::GameGenre> genres
+                          )
 {
     m_game = game;
     ui->edit_name->setText(game.name.c_str());

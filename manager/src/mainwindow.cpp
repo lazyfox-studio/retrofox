@@ -75,7 +75,8 @@ void MainWindow::editGame(const QModelIndex &index)
 {
     auto dialog = new GameEditDialog();
     auto game = p_games_table_model->game(index);
-    dialog->load(game);
+    dialog->load(game, p_games_table_model->developers(index), p_games_table_model->publishers(index),
+                 p_games_table_model->genres(index));
     dialog->exec();
 
     if (dialog->result() == QDialog::Accepted)
