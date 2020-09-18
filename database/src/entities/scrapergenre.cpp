@@ -12,7 +12,7 @@ namespace Database
 
         ScraperGenre::ScraperGenre(const Database::Row& row)
         {
-            cache_id = row.column<long>("cahce_id");
+            cache_id = row.column<long>("cache_id");
             genre_id = row.column<long>("genre_id");
         }
 

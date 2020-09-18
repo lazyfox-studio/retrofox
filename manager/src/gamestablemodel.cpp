@@ -63,8 +63,21 @@ bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
     beginRemoveRows(QModelIndex(), row, row + count - 1);
     for (size_t i = 0; i < static_cast<size_t>(count); i++)
     {
+        //Delete game information
         auto query = base.query("DELETE FROM `games` WHERE id = ?");
         query.bindMany(m_games[row + i].id);
+        query.execute();
+        //Delete developers information
+        query = base.query("DELETE FROM `game_developers` WHERE `game_id` = ?");
+        query.bindMany(m_games[row+i].id);
+        query.execute();
+        //Delete publishers information
+        query = base.query("DELETE FROM `game_publishers` WHERE `game_id` = ?");
+        query.bindMany(m_games[row+i].id);
+        query.execute();
+        //Delete genres information
+        query = base.query("DELETE FROM `game_genres` WHERE `game_id` = ?");
+        query.bindMany(m_games[row+i].id);
         query.execute();
     }
     m_games.erase(i_remove_start, i_remove_end);

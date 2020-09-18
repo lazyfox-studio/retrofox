@@ -30,6 +30,7 @@ namespace Scraper
                        scraper_game.description.c_str(), scraper_game.game_id);
         query.execute();
 
+        //Copy developers
         query = base.query("SELECT * FROM `scraper_cache_developers` WHERE `cache_id` = ?;");
         query.bindMany(scraper_game_id);
         auto developers = Database::Entities::ScraperDeveloper::fetchEntities(query);
@@ -37,6 +38,28 @@ namespace Scraper
         {
             query = base.query("INSERT INTO `game_developers` (game_id, developer_id) VALUES (?,?)");
             query.bindMany(scraper_game.game_id, developer.developer_id);
+            query.execute();
+        }
+
+        //Copy publishers
+        query = base.query("SELECT * FROM `scraper_cache_publishers` WHERE `cache_id` = ?;");
+        query.bindMany(scraper_game_id);
+        auto publishers = Database::Entities::ScraperPublisher::fetchEntities(query);
+        for (auto publisher : publishers)
+        {
+            query = base.query("INSERT INTO `game_publishers` (game_id, publisher_id) VALUES (?,?)");
+            query.bindMany(scraper_game.game_id, publisher.publisher_id);
+            query.execute();
+        }
+
+        //Copy genres
+        query = base.query("SELECT * FROM `scraper_cache_genres` WHERE `cache_id` = ?;");
+        query.bindMany(scraper_game_id);
+        auto genres = Database::Entities::ScraperGenre::fetchEntities(query);
+        for (auto genre : genres)
+        {
+            query = base.query("INSERT INTO `game_genres` (game_id, genre_id) VALUES (?,?)");
+            query.bindMany(scraper_game.game_id, genre.genre_id);
             query.execute();
         }
     }
