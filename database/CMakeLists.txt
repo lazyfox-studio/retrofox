@@ -14,7 +14,13 @@ set(DATABASE_SOURCE_FILES
     database/src/entities/emulator.cpp
     database/src/entities/extensions.cpp
     database/src/entities/game.cpp
+    database/src/entities/gamedeveloper/cpp
+    database/src/entities/gamegenre.cpp
+    database/src/entities/gamepublisher.cpp
     database/src/entities/platform.cpp
+    database/src/entities/scraperdeveloper.cpp
     database/src/entities/scrapergame.cpp
+    database/src/entities/scrapergenre.cpp
+    database/src/entities/scraperpublisher.cpp
     PARENT_SCOPE
     )

@@ -51,6 +51,15 @@
     <ClInclude Include="..\..\database\include\entities\gamepublisher.h">
       <Filter>include\entities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\scraperdeveloper.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\scraperpublisher.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\scrapergenre.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp">
@@ -75,6 +84,24 @@
       <Filter>src\entities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\database\src\entities\extensions.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\gamepulbisher.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\gamegenre.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\scraperdeveloper.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\scraperpublisher.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\scrapergenre.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
   </ItemGroup>
