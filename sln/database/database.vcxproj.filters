@@ -86,9 +86,6 @@
     <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\database\src\entities\gamepulbisher.cpp">
-      <Filter>src\entities</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\database\src\entities\gamegenre.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
@@ -115,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="..\..\database\src\database\statement.cpp">
       <Filter>src\database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\gamepublisher.cpp">
+      <Filter>src\entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

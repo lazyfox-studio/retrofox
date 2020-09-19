@@ -44,7 +44,7 @@
     <ClCompile Include="..\..\database\src\entities\game.cpp" />
     <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp" />
     <ClCompile Include="..\..\database\src\entities\gamegenre.cpp" />
-    <ClCompile Include="..\..\database\src\entities\gamepulbisher.cpp" />
+    <ClCompile Include="..\..\database\src\entities\gamepublisher.cpp" />
     <ClCompile Include="..\..\database\src\entities\platform.cpp" />
     <ClCompile Include="..\..\database\src\entities\scraperdeveloper.cpp" />
     <ClCompile Include="..\..\database\src\entities\scrapergame.cpp" />
