@@ -38,13 +38,13 @@
     <ClInclude Include="..\..\database\include\entities\scraperpublisher.h" />
     <ClInclude Include="..\..\database\include\database\row.h" />
     <ClInclude Include="..\..\database\include\database\statement.h" />
-    <ClInclude Include="..\..\database\src\entities\functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\database\connection.cpp" />
     <ClCompile Include="..\..\database\src\entities\developer.cpp" />
     <ClCompile Include="..\..\database\src\entities\emulator.cpp" />
     <ClCompile Include="..\..\database\src\entities\extension.cpp" />
+    <ClCompile Include="..\..\database\src\entities\functions.cpp" />
     <ClCompile Include="..\..\database\src\entities\game.cpp" />
     <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp" />
     <ClCompile Include="..\..\database\src\entities\gamegenre.cpp" />
