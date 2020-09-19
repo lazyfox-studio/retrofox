@@ -23,6 +23,7 @@
     <ClInclude Include="..\..\database\include\database.h" />
     <ClInclude Include="..\..\database\include\entities\emulator.h" />
     <ClInclude Include="..\..\database\include\entities\extension.h" />
+    <ClInclude Include="..\..\database\include\entities\functions.h" />
     <ClInclude Include="..\..\database\include\entities\game.h" />
     <ClInclude Include="..\..\database\include\entities\gamedeveloper.h" />
     <ClInclude Include="..\..\database\include\entities\gamegenre.h" />
@@ -38,7 +39,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\database\src\connection.cpp" />
     <ClCompile Include="..\..\database\src\entities\emulator.cpp" />
-    <ClCompile Include="..\..\database\src\entities\extensions.cpp" />
+    <ClCompile Include="..\..\database\src\entities\extension.cpp" />
+    <ClCompile Include="..\..\database\src\entities\functions.cpp" />
     <ClCompile Include="..\..\database\src\entities\game.cpp" />
     <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp" />
     <ClCompile Include="..\..\database\src\entities\gamegenre.cpp" />

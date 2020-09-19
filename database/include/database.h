@@ -15,3 +15,5 @@
 #include "entities/scrapergame.h"
 #include "entities/scrapergenre.h"
 #include "entities/scraperpublisher.h"
+
+#include "entities/functions.h"
