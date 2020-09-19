@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     //Setup toolbar
     connect (ui->action_delete, &QAction::triggered, this, &MainWindow::removeRecords);
+    connect (ui->action_edit, &QAction::triggered, this, &MainWindow::editRecord);
     connect (ui->action_new, &QAction::triggered, this, &MainWindow::insertRecord);
 
     //Setup games table
@@ -27,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_games->horizontalHeader()->setStretchLastSection(true);
     ui->table_games->verticalHeader()->setVisible(false);
     ui->table_games->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_games->setSelectionMode(QAbstractItemView::SingleSelection);
     connect(ui->table_games, &QTableView::doubleClicked, this, &MainWindow::editGame);
 
     //Setup platforms table
@@ -35,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_platforms->horizontalHeader()->setStretchLastSection(true);
     ui->table_platforms->verticalHeader()->setVisible(false);
     ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_platforms->setSelectionMode(QAbstractItemView::SingleSelection);
     connect(ui->table_platforms, &QTableView::doubleClicked, this, &MainWindow::editPlatform);
 
     //Setup emulators table
@@ -42,7 +45,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_emulators->setModel(p_emulators_table_model);
     ui->table_emulators->horizontalHeader()->setStretchLastSection(true);
     ui->table_emulators->verticalHeader()->setVisible(false);
-    ui->table_platforms->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_emulators->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_emulators->setSelectionMode(QAbstractItemView::SingleSelection);
     connect(ui->table_emulators, &QTableView::doubleClicked, this, &MainWindow::editEmulator);
 
     //Setup user system language
@@ -56,6 +60,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     connect(ui->action_english, &QAction::triggered, this, &MainWindow::setLanguageEnglish);
     connect(ui->action_russian, &QAction::triggered, this, &MainWindow::setLanguageRussian);
+
+    connect(ui->action_about, &QAction::triggered, this, &MainWindow::showAboutDialog);
 }
 
 MainWindow::~MainWindow()
@@ -116,8 +122,7 @@ void MainWindow::editEmulator(const QModelIndex &index)
 
 void MainWindow::insertRecord()
 {
-    int table_index = ui->tab_viewer->currentIndex();
-    switch (table_index)
+    switch (ui->tab_viewer->currentIndex())
     {
         case 0: ///< Games table
         {
@@ -154,10 +159,37 @@ void MainWindow::insertRecord()
     }
 }
 
+void MainWindow::editRecord()
+{
+    switch (ui->tab_viewer->currentIndex())
+    {
+        case 0: ///< Games table
+            if (!ui->table_games->selectionModel()->hasSelection())
+            {
+                return;
+            }
+            editGame(ui->table_games->selectionModel()->selectedIndexes().first());
+            break;
+        case 1: ///< Platforms table
+            if (!ui->table_platforms->selectionModel()->hasSelection())
+            {
+                return;
+            }
+            editPlatform(ui->table_platforms->selectionModel()->selectedIndexes().first());
+            break;
+        case 2: ///< Emulators table
+            if (!ui->table_emulators->selectionModel()->hasSelection())
+            {
+                return;
+            }
+            editEmulator(ui->table_emulators->selectionModel()->selectedIndexes().first());
+            break;
+    }
+}
+
 void MainWindow::removeRecords()
 {
-    int table_index = ui->tab_viewer->currentIndex();
-    switch (table_index)
+    switch (ui->tab_viewer->currentIndex())
     {
         case 0: ///< Games table
             if (!ui->table_games->selectionModel()->hasSelection())
@@ -181,6 +213,12 @@ void MainWindow::removeRecords()
             p_emulators_table_model->removeRows(ui->table_emulators->selectionModel()->selectedRows().first().row(), 1);
             break;
     }
+}
+
+void MainWindow::showAboutDialog()
+{
+    AboutDialog dialog;
+    dialog.exec();
 }
 
 void MainWindow::setLanguageEnglish()

@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QDebug>
 
+#include "aboutdialog.h"
 #include "emulatorstablemodel.h"
 #include "emulatoreditdialog.h"
 #include "gameeditdialog.h"
@@ -79,7 +80,12 @@ public slots:
     void editEmulator(const QModelIndex& index);
 
     void insertRecord();
+
+    void editRecord();
+
     void removeRecords();
+
+    void showAboutDialog();
 
     /// Translates app into English
     void setLanguageEnglish();

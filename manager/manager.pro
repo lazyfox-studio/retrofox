@@ -49,6 +49,7 @@ LIBS += \
 }
 
 SOURCES += \
+    src/aboutdialog.cpp \
     src/emulatoreditdialog.cpp \
     src/emulatorlistmodel.cpp \
     src/emulatorstablemodel.cpp \
@@ -73,6 +74,7 @@ SOURCES += \
     src/scraper/scanfolder.cpp
 
 HEADERS += \
+    include/aboutdialog.h \
     include/emulatoreditdialog.h \
     include/emulatorlistmodel.h \
     include/emulatorstablemodel.h \
@@ -98,6 +100,7 @@ HEADERS += \
     include/scraper/scanfolder.h
 
 FORMS += \
+    ui/aboutdialog.ui \
     ui/emulatoreditdialog.ui \
     ui/gamesimportwizard/dataprocessingpage.ui \
     ui/gamesimportwizard/finalpage.ui \

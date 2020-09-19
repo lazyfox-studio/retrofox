@@ -125,19 +125,12 @@
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
-     <string>File</string>
+     <string>Import</string>
     </property>
     <addaction name="action_import_games"/>
-   </widget>
-   <widget class="QMenu" name="menuEDit">
-    <property name="title">
-     <string>Edit</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="title">
-     <string>View</string>
-    </property>
+    <addaction name="separator"/>
+    <addaction name="actionImport_emulators"/>
+    <addaction name="action_import_retroarch"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -156,10 +149,9 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="action_about"/>
    </widget>
    <addaction name="menu"/>
-   <addaction name="menuEDit"/>
-   <addaction name="menuView"/>
    <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -175,6 +167,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_new"/>
+   <addaction name="action_edit"/>
    <addaction name="action_delete"/>
   </widget>
   <action name="action_english">
@@ -211,6 +204,30 @@
    </property>
    <property name="text">
     <string>New</string>
+   </property>
+  </action>
+  <action name="action_edit">
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/icons/icons/edit.svg</normaloff>:/icons/icons/edit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </action>
+  <action name="actionImport_emulators">
+   <property name="text">
+    <string>Import emulators</string>
+   </property>
+  </action>
+  <action name="action_import_retroarch">
+   <property name="text">
+    <string>Import RetroArch</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>
