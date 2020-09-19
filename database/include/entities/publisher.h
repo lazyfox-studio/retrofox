@@ -11,7 +11,7 @@ namespace Entities
 {
     struct Publisher
     {
-        long game_id;
+        long id;
         std::string name;
 
         /// Default constructor
