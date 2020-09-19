@@ -20,7 +20,7 @@ addons:
 
 script:
   - cmake CMakeLists.txt
-  - make -Wparentheses
+  - make
   - cd manager
   - qmake manager.pro
-  - make -Wparentheses
+  - make
