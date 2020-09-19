@@ -19,7 +19,7 @@ void GameMenu::showGames(SDL_Renderer* renderer, const std::string& db_path)
 
     auto query = base.query("SELECT * FROM `games`;");
 
-    auto games = Database::Entities::Game::fetchEntities(query);
+    auto games = Entities::fetchEntities<Entities::Game>(query);
     for (const auto& game : games)
     {
         auto button = std::make_shared<GameRunButton>

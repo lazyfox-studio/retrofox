@@ -2,7 +2,7 @@
 
 GameRunButton::GameRunButton(
     SDL_Renderer* renderer,
-    Database::Entities::Game game,
+    Entities::Game game,
     const std::string& path_default,
     const std::string& path_clicked,
     const std::string& path_hovered,
@@ -12,7 +12,7 @@ GameRunButton::GameRunButton(
 
 }
 
-GameRunButton::GameRunButton(SDL_Renderer* renderer, Database::Entities::Game game, const std::string& path_default,
+GameRunButton::GameRunButton(SDL_Renderer* renderer, Entities::Game game, const std::string& path_default,
     const std::string& path_clicked) : LabeledButton(renderer, game.name, path_default, path_clicked), m_game(game)
 {
 
@@ -24,11 +24,11 @@ void GameRunButton::onClick()
 
     auto query = base.query("SELECT * from `platforms` WHERE id = ?;");
     query.bindMany(m_game.platform_id);
-    Database::Entities::Platform platform = Database::Entities::Platform::fetchEntities(query)[0];
+    Entities::Platform platform = Entities::fetchEntities<Entities::Platform>(query)[0];
 
     query = base.query("SELECT * from `emulators` WHERE id = ?");
     query.bindMany(platform.default_emulator_id);
-    Database::Entities::Emulator emulator = Database::Entities::Emulator::fetchEntities(query)[0];
+    Entities::Emulator emulator = Entities::fetchEntities<Entities::Emulator>(query)[0];
 
     std::string command;
     command += emulator.emulator_path + ' ' + emulator.execution_parameters;

@@ -10,19 +10,19 @@
 class GameRunButton : public Interface::LabeledButton
 {
 protected:
-    Database::Entities::Game m_game;
+    Entities::Game m_game;
 
 public:
     GameRunButton(
         SDL_Renderer* renderer,
-        Database::Entities::Game game,
+        Entities::Game game,
         const std::string& path_default,
         const std::string& path_clicked,
         const std::string& path_hovered,
         const std::string& path_disabled
     );
 
-    GameRunButton(SDL_Renderer* renderer, Database::Entities::Game game, const std::string& path_default,
+    GameRunButton(SDL_Renderer* renderer, Entities::Game game, const std::string& path_default,
         const std::string& path_clicked);
 
     ~GameRunButton() = default;
