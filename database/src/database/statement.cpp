@@ -51,6 +51,16 @@ namespace Database
         throw std::runtime_error("SQL Error, check db connection");
     }
 
+    const char* Statement::sql() const
+    {
+        return sqlite3_sql(p_stmt_handler);
+    }
+
+    const char* Statement::expandedSql() const
+    {
+        return sqlite3_expanded_sql(p_stmt_handler);
+    }
+
     int Statement::columnCount() const
     {
         return sqlite3_column_count(p_stmt_handler);

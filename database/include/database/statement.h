@@ -91,6 +91,19 @@ namespace Database
         
 
         /**
+         * @brief Returns UTF-8 SQL text string used to create statement
+         * @return SQL text for prepare this statement
+         */
+        const char* sql() const;
+
+        /**
+         * @brief Returns UTF-8 SQL text query string (with bound parameters)
+         * @return SQL text for actual query
+         */
+        const char* expandedSql() const;
+
+
+        /**
          * @brief Returns number of columns
          * @return Number of columns
          */
