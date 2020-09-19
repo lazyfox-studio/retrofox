@@ -14,7 +14,7 @@ EmulatorEditDialog::~EmulatorEditDialog()
     delete ui;
 }
 
-void EmulatorEditDialog::load(const Database::Entities::Emulator &emulator)
+void EmulatorEditDialog::load(const Entities::Emulator &emulator)
 {
     m_emulator = emulator;
     ui->edit_name->setText(m_emulator.name.c_str());
@@ -23,7 +23,7 @@ void EmulatorEditDialog::load(const Database::Entities::Emulator &emulator)
     ui->edit_execution_parameters->setText(m_emulator.execution_parameters.c_str());
 }
 
-Database::Entities::Emulator EmulatorEditDialog::resultEmulator()
+Entities::Emulator EmulatorEditDialog::resultEmulator()
 {
     auto result = m_emulator;
     result.name = ui->edit_name->text().toStdString();

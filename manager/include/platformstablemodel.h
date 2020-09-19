@@ -23,21 +23,21 @@ class PlatformsTableModel : public QAbstractTableModel
         Emulator
     };
 
-    std::vector<Database::Entities::Platform> m_platforms;
+    std::vector<Entities::Platform> m_platforms;
 
 public:
     explicit PlatformsTableModel(QObject *parent = nullptr);
     ~PlatformsTableModel();
 
-    Database::Entities::Platform platform(const QModelIndex &index);
-    std::vector<Database::Entities::Extension> extensions(const QModelIndex& index);
+    Entities::Platform platform(const QModelIndex &index);
+    std::vector<Entities::Extension> extensions(const QModelIndex& index);
 
-    void updatePlatform(Database::Entities::Platform platform);
-    void updateExtensions(const std::vector<Database::Entities::Extension>& extensions, long platform_id);
+    void updatePlatform(Entities::Platform platform);
+    void updateExtensions(const std::vector<Entities::Extension>& extensions, long platform_id);
 
     void updateRow(const QModelIndex &index);
 
-    bool insertRow(const Database::Entities::Platform& platform);
+    bool insertRow(const Entities::Platform& platform);
 
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 

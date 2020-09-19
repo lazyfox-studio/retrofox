@@ -4,7 +4,7 @@ EmulatorsTableModel::EmulatorsTableModel(QObject *parent) : QAbstractTableModel(
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `emulators`");
-    m_emulators = Database::Entities::fetchEntities<Database::Entities::Emulator>(query);
+    m_emulators = Entities::fetchEntities<Entities::Emulator>(query);
 }
 
 EmulatorsTableModel::~EmulatorsTableModel()
@@ -12,12 +12,12 @@ EmulatorsTableModel::~EmulatorsTableModel()
 
 }
 
-Database::Entities::Emulator EmulatorsTableModel::emulator(const QModelIndex &index)
+Entities::Emulator EmulatorsTableModel::emulator(const QModelIndex &index)
 {
     return m_emulators[index.row()];
 }
 
-void EmulatorsTableModel::updateEmulator(Database::Entities::Emulator emulator)
+void EmulatorsTableModel::updateEmulator(Entities::Emulator emulator)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `emulators` SET name = ?, platform_id = ?, emulator_path = ?, execution_parameters = ? WHERE id = ?");
@@ -31,11 +31,11 @@ void EmulatorsTableModel::updateRow(const QModelIndex &index)
     auto query = base.query("SELECT * FROM `emulators` WHERE id = ?");
     query.bindMany(m_emulators[index.row()].id);
 
-    Database::Entities::Emulator emulator(query.fetchRow());
+    Entities::Emulator emulator(query.fetchRow());
     m_emulators[index.row()] = emulator;
 }
 
-bool EmulatorsTableModel::insertRow(const Database::Entities::Emulator &emulator)
+bool EmulatorsTableModel::insertRow(const Entities::Emulator &emulator)
 {
     beginInsertRows(QModelIndex(), static_cast<int>(m_emulators.size()), static_cast<int>(m_emulators.size()));
     auto base = Database::Connection("../sln/core/testbase.db");

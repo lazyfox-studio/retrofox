@@ -23,7 +23,7 @@ namespace Scraper
 
         query = base.query("SELECT * FROM `scraper_cache_games` WHERE `id` = ?;");
         query.bind(1, scraper_game_id);
-        Database::Entities::ScraperGame scraper_game(query.fetchRow());
+        Entities::ScraperGame scraper_game(query.fetchRow());
 
         query = base.query("UPDATE `games` SET `name` = ?, `release_date` = ?, `rating` = ?, `description` = ? WHERE `id` = ?;");
         query.bindMany(scraper_game.name.c_str(), scraper_game.release_date.c_str(), scraper_game.rating.c_str(),
@@ -33,7 +33,7 @@ namespace Scraper
         //Copy developers
         query = base.query("SELECT * FROM `scraper_cache_developers` WHERE `cache_id` = ?;");
         query.bindMany(scraper_game_id);
-        auto developers = Database::Entities::fetchEntities<Database::Entities::ScraperDeveloper>(query);
+        auto developers = Entities::fetchEntities<Entities::ScraperDeveloper>(query);
         for (auto developer : developers)
         {
             query = base.query("INSERT INTO `game_developers` (game_id, developer_id) VALUES (?,?)");
@@ -44,7 +44,7 @@ namespace Scraper
         //Copy publishers
         query = base.query("SELECT * FROM `scraper_cache_publishers` WHERE `cache_id` = ?;");
         query.bindMany(scraper_game_id);
-        auto publishers = Database::Entities::fetchEntities<Database::Entities::ScraperPublisher>(query);
+        auto publishers = Entities::fetchEntities<Entities::ScraperPublisher>(query);
         for (auto publisher : publishers)
         {
             query = base.query("INSERT INTO `game_publishers` (game_id, publisher_id) VALUES (?,?)");
@@ -55,7 +55,7 @@ namespace Scraper
         //Copy genres
         query = base.query("SELECT * FROM `scraper_cache_genres` WHERE `cache_id` = ?;");
         query.bindMany(scraper_game_id);
-        auto genres = Database::Entities::fetchEntities<Database::Entities::ScraperGenre>(query);
+        auto genres = Entities::fetchEntities<Entities::ScraperGenre>(query);
         for (auto genre : genres)
         {
             query = base.query("INSERT INTO `game_genres` (game_id, genre_id) VALUES (?,?)");

@@ -24,18 +24,18 @@ class GameEditDialog : public QDialog
 protected:
     PlatformListModel* p_platform_list_model;
 
-    Database::Entities::Game m_game;
+    Entities::Game m_game;
 
 public:
     explicit GameEditDialog(QWidget *parent = nullptr);
     ~GameEditDialog();
 
-    void load(Database::Entities::Game game,
-              std::vector<Database::Entities::GameDeveloper> developers,
-              std::vector<Database::Entities::GamePublisher> publishers,
-              std::vector<Database::Entities::GameGenre> genres
+    void load(Entities::Game game,
+              std::vector<Entities::GameDeveloper> developers,
+              std::vector<Entities::GamePublisher> publishers,
+              std::vector<Entities::GameGenre> genres
               );
-    Database::Entities::Game resultGame();
+    Entities::Game resultGame();
 
 private:
     Ui::GameEditDialog *ui;

@@ -4,7 +4,7 @@ PlatformsTableModel::PlatformsTableModel(QObject *parent) : QAbstractTableModel(
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `platforms`");
-    m_platforms = Database::Entities::fetchEntities<Database::Entities::Platform>(query);
+    m_platforms = Entities::fetchEntities<Entities::Platform>(query);
 }
 
 PlatformsTableModel::~PlatformsTableModel()
@@ -12,20 +12,20 @@ PlatformsTableModel::~PlatformsTableModel()
 
 }
 
-Database::Entities::Platform PlatformsTableModel::platform(const QModelIndex &index)
+Entities::Platform PlatformsTableModel::platform(const QModelIndex &index)
 {
     return m_platforms[index.row()];
 }
 
-std::vector<Database::Entities::Extension> PlatformsTableModel::extensions(const QModelIndex &index)
+std::vector<Entities::Extension> PlatformsTableModel::extensions(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `extensions` WHERE `platform_id` = ?");
     query.bindMany(m_platforms[index.row()].id);
-    return Database::Entities::fetchEntities<Database::Entities::Extension>(query);
+    return Entities::fetchEntities<Entities::Extension>(query);
 }
 
-void PlatformsTableModel::updatePlatform(Database::Entities::Platform platform)
+void PlatformsTableModel::updatePlatform(Entities::Platform platform)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `platforms` SET name = ?, `default_emulator_id` = ? WHERE id = ?");
@@ -33,7 +33,7 @@ void PlatformsTableModel::updatePlatform(Database::Entities::Platform platform)
     query.execute();
 }
 
-void PlatformsTableModel::updateExtensions(const std::vector<Database::Entities::Extension> &extensions, long platform_id)
+void PlatformsTableModel::updateExtensions(const std::vector<Entities::Extension> &extensions, long platform_id)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
 
@@ -55,11 +55,11 @@ void PlatformsTableModel::updateRow(const QModelIndex &index)
     auto query = base.query("SELECT * FROM `platforms` WHERE id = ?");
     query.bindMany(m_platforms[index.row()].id);
 
-    Database::Entities::Platform platform(query.fetchRow());
+    Entities::Platform platform(query.fetchRow());
     m_platforms[index.row()] = platform;
 }
 
-bool PlatformsTableModel::insertRow(const Database::Entities::Platform &platform)
+bool PlatformsTableModel::insertRow(const Entities::Platform &platform)
 {
     beginInsertRows(QModelIndex(), static_cast<int>(m_platforms.size()), static_cast<int>(m_platforms.size()));
     auto base = Database::Connection("../sln/core/testbase.db");

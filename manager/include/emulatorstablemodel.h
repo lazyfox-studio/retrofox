@@ -22,19 +22,19 @@ class EmulatorsTableModel : public QAbstractTableModel
         Name
     };
 
-    std::vector<Database::Entities::Emulator> m_emulators;
+    std::vector<Entities::Emulator> m_emulators;
 
 public:
     explicit EmulatorsTableModel(QObject *parent = nullptr);
     ~EmulatorsTableModel();
 
-    Database::Entities::Emulator emulator(const QModelIndex &index);
+    Entities::Emulator emulator(const QModelIndex &index);
 
-    void updateEmulator(Database::Entities::Emulator emulator);
+    void updateEmulator(Entities::Emulator emulator);
 
     void updateRow(const QModelIndex &index);
 
-    bool insertRow(const Database::Entities::Emulator& emulator);
+    bool insertRow(const Entities::Emulator& emulator);
 
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 

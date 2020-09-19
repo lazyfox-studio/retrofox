@@ -12,7 +12,7 @@ namespace GamesImportWizard
 
     }
 
-    Database::Entities::ScraperGame ScraperTableModel::game(const QModelIndex &index)
+    Entities::ScraperGame ScraperTableModel::game(const QModelIndex &index)
     {
         return games[index.row()];
     }
@@ -22,10 +22,10 @@ namespace GamesImportWizard
         auto base = Database::Connection(path_to_db);
         auto query = base.query("SELECT * FROM `scraper_cache_games` WHERE `game_id` = ?");
         query.bindMany(game_id);
-        games = Database::Entities::fetchEntities<Database::Entities::ScraperGame>(query);
+        games = Entities::fetchEntities<Entities::ScraperGame>(query);
     }
 
-    Database::Entities::ScraperGame ScraperTableModel::game(QModelIndex &index)
+    Entities::ScraperGame ScraperTableModel::game(QModelIndex &index)
     {
         return games[index.row()];
     }

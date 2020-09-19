@@ -7,13 +7,13 @@
 class PlatformListModel : public QAbstractListModel
 {
 protected:
-    std::vector<Database::Entities::Platform> platforms;
+    std::vector<Entities::Platform> platforms;
 
 public:
     explicit PlatformListModel(QObject *parent = nullptr);
     ~PlatformListModel();
 
-    Database::Entities::Platform platform(int index);
+    Entities::Platform platform(int index);
     int findPlatformIndex(long platform_id);
 
 protected:
