@@ -4,7 +4,7 @@ namespace Entities
 {
     std::vector<Developer> findDevelopers(std::vector<GameDeveloper> game_developers, std::string path_to_db)
     {
-        std::vector<Developer> result(game_developers.size());
+        std::vector<Developer> result;
         auto base = Database::Connection(path_to_db);
         for (auto game_developer : game_developers)
         {
@@ -16,7 +16,7 @@ namespace Entities
     }
     std::vector<Genre> findGenres(std::vector<GameGenre> game_genres, std::string path_to_db)
     {
-        std::vector<Genre> result(game_genres.size());
+        std::vector<Genre> result;
         auto base = Database::Connection(path_to_db);
         for (auto game_genre : game_genres)
         {
@@ -28,7 +28,7 @@ namespace Entities
     }
     std::vector<Publisher> findPublishers(std::vector<GamePublisher> game_publishers, std::string path_to_db)
     {
-        std::vector<Publisher> result(game_publishers.size());
+        std::vector<Publisher> result;
         auto base = Database::Connection(path_to_db);
         for (auto game_publisher : game_publishers)
         {

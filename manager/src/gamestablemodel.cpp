@@ -17,28 +17,28 @@ Entities::Game GamesTableModel::game(const QModelIndex &index)
     return m_games[index.row()];
 }
 
-std::vector<Entities::GameDeveloper> GamesTableModel::developers(const QModelIndex &index)
+std::vector<Entities::Developer> GamesTableModel::developers(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `game_developers` WHERE `game_id` = ?");
     query.bindMany(m_games[index.row()].id);
-    return Entities::fetchEntities<Entities::GameDeveloper>(query);
+    return Entities::findDevelopers(Entities::fetchEntities<Entities::GameDeveloper>(query), "../sln/core/testbase.db");
 }
 
-std::vector<Entities::GamePublisher> GamesTableModel::publishers(const QModelIndex &index)
+std::vector<Entities::Publisher> GamesTableModel::publishers(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `game_publishers` WHERE `game_id` = ?");
     query.bindMany(m_games[index.row()].id);
-    return Entities::fetchEntities<Entities::GamePublisher>(query);
+    return Entities::findPublishers(Entities::fetchEntities<Entities::GamePublisher>(query), "../sln/core/testbase.db");
 }
 
-std::vector<Entities::GameGenre> GamesTableModel::genres(const QModelIndex &index)
+std::vector<Entities::Genre> GamesTableModel::genres(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `game_genres` WHERE `game_id` = ?");
     query.bindMany(m_games[index.row()].id);
-    return Entities::fetchEntities<Entities::GameGenre>(query);
+    return Entities::findGenres(Entities::fetchEntities<Entities::GameGenre>(query),"../sln/core/testbase.db");
 }
 
 void GamesTableModel::updateGame(Entities::Game game)

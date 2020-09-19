@@ -31,9 +31,9 @@ public:
     ~GameEditDialog();
 
     void load(Entities::Game game,
-              std::vector<Entities::GameDeveloper> developers,
-              std::vector<Entities::GamePublisher> publishers,
-              std::vector<Entities::GameGenre> genres
+              std::vector<Entities::Developer> developers,
+              std::vector<Entities::Publisher> publishers,
+              std::vector<Entities::Genre> genres
               );
     Entities::Game resultGame();
 

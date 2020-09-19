@@ -31,11 +31,11 @@ public:
 
     Entities::Game game(const QModelIndex &index);
 
-    std::vector<Entities::GameDeveloper> developers(const QModelIndex& index);
+    std::vector<Entities::Developer> developers(const QModelIndex& index);
 
-    std::vector<Entities::GamePublisher> publishers(const QModelIndex& index);
+    std::vector<Entities::Publisher> publishers(const QModelIndex& index);
 
-    std::vector<Entities::GameGenre> genres(const QModelIndex& index);
+    std::vector<Entities::Genre> genres(const QModelIndex& index);
 
     void updateGame(Entities::Game game);
 
