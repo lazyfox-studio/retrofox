@@ -4,45 +4,42 @@
 #include <vector>
 #include <map>
 
-#include "row.h"
-#include "statement.h"
+#include "database/row.h"
+#include "database/statement.h"
 
-namespace Database
+namespace Entities
 {
-    namespace Entities
+    struct GameDeveloper
     {
-        struct GameDeveloper
-        {
-            long game_id;
-            long developer_id;
+        long game_id;
+        long developer_id;
 
-            /// Default constructor
-            GameDeveloper();
+        /// Default constructor
+        GameDeveloper();
 
-            /// Copy constructor
-            GameDeveloper(const GameDeveloper&) = default;
+        /// Copy constructor
+        GameDeveloper(const GameDeveloper&) = default;
 
-            /// Move constructor
-            GameDeveloper(GameDeveloper&&) = default;
+        /// Move constructor
+        GameDeveloper(GameDeveloper&&) = default;
 
-            /// Copy-assignment operator
-            GameDeveloper& operator=(const GameDeveloper&) = default;
+        /// Copy-assignment operator
+        GameDeveloper& operator=(const GameDeveloper&) = default;
 
-            /// Move-assignment operator
-            GameDeveloper& operator=(GameDeveloper&&) = default;
+        /// Move-assignment operator
+        GameDeveloper& operator=(GameDeveloper&&) = default;
 
-            /**
-             * @brief Typecast constructor
-             * @param row Row with game info
-             */
-            GameDeveloper(const Database::Row& row);
+        /**
+            * @brief Typecast constructor
+            * @param row Row with game info
+            */
+        GameDeveloper(const Database::Row& row);
 
-            /**
-             * @brief Fetches all rows and extracts entities info from them into vector
-             * @param stmt Statement with SELECT query
-             * @return Vector of entities
-             */
-            static std::vector<GameDeveloper> fetchEntities(Database::Statement& stmt);
-        };
-    }
+        /**
+            * @brief Fetches all rows and extracts entities info from them into vector
+            * @param stmt Statement with SELECT query
+            * @return Vector of entities
+            */
+        static std::vector<GameDeveloper> fetchEntities(Database::Statement& stmt);
+    };
 }

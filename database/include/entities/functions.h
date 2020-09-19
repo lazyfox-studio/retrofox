@@ -1,20 +1,17 @@
 #pragma once
 
-#include "row.h"
-#include "statement.h"
+#include "database/row.h"
+#include "database/statement.h"
 
-namespace Database
+namespace Entities
 {
-    namespace Entities
+    template<typename EntityType>
+    std::vector<EntityType> fetchEntities(Database::Statement& stmt)
     {
-        template<typename EntityType>
-        std::vector<EntityType> fetchEntities(Database::Statement& stmt)
-        {
-            std::vector<EntityType> entities;
-            Database::Row row;
-            while (row = stmt.fetchRow())
-                entities.emplace_back(row);
-            return entities;
-        }
+        std::vector<EntityType> entities;
+        Database::Row row;
+        while (row = stmt.fetchRow())
+            entities.emplace_back(row);
+        return entities;
     }
 }
