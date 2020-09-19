@@ -5,7 +5,7 @@ PlatformListModel::PlatformListModel(QObject *parent) : QAbstractListModel(paren
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM platforms");
-    platforms = Database::Entities::Platform::fetchEntities(query);
+    platforms = Database::Entities::fetchEntities<Database::Entities::Platform>(query);
 }
 
 PlatformListModel::~PlatformListModel()

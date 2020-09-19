@@ -4,7 +4,7 @@ PlatformsTableModel::PlatformsTableModel(QObject *parent) : QAbstractTableModel(
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `platforms`");
-    m_platforms = Database::Entities::Platform::fetchEntities(query);
+    m_platforms = Database::Entities::fetchEntities<Database::Entities::Platform>(query);
 }
 
 PlatformsTableModel::~PlatformsTableModel()
@@ -22,7 +22,7 @@ std::vector<Database::Entities::Extension> PlatformsTableModel::extensions(const
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `extensions` WHERE `platform_id` = ?");
     query.bindMany(m_platforms[index.row()].id);
-    return Database::Entities::Extension::fetchEntities(query);
+    return Database::Entities::fetchEntities<Database::Entities::Extension>(query);
 }
 
 void PlatformsTableModel::updatePlatform(Database::Entities::Platform platform)

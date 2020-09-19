@@ -4,7 +4,7 @@ GamesTableModel::GamesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games`");
-    m_games = Database::Entities::Game::fetchEntities(query);
+    m_games = Database::Entities::fetchEntities<Database::Entities::Game>(query);
 }
 
 GamesTableModel::~GamesTableModel()
@@ -22,7 +22,7 @@ std::vector<Database::Entities::GameDeveloper> GamesTableModel::developers(const
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `game_developers` WHERE `game_id` = ?");
     query.bindMany(m_games[index.row()].id);
-    return Database::Entities::GameDeveloper::fetchEntities(query);
+    return Database::Entities::fetchEntities<Database::Entities::GameDeveloper>(query);
 }
 
 std::vector<Database::Entities::GamePublisher> GamesTableModel::publishers(const QModelIndex &index)
@@ -30,7 +30,7 @@ std::vector<Database::Entities::GamePublisher> GamesTableModel::publishers(const
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `game_publishers` WHERE `game_id` = ?");
     query.bindMany(m_games[index.row()].id);
-    return Database::Entities::GamePublisher::fetchEntities(query);
+    return Database::Entities::fetchEntities<Database::Entities::GamePublisher>(query);
 }
 
 std::vector<Database::Entities::GameGenre> GamesTableModel::genres(const QModelIndex &index)
@@ -38,7 +38,7 @@ std::vector<Database::Entities::GameGenre> GamesTableModel::genres(const QModelI
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `game_genres` WHERE `game_id` = ?");
     query.bindMany(m_games[index.row()].id);
-    return Database::Entities::GameGenre::fetchEntities(query);
+    return Database::Entities::fetchEntities<Database::Entities::GameGenre>(query);
 }
 
 void GamesTableModel::updateGame(Database::Entities::Game game)
@@ -87,19 +87,19 @@ bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
     beginRemoveRows(QModelIndex(), row, row + count - 1);
     for (size_t i = 0; i < static_cast<size_t>(count); i++)
     {
-        //Delete game information
+        // Delete game information
         auto query = base.query("DELETE FROM `games` WHERE id = ?");
         query.bindMany(m_games[row + i].id);
         query.execute();
-        //Delete developers information
+        // Delete developers information
         query = base.query("DELETE FROM `game_developers` WHERE `game_id` = ?");
         query.bindMany(m_games[row+i].id);
         query.execute();
-        //Delete publishers information
+        // Delete publishers information
         query = base.query("DELETE FROM `game_publishers` WHERE `game_id` = ?");
         query.bindMany(m_games[row+i].id);
         query.execute();
-        //Delete genres information
+        // Delete genres information
         query = base.query("DELETE FROM `game_genres` WHERE `game_id` = ?");
         query.bindMany(m_games[row+i].id);
         query.execute();

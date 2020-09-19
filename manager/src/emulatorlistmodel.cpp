@@ -4,7 +4,7 @@ EmulatorListModel::EmulatorListModel(QObject *parent) : QAbstractListModel(paren
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM emulators");
-    emulators = Database::Entities::Emulator::fetchEntities(query);
+    emulators = Database::Entities::fetchEntities<Database::Entities::Emulator>(query);
 }
 
 EmulatorListModel::~EmulatorListModel()
