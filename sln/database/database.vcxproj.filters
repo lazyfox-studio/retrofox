@@ -69,6 +69,18 @@
     <ClInclude Include="..\..\database\include\database\statement.h">
       <Filter>include\database</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\genre.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\publisher.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\developer.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\src\entities\functions.cpp">
+      <Filter>src\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\database\src\entities\game.cpp">
@@ -98,9 +110,6 @@
     <ClCompile Include="..\..\database\src\entities\scrapergenre.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\database\src\entities\functions.cpp">
-      <Filter>src\entities</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\database\src\entities\extension.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
@@ -114,6 +123,15 @@
       <Filter>src\database</Filter>
     </ClCompile>
     <ClCompile Include="..\..\database\src\entities\gamepublisher.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\developer.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\genre.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\publisher.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
   </ItemGroup>
