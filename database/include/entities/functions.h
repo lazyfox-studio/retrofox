@@ -31,7 +31,7 @@ namespace Entities
 
     std::vector<Developer> findDevelopers(std::vector<GameDeveloper> game_developers, std::string path_to_db);
 
-    std::vector<Genre> findGenres(std::vector<GameDeveloper> game_genres, std::string path_to_db);
+    std::vector<Genre> findGenres(std::vector<GameGenre> game_genres, std::string path_to_db);
 
-    std::vector<Publisher> findPublishers(std::vector<GameDeveloper> game_publishers, std::string path_to_db);
+    std::vector<Publisher> findPublishers(std::vector<GamePublisher> game_publishers, std::string path_to_db);
 }
