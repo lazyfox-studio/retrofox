@@ -9,7 +9,7 @@ namespace Entities
 
     Genre::Genre(const Database::Row& row)
     {
-        game_id = row.column<long>("game_id");
+        game_id = row.column<long>("id");
         name = row.column<long>("name");
     }
 }
