@@ -8,9 +8,9 @@ set(DATABASE_INCLUDE_DIRS
     PARENT_SCOPE)
 
 set(DATABASE_SOURCE_FILES
-    database/src/connection.cpp
-    database/src/row.cpp
-    database/src/statement.cpp
+    database/src/database/connection.cpp
+    database/src/database/row.cpp
+    database/src/database/statement.cpp
     database/src/entities/emulator.cpp
     database/src/entities/extension.cpp
     database/src/entities/game.cpp
