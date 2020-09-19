@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\database\include\connection.h">
+    <ClInclude Include="..\..\database\include\database\connection.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\database\include\statement.h">
+    <ClInclude Include="..\..\database\include\database\statement.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\database\include\database.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\database\include\row.h">
+    <ClInclude Include="..\..\database\include\database\row.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\database\include\entities\game.h">
@@ -65,13 +65,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\database\src\connection.cpp">
+    <ClCompile Include="..\..\database\src\database\connection.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\database\src\statement.cpp">
+    <ClCompile Include="..\..\database\src\database\statement.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\database\src\row.cpp">
+    <ClCompile Include="..\..\database\src\database\row.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\database\src\entities\game.cpp">
