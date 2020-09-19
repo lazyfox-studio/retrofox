@@ -14,7 +14,7 @@ set(DATABASE_SOURCE_FILES
     database/src/entities/emulator.cpp
     database/src/entities/extensions.cpp
     database/src/entities/game.cpp
-    database/src/entities/gamedeveloper/cpp
+    database/src/entities/gamedeveloper.cpp
     database/src/entities/gamegenre.cpp
     database/src/entities/gamepublisher.cpp
     database/src/entities/platform.cpp
