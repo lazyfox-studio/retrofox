@@ -17,13 +17,4 @@ namespace Entities
         rating = row.column<std::string>("rating");
         description = row.column<std::string>("description");
     }
-
-    std::vector<ScraperGame> ScraperGame::fetchEntities(Database::Statement& stmt)
-    {
-        std::vector<ScraperGame> entities;
-        Database::Row row;
-        while (row = stmt.fetchRow())
-            entities.emplace_back(ScraperGame(row));
-        return entities;
-    }
 }

@@ -12,13 +12,4 @@ namespace Entities
         platform_id = row.column<long>("platform_id");
         extension = row.column<std::string>("extension");
     }
-
-    std::vector<Extension> Extension::fetchEntities(Database::Statement& stmt)
-    {
-        std::vector<Extension> entities;
-        Database::Row row;
-        while (row = stmt.fetchRow())
-            entities.emplace_back(row);
-        return entities;
-    }
 }

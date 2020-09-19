@@ -34,12 +34,5 @@ namespace Entities
             * @param row Row with game info
             */
         GameDeveloper(const Database::Row& row);
-
-        /**
-            * @brief Fetches all rows and extracts entities info from them into vector
-            * @param stmt Statement with SELECT query
-            * @return Vector of entities
-            */
-        static std::vector<GameDeveloper> fetchEntities(Database::Statement& stmt);
     };
 }

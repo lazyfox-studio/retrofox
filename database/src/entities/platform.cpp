@@ -14,13 +14,4 @@ namespace Entities
         name = row.column<std::string>("name");
         default_emulator_id = row.column<unsigned>("default_emulator_id");
     }
-
-    std::vector<Platform> Platform::fetchEntities(Database::Statement& stmt)
-    {
-        std::vector<Platform> entities;
-        Database::Row row;
-        while (row = stmt.fetchRow())
-            entities.emplace_back(row);
-        return entities;
-    }
 }

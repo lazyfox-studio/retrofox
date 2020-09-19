@@ -13,13 +13,4 @@ namespace Entities
         cache_id = row.column<long>("cache_id");
         publisher_id = row.column<long>("publisher_id");
     }
-
-    std::vector<ScraperPublisher> ScraperPublisher::fetchEntities(Database::Statement& stmt)
-    {
-        std::vector<ScraperPublisher> entities;
-        Database::Row row;
-        while (row = stmt.fetchRow())
-            entities.emplace_back(row);
-        return entities;
-    }
 }

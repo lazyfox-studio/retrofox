@@ -16,13 +16,4 @@ namespace Entities
         emulator_path = row.column<std::string>("emulator_path");
         execution_parameters = row.column<std::string>("execution_parameters");
     }
-
-    std::vector<Emulator> Emulator::fetchEntities(Database::Statement& stmt)
-    {
-        std::vector<Emulator> entities;
-        Database::Row row;
-        while (row = stmt.fetchRow())
-            entities.emplace_back(row);
-        return entities;
-    }
 }

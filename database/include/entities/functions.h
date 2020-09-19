@@ -5,6 +5,11 @@
 
 namespace Entities
 {
+    /**
+     * @brief Fetches all rows and extracts entities data from them into vector
+     * @param stmt Statement with SELECT query
+     * @return Vector with entities of EntityType
+     */
     template<typename EntityType>
     std::vector<EntityType> fetchEntities(Database::Statement& stmt)
     {

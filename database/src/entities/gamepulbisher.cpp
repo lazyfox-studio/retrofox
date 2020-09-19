@@ -13,13 +13,4 @@ namespace Entities
         game_id = row.column<long>("game_id");
         publisher_id = row.column<long>("publisher_id");
     }
-
-    std::vector<GamePublisher> GamePublisher::fetchEntities(Database::Statement& stmt)
-    {
-        std::vector<GamePublisher> entities;
-        Database::Row row;
-        while (row = stmt.fetchRow())
-            entities.emplace_back(row);
-        return entities;
-    }
 }
