@@ -171,11 +171,19 @@
    <addaction name="action_delete"/>
   </widget>
   <action name="action_english">
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/icons/countries/united_kingdom.svg</normaloff>:/icons/countries/united_kingdom.svg</iconset>
+   </property>
    <property name="text">
     <string>English</string>
    </property>
   </action>
   <action name="action_russian">
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/icons/countries/russia.svg</normaloff>:/icons/countries/russia.svg</iconset>
+   </property>
    <property name="text">
     <string>Русский</string>
    </property>
@@ -188,7 +196,7 @@
   <action name="action_delete">
    <property name="icon">
     <iconset resource="../resources/resources.qrc">
-     <normaloff>:/icons/icons/delete.svg</normaloff>:/icons/icons/delete.svg</iconset>
+     <normaloff>:/icons/delete.svg</normaloff>:/icons/delete.svg</iconset>
    </property>
    <property name="text">
     <string>Delete</string>
@@ -200,7 +208,7 @@
   <action name="action_new">
    <property name="icon">
     <iconset resource="../resources/resources.qrc">
-     <normaloff>:/icons/icons/new.svg</normaloff>:/icons/icons/new.svg</iconset>
+     <normaloff>:/icons/new.svg</normaloff>:/icons/new.svg</iconset>
    </property>
    <property name="text">
     <string>New</string>
@@ -209,7 +217,7 @@
   <action name="action_edit">
    <property name="icon">
     <iconset resource="../resources/resources.qrc">
-     <normaloff>:/icons/icons/edit.svg</normaloff>:/icons/icons/edit.svg</iconset>
+     <normaloff>:/icons/edit.svg</normaloff>:/icons/edit.svg</iconset>
    </property>
    <property name="text">
     <string>Edit</string>
