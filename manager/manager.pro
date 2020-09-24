@@ -50,6 +50,7 @@ LIBS += \
 
 SOURCES += \
     src/aboutdialog.cpp \
+    src/additionalentities/extendedplatform.cpp \
     src/emulatoreditdialog.cpp \
     src/emulatorlistmodel.cpp \
     src/emulatorstablemodel.cpp \
@@ -75,6 +76,7 @@ SOURCES += \
 
 HEADERS += \
     include/aboutdialog.h \
+    include/additionalentities/extendedplatform.h \
     include/emulatoreditdialog.h \
     include/emulatorlistmodel.h \
     include/emulatorstablemodel.h \

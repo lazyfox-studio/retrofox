@@ -8,6 +8,8 @@
 
 #include <database.h>
 
+#include "additionalentities/extendedplatform.h"
+
 /**
  * @ingroup manager
  * @brief The GamesTableModel class
@@ -23,7 +25,7 @@ class PlatformsTableModel : public QAbstractTableModel
         Emulator
     };
 
-    std::vector<Entities::Platform> m_platforms;
+    std::vector<AdditionalEntities::ExtendedPlatform> m_platforms;
 
 public:
     explicit PlatformsTableModel(QObject *parent = nullptr);

@@ -3,8 +3,9 @@
 PlatformsTableModel::PlatformsTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("SELECT * FROM `platforms`");
-    m_platforms = Entities::fetchEntities<Entities::Platform>(query);
+    auto query = base.query(AdditionalEntities::ExtendedPlatform::queryString());
+    m_platforms = Entities::fetchEntities<AdditionalEntities::ExtendedPlatform>(query);
+
 }
 
 PlatformsTableModel::~PlatformsTableModel()
@@ -14,7 +15,7 @@ PlatformsTableModel::~PlatformsTableModel()
 
 Entities::Platform PlatformsTableModel::platform(const QModelIndex &index)
 {
-    return m_platforms[index.row()];
+    return m_platforms[index.row()].toPlatform();
 }
 
 std::vector<Entities::Extension> PlatformsTableModel::extensions(const QModelIndex &index)
@@ -52,10 +53,10 @@ void PlatformsTableModel::updateExtensions(const std::vector<Entities::Extension
 void PlatformsTableModel::updateRow(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("SELECT * FROM `platforms` WHERE id = ?");
+    auto query = base.query(AdditionalEntities::ExtendedPlatform::queryStringWithUnbindedId());
     query.bindMany(m_platforms[index.row()].id);
 
-    Entities::Platform platform(query.fetchRow());
+   AdditionalEntities::ExtendedPlatform platform(query.fetchRow());
     m_platforms[index.row()] = platform;
 }
 
@@ -66,7 +67,8 @@ bool PlatformsTableModel::insertRow(const Entities::Platform &platform)
     auto query = base.query("INSERT INTO `platforms` (name, default_emulator_id) VALUES (?, ?);");
     query.bindMany(platform.name.c_str(), platform.default_emulator_id);
     query.execute();
-    m_platforms.push_back(platform);
+    query = base.query(AdditionalEntities::ExtendedPlatform::queryString()); //TODO: Updae only one row
+    m_platforms = Entities::fetchEntities<AdditionalEntities::ExtendedPlatform>(query);
     endInsertRows();
     return true;
 }
@@ -119,7 +121,7 @@ QVariant PlatformsTableModel::data(const QModelIndex &index, int role) const
                 result = m_platforms[index.row()].name;
                 break;
             case ColumnName::Emulator:
-                result = m_platforms[index.row()].default_emulator_id;
+                result = m_platforms[index.row()].default_emulator_name;
                 break;
         }
 
