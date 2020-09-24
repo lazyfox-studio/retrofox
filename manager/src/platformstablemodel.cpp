@@ -56,7 +56,7 @@ void PlatformsTableModel::updateRow(const QModelIndex &index)
     auto query = base.query(AdditionalEntities::ExtendedPlatform::queryStringWithUnbindedId());
     query.bindMany(m_platforms[index.row()].id);
 
-   AdditionalEntities::ExtendedPlatform platform(query.fetchRow());
+    AdditionalEntities::ExtendedPlatform platform(query.fetchRow());
     m_platforms[index.row()] = platform;
 }
 

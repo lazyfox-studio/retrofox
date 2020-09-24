@@ -11,10 +11,10 @@ namespace Entities
     /// Emulator entity
     struct Emulator
     {
-        unsigned id;                     ///< Emulator ID (ROWID)
-        std::string name;                ///< Emulator name
-        unsigned platform_id;            ///< Emulator platform ID
-        std::string emulator_path;       ///< Emulator path
+        unsigned id;                      ///< Emulator ID (ROWID)
+        std::string name;                 ///< Emulator name
+        unsigned platform_id;             ///< Emulator platform ID
+        std::string emulator_path;        ///< Emulator path
         std::string execution_parameters; ///< Parameters for emulator execution
 
         /// Default constructor
