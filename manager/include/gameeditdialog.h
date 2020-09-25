@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QDialog>
-
 #include <QFileDialog>
 
 #include <database.h>

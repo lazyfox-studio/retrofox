@@ -3,7 +3,6 @@
 
 bool MainWindow::setLanguage(const QLocale& locale)
 {
-    QTranslator translator;
     if (!translator.load(locale, "manager", "_", "../manager/translations"))
     {
         return false;
@@ -17,12 +16,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
-    //Setup toolbar
+    // Toolbar
     connect (ui->action_delete, &QAction::triggered, this, &MainWindow::removeRecords);
     connect (ui->action_edit, &QAction::triggered, this, &MainWindow::editRecord);
     connect (ui->action_new, &QAction::triggered, this, &MainWindow::insertRecord);
 
-    //Setup games table
+    // Games table
     p_games_table_model = new GamesTableModel();
     ui->table_games->setModel(p_games_table_model);
     ui->table_games->horizontalHeader()->setStretchLastSection(true);
@@ -31,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_games->setSelectionMode(QAbstractItemView::SingleSelection);
     connect(ui->table_games, &QTableView::doubleClicked, this, &MainWindow::editGame);
 
-    //Setup platforms table
+    // Setup platforms table
     p_platforms_table_model = new PlatformsTableModel();
     ui->table_platforms->setModel(p_platforms_table_model);
     ui->table_platforms->horizontalHeader()->setStretchLastSection(true);
@@ -40,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_platforms->setSelectionMode(QAbstractItemView::SingleSelection);
     connect(ui->table_platforms, &QTableView::doubleClicked, this, &MainWindow::editPlatform);
 
-    //Setup emulators table
+    // Emulators table
     p_emulators_table_model = new EmulatorsTableModel();
     ui->table_emulators->setModel(p_emulators_table_model);
     ui->table_emulators->horizontalHeader()->setStretchLastSection(true);
@@ -49,13 +48,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->table_emulators->setSelectionMode(QAbstractItemView::SingleSelection);
     connect(ui->table_emulators, &QTableView::doubleClicked, this, &MainWindow::editEmulator);
 
-    //Setup user system language
+    // User system language
     if (!setLanguage(QLocale::system()))
     {
         setLanguage(QLocale("en_US"));
     }
 
-    //Setup menu slots
+    // Menu slots
     connect(ui->action_import_games, &QAction::triggered, this, &MainWindow::importGames);
 
     connect(ui->action_english, &QAction::triggered, this, &MainWindow::setLanguageEnglish);
