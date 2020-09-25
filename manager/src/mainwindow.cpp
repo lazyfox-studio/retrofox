@@ -3,7 +3,7 @@
 
 bool MainWindow::setLanguage(const QLocale& locale)
 {
-    if (!translator.load(locale, "manager", "_", "../manager/translations"))
+    if (!translator.load(locale, "manager", "_", ":/translations"))
     {
         return false;
     }
