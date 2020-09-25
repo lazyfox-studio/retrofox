@@ -64,6 +64,12 @@ namespace Database
         int changes() const;
 
         /**
+         * @brief Returns ROWID of last inserted row
+         * @return Last inserted ROWID
+         */
+        long lastInsertId() const;
+
+        /**
          * @brief Prepares query statement for performing
          * @param query_string SQL query string
          * @return Prepared statement
