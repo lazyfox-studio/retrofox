@@ -123,7 +123,7 @@ void MainWindow::insertRecord()
 {
     switch (ui->tab_viewer->currentIndex())
     {
-        case 0: ///< Games table
+        case TableIndex::Games:
         {
             auto dialog = new GameEditDialog;
             dialog->exec();
@@ -133,7 +133,7 @@ void MainWindow::insertRecord()
             }
             break;
         }
-        case 1: ///< Platforms table
+        case TableIndex::Platforms:
         {
             auto dialog = new PlatformEditDialog;
             dialog->exec();
@@ -144,7 +144,7 @@ void MainWindow::insertRecord()
             }
             break;
         }
-        case 2: ///< Emulators table
+        case TableIndex::Emulators:
         {
             auto dialog = new EmulatorEditDialog;
             dialog->exec();
@@ -162,21 +162,21 @@ void MainWindow::editRecord()
 {
     switch (ui->tab_viewer->currentIndex())
     {
-        case 0: ///< Games table
+        case TableIndex::Games:
             if (!ui->table_games->selectionModel()->hasSelection())
             {
                 return;
             }
             editGame(ui->table_games->selectionModel()->selectedIndexes().first());
             break;
-        case 1: ///< Platforms table
+        case TableIndex::Platforms:
             if (!ui->table_platforms->selectionModel()->hasSelection())
             {
                 return;
             }
             editPlatform(ui->table_platforms->selectionModel()->selectedIndexes().first());
             break;
-        case 2: ///< Emulators table
+        case TableIndex::Emulators:
             if (!ui->table_emulators->selectionModel()->hasSelection())
             {
                 return;
@@ -190,21 +190,21 @@ void MainWindow::removeRecords()
 {
     switch (ui->tab_viewer->currentIndex())
     {
-        case 0: ///< Games table
+        case TableIndex::Games:
             if (!ui->table_games->selectionModel()->hasSelection())
             {
                 return;
             }
             p_games_table_model->removeRows(ui->table_games->selectionModel()->selectedRows().first().row(), 1);
             break;
-        case 1: ///< Platforms table
+        case TableIndex::Platforms:
             if (!ui->table_platforms->selectionModel()->hasSelection())
             {
                 return;
             }
             p_platforms_table_model->removeRows(ui->table_platforms->selectionModel()->selectedRows().first().row(), 1);
             break;
-        case 2: ///< Emulators table
+        case TableIndex::Emulators:
             if (!ui->table_emulators->selectionModel()->hasSelection())
             {
                 return;
