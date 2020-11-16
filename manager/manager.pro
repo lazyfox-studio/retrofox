@@ -40,7 +40,7 @@ LIBS += \
 
 !win32 {
     LIBS += \
-        -L"$$_PRO_FILE_PWD_/.." \
+        -L"$$_PRO_FILE_PWD_/../build/lib" \
         -lapi-service \
         -ldatabase \
         -L "/usr/lib/x86_64-linux-gnu" \

@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
 
 
+# Configuring build
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 add_subdirectory(api-service)
 add_subdirectory(core)
 add_subdirectory(database)
@@ -10,7 +15,7 @@ include_directories(${CORE_INCLUDE_DIRS})
 include_directories(${DATABASE_INCLUDE_DIRS})
 
 
-#Finding libraries
+# Finding libraries
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 if (NOT Python_FOUND)
     message(SEND_ERROR "Failed to find Python")
@@ -49,7 +54,7 @@ include_directories(${SDL2_TTF_INCLUDE_DIRS})
 endif()
 
 
-#Configuring projects
+# Configuring projects
 add_library(api-service STATIC ${API_SERVICE_SOURCE_FILES})
 add_library(database STATIC ${DATABASE_SOURCE_FILES})
 
