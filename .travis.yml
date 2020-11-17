@@ -19,8 +19,8 @@ addons:
       - qtdeclarative5-dev
 
 script:
-  - cmake CMakeLists.txt
-  - make
+  - cmake -B ./build
+  - cmake --build ./build
   - cd manager
-  - qmake manager.pro
-  - make
+  - cmake -B ./build
+  - cmake --build ./build
