@@ -1,90 +1,79 @@
-cmake_minimum_required(VERSION 3.9)
- 
-project(manager LANGUAGES CXX)
- 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+ project(manager LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
-
-include_directories("include")
-set(CMAKE_AUTOUIC_SEARCH_PATHS "${CMAKE_CURRENT_SOURCE_DIR}/ui" "${CMAKE_CURRENT_SOURCE_DIR}/ui/gamesimportwizard")
+set(MANAGER_INCLUDE_DIRS
+    manager/include
+    PARENT_SCOPE
+    )
 
 set(MANAGER_SOURCE_FILES
-    src/aboutdialog.cpp
-    src/additionalentities/extendedemulator.cpp
-    src/additionalentities/extendedplatform.cpp
-    src/emulatoreditdialog.cpp
-    src/emulatorlistmodel.cpp
-    src/emulatorstablemodel.cpp
-    src/gamesimportwizard/dataprocessingpage.cpp
-    src/gamesimportwizard/finalpage.cpp
-    src/gamesimportwizard/gameselectpage.cpp
-    src/gamesimportwizard/pathselectpage.cpp
-    src/gamesimportwizard/scrapertablemodel.cpp
-    src/gamesimportwizard/shareddata.cpp
-    src/gamesimportwizard/welcomepage.cpp
-    src/gameeditdialog.cpp
-    src/gamesimportwizard/wizard.cpp
-    src/gamestablemodel.cpp
-    src/main.cpp
-    src/mainwindow.cpp
-    src/platformeditdialog.cpp
-    src/platformlistmodel.cpp
-    src/platformstablemodel.cpp
-    src/scraper.cpp
-    src/scraper/findgamesinformation.cpp
-    src/scraper/functions.cpp
-    src/scraper/scanfolder.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/aboutdialog.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/additionalentities/extendedemulator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/additionalentities/extendedplatform.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/emulatoreditdialog.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/emulatorlistmodel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/emulatorstablemodel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/dataprocessingpage.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/finalpage.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/gameselectpage.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/pathselectpage.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/scrapertablemodel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/shareddata.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/welcomepage.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gameeditdialog.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/wizard.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamestablemodel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/mainwindow.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/platformeditdialog.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/platformlistmodel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/platformstablemodel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scraper.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scraper/findgamesinformation.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scraper/functions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scraper/scanfolder.cpp
+    PARENT_SCOPE
     )
     
 set(MANAGER_HEADER_FILES
-    include/aboutdialog.h
-    include/additionalentities/extendedemulator.h
-    include/additionalentities/extendedplatform.h
-    include/emulatoreditdialog.h
-    include/emulatorlistmodel.h
-    include/emulatorstablemodel.h
-    include/gameeditdialog.h
-    include/gamesimportwizard/dataprocessingpage.h
-    include/gamesimportwizard/finalpage.h
-    include/gamesimportwizard/finalpage.h
-    include/gamesimportwizard/gameselectpage.h
-    include/gamesimportwizard/pages.h
-    include/gamesimportwizard/pathselectpage.h
-    include/gamesimportwizard/scrapertablemodel.h
-    include/gamesimportwizard/shareddata.h
-    include/gamesimportwizard/welcomepage.h
-    include/gamesimportwizard/wizard.h
-    include/gamestablemodel.h
-    include/mainwindow.h
-    include/platformeditdialog.h
-    include//platformlistmodel.h
-    include/platformstablemodel.h
-    include/scraper.h
-    include/scraper/findgamesinformation.h
-    include/scraper/functions.h
-    include/scraper/scanfolder.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/aboutdialog.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/additionalentities/extendedemulator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/additionalentities/extendedplatform.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/emulatoreditdialog.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/emulatorlistmodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/emulatorstablemodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gameeditdialog.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/dataprocessingpage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/finalpage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/finalpage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/gameselectpage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/pages.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/pathselectpage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/scrapertablemodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/shareddata.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/welcomepage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamesimportwizard/wizard.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gamestablemodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/mainwindow.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/platformeditdialog.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include//platformlistmodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/platformstablemodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/scraper.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/scraper/findgamesinformation.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/scraper/functions.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/scraper/scanfolder.h
+    PARENT_SCOPE
     )
     
 set(MANAGER_UI_FILES
-    ui/aboutdialog.ui
-    ui/emulatoreditdialog.ui
-    ui/gamesimportwizard/dataprocessingpage.ui
-    ui/gamesimportwizard/finalpage.ui
-    ui/gamesimportwizard/gameselectpage.ui
-    ui/gamesimportwizard/pathselectpage.ui
-    ui/gamesimportwizard/welcomepage.ui
-    ui/gameeditdialog.ui
-    ui/mainwindow.ui
-    ui/platformeditdialog.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/aboutdialog.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/emulatoreditdialog.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/gamesimportwizard/dataprocessingpage.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/gamesimportwizard/finalpage.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/gamesimportwizard/gameselectpage.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/gamesimportwizard/pathselectpage.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/gamesimportwizard/welcomepage.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/gameeditdialog.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/mainwindow.ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui/platformeditdialog.ui
+    PARENT_SCOPE
     )
-
-add_executable(manager ${MANAGER_SOURCE_FILES} ${MANAGER_HEADER_FILES} ${MANAGER_UI_FILES})
-
-target_link_libraries(manager PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
