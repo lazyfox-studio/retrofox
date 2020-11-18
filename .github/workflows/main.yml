@@ -1,0 +1,41 @@
+name: Build
+
+on: [push, pull_request]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  ubuntu-gcc-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup environment
+      run: |
+        sudo apt install libsdl2-dev
+        sudo apt install libsdl2-ttf-dev
+        sudo apt install libsqlite3-dev
+        sudo apt install python3-dev
+        sudo apt install qtbase5-dev
+        sudo apt install qtdeclarative5-dev 
+      
+    - name: Build core
+      shell: bash
+      working-directory: ${{runner.workspace}
+      # Note the current convention is to use the -S and -B options here to specify source 
+      # and build directories, but this is only available with CMake 3.13 and higher.  
+      # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
+      run: |
+        mkdir build
+        cmake ./build
+        cmake --build ./build --config $BUILD_TYPE
+
+    - name: Build manager
+      shell: bash
+      working-directory: ${{runner.workspace}}/manager
+      run: |
+        mkdir build
+        cmake ./build
+        cmake --build ./build --config $BUILD_TYPE
