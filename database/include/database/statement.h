@@ -6,7 +6,7 @@
 #include <vector>
 #include <map>
 
-#include "row.h"
+#include "database/row.h"
 
 namespace Database
 {
@@ -89,6 +89,19 @@ namespace Database
         template<typename Key, typename Value>
         std::map<Key, Value> getIndexedColumn();
         
+
+        /**
+         * @brief Returns UTF-8 SQL text string used to create statement
+         * @return SQL text for prepare this statement
+         */
+        const char* sql() const;
+
+        /**
+         * @brief Returns UTF-8 SQL text query string (with bound parameters)
+         * @return SQL text for actual query
+         */
+        const char* expandedSql() const;
+
 
         /**
          * @brief Returns number of columns

@@ -1,8 +1,11 @@
 #pragma once
 
 #include <QDialog>
+#include <QFileDialog>
 
 #include <database.h>
+
+#include "platformlistmodel.h"
 
 namespace Ui {
 class GameEditDialog;
@@ -17,16 +20,26 @@ class GameEditDialog : public QDialog
 {
     Q_OBJECT
 
-    Database::Entities::Game m_game;
+protected:
+    PlatformListModel* p_platform_list_model;
+
+    Entities::Game m_game;
 
 public:
     explicit GameEditDialog(QWidget *parent = nullptr);
     ~GameEditDialog();
 
-    void load(Database::Entities::Game game);
-    Database::Entities::Game resultGame();
+    void load(Entities::Game game,
+              std::vector<Entities::Developer> developers,
+              std::vector<Entities::Publisher> publishers,
+              std::vector<Entities::Genre> genres
+              );
+    Entities::Game resultGame();
 
 private:
     Ui::GameEditDialog *ui;
+
+public slots:
+    void pathSelectDialog();
 };
 

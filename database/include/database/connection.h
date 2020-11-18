@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "statement.h"
+#include "database/statement.h"
 
 namespace Database
 {
@@ -62,6 +62,12 @@ namespace Database
          * @return Number of changes
          */
         int changes() const;
+
+        /**
+         * @brief Returns ROWID of last inserted row
+         * @return Last inserted ROWID
+         */
+        long lastInsertId() const;
 
         /**
          * @brief Prepares query statement for performing

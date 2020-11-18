@@ -23,17 +23,27 @@ class GamesTableModel : public QAbstractTableModel
         Path
     };
 
-    std::vector<Database::Entities::Game> games;
+    std::vector<Entities::Game> m_games;
 
 public:
     explicit GamesTableModel(QObject *parent = nullptr);
     ~GamesTableModel();
 
-    Database::Entities::Game game(const QModelIndex &index);
+    Entities::Game game(const QModelIndex &index);
 
-    void updateGame(Database::Entities::Game game);
+    std::vector<Entities::Developer> developers(const QModelIndex& index);
+
+    std::vector<Entities::Publisher> publishers(const QModelIndex& index);
+
+    std::vector<Entities::Genre> genres(const QModelIndex& index);
+
+    void updateGame(Entities::Game game);
 
     void updateRow(const QModelIndex &index);
+
+    bool insertRow(const Entities::Game& game);
+
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
 protected:
     int rowCount(const QModelIndex &parent) const;

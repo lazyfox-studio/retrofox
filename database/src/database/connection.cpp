@@ -1,4 +1,4 @@
-#include "connection.h"
+#include "database/connection.h"
 
 namespace Database
 {
@@ -31,6 +31,11 @@ namespace Database
     int Connection::changes() const
     {
         return sqlite3_changes(p_db_handler);
+    }
+
+    long Connection::lastInsertId() const
+    {
+        return sqlite3_last_insert_rowid(p_db_handler);
     }
 
     Statement Connection::query(const std::string& query_string)

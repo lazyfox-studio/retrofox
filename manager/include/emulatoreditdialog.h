@@ -16,9 +16,7 @@ class EmulatorEditDialog : public QDialog
     Q_OBJECT
 
 protected:
-    Database::Entities::Emulator m_emulator;
-
-    long m_result_platform_id;
+    Entities::Emulator m_emulator;
 
     PlatformListModel* p_platform_list_model;
 
@@ -26,14 +24,13 @@ public:
     explicit EmulatorEditDialog(QWidget *parent = nullptr);
     ~EmulatorEditDialog();
 
-    void load(const Database::Entities::Emulator& emulator);
-    Database::Entities::Emulator resultEmulator();
+    void load(const Entities::Emulator& emulator);
+    Entities::Emulator resultEmulator();
 
 private:
     Ui::EmulatorEditDialog *ui;
 
 public slots:
     void pathSelectDialog();
-    void selectPlatform(int index);
 };
 

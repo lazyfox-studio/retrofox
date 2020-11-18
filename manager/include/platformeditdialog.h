@@ -17,8 +17,7 @@ class PlatformEditDialog : public QDialog
     Q_OBJECT
 
 protected:
-    Database::Entities::Platform m_platform;
-    long m_result_emulator_id;
+    Entities::Platform m_platform;
 
     EmulatorListModel* p_emulator_list_model;
 
@@ -26,16 +25,13 @@ public:
     explicit PlatformEditDialog(QWidget *parent = nullptr);
     ~PlatformEditDialog();
 
-    void load(const Database::Entities::Platform& platform,
-              const std::vector<Database::Entities::Extension>& extensions);
-    Database::Entities::Platform resultPlatform();
-    std::vector<Database::Entities::Extension> resultExtensions();
+    void load(const Entities::Platform& platform,
+              const std::vector<Entities::Extension>& extensions);
+    Entities::Platform resultPlatform();
+    std::vector<Entities::Extension> resultExtensions();
 
 
 private:
     Ui::PlatformEditDialog *ui;
-
-public slots:
-    void selectEmulator(int index);
 };
 

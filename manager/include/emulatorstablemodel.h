@@ -8,6 +8,8 @@
 
 #include <database.h>
 
+#include "additionalentities/extendedemulator.h"
+
 /**
  * @ingroup manager
  * @brief The GamesTableModel class
@@ -19,20 +21,25 @@ class EmulatorsTableModel : public QAbstractTableModel
 
     enum ColumnName
     {
-        Name
+        Name,
+        Platform
     };
 
-    std::vector<Database::Entities::Emulator> m_emulators;
+    std::vector<AdditionalEntities::ExtendedEmulator> m_emulators;
 
 public:
     explicit EmulatorsTableModel(QObject *parent = nullptr);
     ~EmulatorsTableModel();
 
-    Database::Entities::Emulator emulator(const QModelIndex &index);
+    Entities::Emulator emulator(const QModelIndex &index);
 
-    void updateEmulator(Database::Entities::Emulator emulator);
+    void updateEmulator(Entities::Emulator emulator);
 
     void updateRow(const QModelIndex &index);
+
+    bool insertRow(const Entities::Emulator& emulator);
+
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
 protected:
     int rowCount(const QModelIndex &parent) const;

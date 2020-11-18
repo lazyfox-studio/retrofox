@@ -19,25 +19,45 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\database\include\connection.h" />
+    <ClInclude Include="..\..\database\include\database\connection.h" />
     <ClInclude Include="..\..\database\include\database.h" />
+    <ClInclude Include="..\..\database\include\entities\developer.h" />
     <ClInclude Include="..\..\database\include\entities\emulator.h" />
     <ClInclude Include="..\..\database\include\entities\extension.h" />
+    <ClInclude Include="..\..\database\include\entities\functions.h" />
     <ClInclude Include="..\..\database\include\entities\game.h" />
+    <ClInclude Include="..\..\database\include\entities\gamedeveloper.h" />
+    <ClInclude Include="..\..\database\include\entities\gamegenre.h" />
+    <ClInclude Include="..\..\database\include\entities\gamepublisher.h" />
+    <ClInclude Include="..\..\database\include\entities\genre.h" />
     <ClInclude Include="..\..\database\include\entities\platform.h" />
+    <ClInclude Include="..\..\database\include\entities\publisher.h" />
+    <ClInclude Include="..\..\database\include\entities\scraperdeveloper.h" />
     <ClInclude Include="..\..\database\include\entities\scrapergame.h" />
-    <ClInclude Include="..\..\database\include\row.h" />
-    <ClInclude Include="..\..\database\include\statement.h" />
+    <ClInclude Include="..\..\database\include\entities\scrapergenre.h" />
+    <ClInclude Include="..\..\database\include\entities\scraperpublisher.h" />
+    <ClInclude Include="..\..\database\include\database\row.h" />
+    <ClInclude Include="..\..\database\include\database\statement.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\database\src\connection.cpp" />
+    <ClCompile Include="..\..\database\src\database\connection.cpp" />
+    <ClCompile Include="..\..\database\src\entities\developer.cpp" />
     <ClCompile Include="..\..\database\src\entities\emulator.cpp" />
-    <ClCompile Include="..\..\database\src\entities\extensions.cpp" />
+    <ClCompile Include="..\..\database\src\entities\extension.cpp" />
+    <ClCompile Include="..\..\database\src\entities\functions.cpp" />
     <ClCompile Include="..\..\database\src\entities\game.cpp" />
+    <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp" />
+    <ClCompile Include="..\..\database\src\entities\gamegenre.cpp" />
+    <ClCompile Include="..\..\database\src\entities\gamepublisher.cpp" />
+    <ClCompile Include="..\..\database\src\entities\genre.cpp" />
     <ClCompile Include="..\..\database\src\entities\platform.cpp" />
+    <ClCompile Include="..\..\database\src\entities\publisher.cpp" />
+    <ClCompile Include="..\..\database\src\entities\scraperdeveloper.cpp" />
     <ClCompile Include="..\..\database\src\entities\scrapergame.cpp" />
-    <ClCompile Include="..\..\database\src\row.cpp" />
-    <ClCompile Include="..\..\database\src\statement.cpp" />
+    <ClCompile Include="..\..\database\src\entities\scrapergenre.cpp" />
+    <ClCompile Include="..\..\database\src\entities\scraperpublisher.cpp" />
+    <ClCompile Include="..\..\database\src\database\row.cpp" />
+    <ClCompile Include="..\..\database\src\database\statement.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

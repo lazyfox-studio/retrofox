@@ -40,7 +40,7 @@ LIBS += \
 
 !win32 {
     LIBS += \
-        -L"$$_PRO_FILE_PWD_/.." \
+        -L"$$_PRO_FILE_PWD_/../build/lib" \
         -lapi-service \
         -ldatabase \
         -L "/usr/lib/x86_64-linux-gnu" \
@@ -49,6 +49,9 @@ LIBS += \
 }
 
 SOURCES += \
+    src/aboutdialog.cpp \
+    src/additionalentities/extendedemulator.cpp \
+    src/additionalentities/extendedplatform.cpp \
     src/emulatoreditdialog.cpp \
     src/emulatorlistmodel.cpp \
     src/emulatorstablemodel.cpp \
@@ -73,6 +76,9 @@ SOURCES += \
     src/scraper/scanfolder.cpp
 
 HEADERS += \
+    include/aboutdialog.h \
+    include/additionalentities/extendedemulator.h \
+    include/additionalentities/extendedplatform.h \
     include/emulatoreditdialog.h \
     include/emulatorlistmodel.h \
     include/emulatorstablemodel.h \
@@ -98,6 +104,7 @@ HEADERS += \
     include/scraper/scanfolder.h
 
 FORMS += \
+    ui/aboutdialog.ui \
     ui/emulatoreditdialog.ui \
     ui/gamesimportwizard/dataprocessingpage.ui \
     ui/gamesimportwizard/finalpage.ui \
@@ -116,3 +123,11 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources/resources.qrc
+
+win32
+{
+    RC_ICONS = resources/icons/manager.ico
+}

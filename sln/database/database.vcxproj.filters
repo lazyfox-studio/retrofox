@@ -13,18 +13,15 @@
     <Filter Include="src\entities">
       <UniqueIdentifier>{9c6535a6-a489-4bbe-ba48-33b89ba9d564}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\database">
+      <UniqueIdentifier>{6fe22007-6975-4e97-9ae4-e78e47560266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\database">
+      <UniqueIdentifier>{992be656-a76f-42be-9f6f-9ee03c529363}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\database\include\connection.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\database\include\statement.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\database\include\database.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\database\include\row.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\database\include\entities\game.h">
@@ -42,17 +39,47 @@
     <ClInclude Include="..\..\database\include\entities\extension.h">
       <Filter>include\entities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\gamedeveloper.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\gamegenre.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\gamepublisher.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\scraperdeveloper.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\scraperpublisher.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\scrapergenre.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\functions.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\database\connection.h">
+      <Filter>include\database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\database\row.h">
+      <Filter>include\database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\database\statement.h">
+      <Filter>include\database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\genre.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\publisher.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\database\include\entities\developer.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\database\src\connection.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\database\src\statement.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\database\src\row.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\database\src\entities\game.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
@@ -65,7 +92,46 @@
     <ClCompile Include="..\..\database\src\entities\scrapergame.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\database\src\entities\extensions.cpp">
+    <ClCompile Include="..\..\database\src\entities\gamedeveloper.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\gamegenre.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\scraperdeveloper.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\scraperpublisher.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\scrapergenre.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\extension.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\database\connection.cpp">
+      <Filter>src\database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\database\row.cpp">
+      <Filter>src\database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\database\statement.cpp">
+      <Filter>src\database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\gamepublisher.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\developer.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\genre.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\publisher.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\database\src\entities\functions.cpp">
       <Filter>src\entities</Filter>
     </ClCompile>
   </ItemGroup>

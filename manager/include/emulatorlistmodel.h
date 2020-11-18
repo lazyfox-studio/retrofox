@@ -7,13 +7,13 @@
 class EmulatorListModel : public QAbstractListModel
 {
 protected:
-    std::vector<Database::Entities::Emulator> emulators;
+    std::vector<Entities::Emulator> emulators;
 
 public:
     explicit EmulatorListModel(QObject *parent = nullptr);
     ~EmulatorListModel();
 
-    Database::Entities::Emulator emulator(int index);
+    Entities::Emulator emulator(int index);
     int findEmulatorIndex(long emulator_id);
 
 protected:

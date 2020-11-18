@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QDebug>
 
+#include "aboutdialog.h"
 #include "emulatorstablemodel.h"
 #include "emulatoreditdialog.h"
 #include "gameeditdialog.h"
@@ -28,14 +29,22 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-private:
-    //Emulators table Qt model
+protected:
+    /// List of tables indices
+    enum TableIndex
+    {
+        Games = 0, ///< Games table
+        Platforms = 1, ///< Platforms table
+        Emulators = 2, ///< Emulators table
+    };
+
+    /// Emulators Qt table model
     EmulatorsTableModel* p_emulators_table_model;
 
-    /// Games table Qt model
+    /// Games Qt table model
     GamesTableModel* p_games_table_model;
 
-    // Platforms table QT model
+    /// Platforms Qt table model
     PlatformsTableModel* p_platforms_table_model;
 
     /// Wizard
@@ -69,14 +78,30 @@ public slots:
     void importGames();
 
     /**
-     * @brief Edits game info
+     * @brief Opens dialog for editing game info
      * @param index Game index
      */
     void editGame(const QModelIndex & index);
 
+    /**
+     * @brief Opens dialog for editing platform info
+     * @param index Platform index
+     */
     void editPlatform(const QModelIndex& index);
 
+    /**
+     * @brief Opens dialog for editing emulator info
+     * @param index Emulator index
+     */
     void editEmulator(const QModelIndex& index);
+
+    void insertRecord();
+
+    void editRecord();
+
+    void removeRecords();
+
+    void showAboutDialog();
 
     /// Translates app into English
     void setLanguageEnglish();

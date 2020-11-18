@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/delete.svg</file>
+        <file>icons/edit.svg</file>
+        <file>icons/new.svg</file>
+        <file>icons/countries/russia.svg</file>
+        <file>icons/countries/united_kingdom.svg</file>
+        <file>translations/manager_en_US.qm</file>
+        <file>translations/manager_ru_RU.qm</file>
+    </qresource>
+</RCC>

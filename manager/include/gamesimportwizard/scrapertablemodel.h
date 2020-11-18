@@ -19,16 +19,16 @@ namespace GamesImportWizard
             Year
         };
 
-        std::vector<Database::Entities::ScraperGame> games;
+        std::vector<Entities::ScraperGame> games;
 
     public:
         explicit ScraperTableModel(QObject *parent = nullptr);
         ~ScraperTableModel();
 
-        Database::Entities::ScraperGame game(const QModelIndex &index);
+        Entities::ScraperGame game(const QModelIndex &index);
 
         void load(long game_id, std::string path_to_db);
-        Database::Entities::ScraperGame game(QModelIndex& index);
+        Entities::ScraperGame game(QModelIndex& index);
 
     protected:
         int rowCount(const QModelIndex &parent) const;

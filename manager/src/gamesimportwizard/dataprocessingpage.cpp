@@ -78,6 +78,7 @@ namespace GamesImportWizard
         ui->status_label->setText(tr("Done. Click \"Next\"."));
         ui->progress_bar->setVisible(false);
         m_is_complete = true;
+        PythonThreadController::instance().useInterpreter();
         emit completeChanged();
     }
 }

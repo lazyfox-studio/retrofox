@@ -353,6 +353,7 @@ MigrationBackup/
 Doxyfile
 doxygen/
 doxygen/**
+DoxygenLayout.xml
 
 # External libraries
 *.dll

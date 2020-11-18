@@ -1,4 +1,4 @@
-#include "statement.h"
+#include "database/statement.h"
 
 namespace Database
 {
@@ -49,6 +49,16 @@ namespace Database
         if (result == SQLITE_MISUSE)
             throw std::runtime_error("Library used incorrectly");
         throw std::runtime_error("SQL Error, check db connection");
+    }
+
+    const char* Statement::sql() const
+    {
+        return sqlite3_sql(p_stmt_handler);
+    }
+
+    const char* Statement::expandedSql() const
+    {
+        return sqlite3_expanded_sql(p_stmt_handler);
     }
 
     int Statement::columnCount() const

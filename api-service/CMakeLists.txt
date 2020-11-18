@@ -4,16 +4,16 @@ project(api-service)
 
 
 set(API_SERVICE_INCLUDE_DIRS
-    api-service/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
     PARENT_SCOPE
     )
 
 set(API_SERVICE_SOURCE_FILES
-    api-service/src/pythonenv.cpp
-    api-service/src/pythonref.cpp
-    api-service/src/pythonmainthread.cpp
-    api-service/src/pythonthread.cpp
-    api-service/src/pythonthreadcontroller.cpp
-    api-service/src/pythonfunctions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pythonenv.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pythonref.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pythonmainthread.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pythonthread.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pythonthreadcontroller.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pythonfunctions.cpp
     PARENT_SCOPE
     )

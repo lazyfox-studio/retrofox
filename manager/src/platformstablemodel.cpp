@@ -3,8 +3,9 @@
 PlatformsTableModel::PlatformsTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("SELECT * FROM `platforms`");
-    m_platforms = Database::Entities::Platform::fetchEntities(query);
+    auto query = base.query(AdditionalEntities::ExtendedPlatform::queryString());
+    m_platforms = Entities::fetchEntities<AdditionalEntities::ExtendedPlatform>(query);
+
 }
 
 PlatformsTableModel::~PlatformsTableModel()
@@ -12,20 +13,20 @@ PlatformsTableModel::~PlatformsTableModel()
 
 }
 
-Database::Entities::Platform PlatformsTableModel::platform(const QModelIndex &index)
+Entities::Platform PlatformsTableModel::platform(const QModelIndex &index)
 {
-    return m_platforms[index.row()];
+    return m_platforms[index.row()].toPlatform();
 }
 
-std::vector<Database::Entities::Extension> PlatformsTableModel::extensions(const QModelIndex &index)
+std::vector<Entities::Extension> PlatformsTableModel::extensions(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `extensions` WHERE `platform_id` = ?");
     query.bindMany(m_platforms[index.row()].id);
-    return Database::Entities::Extension::fetchEntities(query);
+    return Entities::fetchEntities<Entities::Extension>(query);
 }
 
-void PlatformsTableModel::updatePlatform(Database::Entities::Platform platform)
+void PlatformsTableModel::updatePlatform(Entities::Platform platform)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("UPDATE `platforms` SET name = ?, `default_emulator_id` = ? WHERE id = ?");
@@ -33,7 +34,7 @@ void PlatformsTableModel::updatePlatform(Database::Entities::Platform platform)
     query.execute();
 }
 
-void PlatformsTableModel::updateExtensions(const std::vector<Database::Entities::Extension> &extensions, long platform_id)
+void PlatformsTableModel::updateExtensions(const std::vector<Entities::Extension> &extensions, long platform_id)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
 
@@ -52,11 +53,49 @@ void PlatformsTableModel::updateExtensions(const std::vector<Database::Entities:
 void PlatformsTableModel::updateRow(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("SELECT * FROM `platforms` WHERE id = ?");
+    auto query = base.query(AdditionalEntities::ExtendedPlatform::queryStringWithUnbindedId());
     query.bindMany(m_platforms[index.row()].id);
 
-    Database::Entities::Platform platform(query.fetchRow());
+    AdditionalEntities::ExtendedPlatform platform(query.fetchRow());
     m_platforms[index.row()] = platform;
+}
+
+bool PlatformsTableModel::insertRow(const Entities::Platform &platform)
+{
+    beginInsertRows(QModelIndex(), static_cast<int>(m_platforms.size()), static_cast<int>(m_platforms.size()));
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("INSERT INTO `platforms` (name, default_emulator_id) VALUES (?, ?);");
+    query.bindMany(platform.name.c_str(), platform.default_emulator_id);
+    query.execute();
+    query = base.query(AdditionalEntities::ExtendedPlatform::queryString()); //TODO: Updae only one row
+    m_platforms = Entities::fetchEntities<AdditionalEntities::ExtendedPlatform>(query);
+    endInsertRows();
+    return true;
+}
+
+bool PlatformsTableModel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+
+    if (count == 0)
+    {
+        return false;
+    }
+
+    auto base = Database::Connection("../sln/core/testbase.db");
+
+    auto i_remove_start = m_platforms.begin() + row;
+    auto i_remove_end = m_platforms.begin() + row + count;
+    beginRemoveRows(QModelIndex(), row, row + count - 1);
+    for (size_t i = 0; i < static_cast<size_t>(count); i++)
+    {
+        auto query = base.query("DELETE FROM `platforms` WHERE id = ?");
+        query.bindMany(m_platforms[row + i].id);
+        query.execute();
+    }
+    m_platforms.erase(i_remove_start, i_remove_end);
+    endRemoveRows();
+    return true;
 }
 
 int PlatformsTableModel::rowCount(const QModelIndex &parent) const
@@ -82,7 +121,7 @@ QVariant PlatformsTableModel::data(const QModelIndex &index, int role) const
                 result = m_platforms[index.row()].name;
                 break;
             case ColumnName::Emulator:
-                result = m_platforms[index.row()].default_emulator_id;
+                result = m_platforms[index.row()].default_emulator_name;
                 break;
         }
 

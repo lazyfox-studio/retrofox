@@ -6,7 +6,6 @@ PlatformEditDialog::PlatformEditDialog(QWidget *parent) : QDialog(parent), ui(ne
     ui->setupUi(this);
     p_emulator_list_model = new EmulatorListModel;
     ui->combobox_default_emulator->setModel(p_emulator_list_model);
-    connect(ui->combobox_default_emulator, SIGNAL(currentIndexChanged(int)), this, SLOT(selectEmulator(int)));
 }
 
 PlatformEditDialog::~PlatformEditDialog()
@@ -14,7 +13,7 @@ PlatformEditDialog::~PlatformEditDialog()
     delete ui;
 }
 
-void PlatformEditDialog::load(const Database::Entities::Platform& platform, const std::vector<Database::Entities::Extension>& extensions)
+void PlatformEditDialog::load(const Entities::Platform& platform, const std::vector<Entities::Extension>& extensions)
 {
     m_platform = platform;
     ui->edit_name->setText(m_platform.name.c_str());
@@ -22,7 +21,6 @@ void PlatformEditDialog::load(const Database::Entities::Platform& platform, cons
     {
         ui->edit_name->setReadOnly(true);
     }
-    m_result_emulator_id = m_platform.default_emulator_id;
 
     QString result_extensions = "";
     for (auto extension : extensions)
@@ -33,18 +31,18 @@ void PlatformEditDialog::load(const Database::Entities::Platform& platform, cons
     ui->edit_extensions->setText(result_extensions.trimmed());
 }
 
-Database::Entities::Platform PlatformEditDialog::resultPlatform()
+Entities::Platform PlatformEditDialog::resultPlatform()
 {
-    Database::Entities::Platform platform;
+    Entities::Platform platform;
 
     platform.id = m_platform.id;
     platform.name = ui->edit_name->text().toStdString();
-    platform.default_emulator_id = m_result_emulator_id;
+    platform.default_emulator_id = p_emulator_list_model->emulator(ui->combobox_default_emulator->currentIndex()).id;
 
     return platform;
 }
 
-std::vector<Database::Entities::Extension> PlatformEditDialog::resultExtensions()
+std::vector<Entities::Extension> PlatformEditDialog::resultExtensions()
 {
     QString extensions = ui->edit_extensions->text();
     extensions.replace(" ", "");
@@ -53,18 +51,13 @@ std::vector<Database::Entities::Extension> PlatformEditDialog::resultExtensions(
         extensions.chop(1);
     }
     auto extensions_vector = extensions.split(';').toVector();
-    std::vector<Database::Entities::Extension> result_extensions;
+    std::vector<Entities::Extension> result_extensions;
     for (auto extension : extensions_vector)
     {
-        Database::Entities::Extension temp_extension;
+        Entities::Extension temp_extension;
         temp_extension.platform_id = m_platform.id;
         temp_extension.extension = extension.toStdString();
         result_extensions.push_back(temp_extension);
     }
     return result_extensions;
-}
-
-void PlatformEditDialog::selectEmulator(int index)
-{
-    m_result_emulator_id = p_emulator_list_model->emulator(index).id;
 }

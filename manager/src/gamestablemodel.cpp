@@ -4,7 +4,7 @@ GamesTableModel::GamesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games`");
-    games = Database::Entities::Game::fetchEntities(query);
+    m_games = Entities::fetchEntities<Entities::Game>(query);
 }
 
 GamesTableModel::~GamesTableModel()
@@ -12,16 +12,40 @@ GamesTableModel::~GamesTableModel()
 
 }
 
-Database::Entities::Game GamesTableModel::game(const QModelIndex &index)
+Entities::Game GamesTableModel::game(const QModelIndex &index)
 {
-    return games[index.row()];
+    return m_games[index.row()];
 }
 
-void GamesTableModel::updateGame(Database::Entities::Game game)
+std::vector<Entities::Developer> GamesTableModel::developers(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
-    auto query = base.query("UPDATE `games` SET name = ?, path = ? WHERE id = ?");
-    query.bindMany(game.name.c_str(), game.path.c_str(), game.id);
+    auto query = base.query("SELECT * FROM `game_developers` WHERE `game_id` = ?");
+    query.bindMany(m_games[index.row()].id);
+    return Entities::findDevelopers(Entities::fetchEntities<Entities::GameDeveloper>(query), "../sln/core/testbase.db");
+}
+
+std::vector<Entities::Publisher> GamesTableModel::publishers(const QModelIndex &index)
+{
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("SELECT * FROM `game_publishers` WHERE `game_id` = ?");
+    query.bindMany(m_games[index.row()].id);
+    return Entities::findPublishers(Entities::fetchEntities<Entities::GamePublisher>(query), "../sln/core/testbase.db");
+}
+
+std::vector<Entities::Genre> GamesTableModel::genres(const QModelIndex &index)
+{
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("SELECT * FROM `game_genres` WHERE `game_id` = ?");
+    query.bindMany(m_games[index.row()].id);
+    return Entities::findGenres(Entities::fetchEntities<Entities::GameGenre>(query),"../sln/core/testbase.db");
+}
+
+void GamesTableModel::updateGame(Entities::Game game)
+{
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("UPDATE `games` SET name = ?, path = ?, platform_id = ? WHERE id = ?");
+    query.bindMany(game.name.c_str(), game.path.c_str(), game.platform_id, game.id);
     query.execute();
 }
 
@@ -29,16 +53,66 @@ void GamesTableModel::updateRow(const QModelIndex &index)
 {
     auto base = Database::Connection("../sln/core/testbase.db");
     auto query = base.query("SELECT * FROM `games` WHERE id = ?");
-    query.bindMany(games[index.row()].id);
+    query.bindMany(m_games[index.row()].id);
 
-    Database::Entities::Game game(query.fetchRow());
-    games[index.row()] = game;
+    Entities::Game game(query.fetchRow());
+    m_games[index.row()] = game;
+}
+
+bool GamesTableModel::insertRow(const Entities::Game& game)
+{
+    beginInsertRows(QModelIndex(), static_cast<int>(m_games.size()), static_cast<int>(m_games.size()));
+    auto base = Database::Connection("../sln/core/testbase.db");
+    auto query = base.query("INSERT INTO `games` (name, path, platform_id) VALUES (?, ?, ?);");
+    query.bindMany(game.name.c_str(), game.path.c_str(), game.platform_id);
+    query.execute();
+    m_games.push_back(game);
+    endInsertRows();
+    return true;
+}
+
+bool GamesTableModel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+
+    if (count == 0)
+    {
+        return false;
+    }
+
+    auto base = Database::Connection("../sln/core/testbase.db");
+
+    auto i_remove_start = m_games.begin() + row;
+    auto i_remove_end = m_games.begin() + row + count;
+    beginRemoveRows(QModelIndex(), row, row + count - 1);
+    for (size_t i = 0; i < static_cast<size_t>(count); i++)
+    {
+        // Delete game information
+        auto query = base.query("DELETE FROM `games` WHERE id = ?");
+        query.bindMany(m_games[row + i].id);
+        query.execute();
+        // Delete developers information
+        query = base.query("DELETE FROM `game_developers` WHERE `game_id` = ?");
+        query.bindMany(m_games[row+i].id);
+        query.execute();
+        // Delete publishers information
+        query = base.query("DELETE FROM `game_publishers` WHERE `game_id` = ?");
+        query.bindMany(m_games[row+i].id);
+        query.execute();
+        // Delete genres information
+        query = base.query("DELETE FROM `game_genres` WHERE `game_id` = ?");
+        query.bindMany(m_games[row+i].id);
+        query.execute();
+    }
+    m_games.erase(i_remove_start, i_remove_end);
+    endRemoveRows();
+    return true;
 }
 
 int GamesTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(games.size());
+    return static_cast<int>(m_games.size());
 }
 
 int GamesTableModel::columnCount(const QModelIndex &parent) const
@@ -55,10 +129,10 @@ QVariant GamesTableModel::data(const QModelIndex &index, int role) const
         switch(index.column())
         {
             case ColumnName::Name:
-                result = games[index.row()].name;
+                result = m_games[index.row()].name;
                 break;
             case ColumnName::Path:
-                result = games[index.row()].path;
+                result = m_games[index.row()].path;
                 break;
         }
 
