@@ -21,6 +21,3 @@ addons:
 script:
   - cmake -B ./build
   - cmake --build ./build
-  - cd manager
-  - cmake -B ./build
-  - cmake --build ./build
