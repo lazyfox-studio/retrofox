@@ -4,8 +4,9 @@
 
 #include <QFileDialog>
 
-#include "database.h"
-#include "platformlistmodel.h"
+#include <database/database.h>
+
+#include "manager/platformlistmodel.h"
 
 namespace Ui {
     class EmulatorEditDialog;

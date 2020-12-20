@@ -1,4 +1,4 @@
-#include "emulatorstablemodel.h"
+#include "manager/emulatorstablemodel.h"
 
 EmulatorsTableModel::EmulatorsTableModel(QObject *parent) : QAbstractTableModel(parent)
 {

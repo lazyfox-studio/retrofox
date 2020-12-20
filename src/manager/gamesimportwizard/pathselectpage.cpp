@@ -1,4 +1,4 @@
-#include "gamesimportwizard/pathselectpage.h"
+#include "manager/gamesimportwizard/pathselectpage.h"
 #include "ui_pathselectpage.h"
 
 namespace GamesImportWizard

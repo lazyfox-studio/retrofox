@@ -3,9 +3,9 @@
 #include <QDialog>
 #include <QFileDialog>
 
-#include <database.h>
+#include <database/database.h>
 
-#include "platformlistmodel.h"
+#include "manager/platformlistmodel.h"
 
 namespace Ui {
 class GameEditDialog;

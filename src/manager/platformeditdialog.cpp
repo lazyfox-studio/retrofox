@@ -1,4 +1,4 @@
-#include "platformeditdialog.h"
+#include "manager/platformeditdialog.h"
 #include "ui_platformeditdialog.h"
 
 PlatformEditDialog::PlatformEditDialog(QWidget *parent) : QDialog(parent), ui(new Ui::PlatformEditDialog)

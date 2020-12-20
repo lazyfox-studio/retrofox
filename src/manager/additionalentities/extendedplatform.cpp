@@ -1,4 +1,4 @@
-#include "additionalentities/extendedplatform.h"
+#include "manager/additionalentities/extendedplatform.h"
 
 namespace AdditionalEntities
 {

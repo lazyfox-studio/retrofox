@@ -2,7 +2,7 @@
 
 #include <QWizardPage>
 
-#include "gamesimportwizard/pages.h"
+#include "manager/gamesimportwizard/pages.h"
 
 namespace Ui {
 class FinalPage;

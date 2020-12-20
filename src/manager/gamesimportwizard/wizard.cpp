@@ -1,4 +1,4 @@
-#include "gamesimportwizard/wizard.h"
+#include "manager/gamesimportwizard/wizard.h"
 
 namespace GamesImportWizard
 {

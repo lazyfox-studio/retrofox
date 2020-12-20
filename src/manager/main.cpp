@@ -1,8 +1,8 @@
 #include <QApplication>
 
-#include <api-service.h>
+#include <api-service/api-service.h>
 
-#include "mainwindow.h"
+#include "manager/mainwindow.h"
 
 int main(int argc, char *argv[])
 {

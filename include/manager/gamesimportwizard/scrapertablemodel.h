@@ -5,7 +5,7 @@
 #include <vector>
 
 #include <QVariant>
-#include <database.h>
+#include <database/database.h>
 
 namespace GamesImportWizard
 {

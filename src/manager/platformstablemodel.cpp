@@ -1,4 +1,4 @@
-#include "platformstablemodel.h"
+#include "manager/platformstablemodel.h"
 
 PlatformsTableModel::PlatformsTableModel(QObject *parent) : QAbstractTableModel(parent)
 {

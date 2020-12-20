@@ -1,4 +1,4 @@
-#include "emulatoreditdialog.h"
+#include "manager/emulatoreditdialog.h"
 #include "ui_emulatoreditdialog.h"
 
 EmulatorEditDialog::EmulatorEditDialog(QWidget *parent) : QDialog(parent), ui(new Ui::EmulatorEditDialog)

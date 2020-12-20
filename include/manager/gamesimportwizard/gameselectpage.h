@@ -4,15 +4,15 @@
 
 #include <QWizardPage>
 
-#include <api-service.h>
+#include <api-service/api-service.h>
 
-#include "gamesimportwizard/pages.h"
-#include "gamesimportwizard/scrapertablemodel.h"
-#include "gamesimportwizard/shareddata.h"
+#include "manager/gamesimportwizard/pages.h"
+#include "manager/gamesimportwizard/scrapertablemodel.h"
+#include "manager/gamesimportwizard/shareddata.h"
 
-#include "scraper/functions.h"
-#include "scraper/findgamesinformation.h"
-#include "scraper/scanfolder.h"
+#include "manager/scraper/functions.h"
+#include "manager/scraper/findgamesinformation.h"
+#include "manager/scraper/scanfolder.h"
 
 namespace Ui {
 class GameSelectPage;

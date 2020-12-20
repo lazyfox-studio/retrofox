@@ -1,4 +1,4 @@
-#include "gamesimportwizard/shareddata.h"
+#include "manager/gamesimportwizard/shareddata.h"
 
 namespace GamesImportWizard
 {

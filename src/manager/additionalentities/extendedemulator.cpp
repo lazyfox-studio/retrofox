@@ -1,4 +1,4 @@
-#include "additionalentities/extendedemulator.h"
+#include "manager/additionalentities/extendedemulator.h"
 
 namespace AdditionalEntities
 {

@@ -1,4 +1,4 @@
-#include "gamestablemodel.h"
+#include "manager/gamestablemodel.h"
 
 GamesTableModel::GamesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {

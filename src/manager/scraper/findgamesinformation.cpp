@@ -1,4 +1,4 @@
-#include "scraper/findgamesinformation.h"
+#include "manager/scraper/findgamesinformation.h"
 
 namespace Scraper
 {

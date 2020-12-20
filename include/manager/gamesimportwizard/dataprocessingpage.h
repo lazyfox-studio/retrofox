@@ -2,13 +2,13 @@
 
 #include <QWizardPage>
 
-#include "gamesimportwizard/pages.h"
-#include "gamesimportwizard/shareddata.h"
+#include "manager/gamesimportwizard/pages.h"
+#include "manager/gamesimportwizard/shareddata.h"
 #include "ui_dataprocessingpage.h"
-
-#include "scraper/functions.h"
-#include "scraper/findgamesinformation.h"
-#include "scraper/scanfolder.h"
+//TODO: move ui to src
+#include "manager/scraper/functions.h"
+#include "manager/scraper/findgamesinformation.h"
+#include "manager/scraper/scanfolder.h"
 
 namespace Ui{
 class DataProcessingPage;

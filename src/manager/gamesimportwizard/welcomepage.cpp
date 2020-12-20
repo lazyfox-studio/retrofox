@@ -1,4 +1,4 @@
-#include "gamesimportwizard/welcomepage.h"
+#include "manager/gamesimportwizard/welcomepage.h"
 #include "ui_welcomepage.h"
 
 namespace GamesImportWizard

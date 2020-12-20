@@ -1,4 +1,4 @@
-#include "platformlistmodel.h"
+#include "manager/platformlistmodel.h"
 
 
 PlatformListModel::PlatformListModel(QObject *parent) : QAbstractListModel(parent)

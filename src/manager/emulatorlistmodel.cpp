@@ -1,4 +1,4 @@
-#include "emulatorlistmodel.h"
+#include "manager/emulatorlistmodel.h"
 
 EmulatorListModel::EmulatorListModel(QObject *parent) : QAbstractListModel(parent)
 {

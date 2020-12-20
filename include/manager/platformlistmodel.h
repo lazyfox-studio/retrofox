@@ -2,7 +2,7 @@
 
 #include <QAbstractListModel>
 
-#include <database.h>
+#include <database/database.h>
 
 class PlatformListModel : public QAbstractListModel
 {

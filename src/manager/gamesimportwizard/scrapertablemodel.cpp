@@ -1,4 +1,4 @@
-#include "gamesimportwizard/scrapertablemodel.h"
+#include "manager/gamesimportwizard/scrapertablemodel.h"
 
 namespace GamesImportWizard
 {

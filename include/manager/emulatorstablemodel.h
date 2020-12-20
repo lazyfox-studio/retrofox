@@ -6,9 +6,9 @@
 
 #include <QVariant>
 
-#include <database.h>
+#include <database/database.h>
 
-#include "additionalentities/extendedemulator.h"
+#include "manager/additionalentities/extendedemulator.h"
 
 /**
  * @ingroup manager

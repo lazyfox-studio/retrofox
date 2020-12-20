@@ -4,9 +4,9 @@
 
 #include <QString>
 
-#include <database.h>
+#include <database/database.h>
 
-#include "emulatorlistmodel.h"
+#include "manager/emulatorlistmodel.h"
 
 namespace Ui {
     class PlatformEditDialog;

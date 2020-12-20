@@ -1,4 +1,4 @@
-#include "gameeditdialog.h"
+#include "manager/gameeditdialog.h"
 #include "ui_gameeditdialog.h"
 
 GameEditDialog::GameEditDialog(QWidget *parent) : QDialog(parent), ui(new Ui::GameEditDialog)

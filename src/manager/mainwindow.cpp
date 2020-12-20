@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "manager/mainwindow.h"
 #include "ui_mainwindow.h"
 
 bool MainWindow::setLanguage(const QLocale& locale)

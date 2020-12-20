@@ -7,14 +7,14 @@
 #include <QWidget>
 #include <QDebug>
 
-#include "aboutdialog.h"
-#include "emulatorstablemodel.h"
-#include "emulatoreditdialog.h"
-#include "gameeditdialog.h"
-#include "gamesimportwizard/wizard.h"
-#include "gamestablemodel.h"
-#include "platformeditdialog.h"
-#include "platformstablemodel.h"
+#include "manager/aboutdialog.h"
+#include "manager/emulatorstablemodel.h"
+#include "manager/emulatoreditdialog.h"
+#include "manager/gameeditdialog.h"
+#include "manager/gamesimportwizard/wizard.h"
+#include "manager/gamestablemodel.h"
+#include "manager/platformeditdialog.h"
+#include "manager/platformstablemodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

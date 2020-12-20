@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <database.h>
+#include <database/database.h>
 
 namespace Scraper
 {

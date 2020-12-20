@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-#include <database.h>
-#include <api-service.h>
+#include <database/database.h>
+#include <api-service/api-service.h>
 
 /**
  * @ingroup manager
