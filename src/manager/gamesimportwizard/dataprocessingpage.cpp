@@ -1,4 +1,5 @@
 #include "manager/gamesimportwizard/dataprocessingpage.h"
+#include "ui_dataprocessingpage.h"
 
 namespace GamesImportWizard
 {

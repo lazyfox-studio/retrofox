@@ -4,8 +4,6 @@
 
 #include "manager/gamesimportwizard/pages.h"
 #include "manager/gamesimportwizard/shareddata.h"
-#include "ui_dataprocessingpage.h"
-//TODO: move ui to src
 #include "manager/scraper/functions.h"
 #include "manager/scraper/findgamesinformation.h"
 #include "manager/scraper/scanfolder.h"
