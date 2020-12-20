@@ -13,17 +13,21 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 
 # Find modules =========================================================================================================
+# Python
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 include_directories(${Python_INCLUDE_DIRS})
 include_directories(${Python_LIBRARY_DIRS})
 
+# SQlite 3
 find_package(SQLite3 REQUIRED)
 include_directories(${SQLITE3_INCLUDE_DIRS})
 
+# SDL2
 set(SDL2_PATH "D:/Libraries/SDL" "E:/Libraries/SDL")
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
 
+# SDL2 TTF
 set(SDL2_TTF_PATH "D:/Libraries/SDL_ttf" "E:/Libraries/SDL_ttf")
 find_package(SDL2_ttf)
 include_directories(${SDL2_TTF_INCLUDE_DIRS})
@@ -103,7 +107,7 @@ add_library(api-service STATIC ${API_SERVICE_SOURCE_FILES})
 add_library(database STATIC ${DATABASE_SOURCE_FILES})
 
 target_link_libraries(api-service ${Python_LIBRARIES})
-target_link_libraries(database ${SQLITE3_LIBRARIES})
+target_link_libraries(database ${SQLite3_LIBRARIES})
 
 add_executable(retrofox ${CORE_SOURCE_FILES})
 target_link_libraries(retrofox database)
