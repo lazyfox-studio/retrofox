@@ -1,4 +1,4 @@
-#include "graphics/text.h"
+#include "core/graphics/text.h"
 
 namespace Graphics
 {

@@ -1,4 +1,4 @@
-#include "entities/gamepublisher.h"
+#include "database/entities/gamepublisher.h"
 
 namespace Entities
 {

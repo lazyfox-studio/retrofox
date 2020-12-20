@@ -1,4 +1,4 @@
-#include "entities/scrapergenre.h"
+#include "database/entities/scrapergenre.h"
 
 namespace Entities
 {

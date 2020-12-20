@@ -1,4 +1,4 @@
-#include "graphics/fontbuffer.h"
+#include "core/graphics/fontbuffer.h"
 
 namespace Graphics
 {

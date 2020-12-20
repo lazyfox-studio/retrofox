@@ -1,9 +1,9 @@
 #pragma once
 
-#include "interface/widget.h"
+#include "core/interface/widget.h"
 
-#include "interface/button.h"
-#include "interface/layout.h"
+#include "core/interface/button.h"
+#include "core/interface/layout.h"
 
 namespace Interface
 {

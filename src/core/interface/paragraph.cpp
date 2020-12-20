@@ -1,4 +1,4 @@
-#include "interface/paragraph.h"
+#include "core/interface/paragraph.h"
 
 namespace Interface
 {

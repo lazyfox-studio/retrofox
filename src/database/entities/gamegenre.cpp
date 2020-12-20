@@ -1,4 +1,4 @@
-#include "entities/gamegenre.h"
+#include "database/entities/gamegenre.h"
 
 namespace Entities
 {

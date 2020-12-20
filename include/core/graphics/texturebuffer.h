@@ -6,7 +6,7 @@
 
 #include <SDL.h>
 
-#include "graphics/texture.h"
+#include "core/graphics/texture.h"
 
 
 namespace Graphics

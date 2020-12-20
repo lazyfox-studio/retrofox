@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include <database.h>
-#include <pythonfunctions.h>
+#include <database/database.h>
+#include <api-service/pythonfunctions.h>
 
 /**
  * @ingroup core

@@ -8,7 +8,7 @@
 #include <map>
 #include <vector>
 
-#include "pythonref.h"
+#include "api-service/pythonref.h"
 
 /**
  * @ingroup api-service

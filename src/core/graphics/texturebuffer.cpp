@@ -1,4 +1,4 @@
-#include "graphics/texturebuffer.h"
+#include "core/graphics/texturebuffer.h"
 
 namespace Graphics
 {

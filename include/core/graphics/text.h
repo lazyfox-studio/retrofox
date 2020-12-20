@@ -1,12 +1,12 @@
 #pragma once
 
-#include "graphics/sprite.h"
+#include "core/graphics/sprite.h"
 
 #include <memory>
 #include <string>
 
-#include "graphics/font.h"
-#include "graphics/fontbuffer.h"
+#include "core/graphics/font.h"
+#include "core/graphics/fontbuffer.h"
 
 namespace Graphics
 {

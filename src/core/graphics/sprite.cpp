@@ -1,4 +1,4 @@
-#include "graphics/sprite.h"
+#include "core/graphics/sprite.h"
 
 namespace Graphics
 {

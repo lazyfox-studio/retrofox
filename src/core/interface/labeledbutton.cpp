@@ -1,4 +1,4 @@
-#include "interface/labeledbutton.h"
+#include "core/interface/labeledbutton.h"
 
 namespace Interface
 {

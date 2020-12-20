@@ -1,4 +1,4 @@
-#include "interface/label.h"
+#include "core/interface/label.h"
 
 namespace Interface
 {

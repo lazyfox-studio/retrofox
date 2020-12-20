@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-#include "database/row.h"
-#include "database/statement.h"
+#include "database/database/row.h"
+#include "database/database/statement.h"
 
 namespace Entities
 {

@@ -1,4 +1,4 @@
-#include "entities/platform.h"
+#include "database/entities/platform.h"
 
 namespace Entities
 {

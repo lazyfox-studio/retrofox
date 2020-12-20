@@ -1,4 +1,4 @@
-#include "pythonthreadcontroller.h"
+#include "api-service/pythonthreadcontroller.h"
 
 PythonThreadController::PythonThreadController()
     : m_thread(nullptr)

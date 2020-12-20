@@ -4,8 +4,8 @@
 
 #include <SDL.h>
 
-#include "graphics/texture.h"
-#include "graphics/texturebuffer.h"
+#include "core/graphics/texture.h"
+#include "core/graphics/texturebuffer.h"
 
 namespace Graphics
 {

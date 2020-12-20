@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "core/mainwindow.h"
 
 MainWindow::MainWindow(const std::string& title, int x, int y, int width, int height) 
     : Interface::Window(title, x, y, width, height)

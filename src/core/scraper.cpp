@@ -1,4 +1,4 @@
-#include "scraper.h"
+#include "core/scraper.h"
 
 namespace Scraper
 {

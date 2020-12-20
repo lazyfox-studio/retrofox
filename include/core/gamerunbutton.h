@@ -1,11 +1,11 @@
 #pragma once
 
-#include "interface/labeledbutton.h"
+#include "core/interface/labeledbutton.h"
 
 #include <iostream>
 #include <string>
 
-#include <database.h>
+#include <database/database.h>
 
 class GameRunButton : public Interface::LabeledButton
 {

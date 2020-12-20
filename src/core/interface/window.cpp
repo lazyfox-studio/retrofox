@@ -1,4 +1,4 @@
-#include "interface/window.h"
+#include "core/interface/window.h"
 
 namespace Interface
 {

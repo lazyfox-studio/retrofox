@@ -1,4 +1,4 @@
-#include "entities/genre.h"
+#include "database/entities/genre.h"
 
 namespace Entities
 {

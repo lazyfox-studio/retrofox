@@ -1,10 +1,10 @@
 #include <iostream>
 
-#include <database.h>
-#include <api-service.h>
+#include <database/database.h>
+#include <api-service/api-service.h>
 
-#include "mainwindow.h"
-#include "scraper.h"
+#include "core/mainwindow.h"
+#include "core/scraper.h"
 
 
 int main(int argc, char *argv[])

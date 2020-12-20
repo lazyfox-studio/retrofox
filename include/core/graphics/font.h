@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics/texture.h"
+#include "core/graphics/texture.h"
 
 #include <SDL.h>
 #include <SDL_ttf.h>

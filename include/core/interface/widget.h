@@ -3,8 +3,8 @@
 #include <limits>
 #include <stdexcept>
 
-#include "control/virtualgamepad.h"
-#include "graphics/sprite.h"
+#include "core/control/virtualgamepad.h"
+#include "core/graphics/sprite.h"
 
 namespace Interface
 {

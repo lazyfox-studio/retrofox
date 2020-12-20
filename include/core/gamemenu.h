@@ -1,13 +1,13 @@
 #pragma once
 
-#include "interface/menu.h"
+#include "core/interface/menu.h"
 
 #include <memory>
 #include <string>
 
-#include <database.h>
+#include <database/database.h>
 
-#include "gamerunbutton.h"
+#include "core/gamerunbutton.h"
 
 /**
  * @ingroup core

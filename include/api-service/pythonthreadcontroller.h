@@ -3,7 +3,7 @@
 #include <mutex>
 #include <thread>
 
-#include "pythonthread.h"
+#include "api-service/pythonthread.h"
 
 /**
  * @ingroup api-service

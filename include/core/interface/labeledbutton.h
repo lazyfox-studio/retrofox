@@ -1,10 +1,10 @@
 #pragma once
 
-#include "interface/button.h"
+#include "core/interface/button.h"
 
 #include <string>
 
-#include "interface/label.h"
+#include "core/interface/label.h"
 
 namespace Interface
 {

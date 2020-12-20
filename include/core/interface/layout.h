@@ -1,6 +1,6 @@
 #pragma once
 
-#include "interface/widget.h"
+#include "core/interface/widget.h"
 
 #include <list>
 #include <memory>

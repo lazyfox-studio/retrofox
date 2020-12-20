@@ -2,15 +2,15 @@
 
 #include <string>
 
-#include "database/connection.h"
-#include "database/row.h"
-#include "database/statement.h"
-#include "entities/developer.h"
-#include "entities/gamedeveloper.h"
-#include "entities/gamegenre.h"
-#include "entities/gamepublisher.h"
-#include "entities/genre.h"
-#include "entities/publisher.h"
+#include "database/database/connection.h"
+#include "database/database/row.h"
+#include "database/database/statement.h"
+#include "database/entities/developer.h"
+#include "database/entities/gamedeveloper.h"
+#include "database/entities/gamegenre.h"
+#include "database/entities/gamepublisher.h"
+#include "database/entities/genre.h"
+#include "database/entities/publisher.h"
 
 namespace Entities
 {

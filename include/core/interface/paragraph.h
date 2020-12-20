@@ -1,13 +1,13 @@
 #pragma once
 
-#include "interface/widget.h"
+#include "core/interface/widget.h"
 
 #include <string>
 #include <vector>
 
 #include <SDL.h>
 
-#include "graphics/text.h"
+#include "core/graphics/text.h"
 
 namespace Interface
 {

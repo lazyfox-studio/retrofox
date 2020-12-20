@@ -5,8 +5,8 @@
 
 #include "SDL.h"
 
-#include "control/virtualgamepad.h"
-#include "interface/widget.h"
+#include "core/control/virtualgamepad.h"
+#include "core/interface/widget.h"
 
 namespace Interface
 {

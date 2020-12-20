@@ -1,4 +1,4 @@
-#include "entities/emulator.h"
+#include "database/entities/emulator.h"
 
 namespace Entities
 {

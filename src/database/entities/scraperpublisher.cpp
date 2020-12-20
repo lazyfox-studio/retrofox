@@ -1,4 +1,4 @@
-#include "entities/scraperpublisher.h"
+#include "database/entities/scraperpublisher.h"
 
 namespace Entities
 {

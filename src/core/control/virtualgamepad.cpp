@@ -1,4 +1,4 @@
-#include "control/virtualgamepad.h"
+#include "core/control/virtualgamepad.h"
 
 namespace Control
 {
