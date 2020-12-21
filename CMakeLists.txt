@@ -27,7 +27,8 @@ include_directories(${Python_LIBRARY_DIRS})
 
 # SQlite 3
 find_package(SQLite3 REQUIRED)
-include_directories(${SQLITE3_INCLUDE_DIRS})
+include_directories(${SQLite3_INCLUDE_DIRS})
+message("ALARM!!!   ${SQLite3_INCLUDE_DIRS}")
 
 # SDL2
 set(SDL2_PATH "D:/Libraries/SDL" "E:/Libraries/SDL")
