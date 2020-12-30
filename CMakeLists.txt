@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.14)
 
 project(retrofox LANGUAGES CXX)
 
@@ -25,11 +25,6 @@ find_package(Python COMPONENTS Interpreter Development REQUIRED)
 include_directories(${Python_INCLUDE_DIRS})
 include_directories(${Python_LIBRARY_DIRS})
 
-# SQlite 3
-find_package(SQLite3 REQUIRED)
-include_directories(${SQLite3_INCLUDE_DIRS})
-message("ALARM!!!   ${SQLite3_INCLUDE_DIRS}")
-
 # SDL2
 set(SDL2_PATH "D:/Libraries/SDL" "E:/Libraries/SDL")
 find_package(SDL2 REQUIRED)
@@ -39,6 +34,10 @@ include_directories(${SDL2_INCLUDE_DIR})
 set(SDL2_TTF_PATH "D:/Libraries/SDL_ttf" "E:/Libraries/SDL_ttf")
 find_package(SDL2_ttf)
 include_directories(${SDL2_TTF_INCLUDE_DIRS})
+
+# SQlite 3
+find_package(SQLite3 REQUIRED)
+include_directories(${SQLite3_INCLUDE_DIRS})
 
 # Qt
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
