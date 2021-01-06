@@ -43,4 +43,5 @@ target_link_libraries(${TARGET_NAME} PUBLIC
     "database"
     ${SDL2_LIBRARY}
     ${SDL2_TTF_LIBRARIES}
+    ${SQLITE3_LIBRARIES}
 )
