@@ -32,10 +32,8 @@ find_package(SDL2_ttf REQUIRED)
 add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_HEADERS})
 
 target_include_directories(${TARGET_NAME} 
-PUBLIC
     ${CMAKE_SOURCE_DIR}/include/core/
     ${CMAKE_SOURCE_DIR}/include/
-PRIVATE
     ${SDL2_INCLUDE_DIR}
     ${SDL2_TTF_INCLUDE_DIRS}
 )
