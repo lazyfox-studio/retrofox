@@ -17,10 +17,8 @@ find_package(SQLite3 REQUIRED)
 add_library(${TARGET_NAME} STATIC ${TARGET_SRC} ${TARGET_HEADERS})
 
 target_include_directories(${TARGET_NAME} 
-PUBLIC
     ${CMAKE_SOURCE_DIR}/include/database/
     ${CMAKE_SOURCE_DIR}/include/
-PRIVATE
     ${SQLite3_INCLUDE_DIRS}
 )
 
