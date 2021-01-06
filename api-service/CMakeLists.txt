@@ -10,8 +10,6 @@ file(GLOB TARGET_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 
-find_package(Python COMPONENTS Interpreter Development REQUIRED)
-
 add_library(${TARGET_NAME} STATIC ${TARGET_SRC} ${TARGET_HEADERS})
 
 target_include_directories(${TARGET_NAME} PUBLIC

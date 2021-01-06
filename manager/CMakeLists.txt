@@ -38,9 +38,6 @@ set(TARGET_RESOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc
 )
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
-
 add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_HEADERS} ${TARGET_UI_FILES} ${TARGET_RESOURCES})
 
 target_include_directories(${TARGET_NAME} PUBLIC

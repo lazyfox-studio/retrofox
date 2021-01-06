@@ -16,19 +16,6 @@ file(GLOB TARGET_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/interface/*.cpp
 )
 
-set(SDL2_PATH
-    "D:/Libraries/SDL"
-    "E:/Libraries/SDL"
-    "A:/libraries/SDL"
-)
-set(SDL2_TTF_PATH
-    "D:/Libraries/SDL_ttf"
-    "E:/Libraries/SDL_ttf"
-    "A:/libraries/SDL_ttf"
-)
-find_package(SDL2 REQUIRED)
-find_package(SDL2_ttf REQUIRED)
-
 add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_HEADERS})
 
 target_include_directories(${TARGET_NAME} PUBLIC
