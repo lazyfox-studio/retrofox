@@ -28,7 +28,6 @@ set(SDL2_TTF_PATH
 )
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)
-find_package(SQLite3 REQUIRED)
 
 add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_HEADERS})
 
@@ -39,10 +38,11 @@ target_include_directories(${TARGET_NAME} PUBLIC
     ${SDL2_TTF_INCLUDE_DIRS}
 )
 
-target_link_libraries(${TARGET_NAME} PUBLIC
+target_link_libraries(${TARGET_NAME}
+PUBLIC
     "api-service"
     "database"
+PRIVATE
     ${SDL2_LIBRARY}
     ${SDL2_TTF_LIBRARIES}
-    ${SQLITE3_LIBRARIES}
 )

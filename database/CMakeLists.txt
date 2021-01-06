@@ -22,6 +22,6 @@ target_include_directories(${TARGET_NAME} PUBLIC
     ${SQLite3_INCLUDE_DIRS}
 )
 
-target_link_libraries(${TARGET_NAME} PUBLIC
+target_link_libraries(${TARGET_NAME} PRIVATE
     ${SQLITE3_LIBRARIES}
 )

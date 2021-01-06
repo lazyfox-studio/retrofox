@@ -21,6 +21,6 @@ target_include_directories(${TARGET_NAME} PUBLIC
     ${Python_LIBRARY_DIRS}
 )
 
-target_link_libraries(${TARGET_NAME} PUBLIC
+target_link_libraries(${TARGET_NAME} PRIVATE
     ${Python_LIBRARIES}
 )
