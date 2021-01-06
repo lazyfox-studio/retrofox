@@ -53,5 +53,4 @@ target_link_libraries(${TARGET_NAME} PUBLIC
     "database"
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Widgets
-    ${SQLITE3_LIBRARIES}
 )

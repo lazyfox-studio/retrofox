@@ -28,6 +28,7 @@ set(SDL2_TTF_PATH
 )
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)
+find_package(SQLite3 REQUIRED)
 
 add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_HEADERS})
 
