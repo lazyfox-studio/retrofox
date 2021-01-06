@@ -16,9 +16,9 @@ file(GLOB TARGET_HEADERS
 
 file(GLOB TARGET_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/control/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/interface/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/additionalentities/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gamesimportwizard/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scraper/*.cpp
 )
 
 set(TARGET_UI_FILES
