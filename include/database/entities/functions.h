@@ -2,9 +2,9 @@
 
 #include <string>
 
-#include "database/database/connection.h"
-#include "database/database/row.h"
-#include "database/database/statement.h"
+#include "database/connection.h"
+#include "database/row.h"
+#include "database/statement.h"
 #include "database/entities/developer.h"
 #include "database/entities/gamedeveloper.h"
 #include "database/entities/gamegenre.h"

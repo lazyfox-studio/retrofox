@@ -4,8 +4,8 @@
 #include <vector>
 #include <map>
 
-#include "database/database/row.h"
-#include "database/database/statement.h"
+#include "database/row.h"
+#include "database/statement.h"
 
 namespace Entities
 {

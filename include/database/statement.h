@@ -6,7 +6,7 @@
 #include <vector>
 #include <map>
 
-#include "database/database/row.h"
+#include "database/row.h"
 
 namespace Database
 {

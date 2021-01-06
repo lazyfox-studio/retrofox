@@ -1,8 +1,8 @@
 #pragma once
 
-#include "database/database/connection.h"
-#include "database/database/statement.h"
-#include "database/database/row.h"
+#include "database/connection.h"
+#include "database/statement.h"
+#include "database/row.h"
 
 #include "database/entities/developer.h"
 #include "database/entities/emulator.h"
