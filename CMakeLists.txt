@@ -11,13 +11,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-# Python
-find_package(Python COMPONENTS Interpreter Development REQUIRED)
-
-# SQlite3
-find_package(SQLite3 REQUIRED)
-
-# SDL
 set(SDL2_PATH
     "D:/Libraries/SDL"
     "E:/Libraries/SDL"
@@ -28,12 +21,13 @@ set(SDL2_TTF_PATH
     "E:/Libraries/SDL_ttf"
     "A:/libraries/SDL_ttf"
 )
+
+find_package(Python COMPONENTS Interpreter Development REQUIRED)
+find_package(SQLite3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)
-
-# Qt
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools Widgets REQUIRED)
 
 add_subdirectory(api-service)
 add_subdirectory(database)
