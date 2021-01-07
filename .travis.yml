@@ -10,13 +10,13 @@ addons:
   apt:
     packages:
       - cmake
-      - qt5-qmake
       - libsdl2-dev
       - libsdl2-ttf-dev
       - libsqlite3-dev
       - python3-dev
       - qtbase5-dev
       - qtdeclarative5-dev
+      - qttools5-dev
 
 script:
   - cmake -B ./build
