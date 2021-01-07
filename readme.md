@@ -56,11 +56,17 @@ cmake --build .
 We recommend to use system package manager to handle with dependencies (but you still can use **vcpkg** as in manual for Windows).
 You also need to install [CMake](https://cmake.org/download/) (3.14 or newer) and `build-essential` pack (including GCC and Make).
 
-This is a command for **apt** on Ubuntu:
+You can install dependencies by executing the corresponding command to your distribution:
 
+**Debian/Ubuntu**
 ```bash
 sudo apt install python3-dev libsqlite3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev libsdl2-dev libsdl2-ttf-dev
 ```
+<!-- **CentOS:** -->
+<!-- **Arch/Manjaro:**
+```bash
+sudo pacman -S python3 libsqlite3-dev 
+```-->
 
 After installing dependencies, run build with these commands:
 
