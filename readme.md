@@ -13,9 +13,8 @@ We documented literally every symbol in our code, so you can found documentation
 # Build
 
 The following packages are required:
-* CMake
-* Python 3 (Dev)
-* SQLite3 (Dev)
+* Python 3 
+* SQLite3
 * Qt 5 _(will be replaced with Qt 6 in future RetroFox releases)_
 * SDL 2 with TTF plugin _(will become obsolete in future RetroFox releases)_
 
@@ -23,14 +22,14 @@ The following packages are required:
 ## Windows
 
 We recommend to use **[vcpkg](https://github.com/Microsoft/vcpkg)** to handle with dependencies.
-You also need to install [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (or more recent version).
+You also need to install [CMake](https://cmake.org/download/) (3.14 or newer) and [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) (2019 or newer).
 
 ```sh
 vcpkg install sqlite3:x64-windows
 vcpkg install qt5:x64-windows
 ```
 
-> CMake, Python Dev and SDL can be downloaded from their official webistes.
+> Python and SDL development packages can be downloaded from their official webistes.
 
 After installing dependencies, run build with these commands:
 
@@ -43,10 +42,12 @@ cmake --build .
 
 ## Linux
 
-We recommend to use package manager (**apt** on Ubuntu) to handle with dependencies (but you still can use **vcpkg**). 
+We recommend to use system package manager to handle with dependencies (but you still can use **vcpkg** as in manual for Windows).
+You also need to install [CMake](https://cmake.org/download/) (3.14 or newer) and `build-essential` pack (including GCC and Make).
 
+This is a command for **apt** on Ubuntu:
 ```bash
-sudo apt install cmake build-essentials libsdl2-dev libsdl2-ttf-dev libsqlite3-dev python3-dev qtbase5-dev qtdeclarative5-dev
+sudo apt install python3-dev libsqlite3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev libsdl2-dev libsdl2-ttf-dev
 ```
 
 After installing dependencies, run build with these commands:
