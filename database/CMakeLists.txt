@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-set (TARGET_NAME "database")
+set(TARGET_NAME "database")
 
 file(GLOB TARGET_HEADERS
     ${CMAKE_SOURCE_DIR}/include/database/*.h

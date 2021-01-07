@@ -31,5 +31,6 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools Widgets R
 
 add_subdirectory(api-service)
 add_subdirectory(database)
+add_subdirectory(app)
 add_subdirectory(core)
 add_subdirectory(manager)

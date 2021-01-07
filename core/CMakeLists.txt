@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-set (TARGET_NAME "core")
+set(TARGET_NAME "core")
 
 file(GLOB TARGET_HEADERS
     ${CMAKE_SOURCE_DIR}/include/core/*.h

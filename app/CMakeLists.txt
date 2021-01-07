@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-set (TARGET_NAME "app")
+set(TARGET_NAME "app")
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
