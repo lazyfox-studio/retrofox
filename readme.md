@@ -1,9 +1,10 @@
-![](https://lazyfox.dev/user/pages/03.projects/retrofox/Full%20logo%20colored%202048.png)
+[![](https://lazyfox.dev/user/pages/03.projects/retrofox/Full%20logo%20colored%202048.png)](https://retrofox.lazyfox.dev)
 
 Cross-platform (Windows, Linux, Raspberry Pi) launcher for old console games.
 
 
 [![Build Status](https://travis-ci.com/lazyfox-studio/retrofox.svg?branch=master)](https://travis-ci.com/lazyfox-studio/retrofox)
+
 
 # Documentation
 
@@ -24,12 +25,22 @@ The following packages are required:
 We recommend to use **[vcpkg](https://github.com/Microsoft/vcpkg)** to handle with dependencies.
 You also need to install [CMake](https://cmake.org/download/) (3.14 or newer) and [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) (2019 or newer).
 
+Deploy **vcpkg** with these commands:
+
 ```sh
-vcpkg install sqlite3:x64-windows
-vcpkg install qt5:x64-windows
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat -disableMetrics
+vcpkg integrate install
 ```
 
-> Python and SDL development packages can be downloaded from their official webistes.
+Then, install required packages:
+
+```sh
+vcpkg install python3:x64-windows sqlite3:x64-windows qt5:x64-windows
+```
+
+Note: since package manager will build all the libraries from the source code directly on your machine, this can take a long time.
 
 After installing dependencies, run build with these commands:
 
@@ -46,6 +57,7 @@ We recommend to use system package manager to handle with dependencies (but you 
 You also need to install [CMake](https://cmake.org/download/) (3.14 or newer) and `build-essential` pack (including GCC and Make).
 
 This is a command for **apt** on Ubuntu:
+
 ```bash
 sudo apt install python3-dev libsqlite3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev libsdl2-dev libsdl2-ttf-dev
 ```
