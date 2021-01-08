@@ -39,3 +39,10 @@ PRIVATE
 )
 
 qt5_create_translation(QM_FILES "${CMAKE_CURRENT_SOURCE_DIR}/translations" ${TARGET_TS_FILES})
+
+if(WIN32)
+    add_custom_command(TARGET app POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::Qml> ${CMAKE_BINARY_DIR}/bin)
+        add_custom_command(TARGET app POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::Quick> ${CMAKE_BINARY_DIR}/bin)
+endif()
