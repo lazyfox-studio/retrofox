@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>components/main.qml</file>
+        <file>textures/blank.svg</file>
     </qresource>
 </RCC>
