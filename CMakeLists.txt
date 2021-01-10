@@ -24,7 +24,12 @@ set(SDL2_TTF_PATH
 
 option(BUILD_CORE "Build core module (deprecated)" OFF)
 
-find_package(Python3 COMPONENTS Development REQUIRED)
+if(WIN32)
+    find_package(Python3 COMPONENTS Development REQUIRED)
+else(WIN32)
+    find_package(Python COMPONENTS Interpreter Development REQUIRED)
+endif(WIN32)
+
 find_package(SQLite3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)

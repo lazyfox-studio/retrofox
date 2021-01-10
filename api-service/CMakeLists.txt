@@ -20,6 +20,8 @@ target_include_directories(${TARGET_NAME} PUBLIC
     ${Python_LIBRARY_DIRS}
 )
 
-target_link_libraries(${TARGET_NAME} PRIVATE
-    Python3::Python
-)
+if(WIN32)
+    target_link_libraries(${TARGET_NAME} PRIVATE Python3::Python)
+else(WIN32)
+    target_link_libraries(${TARGET_NAME} PRIVATE ${Python_LIBRARIES})
+endif(WIN32)
