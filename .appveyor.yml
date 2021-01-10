@@ -5,8 +5,9 @@ environment:
       PYTHON_DIR: "C:\\Python39-x64"
 install:
   - set PATH=%PATH%;%QT_DIR%\bin;%PYTHON_DIR%
-  - choco install sqlite
+  - C:\Tools\vcpkg\vcpkg integrate install
+  - vcpkg install sqlite3:x64-windows
 build_script:
   - mkdir build && cd build
-  - cmake ..
+  - cmake -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake ..
   - cmake --build .
