@@ -49,7 +49,7 @@ cmake --build .
 ## Linux
 
 We recommend to use system package manager to handle with dependencies (but you still can use **vcpkg** as in manual for Windows).
-You also need to install [CMake](https://cmake.org/download/) (3.14 or newer), and latest GCC and Make (for example, they are contained in `build-essential` package in **apt**).
+You also need to install [CMake](https://cmake.org/download/) (3.14 or newer), and latest GCC and Make.
 
 You can install dependencies by executing the corresponding command to your distribution:
 
