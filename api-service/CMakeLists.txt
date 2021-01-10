@@ -15,10 +15,9 @@ add_library(${TARGET_NAME} STATIC ${TARGET_SRC} ${TARGET_HEADERS})
 target_include_directories(${TARGET_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include/api-service/
     ${CMAKE_SOURCE_DIR}/include/
-    ${Python_INCLUDE_DIRS}
-    ${Python_LIBRARY_DIRS}
+    ${Python3_INCLUDE_DIR}
 )
 
 target_link_libraries(${TARGET_NAME} PRIVATE
-    ${Python_LIBRARIES}
+    Python3::Python
 )

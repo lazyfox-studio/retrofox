@@ -22,7 +22,9 @@ set(SDL2_TTF_PATH
     "A:/libraries/SDL_ttf"
 )
 
-find_package(Python COMPONENTS Interpreter Development REQUIRED)
+option(BUILD_CORE "Build core module (deprecated)" OFF)
+
+find_package(Python3 COMPONENTS Development REQUIRED)
 find_package(SQLite3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)
@@ -32,5 +34,8 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools Widgets R
 add_subdirectory(api-service)
 add_subdirectory(database)
 add_subdirectory(app)
-add_subdirectory(core)
 add_subdirectory(manager)
+
+if(BUILD_CORE)
+    add_subdirectory(core)
+endif(BUILD_CORE)

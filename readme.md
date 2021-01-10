@@ -28,7 +28,6 @@ Deploy **vcpkg** with these commands:
 git clone https://github.com/microsoft/vcpkg.git
 cd vcpkg
 .\bootstrap-vcpkg.bat -disableMetrics
-vcpkg integrate install
 ```
 
 Then, install required packages:
@@ -43,33 +42,30 @@ After installing dependencies, run build with these commands:
 
 ```sh
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=[path to vcpkg root]/scripts/buildsystems/vcpkg.cmake
+cmake -DCMAKE_TOOLCHAIN_FILE=[path to vcpkg root]/scripts/buildsystems/vcpkg.cmake -DBUILD_CORE=ON ..
 cmake --build .
 ```
 
 ## Linux
 
 We recommend to use system package manager to handle with dependencies (but you still can use **vcpkg** as in manual for Windows).
-You also need to install [CMake](https://cmake.org/download/) (3.14 or newer) <!--and `build-essential` pack (including GCC and Make)-->.
+You also need to install [CMake](https://cmake.org/download/) (3.14 or newer), and latest GCC and Make (for example, they are contained in `build-essential` package in **apt**).
 
 You can install dependencies by executing the corresponding command to your distribution:
 
-### Debian/Ubuntu
-
-```bash
-sudo apt install python3-dev libsqlite3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev libsdl2-dev libsdl2-ttf-dev
-```
-
-### Arch/Manjaro
-
-```bash
-sudo pacman -S python3 libsqlite3-dev qt5-base qt5-declarative qt5-tools sdl2 sdl2_ttf
-```
+* Debian/Ubuntu
+  ```bash
+  sudo apt install python3-dev libsqlite3-dev qtbase5-dev qtdeclarative5-dev qttools5-dev libsdl2-dev libsdl2-ttf-dev
+  ```
+* Arch/Manjaro
+  ```bash
+  sudo pacman -S python3 libsqlite3-dev qt5-base qt5-declarative qt5-tools sdl2 sdl2_ttf
+  ```
 
 After installing dependencies, run build with these commands:
 
 ```sh
 mkdir build && cd build
-cmake ..
+cmake -DBUILD_CORE=ON ..
 make
 ```
