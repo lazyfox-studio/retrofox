@@ -16,6 +16,8 @@ target_include_directories(${TARGET_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include/api-service/
     ${CMAKE_SOURCE_DIR}/include/
     ${Python3_INCLUDE_DIR}
+    ${Python_INCLUDE_DIRS}
+    ${Python_LIBRARY_DIRS}
 )
 
 target_link_libraries(${TARGET_NAME} PRIVATE
