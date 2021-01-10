@@ -20,8 +20,8 @@ else(WIN32)
 endif(WIN32)
 
 find_package(SQLite3 REQUIRED)
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick QmlModels QmlWorkerScript LinguistTools Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick QmlModels QmlWorkerScript LinguistTools Widgets REQUIRED)
 
 add_subdirectory(api-service)
 add_subdirectory(database)
