@@ -42,17 +42,13 @@ qt5_create_translation(QM_FILES "${CMAKE_CURRENT_SOURCE_DIR}/translations" ${TAR
 
 if(WIN32)
     add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E echo
+        "Additional copying QML runtime libraries to" $<TARGET_FILE_DIR:app>
+    )
+    add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:Qt5::QmlModels>
-        $<TARGET_FILE_DIR:app>
-    )
-    add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:Qt5::QmlWorkerScript>
-        $<TARGET_FILE_DIR:app>
-    )
-    add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:Qt5::Quick>
         $<TARGET_FILE_DIR:app>
     )
