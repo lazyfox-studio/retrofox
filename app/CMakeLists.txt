@@ -44,11 +44,11 @@ if(WIN32)
     add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:Qt5::Qml>
-        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE}"
+        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}"
     )
     add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:Qt5::Quick>
-        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE}"
+        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}"
     )
 endif()
