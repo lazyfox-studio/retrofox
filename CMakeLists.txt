@@ -11,17 +11,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-set(SDL2_PATH
-    "D:/Libraries/SDL"
-    "E:/Libraries/SDL"
-    "A:/libraries/SDL"
-)
-set(SDL2_TTF_PATH
-    "D:/Libraries/SDL_ttf"
-    "E:/Libraries/SDL_ttf"
-    "A:/libraries/SDL_ttf"
-)
-
 option(BUILD_CORE "Build core module (deprecated)" OFF)
 
 if(WIN32)
@@ -31,8 +20,6 @@ else(WIN32)
 endif(WIN32)
 
 find_package(SQLite3 REQUIRED)
-find_package(SDL2 REQUIRED)
-find_package(SDL2_ttf REQUIRED)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools Widgets REQUIRED)
 
@@ -42,5 +29,17 @@ add_subdirectory(app)
 add_subdirectory(manager)
 
 if(BUILD_CORE)
+    set(SDL2_PATH
+        "D:/Libraries/SDL"
+        "E:/Libraries/SDL"
+        "A:/libraries/SDL"
+    )
+    set(SDL2_TTF_PATH
+        "D:/Libraries/SDL_ttf"
+        "E:/Libraries/SDL_ttf"
+        "A:/libraries/SDL_ttf"
+    )
+    find_package(SDL2 REQUIRED)
+    find_package(SDL2_ttf REQUIRED)
     add_subdirectory(core)
 endif(BUILD_CORE)
