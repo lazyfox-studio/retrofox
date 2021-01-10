@@ -3,6 +3,8 @@
 Cross-platform (Windows, Linux, Raspberry Pi) launcher for old console games.
 
 [![Build Status](https://travis-ci.com/lazyfox-studio/retrofox.svg?branch=master)](https://travis-ci.com/lazyfox-studio/retrofox)
+[![Build status](https://ci.appveyor.com/api/projects/status/bh75mg5h19rd0qhj/branch/master?svg=true)](https://ci.appveyor.com/project/vla5924/retrofox/branch/master)
+
 
 # Documentation
 
