@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>components/main.qml</file>
-        <file>textures/blank.svg</file>
+        <file>components/Card.qml</file>
+        <file>components/GameMenu.qml</file>
     </qresource>
 </RCC>

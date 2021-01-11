@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/a"/>
+    <qresource prefix="/">
+        <file>assets/blank.svg</file>
+    </qresource>
+</RCC>

@@ -16,6 +16,7 @@ set(TARGET_TS_FILES
 
 set(TARGET_RESOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/resources/qml.qrc
+    ${CMAKE_CURRENT_SOURCE_DIR}/resources/assets.qrc
 )
 
 add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_TS_FILES} ${TARGET_RESOURCES})
