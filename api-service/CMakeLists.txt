@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.14)
 
 set(TARGET_NAME "api-service")
 
-file(GLOB TARGET_HEADERS
+file(GLOB_RECURSE TARGET_HEADERS
     ${CMAKE_SOURCE_DIR}/include/api-service/*.h
 )
 
-file(GLOB TARGET_SRC
+file(GLOB_RECURSE TARGET_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 

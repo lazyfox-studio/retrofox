@@ -6,20 +6,23 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-file(GLOB TARGET_SRC
+file(GLOB_RECURSE TARGET_HEADERS
+    ${CMAKE_SOURCE_DIR}/include/app/*.h
+)
+
+file(GLOB_RECURSE TARGET_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 
-set(TARGET_TS_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/translations/app_en_US.ts
+file(GLOB_RECURSE TARGET_TS_FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/translations/*.ts
 )
 
-set(TARGET_RESOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/resources/qml.qrc
-    ${CMAKE_CURRENT_SOURCE_DIR}/resources/assets.qrc
+file(GLOB_RECURSE TARGET_RESOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/resources/*.qrc
 )
 
-add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_TS_FILES} ${TARGET_RESOURCES})
+add_executable(${TARGET_NAME} ${TARGET_SRC} ${TARGET_HEADERS} ${TARGET_TS_FILES} ${TARGET_RESOURCES})
 
 target_include_directories(${TARGET_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include/app/
