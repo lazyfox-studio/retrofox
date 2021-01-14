@@ -12,9 +12,8 @@ Item {
         id: label
         text: (game.name == "") ? "Game" : game.name
 
-        wrapMode: Text.WordWrap
-        clip: true
-        font.pixelSize: height * (1 / 2)
+        font.pixelSize: height * (3 / 5)
+        elide: Text.ElideRight
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         anchors.top: parent.top
