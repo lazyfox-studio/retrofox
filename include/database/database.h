@@ -1,6 +1,7 @@
 #pragma once
 
 #include "database/connection.h"
+#include "database/qmlinterface.h"
 #include "database/statement.h"
 #include "database/row.h"
 

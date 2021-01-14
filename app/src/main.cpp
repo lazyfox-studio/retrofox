@@ -1,11 +1,15 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include "database/database.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    qmlRegisterType<Database::QmlInterface>("Database", 1, 0, "Database");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/components/main.qml"));

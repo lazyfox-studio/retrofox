@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.14)
 
 set(TARGET_NAME "database")
 
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
 file(GLOB_RECURSE TARGET_HEADERS
     ${CMAKE_SOURCE_DIR}/include/database/*.h
 )
@@ -20,4 +24,7 @@ target_include_directories(${TARGET_NAME} PUBLIC
 
 target_link_libraries(${TARGET_NAME} PRIVATE
     ${SQLite3_LIBRARIES}
+PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Sql
 )

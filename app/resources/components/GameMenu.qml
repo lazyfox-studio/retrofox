@@ -1,6 +1,12 @@
 import QtQuick 2.0
+import Database 1.0
 
 ListView {
+    Database {
+        id: database
+        db_path: "./testbase.db"
+    }
+
     Component {
         id: menu_delegate
         Card {
@@ -33,4 +39,8 @@ ListView {
     delegate: menu_delegate
     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
     focus: true
+
+    Component.onCompleted: {
+        console.log(database.query("SELECT * FROM games"));
+    }
 }
