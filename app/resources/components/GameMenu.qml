@@ -27,6 +27,8 @@ ListView {
     orientation: ListView.Horizontal
     delegate: menu_delegate
     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+    highlightMoveDuration: 250
+    highlightMoveVelocity: -1
     focus: true
 
     Component.onCompleted: {
