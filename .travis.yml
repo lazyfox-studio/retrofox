@@ -17,6 +17,7 @@ addons:
       - qtbase5-dev
       - qtdeclarative5-dev
       - qttools5-dev
+      - libqt5sql5-sqlite
 
 script:
   - cmake -B ./build
