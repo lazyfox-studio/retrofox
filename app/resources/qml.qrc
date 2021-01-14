@@ -3,5 +3,6 @@
         <file>components/main.qml</file>
         <file>components/Card.qml</file>
         <file>components/GameMenu.qml</file>
+        <file>components/Game.qml</file>
     </qresource>
 </RCC>

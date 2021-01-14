@@ -12,7 +12,7 @@ ListView {
         Card {
             width: 256; //TODO: Use not constant size of cards
             height: 288
-            text: card_label
+            name: label
         }
     }
 
@@ -28,7 +28,7 @@ ListView {
     Component.onCompleted: {
         let games = database.query("SELECT * FROM games");
         games.forEach(function(game) {
-            list_model.append({card_label: game.name});
+            list_model.append({label: game.name});
         });
     }
 }
