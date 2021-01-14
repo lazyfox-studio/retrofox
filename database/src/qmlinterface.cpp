@@ -1,14 +1,25 @@
 #include "database/qmlinterface.h"
-
+#include <QDebug>
 namespace Database
 {
+    void QmlInterface::addDatabase(const QString& db_path, const QString& db_name)
+    {
+        auto base = QSqlDatabase::addDatabase("QSQLITE", db_name);
+        base.setDatabaseName(db_path);
+    }
+
+    void QmlInterface::removeDatabase(const QString& db_name)
+    {
+        QSqlDatabase::removeDatabase(db_name);
+    }
+
     QVariantList QmlInterface::query(const QString& query_string)
     {
-        auto base = QSqlDatabase::addDatabase("QSQLITE");
-        base.setDatabaseName(db_path);
+        auto base = QSqlDatabase::database(db_name);
+        qDebug() << base.isValid();
         base.open();
-
-        QSqlQuery query(query_string);
+        QSqlQuery query(base);
+        query.prepare(query_string);
         query.exec();
 
         QVariantList result;
@@ -21,6 +32,7 @@ namespace Database
             }
             result.push_back(local_result);
         }
+        base.commit();
         base.close();
         return result;
     }

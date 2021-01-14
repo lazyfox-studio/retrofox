@@ -4,7 +4,7 @@ import Database 1.0
 ListView {
     Database {
         id: database
-        db_path: "./testbase.db"
+        db_name: "testbase"
     }
 
     Component {

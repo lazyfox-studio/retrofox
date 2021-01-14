@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    Database::QmlInterface::addDatabase("testbase.db", "testbase");
     qmlRegisterType<Database::QmlInterface>("Database", 1, 0, "Database");
 
     QQmlApplicationEngine engine;
