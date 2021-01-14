@@ -17,22 +17,7 @@ ListView {
     }
 
     model: ListModel {
-
-        ListElement {
-            card_label: "Resident Evil"
-        }
-        ListElement {
-            card_label: "Silent Hill"
-        }
-        ListElement {
-            card_label: "Ridge racer"
-        }
-        ListElement {
-            card_label: "Tomb raider"
-        }
-        ListElement {
-            card_label: "Driver 2"
-        }
+        id: list_model
     }
 
     orientation: ListView.Horizontal
@@ -42,5 +27,8 @@ ListView {
 
     Component.onCompleted: {
         let games = database.query("SELECT * FROM games");
+        games.forEach(function(game) {
+            list_model.append({card_label: game.name});
+        });
     }
 }
