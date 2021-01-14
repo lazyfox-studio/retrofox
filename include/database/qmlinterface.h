@@ -1,14 +1,14 @@
 #pragma once
 
-#include <QObject>
+#include <QtCore/QObject>
+#include <QtCore/QString>
+#include <QtCore/QVariantList>
+#include <QtCore/QVariantMap>
 
 #include <QtSql/QSql>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlRecord>
-#include <QString>
-#include <QVariantList>
-#include <QVariantMap>
 
 namespace Database
 {
