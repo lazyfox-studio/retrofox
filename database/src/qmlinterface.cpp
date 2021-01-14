@@ -1,5 +1,5 @@
 #include "database/qmlinterface.h"
-#include <QDebug>
+
 namespace Database
 {
     void QmlInterface::addDatabase(const QString& db_path, const QString& db_name)
@@ -16,7 +16,6 @@ namespace Database
     QVariantList QmlInterface::query(const QString& query_string)
     {
         auto base = QSqlDatabase::database(db_name);
-        qDebug() << base.isValid();
         base.open();
         QSqlQuery query(base);
         query.prepare(query_string);

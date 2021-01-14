@@ -41,6 +41,6 @@ ListView {
     focus: true
 
     Component.onCompleted: {
-        console.log(database.query("SELECT * FROM games"));
+        let games = database.query("SELECT * FROM games");
     }
 }
