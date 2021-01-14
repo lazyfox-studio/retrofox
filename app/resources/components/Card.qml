@@ -1,8 +1,12 @@
 import QtQuick 2.0
 
 Item {
-    property alias name: game.name
-    property alias image: icon.source
+    property alias game_id:     game.game_id
+    property alias name:        game.name
+    property alias path:        game.path
+    property alias platform_id: game.platform_id
+    property alias cover:       game.cover
+
 
     Text {
         id: label

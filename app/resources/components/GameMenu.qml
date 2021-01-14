@@ -10,9 +10,13 @@ ListView {
     Component {
         id: menu_delegate
         Card {
-            width: 256; //TODO: Use not constant size of cards
+            width:  256 //TODO: Use not constant size of cards
             height: 288
-            name: label
+            game_id:     card_game_id
+            name:        card_name
+            path:        card_path
+            platform_id: card_platform_id
+            cover:       card_cover
         }
     }
 
@@ -28,7 +32,8 @@ ListView {
     Component.onCompleted: {
         let games = database.query("SELECT * FROM games");
         games.forEach(function(game) {
-            list_model.append({label: game.name});
+            list_model.append({card_game_id: game.id, card_name: game.name, card_path: game.path,
+                              card_platform_id: game.platform_id, card_cover: ""});
         });
     }
 }
