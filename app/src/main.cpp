@@ -1,7 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "database/database.h"
+#include <database/database.h>
+
+#include "app/executor.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +13,7 @@ int main(int argc, char *argv[])
 
     Database::QmlInterface::addDatabase("testbase.db", "testbase");
     qmlRegisterType<Database::QmlInterface>("Database", 1, 0, "Database");
+    qmlRegisterType<Executor>("Executor", 1, 0, "Executor");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/components/main.qml"));
