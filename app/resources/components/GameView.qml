@@ -7,6 +7,10 @@ SwipeView {
             id: game_menu
             anchors.fill: parent
             focus: true
+
+            onCurrentItemChanged: {
+                game_info.setGame(currentItem)
+            }
         }
 
         onFocusChanged: {
@@ -17,8 +21,8 @@ SwipeView {
     }
 
     Item {
-        Text {
-            text: "Setings"
+        GameInfo {
+            id: game_info
         }
     }
 
