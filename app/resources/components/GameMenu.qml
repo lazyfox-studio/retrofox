@@ -34,7 +34,6 @@ ListView {
     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
     highlightMoveDuration: 250
     highlightMoveVelocity: -1
-    focus: true
 
     Component.onCompleted: {
         let games = database.query("SELECT * FROM games");
@@ -46,6 +45,7 @@ ListView {
 
     Keys.onPressed: {
         if (event.key === Qt.Key_Space) {
+            event.accepted = true
             let emulator_id = database.query("SELECT default_emulator_id FROM platforms where id = %1"
                                       .arg(currentItem.platform_id))[0].default_emulator_id;
             let emulator = database.query("SELECT * FROM emulators where id = %1".arg(emulator_id))[0];
