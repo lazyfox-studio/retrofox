@@ -31,9 +31,13 @@ ListView {
 
     orientation: ListView.Horizontal
     delegate: menu_delegate
-    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
     highlightMoveDuration: 250
     highlightMoveVelocity: -1
+    preferredHighlightBegin: 256 //TODO: Get size from card size
+    preferredHighlightEnd: 512
+    highlightRangeMode: ListView.StrictlyEnforceRange
+
+    property QtObject current_item
 
     Component.onCompleted: {
         let games = database.query("SELECT * FROM games");
@@ -41,6 +45,14 @@ ListView {
             list_model.append({card_game_id: game.id, card_name: game.name, card_path: game.path,
                               card_platform_id: game.platform_id, card_cover: ""});
         });
+    }
+
+    onCurrentItemChanged: {
+        if (current_item != null) {
+            current_item.scale /= 1.5;
+        }
+        current_item = currentItem
+        current_item.scale *= 1.5
     }
 
     Keys.onPressed: {

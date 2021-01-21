@@ -7,7 +7,6 @@ Item {
     property alias platform_id: game.platform_id
     property alias cover:       game.cover
 
-
     Text {
         id: label
         text: (game.name == "") ? "Game" : game.name
@@ -32,5 +31,9 @@ Item {
 
     Game {
         id: game
+    }
+
+    Behavior on scale {
+        NumberAnimation { }
     }
 }
